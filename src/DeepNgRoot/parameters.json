@@ -1,0 +1,18 @@
+{
+  "frontend": {},
+  "backend": {},
+  "globals": {
+    "logDrivers|sentry|dsn": {
+      "displayName": "Sentry DSN",
+      "type": "string",
+      "required": false,
+      "pattern": "^https?://[^:]+(:[^@]+)?@app\\.getsentry\\.com/[0-9]+$"
+    },
+    "security|identityProviders|www.amazon.com": {
+      "displayName": "Amazon Identity Provider",
+      "type": "string",
+      "required": true,
+      "example": "amzn1.application.xxxxx"
+    }
+  }
+}

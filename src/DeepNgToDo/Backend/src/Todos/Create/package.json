@@ -1,0 +1,31 @@
+{
+  "name": "deep-todo-create",
+  "version": "0.0.1",
+  "description": "Create an todo",
+  "author": "Mitoc Group <hello@mitocgroup.com>",
+  "contributors": [
+    {
+      "name": "Diana Rosca",
+      "email": "drosca@mitocgroup.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-marketplace/issues"
+  },
+  "keywords": [
+    "DEEP",
+    "DEEP TodoMVC"
+  ],
+  "scripts": {
+    "postinstall": "BABEL_ENV=production babel -x \".es6\" ./ --out-dir ./"
+  },
+  "dependencies": {
+    "@mitocgroup/deep-framework": "*",
+    "babel-core": "5.5.*"
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": false,
+  "private": true,
+  "analyze": true
+}

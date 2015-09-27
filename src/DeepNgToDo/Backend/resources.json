@@ -1,0 +1,12 @@
+{
+  "todo": {
+    "create": {
+      "description": "Lambda for creating todo",
+      "type": "lambda",
+      "methods": [
+        "POST"
+      ],
+      "source": "src/Todos/Create"
+    }
+  }
+}
