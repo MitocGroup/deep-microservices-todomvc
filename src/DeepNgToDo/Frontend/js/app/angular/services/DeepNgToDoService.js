@@ -9,7 +9,7 @@ class DeepNgToDoService extends AbstractManager {
   constructor($q) {
     super($q);
     this.deepResource = DeepFramework.Kernel.container.get('resource');
-    this.todoResource = this.deepResource.get('@deep.todo:todo');
+    this.todoResource = this.deepResource.get('@deep.ng.todo:todo');
   }
 
   /**

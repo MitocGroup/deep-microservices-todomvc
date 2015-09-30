@@ -1,6 +1,6 @@
 {
-  "identifier": "deep.todo",
-  "name": "DeepToDo",
+  "identifier": "deep.ng.todo",
+  "name": "DeepNgToDo",
   "description": "Manages shopping cart, as well as checkout process. Integrates seamlessly with DeepToDo microservice.",
   "version": "0.0.1",
   "propertyRoot": false,
@@ -12,7 +12,7 @@
   "contributors": [
     {
       "name": "Diana Rosca",
-      "email": "drosca@pycoding.com"
+      "email": "drosca@mitocgroup.com"
     }
   ],
   "dependencies": {
