@@ -55,7 +55,7 @@ class DeepNgToDoController {
 
     this.deepNgToDoService.updateTodo(todo)
       .then((response) => {
-        this.todoList = todo;
+        this.editedTodo = null;
       })
       .catch((reason) => {}
     );
