@@ -17,9 +17,8 @@ class DeepNgToDoController {
     this.deepNgToDoService.retrieveAllTodos()
       .then((response) => {
         this.todoList = response;
-        console.log(this.todoList);
       })
-      .catch((reason) => {}
+      .catch(() => {}
     );
   }
 
@@ -67,7 +66,7 @@ class DeepNgToDoController {
         this.todoList.push(response);
         this.todoTitle = '';
       })
-      .catch((reason) => {}
+      .catch(() => {}
     );
   }
 
@@ -100,7 +99,7 @@ class DeepNgToDoController {
         this.editedTodo = null;
       })
       .catch(() => {
-        todo.Title = $scope.originalTodo.Title;
+        todo.Title = this.originalTodo.Title;
       }
     );
   }
@@ -114,8 +113,8 @@ class DeepNgToDoController {
       .then(() => {
         let index = this.todoList.indexOf(todo);
         this.todoList.splice(index, 1);
-      },
-      (reason) => {});
+      })
+      .catch(() => {});
   }
 
   /**
@@ -140,8 +139,7 @@ class DeepNgToDoController {
       .then(() => {})
       .catch(() => {
         todo.Completed = !todo.Completed;
-      }
-    );
+      });
   }
 
   /**
@@ -149,6 +147,7 @@ class DeepNgToDoController {
    * @param todo
    */
   revertEdits(todo) {
+    this.todoList[this.todoList.indexOf(todo)] = this.originalTodo;
     this.editedTodo = null;
     this.originalTodo = null;
     this.reverted = true;
