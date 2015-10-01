@@ -95,7 +95,7 @@ class DeepNgToDoController {
     this.deepNgToDoService.deleteTodo(todo)
       .then(() => {
         let index = this.todoList.indexOf(todo);
-        this.todoList.splice(index, +1);
+        this.todoList.splice(index, 1);
       },
       (reason) => {});
   }
@@ -161,7 +161,7 @@ class DeepNgToDoController {
     let todo;
     for (todo = this.todoList.length - 1; todo >= 0; todo -= 1) {
       if (this.todoList[todo].Status === 'Completed') {
-        this.todoList.splice(todo, 1);
+        this.deleteToDo(this.todoList[todo]);
       }
     }
   }
