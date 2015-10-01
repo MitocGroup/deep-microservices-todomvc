@@ -19,7 +19,7 @@ class DeepNgToDoService{
     var defer = this.$q.defer();
     var payload = {
       Title: todo,
-      Status: 'All',
+      Status: 'Active',
     };
 
     this.todoResource.request('create', payload, 'POST').send((response) => {
@@ -34,8 +34,9 @@ class DeepNgToDoService{
   }
 
   /**
-   * @return {promise}
-  */
+   * @param todo
+   * @returns {promise}
+   */
   updateTodo(todo) {
     var defer = this.$q.defer();
 
@@ -74,7 +75,8 @@ class DeepNgToDoService{
   }
 
   /**
-   * @return {promise}
+   * @param todo
+   * @returns {promise}
    */
   deleteTodo(todo) {
     var defer = this.$q.defer();
