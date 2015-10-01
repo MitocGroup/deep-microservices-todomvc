@@ -61,13 +61,16 @@ class DeepNgToDoController {
    * Create a new task
    */
   createToDo() {
+    this.saving = true;
     this.deepNgToDoService.createTodo(this.todoTitle)
       .then((response) => {
         this.todoList.push(response);
         this.todoTitle = '';
       })
-      .catch(() => {}
-    );
+      .finally(() => {
+        this.saving = false;
+      })
+      .catch(() => {});
   }
 
   /**
