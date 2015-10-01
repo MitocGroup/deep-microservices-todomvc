@@ -27,13 +27,13 @@
         </span>
         <ul id="filters">
             <li>
-                <a ng-class="{selected: todoCtrl.status === ''}" ng-click="statusFilter = ''" href="javascript:;">All</a>
+                <a ng-class="{selected: !statusFilter}" ng-click="statusFilter = ''" href="javascript:;">All</a>
             </li>
             <li>
-                <a ng-class="{selected: todoCtrl.status === 'Active'}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
+                <a ng-class="{selected: statusFilter.Completed === false}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
             </li>
             <li>
-                <a ng-class="{selected: todoCtrl.status === 'Completed'}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
+                <a ng-class="{selected: statusFilter.Completed === true}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
             </li>
         </ul>
         <button id="clear-completed" ng-show="todoCtrl.completedCount" ng-click="todoCtrl.deleteCompleted()">Clear completed</button>
