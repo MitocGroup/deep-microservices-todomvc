@@ -17,6 +17,7 @@ class DeepNgToDoController {
     this.deepNgToDoService.retrieveAllTodos()
       .then((response) => {
         this.todoList = response;
+        this.allChecked = !this.tasksNumber;
       })
       .catch(() => {}
     );

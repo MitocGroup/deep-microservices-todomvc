@@ -6,7 +6,7 @@
         </form>
     </header>
     <section id="main" ng-cloak>
-        <input id="toggle-all" ng-checked="allChecked" type="checkbox" ng-model="allChecked" ng-click="todoCtrl.markAll(allChecked)">
+        <input id="toggle-all" type="checkbox" ng-model="todoCtrl.allChecked" ng-click="todoCtrl.markAll(todoCtrl.allChecked)">
         <label for="toggle-all">Mark all as complete</label>
         <ul id="todo-list">
             <li ng-repeat="todo in todoCtrl.todoList | filter:statusFilter track by $index" ng-class="{completed: todo.Completed, editing: todo === todoCtrl.editedTodo}">
