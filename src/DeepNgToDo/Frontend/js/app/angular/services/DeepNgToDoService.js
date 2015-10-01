@@ -19,7 +19,7 @@ class DeepNgToDoService{
     var defer = this.$q.defer();
     var payload = {
       Title: todo,
-      Status: 'Active',
+      Completed: false,
     };
 
     this.todoResource.request('create', payload, 'POST').send((response) => {
@@ -43,7 +43,7 @@ class DeepNgToDoService{
     var payload = {
       Id: todo.Id,
       Title: todo.Title,
-      Status: todo.Status,
+      Completed: todo.Completed,
     };
 
     this.todoResource.request('update', payload).send((response) => {

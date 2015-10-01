@@ -6,12 +6,12 @@
         </form>
     </header>
     <section id="main" ng-cloak>
-        <input id="toggle-all" type="checkbox" ng-model="todoCtrl.allChecked" ng-click="todoCtrl.markAll(todoCtrl.allChecked)">
+        <input id="toggle-all" ng-checked="allChecked" type="checkbox" ng-model="allChecked" ng-click="todoCtrl.markAll(allChecked)">
         <label for="toggle-all">Mark all as complete</label>
         <ul id="todo-list">
-            <li ng-repeat="todo in todoCtrl.todoList | filter:statusFilter track by $index" ng-class="{completed: todo.Status === 'Completed', editing: todo === todoCtrl.editedTodo}">
+            <li ng-repeat="todo in todoCtrl.todoList | filter:statusFilter track by $index" ng-class="{completed: todo.Completed, editing: todo === todoCtrl.editedTodo}">
                 <div class="view">
-                    <input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="todoCtrl.toggleCompleted(todo)">
+                    <input class="toggle" type="checkbox" ng-model="todo.Completed" ng-change="todoCtrl.toggleCompleted(todo)">
                     <label ng-dblclick="todoCtrl.editTodo(todo)">{{todo.Title}}</label>
                     <button class="destroy" ng-click="todoCtrl.deleteToDo(todo)"></button>
                 </div>
@@ -21,21 +21,21 @@
             </li>
         </ul>
     </section>
-    <footer id="footer" ng-cloak>
-        <span id="todo-count"><strong>{{todoCtrl.itemsNumber}}</strong>
-            <ng-pluralize count="todoCtrl.itemsNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+    <footer id="footer" ng-show="todoCtrl.hasTasks" ng-cloak>
+        <span id="todo-count"><strong>{{todoCtrl.tasksNumber}}</strong>
+            <ng-pluralize count="todoCtrl.tasksNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
         </span>
         <ul id="filters">
             <li>
                 <a ng-class="{selected: todoCtrl.status === ''}" ng-click="statusFilter = ''" href="javascript:;">All</a>
             </li>
             <li>
-                <a ng-class="{selected: todoCtrl.status === 'Active'}" ng-click="statusFilter = {Status: 'Active'}" href="javascript:;">Active</a>
+                <a ng-class="{selected: todoCtrl.status === 'Active'}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
             </li>
             <li>
-                <a ng-class="{selected: todoCtrl.status === 'Completed'}" ng-click="statusFilter = {Status: 'Completed'}" href="javascript:;">Completed</a>
+                <a ng-class="{selected: todoCtrl.status === 'Completed'}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
             </li>
         </ul>
-        <button id="clear-completed" ng-click="todoCtrl.deleteCompleted()">Clear completed</button>
+        <button id="clear-completed" ng-show="todoCtrl.completedCount" ng-click="todoCtrl.deleteCompleted()">Clear completed</button>
     </footer>
 </section>

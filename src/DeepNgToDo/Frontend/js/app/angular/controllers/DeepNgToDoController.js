@@ -17,6 +17,7 @@ class DeepNgToDoController {
     this.deepNgToDoService.retrieveAllTodos()
       .then((response) => {
         this.todoList = response;
+        console.log(this.todoList);
       })
       .catch((reason) => {}
     );
@@ -30,14 +31,31 @@ class DeepNgToDoController {
     return this._deepNgToDoService;
   }
 
-  get itemsNumber() {
+  /**
+   * Returns true if tasks exist
+   */
+  get hasTasks() {
+    return this.todoList.length;
+  }
+
+  /**
+   * Returns active tasks count
+   */
+  get tasksNumber() {
     let remainingCount = 0, todo;
     for (todo = 0; todo < this.todoList.length; todo++) {
-      if (this.todoList[todo].Status !== 'Completed'){
+      if (!this.todoList[todo].Completed){
         remainingCount++;
       }
     }
     return remainingCount;
+  }
+
+  /**
+   * Returns completed tasks count
+   */
+  get completedCount() {
+    return this.todoList.length - this.tasksNumber;
   }
 
   /**
@@ -78,11 +96,11 @@ class DeepNgToDoController {
     }
 
     this.deepNgToDoService.updateTodo(todo)
-      .then((response) => {
+      .then(() => {
         this.editedTodo = null;
       })
-      .catch((reason) => {
-        todo.title = $scope.originalTodo.title;
+      .catch(() => {
+        todo.Title = $scope.originalTodo.Title;
       }
     );
   }
@@ -112,22 +130,17 @@ class DeepNgToDoController {
   /**
    * Complete task
    * @param todo
+   * @param completed
    */
-  toggleCompleted(todo) {
-    if (todo.Status === 'Active') {
-      todo.Status = 'Completed';
-      todo.completed = false;
-    } else {
-      todo.Status = 'Active';
-      todo.completed = true;
+  toggleCompleted(todo, completed) {
+    if (angular.isDefined(completed)) {
+      todo.Completed = completed;
     }
     this.deepNgToDoService.updateTodo(todo)
-      .then((response) => {
-        console.log(response);
-        console.log(this.todoList);
-        todo.completed = !todo.completed;
-      })
-      .catch((reason) => {}
+      .then(() => {})
+      .catch(() => {
+        todo.Completed = !todo.Completed;
+      }
     );
   }
 
@@ -146,12 +159,12 @@ class DeepNgToDoController {
    * @param completed
    */
   markAll(completed) {
-    let todos = this.todoList;
-    todos.forEach(function (todo) {
-      if (todo.completed !== completed) {
-        todo.completed = !todo.completed;
+    let todo;
+    for (todo = 0; todo < this.todoList.length; todo++) {
+      if (this.todoList[todo].Completed !== completed) {
+        this.toggleCompleted(this.todoList[todo], completed);
       }
-    });
+    }
   }
 
   /**
@@ -160,7 +173,7 @@ class DeepNgToDoController {
   deleteCompleted() {
     let todo;
     for (todo = this.todoList.length - 1; todo >= 0; todo -= 1) {
-      if (this.todoList[todo].Status === 'Completed') {
+      if (this.todoList[todo].Completed) {
         this.deleteToDo(this.todoList[todo]);
       }
     }
