@@ -14,13 +14,17 @@ class DeepNgToDoController {
     /**
      * @returns {Object}
      */
-    this.deepNgToDoService.retrieveAllTodos()
-      .then((response) => {
-        this.todoList = response;
-        this.allChecked = !this.tasksNumber;
-      })
-      .catch(() => {}
-    );
+    this.deepNgToDoService.ready.then(() => {
+      this.deepNgToDoService.retrieveAllTodos()
+        .then((response) => {
+          if (response) {
+            this.todoList = response;
+            this.allChecked = !this.tasksNumber;
+          }
+        })
+        .catch(() => {}
+      );
+    });
   }
 
 
@@ -29,6 +33,35 @@ class DeepNgToDoController {
    */
   get deepNgToDoService() {
     return this._deepNgToDoService;
+  }
+
+
+  /**
+   * Create a new task
+   */
+  createToDo() {
+
+    var newTodo = {
+      Title: this.newTodo.trim(),
+      Completed: false
+    };
+
+    if (!newTodo.Title) {
+      return;
+    }
+
+    this.saving = true;
+    this.deepNgToDoService.createTodo(newTodo)
+      .then((response) => {
+        if (response) {
+          this.todoList.push(response);
+        }
+        this.newTodo = '';
+      })
+      .finally(() => {
+        this.saving = false;
+      })
+      .catch(() => {});
   }
 
   /**
@@ -56,32 +89,6 @@ class DeepNgToDoController {
    */
   get completedCount() {
     return this.todoList.length - this.tasksNumber;
-  }
-
-  /**
-   * Create a new task
-   */
-  createToDo() {
-
-    var newTodo = {
-      Title: this.newTodo.trim(),
-      Completed: false
-    };
-
-    if (!newTodo.Title) {
-      return;
-    }
-
-    this.saving = true;
-    this.deepNgToDoService.createTodo(newTodo)
-      .then((response) => {
-        this.todoList.push(response);
-        this.newTodo = '';
-      })
-      .finally(() => {
-        this.saving = false;
-      })
-      .catch(() => {});
   }
 
   /**

@@ -9,6 +9,28 @@ class DeepNgToDoService{
     this.deepResource = DeepFramework.Kernel.container.get('resource');
     this.todoResource = this.deepResource.get('@deep.ng.todo:todo');
     this.$q = $q;
+    this._ready = $q.defer();
+    this.anonymousLogin().then(() => {
+      this._ready.resolve();
+    });
+  }
+
+  get ready() {
+    return this._ready.promise;
+  }
+
+  /**
+   *@return {promise}
+   */
+  anonymousLogin() {
+    var deferred = this.$q.defer();
+    var deepSecurity = DeepFramework.Kernel.container.get('security');
+
+    deepSecurity.anonymousLogin(function(token) {
+      deferred.resolve(token);
+    });
+
+    return deferred.promise;
   }
 
   /**
