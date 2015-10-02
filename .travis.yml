@@ -13,6 +13,7 @@ branches:
   - stage
   - test
   - dev
+  - travis_ci
 
 before_install:
 - npm install -g babel
