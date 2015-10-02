@@ -7,20 +7,24 @@ class DeepNgToDoController {
 
   constructor(deepNgToDoService) {
     this._deepNgToDoService = deepNgToDoService;
-    this.todoTitle = '';
+    this.newTodo = '';
     this.todoList = [];
     this.editedTodo = null;
 
     /**
      * @returns {Object}
      */
-    this.deepNgToDoService.retrieveAllTodos()
-      .then((response) => {
-        this.todoList = response;
-        this.allChecked = !this.tasksNumber;
-      })
-      .catch(() => {}
-    );
+    this.deepNgToDoService.ready.then(() => {
+      this.deepNgToDoService.retrieveAllTodos()
+        .then((response) => {
+          if (response) {
+            this.todoList = response;
+            this.allChecked = !this.tasksNumber;
+          }
+        })
+        .catch(() => {}
+      );
+    });
   }
 
 
@@ -29,6 +33,35 @@ class DeepNgToDoController {
    */
   get deepNgToDoService() {
     return this._deepNgToDoService;
+  }
+
+
+  /**
+   * Create a new task
+   */
+  createToDo() {
+
+    var newTodo = {
+      Title: this.newTodo.trim(),
+      Completed: false
+    };
+
+    if (!newTodo.Title) {
+      return;
+    }
+
+    this.saving = true;
+    this.deepNgToDoService.createTodo(newTodo)
+      .then((response) => {
+        if (response) {
+          this.todoList.push(response);
+        }
+        this.newTodo = '';
+      })
+      .finally(() => {
+        this.saving = false;
+      })
+      .catch(() => {});
   }
 
   /**
@@ -59,22 +92,6 @@ class DeepNgToDoController {
   }
 
   /**
-   * Create a new task
-   */
-  createToDo() {
-    this.saving = true;
-    this.deepNgToDoService.createTodo(this.todoTitle)
-      .then((response) => {
-        this.todoList.push(response);
-        this.todoTitle = '';
-      })
-      .finally(() => {
-        this.saving = false;
-      })
-      .catch(() => {});
-  }
-
-  /**
    * Edit a task
    * @param todo
    * @param event
@@ -92,6 +109,8 @@ class DeepNgToDoController {
       this.reverted = null;
       return;
     }
+
+    todo.Title = todo.Title.trim();
 
     if (todo.Title === this.originalTodo.Title) {
       this.editedTodo = null;
