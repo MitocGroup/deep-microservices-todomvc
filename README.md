@@ -1,4 +1,4 @@
-DEEP Microservices ToDo App
+DEEP Microservices TodoMVC Example
 ===========================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)

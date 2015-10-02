@@ -2,7 +2,7 @@
     <header id="header">
         <h1>todos</h1>
         <form id="todo-form" ng-submit="todoCtrl.createToDo()">
-            <input id="new-todo" placeholder="What needs to be done?" ng-model="todoCtrl.todoTitle" ng-disabled="todoCtrl.saving" autofocus>
+            <input id="new-todo" placeholder="What needs to be done?" ng-model="todoCtrl.newTodo" ng-disabled="todoCtrl.saving" autofocus>
         </form>
     </header>
     <section id="main" ng-cloak>
@@ -16,7 +16,7 @@
                     <button class="destroy" ng-click="todoCtrl.deleteToDo(todo)"></button>
                 </div>
                 <form ng-submit="todoCtrl.saveEdits(todo, 'submit')">
-                    <input class="edit" ng-model="todo.Title" todo-escape="todoCtrl.revertEdits(todo)" ng-blur="todoCtrl.saveEdits(todo, 'blur')" todo-focus="todo === todoCtrl.editedTodo">
+                    <input class="edit" ng-trim="false" ng-model="todo.Title" todo-escape="todoCtrl.revertEdits(todo)" ng-blur="todoCtrl.saveEdits(todo, 'blur')" todo-focus="todo === todoCtrl.editedTodo">
                 </form>
             </li>
         </ul>

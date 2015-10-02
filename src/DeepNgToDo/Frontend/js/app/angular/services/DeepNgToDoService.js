@@ -18,7 +18,7 @@ class DeepNgToDoService{
   createTodo(todo) {
     var defer = this.$q.defer();
     var payload = {
-      Title: todo,
+      Title: todo.Title,
       Completed: false,
     };
 

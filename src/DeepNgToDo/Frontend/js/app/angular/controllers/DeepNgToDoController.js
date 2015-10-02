@@ -7,7 +7,7 @@ class DeepNgToDoController {
 
   constructor(deepNgToDoService) {
     this._deepNgToDoService = deepNgToDoService;
-    this.todoTitle = '';
+    this.newTodo = '';
     this.todoList = [];
     this.editedTodo = null;
 
@@ -62,11 +62,21 @@ class DeepNgToDoController {
    * Create a new task
    */
   createToDo() {
+
+    var newTodo = {
+      Title: this.newTodo.trim(),
+      Completed: false
+    };
+
+    if (!newTodo.Title) {
+      return;
+    }
+
     this.saving = true;
-    this.deepNgToDoService.createTodo(this.todoTitle)
+    this.deepNgToDoService.createTodo(newTodo)
       .then((response) => {
         this.todoList.push(response);
-        this.todoTitle = '';
+        this.newTodo = '';
       })
       .finally(() => {
         this.saving = false;
@@ -92,6 +102,8 @@ class DeepNgToDoController {
       this.reverted = null;
       return;
     }
+
+    todo.Title = todo.Title.trim();
 
     if (todo.Title === this.originalTodo.Title) {
       this.editedTodo = null;
