@@ -6,7 +6,7 @@ source $(dirname $0)/_head.sh
 
 istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p both \
   ${__ROOT_PATH}src/DeepNgRoot/Tests/Frontend/coverage/*/coverage-final.json \
-  ${__ROOT_PATH}src/DeepNgToDo/Tests/Frontend/coverage/*/coverage-final.json \
+  ${__ROOT_PATH}src/DeepNgToDo/Tests/Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy and to Coveralls ###
 
