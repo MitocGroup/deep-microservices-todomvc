@@ -29,6 +29,9 @@
     }
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "jspm": "^0.16.2",
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "isparta": "^3.0.4"},
   "private": true
 }
