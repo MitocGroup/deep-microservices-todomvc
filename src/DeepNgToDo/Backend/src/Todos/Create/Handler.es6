@@ -1,6 +1,6 @@
 'use strict';
 
-import DeepFramework from '@mitocgroup/deep-framework';
+import DeepFramework from 'deep-framework';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
@@ -27,12 +27,11 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param callback
    */
   createTodo(data, callback) {
-    let deepDb          = DeepFramework.Kernel.container.get('db');
-    let TodoList        = deepDb.get('Todos');
+    let deepDb = DeepFramework.Kernel.container.get('db');
+    let TodoList = deepDb.get('Todos');
 
     TodoList.createItem(data, (err, todos) => {
       callback(err, todos);
     });
   }
-
 }

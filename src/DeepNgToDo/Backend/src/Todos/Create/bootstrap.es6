@@ -4,7 +4,7 @@ if (typeof Symbol === 'undefined') {
   require('babel-core/polyfill');
 }
 
-import DeepFramework from '@mitocgroup/deep-framework';
+import DeepFramework from 'deep-framework';
 import Handler from './Handler';
 
 exports.handler = function(event, context) {

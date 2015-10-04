@@ -747,8 +747,8 @@ DeepFramework.Kernel.load({
       "isRoot": false,
       "parameters": {
         "stripe": {
-          "dev": "sk_test_CVksrkepcyBGDRZSTN781GoK",
-          "prod": "sk_live_rscGxB27MTM6odLjfG2TRUqm"
+          "dev": "sk_test_CVk",
+          "prod": "sk_live_rsc"
         }
       },
       "resources": {

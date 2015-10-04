@@ -1,6 +1,6 @@
 'use strict';
 
-import DeepFramework from '@mitocgroup/deep-framework';
+import DeepFramework from 'deep-framework';
 
 export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
 
