@@ -39,7 +39,7 @@ module.exports = function(config) {
         'Frontend/js/app/angular/index.js',
       ],
       serveFiles: [
-        'Frontend/js/app/angular/**/*.js',
+        'Frontend/**/*.js',
       ],
     },
 
@@ -58,7 +58,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'Frontend/js/app/angular/**/*.js': ['coverage'],
-      'Tests/Frontend/**/*.spec.js': ['babel'],
+      'Tests/Frontend/angular/**/*.spec.js': ['babel'],
       '**/views/directives/*.html': 'ng-html2js',
     },
 

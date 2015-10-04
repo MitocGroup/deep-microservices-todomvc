@@ -9,7 +9,7 @@ var routes = {
     url: '',
     controller: 'DeepNgToDoController',
     controllerAs: 'todoCtrl',
-    templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html')
+    templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html'),
   },
 };
 
