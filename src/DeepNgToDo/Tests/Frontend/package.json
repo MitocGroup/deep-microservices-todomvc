@@ -30,7 +30,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jspm": "^0.16.2"
+    "jspm": "^0.16.2",
+    "karma-coverage": "douglasduteil/karma-coverage#next"
   },
   "private": true
 }

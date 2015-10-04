@@ -27,7 +27,6 @@ before_install:
 - npm install -g karma-jspm
 - npm install -g karma-jasmine
 - npm install -g karma-babel-preprocessor
-- npm install -g karma-coverage
 - npm install -g karma-verbose-reporter
 - npm install -g phantomjs
 - npm install -g karma-phantomjs-launcher
