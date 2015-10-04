@@ -1,5 +1,5 @@
 {
-  "name": "DeepNgRootFrontend",
+  "name": "deep-ng-root-frontend",
   "version": "0.0.0",
   "description": "DEEP Micro Services Root Frontend",
   "scripts": {
@@ -29,10 +29,6 @@
     }
   },
   "dependencies": {},
-  "devDependencies": {
-    "jspm": "^0.16.2",
-    "karma-coverage": "douglasduteil/karma-coverage#next",
-    "isparta": "^3.0.4"
-  },
+  "devDependencies": {},
   "private": true
 }

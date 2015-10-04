@@ -1,7 +1,7 @@
 {
-  "name": "DeepNgRootFrontend",
-  "version": "0.0.0",
-  "description": "DEEP Micro Services Root Frontend",
+  "name": "deep-ng-to-do-frontend",
+  "version": "0.0.1",
+  "description": "DEEP Micro Services To Do",
   "scripts": {
     "postinstall": "jspm install",
     "test": "echo \"No coverage specified\" && exit 0",

@@ -2,17 +2,23 @@ language: node_js
 sudo: false
 node_js:
 - '0.12'
-
 cache:
   directories:
-  - "$(npm root -g)"
+  - $(npm root -g)
+
 
 branches:
   only:
   - travis_ci
 
+env:
+  global:
+    #JSPM_GITHUB_AUTH_TOKEN=[secured]
+    secure: c3EvMqUPvwKf2oliz978Qv2oODTtVSOzoxVZeHXCWEAWpOle+5On6oTXpoAEILXikYJa8uU/F2OxQnP0Ciy4BYIQnCoXXDFKhaEunvuJKy2skyF0MIysBG4p/tapD6PnU3Bt14+efWnqOl9nKenv2ZwwkL0yTBRbVUoY7noQq2KyDlkEoopgOb1rxozajexdNdi5pEDiecftDFRaCSznrlpF3jAqXCzdJIpFzZIf+VwkjT4Y26aReSil/pisaO6tti2naxzYdIe0N1MhdfCgxeGoo9NfWPZXL0nZwr1zgyJyRXGsF0aus1ij19jiQ5E5f9kmWpQHEpCuZ8POcmd9VgUO4jqe3lvjpC4z1AP7fPG2div23g2LSrp9EDqWsrJpbcyMcQMdCk8PPoHncn0tutC+Yc/RVm6PlcSrbPL0PEUJH44+JokZDJolu1F+ZeFMMNRlPxiF8fsHRUSfpK7pMu2xc9zZjOH21c0FDE+d663MprHSZw/kzJYMtXrLMWPhpPD/6LTAFW0v2dBAIiM/YhUJY4IpuLRUFM0QppoxHqnurVAArIaq5E1RLQ9OVCO06oULmDKGF1zFZm987khWIzTQSTgTnO53S4+0zfs5ohyDIqrvXZ1lgE3vnZxUb/lPYV7iRPra3h5oTjvIiqNDW4m0F9TnAoUbEmSfUYpJn4U=
+
 before_install:
 - npm install -g jspm
+- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 - npm install -g babel
 - npm install -g browserify
 - npm install -g mocha
@@ -34,5 +40,3 @@ before_install:
 - cp test/package.json .
 
 after_success:
-#- npm run coverage
-
