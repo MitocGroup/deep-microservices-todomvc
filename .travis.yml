@@ -29,14 +29,6 @@ before_install:
 - npm install -g codacy-coverage
 - npm install -g istanbul-combine
 - npm install -g jasmine-core
-- npm install -g karma
-- npm install -g karma-jspm
-- npm install -g karma-jasmine
-- npm install -g karma-babel-preprocessor
-- npm install -g karma-verbose-reporter
-- npm install -g phantomjs
-- npm install -g karma-phantomjs-launcher
-- npm install -g karma-ng-html2js-preprocessor
 - cp test/package.json .
 
 after_success:
