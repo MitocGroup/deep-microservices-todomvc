@@ -6,8 +6,8 @@ __ROOT_PATH="${__SCRIPT_PATH}/../../"
 
 __COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage/"
 
-__DEEPNGROOT_PATH="${__ROOT_PATH}src/DeepNgRoot/Frontend/js/"
-__DEEPNGTODO_PATH="${__ROOT_PATH}src/DeepNgToDo/Frontend/js/"
+__DEEPNGROOT_PATH="${__ROOT_PATH}src/DeepNgRoot/Tests/Frontend/"
+__DEEPNGTODO_PATH="${__ROOT_PATH}src/DeepNgToDo/Tests/Frontend/"
 
 subpath_run_cmd () {
     local DIR

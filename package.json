@@ -1,0 +1,37 @@
+{
+
+  "description": "Deep marketplace",
+  "name": "deep-ng-to-do-app",
+  "version": "0.0.1",
+  "description": "DEEP Todo Application",
+
+  "dependencies": {},
+  "devDependencies": {
+    "isparta": "^3.0.4",
+    "istanbul": "^0.3.20",
+    "jasmine-core": "^2.3.4",
+    "jscs": "~2.1.1",
+    "karma": "^0.13.9",
+    "karma-babel-preprocessor": "^5.2.2",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "karma-jasmine": "^0.3.6",
+    "karma-jspm": "^2.0.1",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-traceur-preprocessor": "^0.4.0",
+    "karma-verbose-reporter": "0.0.3",
+    "phantomjs": "^1.9.18",
+    "traceur": "0.0.91"
+  },
+  "scripts": {
+    "postinstall": "cd bin && npm install && cd ..",
+    "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
+    "test": "if [ -f '.travis.yml' ]; then test/bin/test.sh; else bin/test.sh; fi",
+    "coverage": "if [ -f '.travis.yml' ]; then test/bin/coverage.sh; else bin/coverage.sh; fi"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true
+}

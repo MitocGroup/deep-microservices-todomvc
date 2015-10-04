@@ -1,13 +1,12 @@
 {
-  "name": "DeepNgTodo",
+  "name": "DeepNgRootFrontend",
   "version": "0.0.0",
-  "description": "The todo micro service",
+  "description": "DEEP Micro Services Root Frontend",
   "scripts": {
     "postinstall": "jspm install",
-    "test": "karma start config.karma.js"
+    "test": "echo \"No coverage specified\" && exit 0",
+    "coverage": "echo \"No coverage specified\" && exit 0"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "jspm": {
     "directories": {
       "baseURL": "..",
@@ -18,18 +17,18 @@
     "configFile": "config.test.js",
     "dependencies": {
       "angular": "github:angular/bower-angular@1.4.0",
-      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.4",
+      "angular-mocks": "github:angular/bower-angular-mocks@1.4.4",
       "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
       "es5-shim": "github:es-shims/es5-shim@^4.1.7",
       "es6-shim": "github:es-shims/es6-shim@^0.32.3"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.1.13",
-      "babel-runtime": "npm:babel-runtime@^5.1.13",
-      "core-js": "npm:core-js@^0.9.4",
-      "traceur": "github:jmcriffey/bower-traceur@0.0.91",
-      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.91"
+      "babel": "npm:babel-core@^5.8.22",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "core-js": "npm:core-js@^0.9.4"
     }
   },
+  "dependencies": {},
+  "devDependencies": {},
   "private": true
 }

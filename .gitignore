@@ -128,7 +128,7 @@ deeploy.json.production
 deeploy.json.local
 
 _test/
-bin/node_modules
+node_modules
 
 #### joe made this: https://goel.io/joe
 
