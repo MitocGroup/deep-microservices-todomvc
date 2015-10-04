@@ -4,11 +4,7 @@
   "description": "DEEP Todo Application",
 
   "dependencies": {},
-  "devDependencies": {
-    "jspm": "^0.16.2",
-    "karma-coverage": "douglasduteil/karma-coverage#next",
-    "isparta": "^3.0.4"
-  },
+  "devDependencies": {},
   "scripts": {
     "postinstall": "cd bin && npm install && cd ..",
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
