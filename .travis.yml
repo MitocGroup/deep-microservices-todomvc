@@ -12,6 +12,7 @@ branches:
   - travis_ci
 
 before_install:
+- npm install -g jspm
 - npm install -g babel
 - npm install -g browserify
 - npm install -g mocha
