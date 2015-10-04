@@ -22,7 +22,6 @@ before_install:
 - npm install -g codacy-coverage
 - npm install -g istanbul-combine
 - cp test/package.json .
-- test/bin/setup_npm.sh
 
 after_success:
 #- npm run coverage
