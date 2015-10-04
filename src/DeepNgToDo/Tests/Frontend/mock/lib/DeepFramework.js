@@ -747,8 +747,8 @@ DeepFramework.Kernel.load({
       "isRoot": false,
       "parameters": {
         "stripe": {
-          "dev": "sk_test_CVksrkepcyBGDRZSTN781GoK",
-          "prod": "sk_live_rscGxB27MTM6odLjfG2TRUqm"
+          "dev": "test",
+          "prod": "prod"
         }
       },
       "resources": {
@@ -949,7 +949,7 @@ DeepFramework.Kernel.load({
     }
   },
   "microserviceIdentifier": "deep.mg.auth",
-  "awsAccountId": 722084099005,
+  "awsAccountId": 1234567890122,
   "propertyIdentifier": "deep.mg.prod",
   "timestamp": 1441198970148,
   "buckets": {
