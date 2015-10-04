@@ -1,9 +1,21 @@
 {
-  "name": "deep",
+  "name": "deep-ng-to-do-app",
   "version": "0.0.1",
+  "description": "DEEP Todo Application",
+
+  "dependencies": {},
+  "devDependencies": {
+    "jspm": "^0.16.2",
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "isparta": "^3.0.4"
+  },
   "scripts": {
+    "postinstall": "cd bin && npm install && cd ..",
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
     "test": "if [ -f '.travis.yml' ]; then test/bin/test.sh; else bin/test.sh; fi",
     "coverage": "if [ -f '.travis.yml' ]; then test/bin/coverage.sh; else bin/coverage.sh; fi"
-  }
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true
 }
