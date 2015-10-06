@@ -1,7 +1,7 @@
 {
-  "name": "DeepNgRootBackend",
+  "name": "deep-ng-to-do-backend",
   "version": "0.0.0",
-  "description": "DEEP Micro Services Root Backend",
+  "description": "DEEP Micro Services To Do Backend",
   "scripts": {
     "install": "echo \"No install specified\" && exit 0",
     "test": "echo \"No test specified\" && exit 0",
