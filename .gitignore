@@ -127,6 +127,8 @@ deeploy.json
 deeploy.json.production
 deeploy.json.local
 
+.parameters.json
+
 _test/
 node_modules
 
