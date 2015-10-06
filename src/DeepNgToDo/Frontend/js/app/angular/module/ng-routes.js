@@ -9,8 +9,8 @@ var routes = {
     url: '',
     controller: 'DeepNgToDoController',
     controllerAs: 'todoCtrl',
-    templateUrl: deepAsset.locate('@deep.todo:js/app/angular/views/todo.html')
-  }
+    templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html'),
+  },
 };
 
 class Config {
@@ -23,10 +23,9 @@ class Config {
   }
 }
 
-Config.$inject = ['$stateProvider'];
-
-angular.module(moduleName).config(['$stateProvider', function($stateProvider) {
-  return new Config($stateProvider);
+angular.module(moduleName).config(['$stateProvider', function(...args) {
+  return new Config(...args);
 },]);
 
 export default routes;
+

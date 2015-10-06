@@ -1,4 +1,4 @@
 'use strict';
 'format es6';
 
-import './deepToDoService';
+import './DeepNgToDoService';

@@ -3,5 +3,6 @@
 'format es6';
 
 export default function todo() {
-  return System.import('/deep.todo/js/app/angular/index.js');
+  var deepAsset = DeepFramework.Kernel.container.get('asset');
+  return System.import(deepAsset.locate('@deep.ng.todo:js/app/angular/index.js'));
 }

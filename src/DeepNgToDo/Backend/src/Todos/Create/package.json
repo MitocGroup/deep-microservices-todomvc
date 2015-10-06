@@ -1,5 +1,5 @@
 {
-  "name": "deep-todo-create",
+  "name": "deep-ng-todo-create",
   "version": "0.0.1",
   "description": "Create an todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
@@ -20,7 +20,7 @@
     "postinstall": "BABEL_ENV=production babel -x \".es6\" ./ --out-dir ./"
   },
   "dependencies": {
-    "@mitocgroup/deep-framework": "*",
+    "deep-framework": "*",
     "babel-core": "5.5.*"
   },
   "devDependencies": {

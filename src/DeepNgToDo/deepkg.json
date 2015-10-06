@@ -1,7 +1,7 @@
 {
   "identifier": "deep.ng.todo",
   "name": "DeepNgToDo",
-  "description": "Manages to do checklist.",
+  "description": "Manages shopping cart, as well as checkout process. Integrates seamlessly with DeepToDo microservice.",
   "version": "0.0.1",
   "propertyRoot": false,
   "author": {
