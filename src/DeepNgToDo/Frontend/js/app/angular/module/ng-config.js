@@ -8,8 +8,6 @@ class Config {
   }
 }
 
-Config.$inject = [];
-
-angular.module(moduleName).config(function() {
-  return new Config();
-});
+angular.module(moduleName).config([function(...args) {
+  return new Config(...args);
+},]);

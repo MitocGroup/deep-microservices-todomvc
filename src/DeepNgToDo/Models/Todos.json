@@ -1,4 +1,4 @@
 {
   "Title": "string",
-  "Status": "string"
+  "Completed": "boolean"
 }

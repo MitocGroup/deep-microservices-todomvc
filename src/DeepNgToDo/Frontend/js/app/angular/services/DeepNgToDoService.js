@@ -2,14 +2,35 @@
 'format es6';
 
 import moduleName from '../name';
-import {AbstractManager} from './AbstractManager';
 
-class DeepNgToDoService extends AbstractManager {
+class DeepNgToDoService{
 
   constructor($q) {
-    super($q);
     this.deepResource = DeepFramework.Kernel.container.get('resource');
     this.todoResource = this.deepResource.get('@deep.ng.todo:todo');
+    this.$q = $q;
+    this._ready = $q.defer();
+    this.anonymousLogin().then(() => {
+      this._ready.resolve();
+    });
+  }
+
+  get ready() {
+    return this._ready.promise;
+  }
+
+  /**
+   *@return {promise}
+   */
+  anonymousLogin() {
+    var deferred = this.$q.defer();
+    var deepSecurity = DeepFramework.Kernel.container.get('security');
+
+    deepSecurity.anonymousLogin(function(token) {
+      deferred.resolve(token);
+    });
+
+    return deferred.promise;
   }
 
   /**
@@ -17,69 +38,84 @@ class DeepNgToDoService extends AbstractManager {
    * @returns {promise}
    */
   createTodo(todo) {
-    var deferred = this.newDefer;
+    var defer = this.$q.defer();
     var payload = {
-      Title: todo,
-      Status: 'All',
+      Title: todo.Title,
+      Completed: false,
     };
 
     this.todoResource.request('create', payload, 'POST').send((response) => {
-      deferred = this.handleResponse(response);
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
     });
 
-    return deferred.promise;
+    return defer.promise;
   }
 
   /**
-   * @return {promise}
-  */
+   * @param todo
+   * @returns {promise}
+   */
   updateTodo(todo) {
-    var deferred = this.newDefer;
+    var defer = this.$q.defer();
 
     var payload = {
       Id: todo.Id,
-      fields: {
-        Title: todo.Title,
-        Status: todo.Status,
-      },
+      Title: todo.Title,
+      Completed: todo.Completed,
     };
 
-    console.log(payload);
     this.todoResource.request('update', payload).send((response) => {
-      deferred = this.handleResponse(response);
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
     });
 
-    return deferred.promise;
+    return defer.promise;
   }
 
   /**
    * @returns {promise}
    */
   retrieveAllTodos() {
-    var deferred = this.newDefer;
+    var defer = this.$q.defer();
 
     this.todoResource.request('retrieve', {}).send((response) => {
-      deferred = this.handleResponse(response);
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
     });
 
-    return deferred.promise;
+    return defer.promise;
   }
 
   /**
-   * @return {promise}
+   * @param todo
+   * @returns {promise}
    */
   deleteTodo(todo) {
-    var deferred = this.newDefer;
+    var defer = this.$q.defer();
 
     var payload = {
       Id: todo.Id,
     };
 
     this.todoResource.request('delete', payload).send((response) => {
-      deferred = this.handleResponse(response);
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
     });
 
-    return deferred.promise;
+    return defer.promise;
   }
 
 }

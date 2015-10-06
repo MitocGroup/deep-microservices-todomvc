@@ -1,6 +1,6 @@
 'use strict';
 
-import DeepFramework from '@mitocgroup/deep-framework';
+import DeepFramework from 'deep-framework';
 
 export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
 
@@ -24,7 +24,7 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
         throw new DatabaseOperationException(err);
       }
 
-      return this.createResponse(todo.attrs).send();
+      return this.createResponse(todo.get()).send();
     }.bind(this));
   }
 }
