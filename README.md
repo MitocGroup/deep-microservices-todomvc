@@ -102,9 +102,9 @@ Coming soon
 
 ### Travis CI
 
-[Travis CI](https://travis-ci.org/MitocGroup) is a continuous integration service used to build and test 
-projects hosted on GitHub. Travis CI is configured by adding a file named 
-[.travis.yml](https://github.com/MitocGroup/deep-microservices-todo-app/master/blob/.travis.yaml), 
+[Travis CI](https://travis-ci.org/MitocGroup/deep-microservices-todo-app) is a continuous integration service
+used to build and testprojects hosted on GitHub. Travis CI is configured by adding a file named 
+[.travis.yml](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/.travis.yaml), 
 which is a YAML format text file, to the root directory of the GitHub repository.
 
 ### Coveralls
