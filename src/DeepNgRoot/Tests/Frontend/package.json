@@ -47,5 +47,4 @@
     "karma-verbose-reporter": "0.0.3",
     "phantomjs": "^1.9.18"
   },
-  "private": true
 }
