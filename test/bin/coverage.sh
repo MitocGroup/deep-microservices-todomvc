@@ -7,26 +7,13 @@ __CMD='npm run coverage'
 subpath_run_cmd ${__SRC_PATH} "$__CMD"
 
 ### Merge Coverage results ###
-istanbul-combine -d ${__COVERAGE_PATH} -b ${__ROOT_PATH} -r lcovonly -p both \
-  ${__SRC_PATH}*/Tests/Frontend/coverage/*/*.json
+istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
+  ${__SRC_PATH}*/Tests/Frontend/coverage/*/*.json \
   ${__SRC_PATH}*/Tests/Backend/coverage/*.json
 
-#echo "Before changing"
-#cd ${__COVERAGE_PATH}
-#ls -l
-#
-#OLD_PATH="Tests\/Backend\/Frontend"
-#NEW_PATH="Frontend"
-#sed -i "s/$OLD_PATH/$NEW_PATH/g" ${__COVERAGE_PATH}"/lcov.info"
-#
-#echo "After changing"
-#cd ${__COVERAGE_PATH}
-#ls -l
-#
-#echo "Check simple coverage"
-#cd ${__SRC_PATH}"DeepNgToDo/Tests/Frontend/coverage/"
-#ls -l
-#
+cd ${__COVERAGE_PATH}
+ls -l
+
 ### Upload Coverage info to Codacy ###
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 cat ${__COVERAGE_PATH}"/lcov.info" | coveralls

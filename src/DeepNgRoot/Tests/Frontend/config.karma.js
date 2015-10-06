@@ -22,7 +22,6 @@ module.exports = function(config) {
       'DeepNgRoot/Tests/Frontend/lib/DeepFramework.js',
       'DeepNgRoot/Tests/Frontend/mock/lib/DeepFramework.js',
       {pattern: 'DeepNgRoot/Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
-      '**/views/directives/*.html',
     ],
 
     // jspm configuration
@@ -59,7 +58,6 @@ module.exports = function(config) {
     preprocessors: {
       'DeepNgRoot/Frontend/js/app/**/*.js': ['coverage'],
       'DeepNgRoot/Tests/Frontend/**/*.spec.js': ['babel'],
-      '**/views/directives/*.html': 'ng-html2js',
     },
 
     babelPreprocessor: {
@@ -69,10 +67,6 @@ module.exports = function(config) {
       },
     },
 
-    ngHtml2JsPreprocessor: {
-      moduleName: 'templates',
-    },
-
     plugins: [
       'karma-babel-preprocessor',
       'karma-jasmine',
@@ -80,7 +74,6 @@ module.exports = function(config) {
       'karma-jspm',
       'karma-phantomjs-launcher',
       'karma-verbose-reporter',
-      'karma-ng-html2js-preprocessor',
     ],
 
     // test results reporter to use
