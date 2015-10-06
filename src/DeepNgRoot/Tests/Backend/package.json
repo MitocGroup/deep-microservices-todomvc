@@ -1,5 +1,5 @@
 {
-  "name": "DeepNgRootBackend",
+  "name": "deep-ng-root-backend",
   "version": "0.0.0",
   "description": "DEEP Micro Services Root Backend",
   "scripts": {
@@ -8,5 +8,5 @@
     "coverage": "echo \"No coverage specified\" && exit 0"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {}
 }
