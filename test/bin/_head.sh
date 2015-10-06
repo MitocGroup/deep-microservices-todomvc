@@ -20,10 +20,10 @@ subpath_run_cmd () {
 
     BACKEND_CMD=$2
 
-    if [ -z $3 ]; then
-        FRONTEND_CMD=${BACKEND_CMD}
+    if [ -z "${3}" ]; then
+        FRONTEND_CMD="${BACKEND_CMD}"
     else
-        FRONTEND_CMD=$3
+        FRONTEND_CMD="${3}"
     fi
 
     #run tests for frontend
