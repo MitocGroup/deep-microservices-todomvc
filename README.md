@@ -136,7 +136,7 @@ DEEP is using [microservices architecture](https://en.wikipedia.org/wiki/Microse
 ### License
 
 This repository can be used under the MIT license.
-> See [LICENSE](https://github.com/MitocGroup/deep-framework/blob/master/LICENSE) for more details.
+> See [LICENSE](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/LICENSE) for more details.
 
 ### Sponsors
 
