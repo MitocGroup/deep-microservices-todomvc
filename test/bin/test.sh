@@ -4,6 +4,7 @@ source $(dirname $0)/_head.sh
 
 ### Run unit tests ###
 
-__CMD='npm run test'
+__FRONTEND_CMD="karma start config.karma.js"
+__BACKEND_CMD="npm run test"
 
-subpath_run_cmd ${__SRC_PATH} "$__CMD"
+subpath_run_cmd "${__SRC_PATH}" "${__BACKEND_CMD}" "${__FRONTEND_CMD}"
