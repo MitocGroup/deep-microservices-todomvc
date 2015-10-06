@@ -646,7 +646,36 @@ DeepFramework.Kernel.load({
     "deep.ng.todo": {
       "isRoot": false,
       "parameters": {},
-      "resources": {}
+      "resources": {
+        "todo": {
+          "create": {
+            "description": "Lambda for creating todo",
+            "type": "lambda",
+            "methods": [
+              "POST"
+            ],
+            "source": "src/Todos/Create"
+          },
+          "retrieve": {
+            "description": "Retrieves todos",
+            "type": "lambda",
+            "methods": ["GET"],
+            "source": "src/Todos/Retrieve"
+          },
+          "delete": {
+            "description": "Lambda for deleting todo",
+            "type": "lambda",
+            "methods": ["DELETE"],
+            "source": "src/Todos/Delete"
+          },
+          "update": {
+            "description": "Update todos",
+            "type": "lambda",
+            "methods": ["PUT"],
+            "source": "src/Todos/Update"
+          }
+        }
+      }
     }
   },
   "globals": {
