@@ -179,8 +179,3 @@ npm-debug.log
 
 #Coverage files
 **/coverage
-
-#MG Tool cache file
-**/mg.build/.cached_defaults
-
-bin/mp.build/.cached_defaults
