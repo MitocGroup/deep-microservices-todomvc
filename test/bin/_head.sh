@@ -21,7 +21,7 @@ subpath_run_cmd () {
     BACKEND_CMD=$2
 
     if [ -z $3 ]; then
-        FRONTEND_CMD=BACKEND_CMD
+        FRONTEND_CMD=${BACKEND_CMD}
     else
         FRONTEND_CMD=$3
     fi

@@ -6,4 +6,4 @@ source $(dirname $0)/_head.sh
 
 __CMD='npm install'
 
-subpath_run_cmd ${__SRC_PATH} "$__CMD"
+subpath_run_cmd "${__SRC_PATH}" "$__CMD"
