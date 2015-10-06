@@ -1,8 +1,8 @@
 ![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Microservices ToDo App
 =============================
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)
-[![Codacy Badge](https://api.codacy.com/project/badge/d3dd5bd83d75491dbd3bd1f935d8a7fb)](https://www.codacy.com/app/devs-deep/deep-microservices-todo-app)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)
+[![Codacy Badge](https://api.codacy.com/project/badge/d3dd5bd83d75491dbd3bd1f935d8a7fb)](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-todo-app/badge.svg?branch=master&service=github)](https://coveralls.io/github/MitocGroup/deep-microservices-todo-app?branch=master)
 
 [Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS.
