@@ -11,8 +11,7 @@
     "directories": {
       "baseURL": "..",
       "lib": "",
-      "packages": "vendor",
-      "ss": ""
+      "packages": "vendor"
     },
     "configFile": "config.test.js",
     "dependencies": {
