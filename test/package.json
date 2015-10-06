@@ -1,16 +1,15 @@
 {
-  "name": "deep-ng-to-do-app",
+  "name": "deep-hello-world",
   "version": "0.0.1",
-  "description": "DEEP Todo Application",
-  "dependencies": {},
-  "devDependencies": {},
+  "description": "HelloWorld sample microservice",
   "scripts": {
-    "postinstall": "cd bin && npm install && cd ..",
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
     "test": "if [ -f '.travis.yml' ]; then test/bin/test.sh; else bin/test.sh; fi",
-    "coverage": "if [ -f '.travis.yml' ]; then test/bin/coverage.sh; else bin/coverage.sh; fi"
+    "coverage": "if [ -f '.travis.yml' ]; then test/bin/coverage.sh; else bin/coverage.sh; fi",
+    "build": "npm run build:styles && npm run build:modules",
+    "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
+    "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify"
   },
-  "author": "",
-  "license": "ISC",
-  "private": true
+  "dependencies": {},
+  "devDependencies": {}
 }

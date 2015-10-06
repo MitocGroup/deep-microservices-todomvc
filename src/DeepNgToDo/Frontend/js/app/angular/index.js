@@ -3,9 +3,9 @@
 
 import moduleName from './name';
 
-//import './module/index';
-//import './controllers/index';
-//import './services/index';
-//import './directives/index';
+import './module/index';
+import './controllers/index';
+import './services/index';
+import './directives/index';
 
 export default moduleName;

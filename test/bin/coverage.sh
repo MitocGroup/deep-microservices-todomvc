@@ -2,26 +2,37 @@
 
 source $(dirname $0)/_head.sh
 
+#### Run Coverage ###
+__CMD='npm run coverage'
+subpath_run_cmd ${__SRC_PATH} "$__CMD"
+
 ### Merge Coverage results ###
-
-echo "Start combining"
-
 istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p both \
-  ${__ROOT_PATH}src/DeepNgRoot/Tests/Frontend/coverage/*/coverage-final.json \
-  ${__ROOT_PATH}src/DeepNgToDo/Tests/Frontend/coverage/*/coverage-final.json
+  ${__SRC_PATH}*/Tests/Frontend/coverage/*/*.json \
+  ${__SRC_PATH}*/Tests/Backend/coverage/*.json
 
-echo "Done combining"
-### Upload Coverage info to Codacy and to Coveralls ###
+OLD_PATH="Tests\/Backend\/Frontend"
+NEW_PATH="Frontend"
+sed -i "s/$OLD_PATH/$NEW_PATH/g" ${__COVERAGE_PATH}"/lcov.info"
 
-cat ${__COVERAGE_PATH}"lcov.info" | codacy-coverage
+## Upload Coverage info to Codacy ###
+cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
+cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
-cat ${__COVERAGE_PATH}"lcov.info" | coveralls
-
-echo "Done uploading"
-
-#### Cleanup coverage! ###
-#__CMD='rm -rf ./test/coverage'
-#subpath_run_cmd ${__ROOT_PATH} "$__CMD"
+#OLD_PATH="Tests\/Backend\/Frontend"
+#NEW_PATH="Frontend"
+#sed "s/$OLD_PATH/$NEW_PATH/g" ${__COVERAGE_PATH}"/lcov.info" > ${__COVERAGE_PATH}"/prepared_report.info"
 #
-#__CMD='rm -rf '${__ROOT_PATH}src/Deep*/Tests/Frontend/coverage/
-#subpath_run_cmd ${__ROOT_PATH} "$__CMD"
+#### Upload Coverage info to Codacy ###
+#cat ${__COVERAGE_PATH}"/prepared_report.info" | codacy-coverage
+#cat ${__COVERAGE_PATH}"/prepared_report.info" | coveralls
+
+### Cleanup! ###
+#remove all generated reports
+__CMD='rm -rf ./coverage'
+subpath_run_cmd ${__SRC_PATH} "$__CMD"
+
+#remove final report
+cd ${__COVERAGE_PATH}
+rm -rf ${__COVERAGE_PATH}
+
