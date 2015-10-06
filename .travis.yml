@@ -7,7 +7,11 @@ cache:
   - $(npm root -g)
 branches:
   only:
-  - travis_ci
+  - master
+  - dev
+  - stage
+  - testing
+  - unit-testing
 env:
   global:
   #JSPM_GITHUB_AUTH_TOKEN=[secured]
