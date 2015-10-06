@@ -24,15 +24,12 @@ cd ${__COVERAGE_PATH}
 ls -l
 
 echo "Check simple coverage"
-cd ${__SRC_PATH}"DeepNgToDo/Tests/Frontend/coverage/*/"
+cd ${__SRC_PATH}"DeepNgToDo/Tests/Frontend/coverage/"
 ls -l
 
-cat ${__SRC_PATH}"DeepNgToDo/Tests/Frontend/coverage/**/lcov.info" | codacy-coverage
-cat ${__SRC_PATH}"DeepNgToDo/Tests/Frontend/coverage/**/lcov.info" | coveralls
-
-## Upload Coverage info to Codacy ###
-#cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
-#cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
+### Upload Coverage info to Codacy ###
+cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
+cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
 ### Cleanup! ###
 #remove all generated reports
