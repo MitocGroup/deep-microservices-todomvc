@@ -79,6 +79,8 @@ module.exports = function(config) {
       'karma-coverage',
       'karma-jspm',
       'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      'karma-safari-launcher',
       'karma-verbose-reporter',
       'karma-ng-html2js-preprocessor',
     ],
