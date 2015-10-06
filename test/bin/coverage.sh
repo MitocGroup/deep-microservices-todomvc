@@ -16,8 +16,8 @@ NEW_PATH="Frontend"
 sed -i "s/$OLD_PATH/$NEW_PATH/g" ${__COVERAGE_PATH}"/lcov.info"
 
 ## Upload Coverage info to Codacy ###
-cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
-cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
+cat ${__SRC_PATH}"*/Tests/Frontend/coverage/*/lcov.info" | codacy-coverage
+cat ${__SRC_PATH}"*/Tests/Frontend/coverage/*/lcov.info" | coveralls
 
 #OLD_PATH="Tests\/Backend\/Frontend"
 #NEW_PATH="Frontend"
