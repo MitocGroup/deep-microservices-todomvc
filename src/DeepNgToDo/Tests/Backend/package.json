@@ -1,0 +1,13 @@
+{
+  "name": "deep-ng-to-do-backend",
+  "version": "0.0.0",
+  "description": "DEEP Micro Services To Do Backend",
+  "scripts": {
+    "install": "echo \"No install specified\" && exit 0",
+    "test": "echo \"No test specified\" && exit 0",
+    "coverage": "echo \"No coverage specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
+}

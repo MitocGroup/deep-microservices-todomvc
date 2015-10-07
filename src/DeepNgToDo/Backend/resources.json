@@ -1,0 +1,30 @@
+{
+  "todo": {
+    "create": {
+      "description": "Lambda for creating todo",
+      "type": "lambda",
+      "methods": [
+        "POST"
+      ],
+      "source": "src/Todo/Create"
+    },
+    "retrieve": {
+      "description": "Retrieves todo",
+      "type": "lambda",
+      "methods": ["GET"],
+      "source": "src/Todo/Retrieve"
+    },
+    "delete": {
+      "description": "Lambda for deleting todo",
+      "type": "lambda",
+      "methods": ["DELETE"],
+      "source": "src/Todo/Delete"
+    },
+    "update": {
+      "description": "Update todo",
+      "type": "lambda",
+      "methods": ["PUT"],
+      "source": "src/Todo/Update"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "DeepNgRoot",
+  "version": "0.0.1",
+  "description": "Base Angular microservice",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:styles && npm run build:modules",
+    "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
+    "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
+}
