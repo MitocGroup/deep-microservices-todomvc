@@ -654,25 +654,25 @@ DeepFramework.Kernel.load({
             "methods": [
               "POST"
             ],
-            "source": "src/Todos/Create"
+            "source": "src/Todo/Create"
           },
           "retrieve": {
-            "description": "Retrieves todos",
+            "description": "Retrieves todo",
             "type": "lambda",
             "methods": ["GET"],
-            "source": "src/Todos/Retrieve"
+            "source": "src/Todo/Retrieve"
           },
           "delete": {
             "description": "Lambda for deleting todo",
             "type": "lambda",
             "methods": ["DELETE"],
-            "source": "src/Todos/Delete"
+            "source": "src/Todo/Delete"
           },
           "update": {
-            "description": "Update todos",
+            "description": "Update todo",
             "type": "lambda",
             "methods": ["PUT"],
-            "source": "src/Todos/Update"
+            "source": "src/Todo/Update"
           }
         }
       }

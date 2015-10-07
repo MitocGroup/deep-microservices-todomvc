@@ -17,7 +17,7 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
         return this.createResponse(todo).send();
       });
     } else {
-      this.retrieveAllTodos((result) => {
+      this.retrieveAllTodo((result) => {
         return this.createResponse(result).send();
       });
     }
@@ -27,9 +27,9 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
    * Retrieve todo
    * @param callback
    */
-  retrieveAllTodos(callback) {
+  retrieveAllTodo(callback) {
     let deepDb = DeepFramework.Kernel.container.get('db');
-    let Todo = deepDb.get('Todos');
+    let Todo = deepDb.get('Todo');
 
     Todo.findAll((err, todo) => {
       if (err) {
@@ -47,7 +47,7 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   retrieveTodo(todoId, callback) {
     let deepDb = DeepFramework.Kernel.container.get('db');
-    let Todo = deepDb.get('Todos');
+    let Todo = deepDb.get('Todo');
 
     Todo.findOneById(todoId, (err, todo) => {
       if (err) {

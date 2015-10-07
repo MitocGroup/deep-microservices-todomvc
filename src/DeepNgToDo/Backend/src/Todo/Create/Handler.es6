@@ -12,12 +12,12 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   handle(request) {
-    this.createTodo(request.data, (err, todos) => {
+    this.createTodo(request.data, (err, todo) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
 
-      return this.createResponse(todos.get()).send();
+      return this.createResponse(todo.get()).send();
     });
   }
 
@@ -28,10 +28,10 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   createTodo(data, callback) {
     let deepDb = DeepFramework.Kernel.container.get('db');
-    let TodoList = deepDb.get('Todos');
+    let TodoList = deepDb.get('Todo');
 
-    TodoList.createItem(data, (err, todos) => {
-      callback(err, todos);
+    TodoList.createItem(data, (err, todo) => {
+      callback(err, todo);
     });
   }
 }

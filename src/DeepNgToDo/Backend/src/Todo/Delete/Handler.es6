@@ -32,7 +32,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   deleteTodo(data, callback) {
     let deepDb     = DeepFramework.Kernel.container.get('db');
-    let Todo    = deepDb.get('Todos');
+    let Todo    = deepDb.get('Todo');
 
     Todo.deleteById(data.Id, (err) => {
       callback(err);

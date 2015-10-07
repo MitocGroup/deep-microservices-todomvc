@@ -21,8 +21,8 @@
             </li>
         </ul>
     </section>
-    <footer id="footer" ng-show="toDoService.hasTasks" ng-cloak>
-        <span id="todo-count"><strong>{{toDoService.tasksNumber}}</strong>
+    <footer id="footer" ng-show="toDoService.hasTodo" ng-cloak>
+        <span id="todo-count"><strong>{{toDoService.todoNumber}}</strong>
             <ng-pluralize count="toDoService.tasksNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
         </span>
         <ul id="filters">

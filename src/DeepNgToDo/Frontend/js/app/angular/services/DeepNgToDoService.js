@@ -1,44 +1,27 @@
 'use strict';
 'format es6';
 
+/* global DeepFramework */
+/* global angular */
+
 import moduleName from '../name';
 
 class DeepNgToDoService {
 
+  /**
+   * @param {Object} $q
+   */
   constructor($q) {
     this.todoResource = DeepFramework.Kernel.container.get('resource').get('@deep.ng.todo:todo');
     this.$q = $q;
     this.todoList = [];
     this.editedTodo = null;
     this.allChecked = false;
-
-    this._ready = $q.defer();
-    this.anonymousLogin().then(() => {
-      this._ready.resolve();
-    });
-  }
-
-  get ready() {
-    return this._ready.promise;
-  }
-
-  /**
-   *@return {promise}
-   */
-  anonymousLogin() {
-    let deferred = this.$q.defer();
-    let deepSecurity = DeepFramework.Kernel.container.get('security');
-
-    deepSecurity.anonymousLogin((token) => {
-      deferred.resolve(token);
-    });
-
-    return deferred.promise;
   }
 
   /**
    * @param title
-   * @returns {promise}
+   * @returns {promise|boolean}
    */
   createToDo(title) {
     let _this = this;
@@ -87,7 +70,7 @@ class DeepNgToDoService {
   /**
    * Returns true if tasks exist
    */
-  get hasTasks() {
+  get hasTodo() {
     return this.todoList.length > 0;
   }
 
@@ -130,7 +113,7 @@ class DeepNgToDoService {
 
   /**
    * Mark all tasks as completed
-   * @param state
+   * @param {boolean} state
    */
   markAll(state) {
     for (let todo of this.todoList) {
@@ -153,8 +136,9 @@ class DeepNgToDoService {
 
   /**
    * Returns active tasks count
+   * @returns {number}
    */
-  get tasksNumber() {
+  get todoNumber() {
     let remainingCount = 0;
 
     for (let todo of this.todoList) {
@@ -167,14 +151,15 @@ class DeepNgToDoService {
 
   /**
    * Returns completed tasks count
+   * @returns {number}
    */
   get completedCount() {
-    return this.todoList.length - this.tasksNumber;
+    return this.todoList.length - this.todoNumber;
   }
 
   /**
    * Clone the original todo to restore it on demand
-   * @param todo
+   * @param {Object} todo
    */
   editTodo(todo) {
     this.editedTodo = todo;
@@ -183,7 +168,7 @@ class DeepNgToDoService {
 
   /**
    * Complete task
-   * @param todo
+   * @param {Object} todo
    * @param completed
    */
   toggleCompleted(todo, completed) {
@@ -199,7 +184,7 @@ class DeepNgToDoService {
 
   /**
    * Revert editing task
-   * @param todo
+   * @param {Object} todo
    */
   revertEdits(todo) {
     this.todoList[this.todoList.indexOf(todo)] = this.originalTodo;
