@@ -21,8 +21,6 @@ module.exports = function(config) {
       'Tests/Frontend/vendor/system.js',
       'Tests/Frontend/lib/DeepFramework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
-      {pattern: 'Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
-      '**/views/directives/*.html',
     ],
 
     // jspm configuration
@@ -36,7 +34,7 @@ module.exports = function(config) {
       },
       loadFiles: [
         'Tests/Frontend/angular/**/*.spec.js',
-        'Frontend/js/app/index.js',
+        'Frontend/js/app/angular/index.js',
       ],
       serveFiles: [
         'Frontend/**/*.js',
@@ -57,9 +55,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'Frontend/js/app/**/*.js': ['coverage'],
-      'Tests/Frontend/**/*.spec.js': ['babel'],
-      '**/views/directives/*.html': 'ng-html2js',
+      'Frontend/js/app/angular/**/*.js': ['coverage'],
+      'Tests/Frontend/angular/**/*.spec.js': ['babel'],
     },
 
     babelPreprocessor: {
@@ -69,10 +66,6 @@ module.exports = function(config) {
       },
     },
 
-    ngHtml2JsPreprocessor: {
-      moduleName: 'templates',
-    },
-
     plugins: [
       'karma-babel-preprocessor',
       'karma-jasmine',
@@ -80,7 +73,6 @@ module.exports = function(config) {
       'karma-jspm',
       'karma-phantomjs-launcher',
       'karma-verbose-reporter',
-      'karma-ng-html2js-preprocessor',
     ],
 
     // test results reporter to use
