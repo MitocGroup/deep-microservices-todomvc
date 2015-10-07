@@ -11,6 +11,7 @@ branches:
   - dev
   - stage
   - testing
+
 env:
   global:
   #JSPM_GITHUB_AUTH_TOKEN=[secured]
@@ -21,19 +22,19 @@ env:
   - secure: MYn+dG0RMd9ZQsWguwI4ujkfTZlTM+uQNkXhFqmfHlPM5npUm7nps7OxigmOKZAkUw9D3Kfq4S1YcVVKOnpUk3zWFOFnYp87Kwn2K4l0tK+TwzQNy0i5NJu1iLfNEg++to1k114irsbWjsA849XCiI+W5q7f6W4LgSt/PhO1WeqpVefykrnldTG/9fhCk8s11zU/sb6jbCMn2wX1DFmsf+ihtsExKRPt/xImS7bcTrmPy86/h4WYLr9MBP4MERH4A7IZuL6VFQRAcIpy9Fn7PxDzoyY42vZGZufaKckCkwnKxtpkBsmvDR5tRYPGPxIJR5zvsj1B/iY8GaCI+K1HV+ahI7xFF57v1TI43EdS6tvJFosAsSnCz7OvjbvAxIrueO8LHFU7HXCC93TqJwIByWOXzSL9XJ0NtuniAT5qMXAVCfVGRKNYa1DbrNJxG09d0Bnd8VrwReIm+gcTMv86ErtMZ6TaCo66WCRZqqeVEew0e7VWRGWdwDFkWBtIPvx612ZyD4fIHUI4df7qp96CzzUdzub0ZPComw68MKOi9aVMbw2rdxxc/w3SLRvsjsM74mZ7ZBzuZAJ5erFH1ic5FoaGXu5/jG6wJSveZ5CIC8ieINrKbVLJQUvzOZjE049QymzrNHWJoGhpR1HOV4D2d5FRY3m5qpKLrVcEG7FmNA0=
   #CODACY_PROJECT_TOKEN=[secured]
   - secure: i6DYnNlhKrlxs4OIqn8IN3HRXPv2zy5xPeB8QNJ0Oo1OShBzf3+WrbukG/7fykHtYzBBFMg/COBOWtP/r11XY96DOhOl/zq+LR+puPC+Pj+frCJuvCzfWGmgoUYgajM+JYgPn75YdRM9ge0xB9olSBYmQxPVCZ2NYKAizmOTnsIIvL5sIvo9us8wwIeNhJdFDzWnNeKDLTqfwMqo7gX9hSE7w50ZLX2KOa+ze8kcA/ouFj/VQE3icSc6jAjQmkSx1yuFGAaUmMCxAZX9MECFGt6geCtL5wM601moOIuEhq5giYJUHZI0CIKeo4aGX/PX41nfocmbT51NIO/Hgy4uPKBBbjiBkymtbC/+803dEktUqxwJvTLERIBUjo/Gz86BFExehdTLpMMz3P9MOvDe6L8Xn5zHLwoblAjcFlcXOrFgRLk68hRtJQ3ycUdRpROHLLF9cWSY0wKKzCgVudazgbRc4IO/+1TPG1wYB2/Fw3999Xb9KcyHsCMmc8uGR24SuCvQfy3SgKYbJwOJGd3WSfQkJliZaWsEqH8/pcSxlBhEdqDYrN87cCHAp6XcpC/GQWiLRS9TMlBdf2m/YJJUcSxcs6DzFky581CjFKFQsoc4TR5kzp0CKyzEOeR88WW8A6/rtC6iGZnqoEdBpNYVa1B4Wdu4MNGTFdoNraJjYlo=
- before_install:
-- npm install -g jspm
-- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-- npm install -g babel
-- npm install -g browserify
-- npm install -g mocha
-- npm install -g mocha-babel
-- npm install -g istanbul
-- npm install -g coveralls
-- npm install -g isparta
-- npm install -g codacy-coverage
-- npm install -g istanbul-combine
-- npm install -g jasmine-core
-- cp test/package.json .
+before_install:
+  - npm install -g jspm
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+  - npm install -g babel
+  - npm install -g browserify
+  - npm install -g mocha
+  - npm install -g mocha-babel
+  - npm install -g istanbul
+  - npm install -g coveralls
+  - npm install -g isparta
+  - npm install -g codacy-coverage
+  - npm install -g istanbul-combine
+  - npm install -g jasmine-core
+  - cp test/package.json .
 after_success:
-- npm run coverage
+  - npm run coverage
