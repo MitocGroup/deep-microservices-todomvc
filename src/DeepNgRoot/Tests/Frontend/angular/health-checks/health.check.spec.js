@@ -1,6 +1,6 @@
 'use strict';
 
-import moduleName from '../../../../Frontend/js/app/angular/name';
+import moduleName from '../../../../Frontend/js/app/name';
 
 describe('Health checks', function() {
   it('Should load angular library', function() {
@@ -19,5 +19,9 @@ describe('Health checks', function() {
     expect(typeof angular.mock.module).toBe('function');  //module is JavaScript reserved word
     expect(typeof inject).toBe('function');
     expect(typeof dump).toBe('function');
+  });
+
+  it('Module name is [ng-root]"', function() {
+    expect(moduleName).toBe('ng-root');
   });
 });
