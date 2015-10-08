@@ -33,7 +33,7 @@ module.exports = function(config) {
         'npm:*': 'Tests/Frontend/vendor/npm/*.js',
       },
       loadFiles: [
-        'Tests/Frontend/angular/**/*.spec.js',
+        'Tests/Frontend/test/**/*.spec.js',
         'Frontend/js/app/index.js',
       ],
       serveFiles: [
@@ -56,7 +56,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'Frontend/js/app/**/*.js': ['coverage'],
-      'Tests/Frontend/angular/**/*.spec.js': ['babel'],
+      'Tests/Frontend/test/**/*.spec.js': ['babel'],
     },
 
     babelPreprocessor: {
