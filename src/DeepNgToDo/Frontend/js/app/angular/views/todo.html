@@ -9,14 +9,14 @@
         <input id="toggle-all" type="checkbox" ng-model="toDoService.allChecked" ng-click="toDoService.markAll(toDoService.allChecked)">
         <label for="toggle-all">Mark all as complete</label>
         <ul id="todo-list">
-            <li ng-repeat="todo in toDoService.todoList | filter:statusFilter track by $index" ng-class="{completed: todo.Completed, editing: todo === toDoService.editedTodo}">
+            <li ng-repeat="todo in toDoService.todoList | filter:statusFilter track by $index" ng-class="toDoService.todoNgClass(todo)">
                 <div class="view">
                     <input class="toggle" type="checkbox" ng-model="todo.Completed" ng-change="toDoService.toggleCompleted(todo)">
                     <label ng-dblclick="toDoService.editTodo(todo)">{{todo.Title}}</label>
                     <button class="destroy" ng-click="todoCtrl.delete(todo)"></button>
                 </div>
                 <form ng-submit="todoCtrl.update(todo, 'submit')">
-                    <input class="edit" ng-trim="false" ng-model="todo.Title" todo-escape="toDoService.revertEdits(todo)" ng-blur="todoCtrl.update(todo, 'blur')" todo-focus="todo === toDoService.editedTodo">
+                    <input class="edit" ng-trim="false" ng-model="todo.Title" todo-escape="toDoService.revertEdits(todo)" ng-blur="todoCtrl.update(todo, 'blur')" todo-focus="toDoService.isEditing(todo)">
                 </form>
             </li>
         </ul>
@@ -36,6 +36,6 @@
                 <a ng-class="{selected: statusFilter.Completed === true}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
             </li>
         </ul>
-        <button id="clear-completed" ng-show="toDoService.completedCount" ng-click="todoCtrl.deleteCompleted()">Clear completed</button>
+        <button id="clear-completed" ng-show="toDoService.completedCount" ng-click="toDoService.deleteCompleted()">Clear completed</button>
     </footer>
 </section>
