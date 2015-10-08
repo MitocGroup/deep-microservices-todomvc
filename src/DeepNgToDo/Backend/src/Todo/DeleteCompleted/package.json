@@ -1,12 +1,12 @@
 {
-  "name": "deep-ng-todo-delete",
+  "name": "deep-ng-todo-delete-completed",
   "version": "0.0.1",
-  "description": "Delete an todo",
+  "description": "Delete completed todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
+      "name": "Maxim Ponomariov",
+      "email": "mponomariov@mitocgroup.com"
     }
   ],
   "bugs": {

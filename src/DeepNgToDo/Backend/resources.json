@@ -20,6 +20,12 @@
       "methods": ["DELETE"],
       "source": "src/Todo/Delete"
     },
+    "deleteCompleted": {
+      "description": "Lambda for deleting todo",
+      "type": "lambda",
+      "methods": ["POST"],
+      "source": "src/Todo/DeleteCompleted"
+    },
     "update": {
       "description": "Update todo",
       "type": "lambda",

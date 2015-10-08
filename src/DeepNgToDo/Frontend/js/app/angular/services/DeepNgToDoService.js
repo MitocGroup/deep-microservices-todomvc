@@ -98,7 +98,9 @@ class DeepNgToDoService {
     let defer = this.$q.defer();
 
     let index = this.todoList.indexOf(todo);
-    this.todoList.splice(index, 1);
+    if (index > -1) {
+      this.todoList.splice(index, 1);
+    }
 
     this.todoResource.request('delete', { Id: todo.Id }).send((response) => {
       if (response.isError) {
@@ -127,11 +129,29 @@ class DeepNgToDoService {
    * Delete all completed tasks
    */
   deleteCompleted() {
-    for (let todo of this.todoList) {
+    let ids = [];
+    let defer = this.$q.defer();
+    var todoList = this.todoList.slice(0); // clone array
+
+    for (let todo of todoList) {
       if (todo.Completed) {
-        this.deleteTodo(todo);
+        ids.push(todo.Id);
+        let index = this.todoList.indexOf(todo);
+        if (index > -1) {
+          this.todoList.splice(index, 1);
+        }
       }
     }
+
+    this.todoResource.request('deleteCompleted', ids).send((response) => {
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
+    });
+
+    return defer.promise;
   }
 
   /**
@@ -164,6 +184,21 @@ class DeepNgToDoService {
   editTodo(todo) {
     this.editedTodo = todo;
     this.originalTodo = angular.extend({}, todo);
+  }
+
+  isEditing(todo) {
+    return this.editedTodo && todo && this.editedTodo.Id == todo.Id;
+  }
+
+  /**
+   * @param {Object} todo
+   * @returns {Object}
+   */
+  todoNgClass(todo) {
+    return {
+      completed: todo.Completed,
+      editing: this.isEditing(todo)
+    }
   }
 
   /**
