@@ -43,7 +43,7 @@ class DeepNgToDoController {
    * @param {string} event
    */
   update(todo, event) {
-    if (event == 'blur' && this.prevEvent == 'submit') {
+    if (event === 'blur' && this.prevEvent === 'submit') {
       this.prevEvent = null;
       return;
     }
@@ -57,7 +57,7 @@ class DeepNgToDoController {
 
     todo.Title = todo.Title.trim();
 
-    if (this.toDoService.originalTodo && todo.Title == this.toDoService.originalTodo.Title) {
+    if (this.toDoService.originalTodo && todo.Title === this.toDoService.originalTodo.Title) {
       this.toDoService.editedTodo = null;
       return;
     }

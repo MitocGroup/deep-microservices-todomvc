@@ -187,7 +187,7 @@ class DeepNgToDoService {
   }
 
   isEditing(todo) {
-    return this.editedTodo && todo && this.editedTodo.Id == todo.Id;
+    return this.editedTodo && todo && this.editedTodo.Id === todo.Id;
   }
 
   /**
