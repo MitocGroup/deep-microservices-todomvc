@@ -31,6 +31,12 @@
       "type": "lambda",
       "methods": ["PUT"],
       "source": "src/Todo/Update"
+    },
+    "markAll": {
+      "description": "Lambda for mark or unmark todo list",
+      "type": "lambda",
+      "methods": ["POST"],
+      "source": "src/Todo/MarkAll"
     }
   }
 }

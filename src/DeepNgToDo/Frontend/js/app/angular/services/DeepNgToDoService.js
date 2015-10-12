@@ -114,13 +114,39 @@ class DeepNgToDoService {
   }
 
   /**
-   * Mark all tasks as completed
+   * Send the last state of mark all
+   * @param {boolean} state
+   */
+  markAllSend(state) {
+    let defer = this.$q.defer();
+    let updatedList = [];
+
+    for (let todo of this.todoList) {
+      if (todo.Completed == state) {
+        todo.Completed = state;
+      }
+      updatedList.push(todo);
+    }
+
+    this.todoResource.request('markAll', updatedList).send((response) => {
+      if (response.isError) {
+        defer.reject(response.error);
+      } else {
+        defer.resolve(response.data);
+      }
+    });
+
+    return defer.promise;
+  }
+
+  /**
+   * Mark or unmark all tasks as completed
    * @param {boolean} state
    */
   markAll(state) {
     for (let todo of this.todoList) {
       if (todo.Completed !== state) {
-        this.toggleCompleted(todo, state);
+        todo.Completed = state;
       }
     }
   }

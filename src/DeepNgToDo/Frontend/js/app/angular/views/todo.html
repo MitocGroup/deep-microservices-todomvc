@@ -6,12 +6,12 @@
         </form>
     </header>
     <section id="main" ng-cloak>
-        <input id="toggle-all" type="checkbox" ng-model="toDoService.allChecked" ng-click="toDoService.markAll(toDoService.allChecked)">
+        <input id="toggle-all" type="checkbox" ng-model="toDoService.allChecked" ng-click="todoCtrl.markAll(toDoService.allChecked)">
         <label for="toggle-all">Mark all as complete</label>
         <ul id="todo-list">
             <li ng-repeat="todo in toDoService.todoList | filter:statusFilter track by $index" ng-class="toDoService.todoNgClass(todo)">
                 <div class="view">
-                    <input class="toggle" type="checkbox" ng-model="todo.Completed" ng-change="toDoService.toggleCompleted(todo)">
+                    <input class="toggle" type="checkbox" ng-model="todo.Completed" ng-change="todoCtrl.toggleCompleted(todo)">
                     <label ng-dblclick="toDoService.editTodo(todo)">{{todo.Title}}</label>
                     <button class="destroy" ng-click="todoCtrl.delete(todo)"></button>
                 </div>

@@ -19,12 +19,12 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
       throw new InvalidArgumentException(request.data.Id, 'string');
     }
 
-    Todo.updateItem(request.data.Id, request.data, function(err, todo) {
+    Todo.updateItem(request.data.Id, request.data, (err, todo) => {
       if (err) {
         throw new DatabaseOperationException(err);
       }
 
       return this.createResponse(todo.get()).send();
-    }.bind(this));
+    });
   }
 }
