@@ -133,6 +133,23 @@ DEEP is using [microservices architecture](https://en.wikipedia.org/wiki/Microse
 
 > [DEEP Marketplace](https://www.deep.mg) (aka [www.deep.mg](https://www.deep.mg)) is a web application built using DEEP and published on serverless environment from [Amazon Web Services](https://aws.amazon.com) (aka [aws.amazon.com](https://aws.amazon.com)). We make it faster and easier for developers to build and publish their software, as well as for businesses to discover and test applications they are looking for. Our goal is to connect businesses with developers, and empower technical teams to build self-service software that none technical teams could use. The marketplace is like Apple's App Store for web applications that run natively on cloud providers like AWS.
 
+## Feedback
+
+We are eager to get your feedback, so please use whatever communication channel you prefer:
+- [github issues](https://github.com/MitocGroup/deep-framework/issues)
+- [gitter chat room](https://gitter.im/MitocGroup/deep-framework)
+- [deep email address](mailto:feedback@deep.mg)
+
+## Contribution
+
+This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
+
+1. [Fork](http://help.github.com/forking/) this repository in GitHub.
+2. Develop the feature in your repository. Make one or more commits to your repository in GitHub.
+3. Perform a [pull request](http://help.github.com/pull-requests/) from your repository back into original repository in GitHub.
+
+Make sure you update `package.json` (or `deepkg.json`, depends on the use case) and put your name and contact information in contributors section. We would like to recognize the work and empower every contributor in creative ways :)
+
 ### License
 
 This repository can be used under the MIT license.

@@ -18,6 +18,14 @@ class DeepNgToDoController {
     $scope.toDoService = deepNgToDoService;
     this.toDoService = deepNgToDoService;
 
+    this.throttledToggleCompleted = _.debounce((todo, completed) => {
+      this.toDoService.toggleCompleted(todo, completed);
+    }, 1000);
+
+    this.throttledMarkAll = _.debounce((state) => {
+      this.toDoService.markAllSend(state);
+    }, 1000);
+
     deepNgLoginService.anonymousLogin().then(() => {
       deepNgToDoService.fetchAllToDo().catch((error) => {
         this.deepLog.log(error);
@@ -57,7 +65,7 @@ class DeepNgToDoController {
 
     todo.Title = todo.Title.trim();
 
-    if (this.toDoService.originalTodo && todo.Title == this.toDoService.originalTodo.Title) {
+    if (this.toDoService.originalTodo && todo.Title === this.toDoService.originalTodo.Title) {
       this.toDoService.editedTodo = null;
       return;
     }
@@ -67,8 +75,28 @@ class DeepNgToDoController {
     });
   }
 
+  /**
+   *
+   * @param {Object} todo
+   */
   delete(todo) {
     this.toDoService.deleteTodo(todo);
+  }
+
+  /**
+   * @param {Object} todo
+   * @param {boolean} completed
+   */
+  toggleCompleted(todo, completed) {
+    this.throttledToggleCompleted(todo, completed);
+  }
+
+  /**
+   * @param {boolean} state
+   */
+  markAll(state) {
+    this.toDoService.markAll(state);
+    this.throttledMarkAll(state);
   }
 }
 

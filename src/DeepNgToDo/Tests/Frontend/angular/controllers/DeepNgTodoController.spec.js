@@ -72,7 +72,7 @@ describe('Controllers', function() {
 
   describe('DeepNgToDoController', function() {
     it('DeepNgToDoController constructor sets valid default values', function() {
-      expect(Object.keys(controller).length).toBe(2);
+      expect(Object.keys(controller).length).toBe(4);
       expect(typeof controller.toDoService).toEqual('object');
       expect(typeof controller.deepLog).toEqual('object');
     });
@@ -136,7 +136,6 @@ describe('Controllers', function() {
     });
 
     it('delete() method', function() {
-      let actualResult = null;
       let error = null;
       let completedTask = {
         Title: 'todo',
@@ -144,7 +143,35 @@ describe('Controllers', function() {
       };
 
       try {
-        actualResult = controller.delete(completedTask);
+        controller.delete(completedTask);
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+    });
+
+    it('toggleCompleted() method', function() {
+      let error = null;
+      let completedTask = {
+        Title: 'todo',
+        Completed: true,
+      };
+
+      try {
+        controller.toggleCompleted(completedTask, true);
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+    });
+
+    it('markAll() method', function() {
+      let error = null;
+
+      try {
+        controller.markAll(true);
       } catch (e) {
         error = e;
       }
