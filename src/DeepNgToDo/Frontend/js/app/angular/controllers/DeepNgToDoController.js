@@ -17,7 +17,7 @@ class DeepNgToDoController {
     this.deepLog = DeepFramework.Kernel.container.get('log');
     $scope.toDoService = deepNgToDoService;
     this.toDoService = deepNgToDoService;
-    
+
     deepNgLoginService.anonymousLogin().then(() => {
       deepNgToDoService.fetchAllToDo().catch((error) => {
         this.deepLog.log(error);
@@ -43,7 +43,7 @@ class DeepNgToDoController {
    * @param {string} event
    */
   update(todo, event) {
-    if (event == 'blur' && this.prevEvent == 'submit') {
+    if (event === 'blur' && this.prevEvent === 'submit') {
       this.prevEvent = null;
       return;
     }
@@ -72,7 +72,9 @@ class DeepNgToDoController {
   }
 }
 
-DeepNgToDoController.$inject = ['$scope', 'deepNgToDoService', 'deepNgLoginService'];
+angular.module(moduleName).controller('DeepNgToDoController',
+  ['$scope', 'deepNgToDoService', 'deepNgLoginService', (...args) => {
+    return new DeepNgToDoController(...args);
+  },]
 
-angular.module(moduleName).controller('DeepNgToDoController', DeepNgToDoController);
-
+);

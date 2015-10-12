@@ -33,7 +33,7 @@ class DeepNgToDoService {
 
     let newTodo = {
       Title: title.trim(),
-      Completed: false
+      Completed: false,
     };
 
     this.todoResource.request('create', newTodo, 'POST').send((response) => {
@@ -197,8 +197,8 @@ class DeepNgToDoService {
   todoNgClass(todo) {
     return {
       completed: todo.Completed,
-      editing: this.isEditing(todo)
-    }
+      editing: this.isEditing(todo),
+    };
   }
 
   /**
