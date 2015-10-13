@@ -16,7 +16,6 @@ deepKernel.loadFromFile('_config.json', function() {
   var config = [];
   var loadFirst = [];
 
-
   bootstrapScripts.map(function(m) {
     scripts.push(Promise.resolve(System.import(m)).then(function(module) {
       // collect angular modules
