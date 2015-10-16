@@ -7,8 +7,8 @@ __CMD='npm run coverage'
 subpath_run_cmd ${__SRC_PATH} "$__CMD"
 
 ### Merge Coverage results ###
-istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p both \
-  ${__SRC_PATH}*/Tests/Frontend/coverage/*/*.json \
+istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
+  ${__SRC_PATH}*/Tests/Frontend/coverage/*/coverage-final.json \
   ${__SRC_PATH}*/Tests/Backend/coverage/*.json
 
 ### Upload Coverage info to Codacy ###
@@ -16,7 +16,7 @@ cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
 ### Cleanup! ###
-#remove all generated reports
+remove all generated reports
 __CMD='rm -rf ./coverage'
 subpath_run_cmd ${__SRC_PATH} "$__CMD"
 
