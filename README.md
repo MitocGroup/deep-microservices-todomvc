@@ -107,6 +107,12 @@ used to build and testprojects hosted on GitHub. Travis CI is configured by addi
 [.travis.yml](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/.travis.yml), 
 which is a YAML format text file, to the root directory of the GitHub repository.
 
+### Coveralls
+
+[Coveralls](https://coveralls.io/github/MitocGroup/deep-microservices-todo-app) provides 
+constant updates on your project's automated test coverage. It is now available for open source projects 
+to start tracking code coverage on project.
+
 ### Codacy
 
 [Codacy](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app) offers an automated 
