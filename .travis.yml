@@ -32,15 +32,16 @@ before_install:
   - npm install -g jasmine-core
   - npm install -g karma
   - npm install -g karma-coverage
-  - npm install -g karma-babel-preprocessor
   - npm install -g karma-chrome-launcher
-  - npm install -g karma-jasmine
   - npm install -g karma-jspm
   - npm install -g karma-ng-html2js-preprocessor
   - npm install -g karma-phantomjs-launcher
   - npm install -g karma-traceur-preprocessor
   - npm install -g karma-verbose-reporter
   - npm install -g phantomjs
+  - npm install --save-dev karma-coverage
+  - npm install --save-dev karma-babel-preprocessor
+  - npm install --save-dev karma-jasmine
   - npm install --save-dev douglasduteil/karma-coverage#next
   - npm install --save-dev isparta
   - cp test/package.json .
