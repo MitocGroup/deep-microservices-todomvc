@@ -21,16 +21,16 @@ env:
 before_install:
   - npm install -g jspm
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-  - npm install -g babel
-  - npm install -g browserify
-  - npm install -g jscs
-  - npm install -g mocha
-  - npm install -g mocha-babel
-  - npm install --save-dev codacy-coverage
-  - npm install --save-dev istanbul
-  - npm install --save-dev istanbul-combine
-  - npm install --save-dev jasmine-core
-  - npm install --save-dev karma
+  - npm install babel
+  - npm install browserify
+  - npm install jscs
+  - npm install mocha
+  - npm install mocha-babel
+  - npm install codacy-coverage
+  - npm install istanbul
+  - npm install stanbul-combine
+  - npm install jasmine-core
+  - npm install karma
   - npm install --save-dev phantomjs
   - npm install --save-dev karma-jspm
   - npm install --save-dev karma-ng-html2js-preprocessor
