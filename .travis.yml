@@ -28,7 +28,7 @@ before_install:
   - npm install mocha-babel
   - npm install codacy-coverage
   - npm install istanbul
-  - npm install stanbul-combine
+  - npm install istanbul-combine
   - npm install jasmine-core
   - npm install karma
   - npm install --save-dev phantomjs
