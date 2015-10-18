@@ -27,7 +27,9 @@ before_install:
   - npm install -g mocha
   - npm install -g mocha-babel
   - npm install -g codacy-coverage
+  - npm install -g istanbul
   - npm install -g istanbul-combine
+  - npm install -g isparta
   - npm install -g jasmine-core
   - npm install -g karma
   - npm install -g karma-coverage
