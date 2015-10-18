@@ -27,8 +27,8 @@ before_install:
   - npm install --global mocha
   - npm install --global mocha-babel
   - npm install --global codacy-coverage
-  - npm install --global istanbul
-  - npm install --global istanbul-combine
+  - npm install --global istanbul@~0.3.0
+  - npm install --global istanbul-combine@~0.3.0
   - npm install --global jasmine-core
   - npm install --global karma
   - npm install --global phantomjs
