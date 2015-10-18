@@ -41,8 +41,8 @@ before_install:
   - npm install -g karma-traceur-preprocessor
   - npm install -g karma-verbose-reporter
   - npm install -g phantomjs
-  - npm install -g --save-dev douglasduteil/karma-coverage#next
-  - npm install -g --save-dev isparta
+  - npm install --save-dev douglasduteil/karma-coverage#next
+  - npm install --save-dev isparta
   - cp test/package.json .
 after_success:
   - npm run coverage
