@@ -11,8 +11,9 @@
   },
   "contributors": [
     {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
+      "name": "DEEP Dev Team",
+      "email": "hello@deep.mg",
+      "website": "https://www.deep.mg"
     }
   ],
   "dependencies": {
