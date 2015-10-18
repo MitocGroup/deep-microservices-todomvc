@@ -30,6 +30,7 @@ before_install:
   - npm install -g istanbul-combine
   - npm install -g jasmine-core
   - npm install -g karma
+  - npm install -g karma-coverage
   - npm install -g karma-babel-preprocessor
   - npm install -g karma-chrome-launcher
   - npm install -g karma-jasmine
