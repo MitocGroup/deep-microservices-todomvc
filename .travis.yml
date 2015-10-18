@@ -19,27 +19,27 @@ env:
   #CODACY_PROJECT_TOKEN=[secured]
   - secure: i6DYnNlhKrlxs4OIqn8IN3HRXPv2zy5xPeB8QNJ0Oo1OShBzf3+WrbukG/7fykHtYzBBFMg/COBOWtP/r11XY96DOhOl/zq+LR+puPC+Pj+frCJuvCzfWGmgoUYgajM+JYgPn75YdRM9ge0xB9olSBYmQxPVCZ2NYKAizmOTnsIIvL5sIvo9us8wwIeNhJdFDzWnNeKDLTqfwMqo7gX9hSE7w50ZLX2KOa+ze8kcA/ouFj/VQE3icSc6jAjQmkSx1yuFGAaUmMCxAZX9MECFGt6geCtL5wM601moOIuEhq5giYJUHZI0CIKeo4aGX/PX41nfocmbT51NIO/Hgy4uPKBBbjiBkymtbC/+803dEktUqxwJvTLERIBUjo/Gz86BFExehdTLpMMz3P9MOvDe6L8Xn5zHLwoblAjcFlcXOrFgRLk68hRtJQ3ycUdRpROHLLF9cWSY0wKKzCgVudazgbRc4IO/+1TPG1wYB2/Fw3999Xb9KcyHsCMmc8uGR24SuCvQfy3SgKYbJwOJGd3WSfQkJliZaWsEqH8/pcSxlBhEdqDYrN87cCHAp6XcpC/GQWiLRS9TMlBdf2m/YJJUcSxcs6DzFky581CjFKFQsoc4TR5kzp0CKyzEOeR88WW8A6/rtC6iGZnqoEdBpNYVa1B4Wdu4MNGTFdoNraJjYlo=
 before_install:
-  - npm install -g jspm
+  - npm install --global jspm
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-  - npm install babel
-  - npm install browserify
-  - npm install jscs
-  - npm install mocha
-  - npm install mocha-babel
-  - npm install codacy-coverage
-  - npm install istanbul
-  - npm install istanbul-combine
-  - npm install jasmine-core
-  - npm install karma
-  - npm install --save-dev phantomjs
-  - npm install --save-dev karma-jspm
-  - npm install --save-dev karma-ng-html2js-preprocessor
-  - npm install --save-dev karma-phantomjs-launcher
-  - npm install --save-dev karma-verbose-reporter
-  - npm install --save-dev karma-babel-preprocessor
-  - npm install --save-dev karma-jasmine
-  - npm install --save-dev douglasduteil/karma-coverage#next
-  - npm install --save-dev isparta
+  - npm install --global babel
+  - npm install --global browserify
+  - npm install --global jscs
+  - npm install --global mocha
+  - npm install --global mocha-babel
+  - npm install --global codacy-coverage
+  - npm install --global istanbul
+  - npm install --global istanbul-combine
+  - npm install --global jasmine-core
+  - npm install --global karma
+  - npm install --global phantomjs
+  - npm install --global karma-jspm
+  - npm install --global karma-ng-html2js-preprocessor
+  - npm install --global karma-phantomjs-launcher
+  - npm install --global karma-verbose-reporter
+  - npm install --global karma-babel-preprocessor
+  - npm install --global karma-jasmine
+  - npm install --global douglasduteil/karma-coverage#next
+  - npm install --global isparta
   - cp test/package.json .
 after_success:
   - npm run coverage
