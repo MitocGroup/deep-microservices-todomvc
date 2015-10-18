@@ -85,10 +85,10 @@ module.exports = function(config) {
     coverageReporter: {
       // configure the reporter to use isparta for JavaScript coverage
       // Only on { "karma-coverage": "douglasduteil/karma-coverage#next" }
-      instrumenters: { isparta: require('isparta') },
-      instrumenter: {
-        '**/*.js': 'isparta',
-      },
+      //instrumenters: { isparta: require('isparta') },
+      //instrumenter: {
+      //  '**/*.js': 'isparta',
+      //},
       reporters: [
         {
           type: 'json',
