@@ -13,6 +13,7 @@
   "dependencies": {},
   "devDependencies": {
     "istanbul": "^0.3.21",
-    "karma-coverage": "douglasduteil/karma-coverage#next"
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "isparta": "^3.1.0"
   }
 }

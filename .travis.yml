@@ -26,7 +26,6 @@ before_install:
   - npm install -g jscs
   - npm install -g mocha
   - npm install -g mocha-babel
-  - npm install -g isparta
   - npm install -g codacy-coverage
   - npm install -g istanbul-combine
   - npm install -g jasmine-core
