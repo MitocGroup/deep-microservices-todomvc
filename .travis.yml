@@ -29,7 +29,6 @@ before_install:
   - npm install -g codacy-coverage
   - npm install -g istanbul
   - npm install -g istanbul-combine
-  - npm install -g isparta
   - npm install -g jasmine-core
   - npm install -g karma
   - npm install -g karma-coverage
@@ -42,6 +41,8 @@ before_install:
   - npm install -g karma-traceur-preprocessor
   - npm install -g karma-verbose-reporter
   - npm install -g phantomjs
+  - npm install --save-dev douglasduteil/karma-coverage#next
+  - npm install --save-dev isparta
   - cp test/package.json .
 after_success:
   - npm run coverage
