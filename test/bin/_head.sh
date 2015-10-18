@@ -12,6 +12,9 @@ subpath_run_cmd () {
     local EXPR_FRONTEND
     local BACKEND_CMD
     local FRONTEND_CMD
+    local SEARCH_VALUE
+    local REPLACE_VALUE
+    local PATH_TO_COVERAGE_FILE
 
     DIR=$(cd $1 && pwd -P)
 
@@ -32,6 +35,18 @@ subpath_run_cmd () {
         echo "[Running command for Frontend] $subpath"
         if [ -d ${subpath} ]; then
             cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
+
+            #replace ./Frontend to real path to file
+            # to fix karma issue after combine
+            if [ "${FRONTEND_CMD}"="npm run test" ]; then
+                SEARCH_VALUE='.\/Frontend\/'
+                subpath=${subpath/Tests\/Frontend/Frontend}
+
+                ## Escape path for sed using bash find and replace
+                REPLACE_VALUE="${subpath//\//\\/}"
+                export PATH_TO_TEST_TDF_FILE="$(find coverage -name 'coverage-final.json')"
+                sed "s/${SEARCH_VALUE}/${REPLACE_VALUE}/g" "${PATH_TO_TEST_TDF_FILE}" > coverage/report.json
+            fi
         fi
     done
 

@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-- '0.12.4'
+- 0.12
 cache:
   directories:
   - $(npm root -g)
@@ -15,31 +15,12 @@ branches:
 env:
   global:
   #JSPM_GITHUB_AUTH_TOKEN=[secured]
-  - secure: i6CA8L19Qb2UPbKb1eshPJ/pGgswKAehXCPFiJDknkGiSP+TO+e6nutA69UIkFTLQ9iulNVNcWw/uIUO0r2XRhkOoq9CnST/Fu/Te4fb4E9Is+0Lm/F/72HWJ91wm/1gZm/2pK4bMTkpLtG+pb0lu8B2H5tER5RiUBB/8Q8i+6tMFucqMwZ3Qb8VPJZgRK0gjo15Zm5oVIHDJ2XIvW+rfuoPXW0zoIECIhghbsbXfvsFuKIIHUn083oT7zuyuszYqNq8Y7Kf2NyvGA2oconNBWzTbf6/lQG0QnVmZAUqB/owbs9iUgb1moIuX3+ONKVzyijaOQCuqwqFHgB2gu2xcZ23qA5eMN8Db+6GZMT9vUIxeR/gfWUuUS5rqsKpaN6XNq/eo1Pw7ZCgKPCGEcnwyfTuoPFCxxk3eV1FjEuLqweGiD08yrVyaX+9DuLr4mCB8YwcPAzM4hBD+B0y/svqnHXqh40Ghwg+6pfWa0M5ZbXtKZKqfhExauWpKfCLsEuO60PS6S4S/fhxGC0MV/XBHZiwpUJ7tbYbjowvdJsuQArvr2Sq3hFbU1FZcylczbdDyAJTQtuz2RLdZ95P98FiP7H7y+SXpfhiJMUN/Z0FruCMQMOD9pXGp1R531WY2yAfvlrySfD1oH3leaEk0YzfnBBAXRe2ROKh4s1UI37UIx4=
+  - secure: MEwysS3HqSUfT/7AnpgqYpZXyFkXQSQDH0YsoA0lUO+tJyIHLrEuJuEIHEazKvD7VYbQNBYjJYf92uTxh1egakH60eC/QyrluFSqu5KFtpx/lnyfMNkl7feld+jQxO7kXKGxhjaqxmhn2Gp/42tV+FUFb7dU3kZgh0R6vCluado9Vm1tWwVjRUYVEzp2avRwolBsn5xqLVVvMakulEOKT4py5/Pmnm9iZEGWBw+0dIxdtWTQDGDCHshcdTP7QxcWWUe7B9P979M24ePSmmQC9jFLAQo7JCvj6fJW+gNK590XmJZKNmtpdG+Jo8rjhRjbUaeUzaZsw15aJoFuUsrfdxuNKtAYDZ92q2390FAF0czYBIBRwsiLcIS6P3Lsf5Tbq0WTLrEU7cTKwAmB3jEiNXPY+3OkkqT5kGmwKzEp0LgR7d/Ht/iecXSfzrP5Am4XYtOUPsRn9kig0t4Zb6iHyrAc+Zvnb3FzLMSSllayTAcXF9wHvqSeSdJ3qN2vUMEXN5KNWIkcGMiqQD6g0Jcgdl0MHOBSrgjzJQKJpLYVObP/tlsDaxUyIHgqjEQtXSnRIW4cNoOwgk9ltpzWBtT0z+DW6A/tDNcc2y7ejX7bjHSXxxWAk/jNjCAaYPINiWu+HL6UoPjnwiy7NOlJRMXoS7zR0Gmqr0cfKl1+VVIPP90=
   #CODACY_PROJECT_TOKEN=[secured]
   - secure: i6DYnNlhKrlxs4OIqn8IN3HRXPv2zy5xPeB8QNJ0Oo1OShBzf3+WrbukG/7fykHtYzBBFMg/COBOWtP/r11XY96DOhOl/zq+LR+puPC+Pj+frCJuvCzfWGmgoUYgajM+JYgPn75YdRM9ge0xB9olSBYmQxPVCZ2NYKAizmOTnsIIvL5sIvo9us8wwIeNhJdFDzWnNeKDLTqfwMqo7gX9hSE7w50ZLX2KOa+ze8kcA/ouFj/VQE3icSc6jAjQmkSx1yuFGAaUmMCxAZX9MECFGt6geCtL5wM601moOIuEhq5giYJUHZI0CIKeo4aGX/PX41nfocmbT51NIO/Hgy4uPKBBbjiBkymtbC/+803dEktUqxwJvTLERIBUjo/Gz86BFExehdTLpMMz3P9MOvDe6L8Xn5zHLwoblAjcFlcXOrFgRLk68hRtJQ3ycUdRpROHLLF9cWSY0wKKzCgVudazgbRc4IO/+1TPG1wYB2/Fw3999Xb9KcyHsCMmc8uGR24SuCvQfy3SgKYbJwOJGd3WSfQkJliZaWsEqH8/pcSxlBhEdqDYrN87cCHAp6XcpC/GQWiLRS9TMlBdf2m/YJJUcSxcs6DzFky581CjFKFQsoc4TR5kzp0CKyzEOeR88WW8A6/rtC6iGZnqoEdBpNYVa1B4Wdu4MNGTFdoNraJjYlo=
 before_install:
-  - npm install --global jspm
-  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-  - npm install --global babel
-  - npm install --global browserify
-  - npm install --global jscs
-  - npm install --global mocha
-  - npm install --global mocha-babel
-  - npm install --global codacy-coverage
-  - npm install --global istanbul@~0.3.0
-  - npm install --global istanbul-combine@~0.3.0
-  - npm install --global jasmine-core
-  - npm install --global karma
-  - npm install --global phantomjs
-  - npm install --save-dev karma-jspm
-  - npm install --save-dev karma-ng-html2js-preprocessor
-  - npm install --save-dev karma-phantomjs-launcher
-  - npm install --save-dev karma-verbose-reporter
-  - npm install --save-dev karma-babel-preprocessor
-  - npm install --save-dev karma-jasmine
-  - npm install --save-dev douglasduteil/karma-coverage#next
-  - npm install --save-dev isparta
-  - cp test/package.json .
+- npm install --global jspm
+- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+- cp test/package.json .
 after_success:
-  - npm run coverage
+- npm run coverage

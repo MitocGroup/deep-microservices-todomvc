@@ -4,7 +4,7 @@ source $(dirname $0)/_head.sh
 
 ### Run unit tests ###
 
-__FRONTEND_CMD="npm run test"
 __BACKEND_CMD="npm run test"
 
-subpath_run_cmd "${__SRC_PATH}" "${__BACKEND_CMD}" "${__FRONTEND_CMD}"
+subpath_run_cmd "${__SRC_PATH}" "${__BACKEND_CMD}"
+
