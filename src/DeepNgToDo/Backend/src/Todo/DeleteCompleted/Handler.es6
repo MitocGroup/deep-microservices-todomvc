@@ -32,6 +32,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       if (!id || typeof id !== 'string') {
         throw new frameworkException.InvalidArgumentException(id, 'string');
       }
+
       this.deleteTodo(id, (err) => {
         if (err) {
           throw new frameworkException.DatabaseOperationException(err);

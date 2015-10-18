@@ -11,5 +11,9 @@
     "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "istanbul": "^0.3.21",
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "isparta": "^3.1.0"
+  }
 }

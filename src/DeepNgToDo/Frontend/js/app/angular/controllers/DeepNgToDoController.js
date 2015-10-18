@@ -100,7 +100,9 @@ class DeepNgToDoController {
   }
 }
 
-DeepNgToDoController.$inject = ['$scope', 'deepNgToDoService', 'deepNgLoginService'];
+angular.module(moduleName).controller('DeepNgToDoController',
+  ['$scope', 'deepNgToDoService', 'deepNgLoginService', (...args) => {
+    return new DeepNgToDoController(...args);
+  },]
 
-angular.module(moduleName).controller('DeepNgToDoController', DeepNgToDoController);
-
+);

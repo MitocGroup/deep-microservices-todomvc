@@ -18,7 +18,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let frameworkException = DeepFramework.Core.Exception;
 
     if (!Array.isArray(request.data)) {
-      throw new frameworkException.InvalidArgumentException(request.data, 'array' );
+      throw new frameworkException.InvalidArgumentException(request.data, 'array');
     }
 
     if (!request.data.length) {
@@ -31,6 +31,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       if (!todo || typeof todo !== 'object') {
         throw new frameworkException.InvalidArgumentException(todo, 'object');
       }
+
       this.updateTodo(todo, (err) => {
         if (err) {
           throw new frameworkException.DatabaseOperationException(err);
