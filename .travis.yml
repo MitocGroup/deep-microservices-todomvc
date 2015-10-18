@@ -32,7 +32,6 @@ before_install:
   - npm install --global jasmine-core
   - npm install --global karma
   - npm install --global phantomjs
-
   - npm install --save-dev karma-jspm
   - npm install --save-dev karma-ng-html2js-preprocessor
   - npm install --save-dev karma-phantomjs-launcher
