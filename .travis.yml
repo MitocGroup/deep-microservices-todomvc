@@ -23,13 +23,23 @@ before_install:
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - npm install -g babel
   - npm install -g browserify
+  - npm install -g jscs
   - npm install -g mocha
   - npm install -g mocha-babel
-  - npm install -g istanbul
   - npm install -g isparta
   - npm install -g codacy-coverage
   - npm install -g istanbul-combine
   - npm install -g jasmine-core
+  - npm install -g karma
+  - npm install -g karma-babel-preprocessor
+  - npm install -g karma-chrome-launcher
+  - npm install -g karma-jasmine
+  - npm install -g karma-jspm
+  - npm install -g karma-ng-html2js-preprocessor
+  - npm install -g karma-phantomjs-launcher
+  - npm install -g karma-traceur-preprocessor
+  - npm install -g karma-verbose-reporter
+  - npm install -g phantomjs
   - cp test/package.json .
 after_success:
   - npm run coverage
