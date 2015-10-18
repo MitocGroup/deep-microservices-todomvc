@@ -26,12 +26,12 @@ before_install:
   - npm install -g jscs
   - npm install -g mocha
   - npm install -g mocha-babel
-  - npm install -g codacy-coverage
-  - npm install -g istanbul
-  - npm install -g istanbul-combine
-  - npm install -g jasmine-core
-  - npm install -g karma
-  - npm install -g phantomjs
+  - npm install --save-dev codacy-coverage
+  - npm install --save-dev istanbul
+  - npm install --save-dev istanbul-combine
+  - npm install --save-dev jasmine-core
+  - npm install --save-dev karma
+  - npm install --save-dev phantomjs
   - npm install --save-dev karma-jspm
   - npm install --save-dev karma-ng-html2js-preprocessor
   - npm install --save-dev karma-phantomjs-launcher
