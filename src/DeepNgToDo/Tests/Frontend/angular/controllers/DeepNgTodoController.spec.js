@@ -92,10 +92,8 @@ describe('Controllers', function() {
         error = e;
       }
 
+      //@todo - add check for async
       expect(error).toBe(null);
-      //@todo - for sync
-      //expect(controller.title).toEqual('');
-      //expect(controller.saving).toEqual(false);
     });
 
     it('update() method for event === \'blur\' && this.prevEvent === \'submit\'', function() {
@@ -163,32 +161,6 @@ describe('Controllers', function() {
       expect(controller.toDoService.editedTodo).toBe(null);
       expect(actualResult).toBe(undefined);
     });
-
-    // @todo - TBD
-    //it('update() method for !reverted and todo.Title === toDoService.originalTodo.Title', function() {
-    //  let actualResult = null;
-    //  let error = null;
-    //  let completedTask = {
-    //    Title: 'todo',
-    //    Completed: true,
-    //  };
-    //  let event = 'blur';
-    //  controller.prevEvent = false;
-    //  controller.reverted = false;
-    //
-    //  try {
-    //    expect(completedTask.Title).toBe('todo');
-    //    expect(controller.toDoService.originalTodo).toEqual({Task: 'todo'});
-    //    actualResult = controller.update(completedTask, event);
-    //  } catch (e) {
-    //    error = e;
-    //  }
-    //
-    //  expect(error).toBe(null);
-    //  expect(controller.reverted).toBe(false);
-    //  expect(controller.toDoService.editedTodo).toBe(null);
-    //  expect(actualResult).toBe(undefined);
-    //});
 
     it('delete() method', function() {
       let error = null;
