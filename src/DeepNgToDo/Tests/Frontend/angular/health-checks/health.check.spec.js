@@ -17,7 +17,7 @@ describe('Health checks', function() {
   });
 
   it('Should load ngMock', function() {
-    expect(typeof angular.mock.module).toBe('function');  //module is JavaScript reserved word
+    expect(typeof angular.mock.module).toBe('function');
     expect(typeof inject).toBe('function');
     expect(typeof dump).toBe('function');
   });

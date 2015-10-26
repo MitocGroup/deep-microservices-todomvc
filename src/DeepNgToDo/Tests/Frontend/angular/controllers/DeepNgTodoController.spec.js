@@ -10,7 +10,8 @@ describe('Controllers', function() {
   // Mocked Services
   angular.module('mocks', [])
     .factory('deepNgLoginService', function($q) {
-      var anonymousLogin = jasmine.createSpy('anonymousLogin').andCallFake(function() {
+      var anonymousLogin = jasmine.createSpy('anonymousLogin')
+        .andCallFake(function() {
         var token = 'test_token';
 
         if (passPromise) {
@@ -22,7 +23,7 @@ describe('Controllers', function() {
       });
 
       return {
-        anonymousLogin: anonymousLogin,
+        anonymousLogin: anonymousLogin(),
       };
     })
     .factory('deepNgToDoService', function($q) {
@@ -45,6 +46,10 @@ describe('Controllers', function() {
         allChecked: false,
         createToDo: createToDo,
         deleteTodo: deleTodo(),
+        originalTodo: {
+          Title: 'todo',
+          Completed: true,
+        },
       };
     });
 
@@ -53,65 +58,72 @@ describe('Controllers', function() {
     angular.module('mocks');
   });
 
-  beforeEach(inject(function($rootScope, $controller, _deepNgLoginService_, _deepNgToDoService_) {
+  beforeEach(
+    inject(
+      ($rootScope, $controller, _deepNgLoginService_, _deepNgToDoService_) => {
+        scope = $rootScope.$new();
 
-    //we can create a new scope for the controller using the $rootScope.$new method
-    scope = $rootScope.$new();
+        let inputParameters = {
+          $scope: scope,
+          deepNgToDoService: _deepNgToDoService_,
+          deepNgLoginService: _deepNgLoginService_,
+        };
 
-    let inputParameters = {
-      $scope: scope,
-      deepNgToDoService: _deepNgToDoService_,
-      deepNgLoginService: _deepNgLoginService_,
-    };
+        scope.$digest();
 
-    scope.$digest();
-
-    controller = $controller('DeepNgToDoController', inputParameters);
-    scope.$digest();
-  }));
+        controller = $controller('DeepNgToDoController', inputParameters);
+        scope.$digest();
+      })
+  );
 
   describe('DeepNgToDoController', function() {
-    it('DeepNgToDoController constructor sets valid default values', function() {
-      expect(Object.keys(controller).length).toBe(4);
-      expect(typeof controller.toDoService).toEqual('object');
-      expect(typeof controller.deepLog).toEqual('object');
-    });
-
-    it('create() method sets title=\'\' and saving=false', function() {
-      let actualResult = null;
-      let error = null;
-      controller.title = 'test';
-
-      try {
-        actualResult = controller.create();
-      } catch (e) {
-        error = e;
+    it('DeepNgToDoController constructor sets valid default values',
+      function() {
+        expect(Object.keys(controller).length).toBe(4);
+        expect(typeof controller.toDoService).toEqual('object');
+        expect(typeof controller.deepLog).toEqual('object');
       }
+    );
 
-      //expect(controller.title).toEqual('');
-      //expect(controller.saving).toEqual(false);
-    });
+    it('create() sets title="" and saving=false with response.isError',
+      function() {
+        let actualResult = null;
+        let error = null;
+        controller.title = 'test';
 
-    it('update() method for event === \'blur\' && this.prevEvent === \'submit\'', function() {
-      let actualResult = null;
-      let error = null;
-      let completedTask = {
-        Title: 'todo',
-        Completed: true,
-      };
-      let event = 'blur';
-      controller.prevEvent = 'submit';
+        try {
+          actualResult = controller.create();
+        } catch (e) {
+          error = e;
+        }
 
-      try {
-        actualResult = controller.update(completedTask, event);
-      } catch (e) {
-        error = e;
+        //@todo - add check for async
+        expect(error).toBe(null);
       }
+    );
 
-      expect(actualResult).toBe(undefined);
-      expect(error).toBe(null);
-      expect(controller.prevEvent).toBe(null);
-    });
+    it(
+      'update() for event === "blur" && this.prevEvent === "submit"',
+      function() {
+        let actualResult = null;
+        let error = null;
+        let completedTask = {
+          Title: 'todo',
+          Completed: true,
+        };
+        controller.prevEvent = 'submit';
+
+        try {
+          actualResult = controller.update(completedTask, 'blur');
+        } catch (e) {
+          error = e;
+        }
+
+        expect(actualResult).toBe(undefined);
+        expect(error).toBe(null);
+        expect(controller.prevEvent).toBe(null);
+      }
+    );
 
     it('update() method for reverted === true ', function() {
       let actualResult = null;
@@ -134,6 +146,32 @@ describe('Controllers', function() {
       expect(error).toBe(null);
       expect(controller.reverted).toBe(null);
     });
+
+    it(
+      'update() !reverted and todo.Title !== toDoService.originalTodo.Title',
+      function() {
+        let actualResult = null;
+        let error = null;
+        let completedTask = {
+          Title: 'new todo',
+          Completed: true,
+        };
+        let event = 'blur';
+        controller.prevEvent = false;
+        controller.reverted = false;
+
+        try {
+          actualResult = controller.update(completedTask, event);
+        } catch (e) {
+          error = e;
+        }
+
+        expect(error).toBe(null);
+        expect(controller.reverted).toBe(false);
+        expect(controller.toDoService.editedTodo).toBe(null);
+        expect(actualResult).toBe(undefined);
+      }
+    );
 
     it('delete() method', function() {
       let error = null;
