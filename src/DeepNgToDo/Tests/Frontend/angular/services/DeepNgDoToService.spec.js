@@ -2,7 +2,6 @@
 
 import moduleName from '../../../../Frontend/js/app/angular/name';
 
-
 describe('Services', function() {
   let deepNgToDoService;
   let $q;
@@ -39,148 +38,158 @@ describe('Services', function() {
     expect(deepNgToDoService.createToDo()).toBe(false);
   });
 
-  it('Check createToDo() method with title returns promise with reponse.isError', function() {
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
+  it('Check createToDo() with title returns promise with reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
 
-    try {
-      actualResult = deepNgToDoService.createToDo('test');
-    } catch (e) {
-      error = e;
+      try {
+        actualResult = deepNgToDoService.createToDo('test');
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  it('Check createToDo() with title returns promise with !reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
 
-  it('Check createToDo() method with title returns promise with !reponse.isError', function() {
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
+      try {
+        actualResult = deepNgToDoService.createToDo('test');
+      } catch (e) {
+        error = e;
+      }
 
-    try {
-      actualResult = deepNgToDoService.createToDo('test');
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
-
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  );
 
   it('Check hasToDo() method returns false', function() {
     expect(deepNgToDoService.hasTodo).toBe(false);
   });
 
-  it('Check updateTodo() method returns promise with reponse.isError', function() {
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
+  it('Check updateTodo() method returns promise with reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
 
-    try {
-      actualResult = deepNgToDoService.updateTodo('test');
-    } catch (e) {
-      error = e;
+      try {
+        actualResult = deepNgToDoService.updateTodo('test');
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  it('Check updateTodo() method returns promise with !reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
+      try {
+        actualResult = deepNgToDoService.updateTodo('test');
+      } catch (e) {
+        error = e;
+      }
 
-  it('Check updateTodo() method returns promise with !reponse.isError', function() {
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
-
-    try {
-      actualResult = deepNgToDoService.updateTodo('test');
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  it('Check fetchAllToDo() method returns promise with !reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
 
-  it('Check fetchAllToDo() method returns promise with !reponse.isError', function() {
+      try {
+        actualResult = deepNgToDoService.fetchAllToDo();
+      } catch (e) {
+        error = e;
+      }
 
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
-
-    try {
-      actualResult = deepNgToDoService.fetchAllToDo();
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  it('Check fetchAllToDo() method returns promise with reponse.isError',
+    function() {
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
 
-  it('Check fetchAllToDo() method returns promise with reponse.isError', function() {
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
+      try {
+        actualResult = deepNgToDoService.fetchAllToDo();
+      } catch (e) {
+        error = e;
+      }
 
-    try {
-      actualResult = deepNgToDoService.fetchAllToDo();
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
     }
-
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-  });
+  );
 
   it('Check todoNumber() getter returns 0', function() {
     expect(deepNgToDoService.todoNumber).toBe(0);
@@ -190,65 +199,69 @@ describe('Services', function() {
     expect(deepNgToDoService.completedCount).toBe(0);
   });
 
-  it('Check deleteTodo() method returns promise with reponse.isError', function() {
-    let todo = {
-      Title: 'first todo',
-      Completed: false,
-    };
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
+  it('Check deleteTodo() method returns promise with reponse.isError',
+    function() {
+      let todo = {
+        Title: 'first todo',
+        Completed: false,
+      };
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
 
-    try {
-      deepNgToDoService.todoList = [todo,];
-      expect(deepNgToDoService.todoNumber).toBe(1);
-      actualResult = deepNgToDoService.deleteTodo(todo);
-    } catch (e) {
-      error = e;
+      try {
+        deepNgToDoService.todoList = [todo,];
+        expect(deepNgToDoService.todoNumber).toBe(1);
+        actualResult = deepNgToDoService.deleteTodo(todo);
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
+      expect(deepNgToDoService.todoNumber).toBe(0);
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-    expect(deepNgToDoService.todoNumber).toBe(0);
-  });
+  it('Check deleteTodo() method returns promise with !reponse.isError',
+    function() {
+      let todo = {
+        Title: 'first todo',
+        Completed: false,
+      };
+      let error = null;
+      let actualResult = null;
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
 
-  it('Check deleteTodo() method returns promise with !reponse.isError', function() {
-    let todo = {
-      Title: 'first todo',
-      Completed: false,
-    };
-    let error = null;
-    let actualResult = null;
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
+      try {
+        deepNgToDoService.todoList = [todo,];
+        expect(deepNgToDoService.todoNumber).toBe(1);
+        actualResult = deepNgToDoService.deleteTodo(todo);
+      } catch (e) {
+        error = e;
+      }
 
-    try {
-      deepNgToDoService.todoList = [todo,];
-      expect(deepNgToDoService.todoNumber).toBe(1);
-      actualResult = deepNgToDoService.deleteTodo(todo);
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResult).not.toEqual(null);
+      expect(deepNgToDoService.todoNumber).toBe(0);
     }
-
-    expect(error).toBe(null);
-    expect(actualResult).not.toEqual(null);
-    expect(deepNgToDoService.todoNumber).toBe(0);
-  });
+  );
 
   it('Check toggleCompleted() method executes successfully', function() {
     let todo = {
@@ -274,23 +287,25 @@ describe('Services', function() {
     expect(deepNgToDoService.todoNgClass(todo)).toEqual(expectedResult);
   });
 
-  it('Check editTodo() method clones todo to restore it on demand', function() {
-    let todo = {
-      Title: 'first todo',
-      Completed: false,
-    };
-    deepNgToDoService.todoList = [todo,];
-    expect(deepNgToDoService.todoNumber).toBe(1);
-    deepNgToDoService.editTodo(todo);
+  it('Check editTodo() method clones todo to restore it on demand',
+    function() {
+      let todo = {
+        Title: 'first todo',
+        Completed: false,
+      };
+      deepNgToDoService.todoList = [todo,];
+      expect(deepNgToDoService.todoNumber).toBe(1);
+      deepNgToDoService.editTodo(todo);
 
-    // check values
-    expect(deepNgToDoService.editedTodo).toEqual(todo);
-    expect(deepNgToDoService.originalTodo).toEqual(todo);
+      // check values
+      expect(deepNgToDoService.editedTodo).toEqual(todo);
+      expect(deepNgToDoService.originalTodo).toEqual(todo);
 
-    // check object references
-    expect(deepNgToDoService.editedTodo).toBe(todo);
-    expect(deepNgToDoService.originalTodo).not.toBe(todo);
-  });
+      // check object references
+      expect(deepNgToDoService.editedTodo).toBe(todo);
+      expect(deepNgToDoService.originalTodo).not.toBe(todo);
+    }
+  );
 
   it('Check markAll() method', function() {
     let firstUncompletedTask = {
@@ -305,7 +320,8 @@ describe('Services', function() {
       Title: 'todo',
       Completed: true,
     };
-    deepNgToDoService.todoList = [firstUncompletedTask, completedTask, secondUncompletedTask];
+    deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
+      secondUncompletedTask,];
     expect(deepNgToDoService.todoNumber).toBe(2);
     deepNgToDoService.markAll(true);
     for (let todo of deepNgToDoService.todoList) {
@@ -313,79 +329,85 @@ describe('Services', function() {
     }
   });
 
-  it('Check deleteCompleted() method returns promise with reponse.isError', function() {
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
-    let firstUncompletedTask = {
-      Title: 'first todo',
-      Completed: false,
-    };
-    let secondUncompletedTask = {
-      Title: 'second todo',
-      Completed: false,
-    };
-    let completedTask = {
-      Title: 'todo',
-      Completed: true,
-    };
-    deepNgToDoService.todoList = [firstUncompletedTask, completedTask, secondUncompletedTask];
-    expect(deepNgToDoService.completedCount).toBe(1);
-    let actualResult = null;
-    let error = null;
-    try {
-      actualResult = deepNgToDoService.deleteCompleted();
-    } catch (e) {
-      error = e;
-    }
+  it('Check deleteCompleted() method returns promise with reponse.isError',
+    function() {
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
+      let firstUncompletedTask = {
+        Title: 'first todo',
+        Completed: false,
+      };
+      let secondUncompletedTask = {
+        Title: 'second todo',
+        Completed: false,
+      };
+      let completedTask = {
+        Title: 'todo',
+        Completed: true,
+      };
+      deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
+        secondUncompletedTask,];
+      expect(deepNgToDoService.completedCount).toBe(1);
+      let actualResult = null;
+      let error = null;
+      try {
+        actualResult = deepNgToDoService.deleteCompleted();
+      } catch (e) {
+        error = e;
+      }
 
-    for (let todo of deepNgToDoService.todoList) {
-      expect(todo.Completed).toBe(false);
+      for (let todo of deepNgToDoService.todoList) {
+        expect(todo.Completed).toBe(false);
+      }
     }
-  });
+  );
 
-  it('Check deleteCompleted() method returns promise with !reponse.isError', function() {
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
-    let firstUncompletedTask = {
-      Title: 'first todo',
-      Completed: false,
-    };
-    let secondUncompletedTask = {
-      Title: 'second todo',
-      Completed: false,
-    };
-    let completedTask = {
-      Title: 'todo',
-      Completed: true,
-    };
-    deepNgToDoService.todoList = [firstUncompletedTask, completedTask, secondUncompletedTask];
-    expect(deepNgToDoService.completedCount).toBe(1);
-    let actualResult = null;
-    let error = null;
-    try {
-      actualResult = deepNgToDoService.deleteCompleted();
-    } catch (e) {
-      error = e;
-    }
+  it('Check deleteCompleted() method returns promise with !reponse.isError',
+    function() {
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
+      let firstUncompletedTask = {
+        Title: 'first todo',
+        Completed: false,
+      };
+      let secondUncompletedTask = {
+        Title: 'second todo',
+        Completed: false,
+      };
+      let completedTask = {
+        Title: 'todo',
+        Completed: true,
+      };
+      deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
+        secondUncompletedTask,];
+      expect(deepNgToDoService.completedCount).toBe(1);
+      let actualResult = null;
+      let error = null;
+      try {
+        actualResult = deepNgToDoService.deleteCompleted();
+      } catch (e) {
+        error = e;
+      }
 
-    for (let todo of deepNgToDoService.todoList) {
-      expect(todo.Completed).toBe(false);
+      for (let todo of deepNgToDoService.todoList) {
+        expect(todo.Completed).toBe(false);
+      }
     }
-  });
+  );
 
   it('Check revertEdits() method', function() {
     let error = null;
@@ -416,51 +438,53 @@ describe('Services', function() {
     expect(deepNgToDoService.reverted).toBe(true);
   });
 
-  it('Check markAllSend() method returns promise with reponse.isError', function () {
-    let error = null;
-    let actualResults = null;
-    deepNgToDoService.todoList = [{Title: 'todo', Completed: false,},];
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({isError: true, error: '404: Not Found'});
-          },
-        };
-      },
-    };
+  it('Check markAllSend() method returns promise with reponse.isError',
+    function() {
+      let error = null;
+      let actualResults = null;
+      deepNgToDoService.todoList = [{Title: 'todo', Completed: false,},];
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({isError: true, error: '404: Not Found'});
+            },
+          };
+        },
+      };
+      try {
+        deepNgToDoService.markAllSend(false);
+      } catch (e) {
+        error = e;
+      }
 
-    try {
-      deepNgToDoService.markAllSend(false);
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResults).not.toEqual({});
     }
+  );
 
-    expect(error).toBe(null);
-    expect(actualResults).not.toEqual({});
-  });
+  it('Check markAllSend() method returns promise with !reponse.isError',
+    function() {
+      let error = null;
+      let actualResults = null;
+      deepNgToDoService.todoList = [{Title: 'todo', Completed: false,},];
+      deepNgToDoService.todoResource = {
+        request: function() {
+          return {
+            send: function(cb) {
+              return cb({data: 'test data'});
+            },
+          };
+        },
+      };
+      try {
+        deepNgToDoService.markAllSend(false);
+      } catch (e) {
+        error = e;
+      }
 
-  it('Check markAllSend() method returns promise with !reponse.isError', function () {
-    let error = null;
-    let actualResults = null;
-    deepNgToDoService.todoList = [{Title: 'todo', Completed: false,},];
-    deepNgToDoService.todoResource = {
-      request: function() {
-        return {
-          send: function(cb) {
-            return cb({data: 'test data'});
-          },
-        };
-      },
-    };
-
-    try {
-      deepNgToDoService.markAllSend(false);
-    } catch (e) {
-      error = e;
+      expect(error).toBe(null);
+      expect(actualResults).not.toEqual({});
     }
-
-    expect(error).toBe(null);
-    expect(actualResults).not.toEqual({});
-  });
+  );
 });

@@ -21,15 +21,13 @@ describe('Directives', function() {
   describe('Positive suite', function() {
     it('should update on truthy expression', function() {
       var element = angular.element('<title update-title="update text">');
-
-
-      var obj = compile(element)(scope);
+      var compiledElement = compile(element)(scope);
 
       // fire all the watches
       scope.$digest();
 
       // Check that the compiled element contains the templated content
-      expect(element.html()).not.toContain('It works!');
+      expect(compiledElement.html()).not.toContain('It works!');
     });
   });
 });

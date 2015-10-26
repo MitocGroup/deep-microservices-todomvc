@@ -34,5 +34,4 @@ describe('Directives', function() {
       expect(browser.deferredFns.length).toBe(0);
     });
   });
-
 });

@@ -111,7 +111,6 @@ describe('Controllers', function() {
           Title: 'todo',
           Completed: true,
         };
-        let event = 'blur';
         controller.prevEvent = 'submit';
 
         try {
