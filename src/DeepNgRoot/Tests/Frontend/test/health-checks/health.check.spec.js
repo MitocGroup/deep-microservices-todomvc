@@ -1,6 +1,7 @@
 'use strict';
 
 import moduleName from '../../../../Frontend/js/app/name';
+import {bootstrap} from '../../../../Frontend/js/app/index';
 
 describe('Health checks', function() {
   it('Should load angular library', function() {
@@ -23,5 +24,10 @@ describe('Health checks', function() {
 
   it('Module name is [ng-root]"', function() {
     expect(moduleName).toBe('ng-root');
+  });
+
+  it('Bootstrap', function() {
+    let actualResult = bootstrap();
+    expect(actualResult).toBe(undefined);
   });
 });

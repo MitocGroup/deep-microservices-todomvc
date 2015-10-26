@@ -19,18 +19,19 @@ describe('Directives', function() {
   }));
 
   describe('Positive suite', function() {
-    it('should focus on truthy expression', function() {
-      var el = angular.element('<input todo-focus="focus">');
-      scope.focus = false;
+    it('should escape on truthy expression', function() {
+      var el = angular.element('<input todo-escape="escape">');
+
+      scope.escape = false;
 
       compile(el)(scope);
       expect(browser.deferredFns.length).toBe(0);
 
       scope.$apply(function() {
-        scope.focus = true;
+        scope.escape = true;
       });
 
-      expect(browser.deferredFns.length).toBe(1);
+      expect(browser.deferredFns.length).toBe(0);
     });
   });
 

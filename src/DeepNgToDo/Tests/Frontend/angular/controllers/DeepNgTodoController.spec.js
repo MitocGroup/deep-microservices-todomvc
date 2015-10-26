@@ -22,7 +22,7 @@ describe('Controllers', function() {
       });
 
       return {
-        anonymousLogin: anonymousLogin,
+        anonymousLogin: anonymousLogin(),
       };
     })
     .factory('deepNgToDoService', function($q) {
@@ -45,6 +45,10 @@ describe('Controllers', function() {
         allChecked: false,
         createToDo: createToDo,
         deleteTodo: deleTodo(),
+        originalTodo: {
+          Title: 'todo',
+          Completed: true,
+        },
       };
     });
 
@@ -77,7 +81,7 @@ describe('Controllers', function() {
       expect(typeof controller.deepLog).toEqual('object');
     });
 
-    it('create() method sets title=\'\' and saving=false', function() {
+    it('create() method sets title=\'\' and saving=false with response.isError', function() {
       let actualResult = null;
       let error = null;
       controller.title = 'test';
@@ -88,6 +92,8 @@ describe('Controllers', function() {
         error = e;
       }
 
+      expect(error).toBe(null);
+      //@todo - for sync
       //expect(controller.title).toEqual('');
       //expect(controller.saving).toEqual(false);
     });
@@ -134,6 +140,55 @@ describe('Controllers', function() {
       expect(error).toBe(null);
       expect(controller.reverted).toBe(null);
     });
+
+    it('update() method for !reverted and todo.Title !== toDoService.originalTodo.Title', function() {
+      let actualResult = null;
+      let error = null;
+      let completedTask = {
+        Title: 'new todo',
+        Completed: true,
+      };
+      let event = 'blur';
+      controller.prevEvent = false;
+      controller.reverted = false;
+
+      try {
+        actualResult = controller.update(completedTask, event);
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBe(null);
+      expect(controller.reverted).toBe(false);
+      expect(controller.toDoService.editedTodo).toBe(null);
+      expect(actualResult).toBe(undefined);
+    });
+
+    // @todo - TBD
+    //it('update() method for !reverted and todo.Title === toDoService.originalTodo.Title', function() {
+    //  let actualResult = null;
+    //  let error = null;
+    //  let completedTask = {
+    //    Title: 'todo',
+    //    Completed: true,
+    //  };
+    //  let event = 'blur';
+    //  controller.prevEvent = false;
+    //  controller.reverted = false;
+    //
+    //  try {
+    //    expect(completedTask.Title).toBe('todo');
+    //    expect(controller.toDoService.originalTodo).toEqual({Task: 'todo'});
+    //    actualResult = controller.update(completedTask, event);
+    //  } catch (e) {
+    //    error = e;
+    //  }
+    //
+    //  expect(error).toBe(null);
+    //  expect(controller.reverted).toBe(false);
+    //  expect(controller.toDoService.editedTodo).toBe(null);
+    //  expect(actualResult).toBe(undefined);
+    //});
 
     it('delete() method', function() {
       let error = null;
