@@ -23,7 +23,7 @@ describe('Directives', function() {
       var element = angular.element('<title update-title="update text">');
 
 
-      var obj = compile(el)(scope);
+      var obj = compile(element)(scope);
 
       // fire all the watches
       scope.$digest();
