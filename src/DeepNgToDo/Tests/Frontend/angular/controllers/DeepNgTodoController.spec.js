@@ -111,11 +111,10 @@ describe('Controllers', function() {
           Title: 'todo',
           Completed: true,
         };
-        let event = 'blur';
         controller.prevEvent = 'submit';
 
         try {
-          actualResult = controller.update(completedTask, event);
+          actualResult = controller.update(completedTask, 'blur');
         } catch (e) {
           error = e;
         }
