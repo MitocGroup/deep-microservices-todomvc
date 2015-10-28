@@ -1,48 +1,53 @@
-![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Microservices ToDo App 
-=============================
+![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP ToDo App 
+===============
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)
 [![Codacy Badge](https://api.codacy.com/project/badge/d3dd5bd83d75491dbd3bd1f935d8a7fb)](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-todo-app/badge.svg?branch=master&service=github)](https://coveralls.io/github/MitocGroup/deep-microservices-todo-app)
 
-[Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS.
+`DEEP Todo App` is a web app inspired from AngularJS TodoMVC Example 
+(https://github.com/tastejs/todomvc/tree/master/examples/angularjs). It reuses AngularJS module and integrates using
+[DEEP Framework](https://github.com/MitocGroup/deep-framework) to streamline development and deployment 
+using cloud-based web services.
 
-## Getting Started
+## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-DEEP Microservice ToDo App can be used in 4 simple steps:
+`DEEP Todo App` can be used by executing the following 4 simple steps in command line:
 
-- Step 1: Install `deepify` (also known as DEEP CLI)
-```bash
-npm install deepify -g
-```
-*Note - [How to Install Node.js](http://howtonode.org/how-to-install-nodejs)*
+1. Install DEEP CLI, also known as deepify: `npm install deepify -g`
+> deepify is a collection of tools that empower developers and devops engineers to automate
+the management of web apps built on top of DEEP ecosystem.
 
-- Step 2: Using `git`, clone DEEP Microservice ToDo App repository
-```bash
-git clone https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app
-```
+2. Using git, clone this repository: `git clone https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app`
+> git clone makes a copy of the repository, allowing you to use the code locally.
 
-- Step 3: Using `deepify`, run DEEP Microservice ToDo App locally
-```bash
-deepify server ~/deep-todo-app/src -o
-```
+3. Using deepify, run locally the helloworld example: `deepify server ~/deep-todo-app -o`
+> deepify launches a web server that can be used for local development, without making calls
+to web services from cloud providers like AWS. This step can be also labeled as
+[Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
-- Step 4: Using `deepify`, deploy DEEP Microservice ToDo App to AWS
-```bash
-deepify deploy ~/deep-todo-app
-```
+4. Using deepify, deploy to AWS the helloworld example: `deepify deploy ~/deep-todo-app`
+> deepify provisions the infrastructure and deploys the web app, empowering developers and
+devops engineers to automate the process. This step can be also labeled as
+[Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
+
+To learn more about `DEEP CLI` and `DEEP Framework`, please follow the link
+[What is DEEP Framework?](https://github.com/MitocGroup/deep-framework/blob/master/README.md#what-is-deep-framework-)
 
 ### Running Microservices in Development
 
-To be updated
-
+See Step 3 in 
+[Getting Started](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#getting-started)
+> Coming soon (more details)
 
 ### Running Microservices in Production
 
-To be updated
+See Step 4 in 
+[Getting Started](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#getting-started)
+> Coming soon (more details)
 
 
-## Directory Layout
+## Directory Layout [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
 ```
 DeepNgToDo/             --> root folder of the DeepNgToDo microservice
@@ -85,62 +90,52 @@ DeepNgToDo/             --> root folder of the DeepNgToDo microservice
 ```
 
 
-## Testing
+## How do I test this project? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
 Our goal is to support two kinds of testing in the deep-microservice-todo-app: Unit tests and End to End tests.
 
 ### Running Unit Tests
 
-To be updated
+Initially microservice preconfigured with health-check unit tests. These are written in
+[Jasmine](https://github.com/jasmine/jasmine), which we run with 
+[Karma Test Runner](https://github.com/karma-runner/karma). We provide a Karma configuration file to run them.
+
+* the configuration is found at `config.karma.js`
+* the unit tests are found next to the code they are testing and are named as `*.spec.js`
+
+The easiest way to run the unit tests is to use the supplied npm script:
+
+```
+karma start path/to/config.karma.js
+```
+
+This script will start the Karma test runner to execute the unit tests. Moreover, Karma will sit and
+watch the source and test files for changes and then re-run the tests whenever any of them change.
+This is the recommended strategy; if your unit tests are being run every time you save a file then
+you receive instant feedback on any changes that break the expected code functionality.
+
+You can also ask Karma to do a single run of the tests and then exit.  
+
+Besides of Karma we also provide ```Mocha + Chai``` preconfiguration for backend unit testing.
+
+As best practice was configured code coverage tool ```Istanbul``` to gather actual code coverage metrics in ES6 
+without code transpiling (was used ```isparta``` reporter).
 
 ### Running End to End Tests
 
 Coming soon
 
 
-## Continuous Integration
+## How can I get involved? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-### Travis CI
-
-[Travis CI](https://travis-ci.org/MitocGroup/deep-microservices-todo-app) is a continuous integration service
-used to build and testprojects hosted on GitHub. Travis CI is configured by adding a file named 
-[.travis.yml](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/.travis.yml), 
-which is a YAML format text file, to the root directory of the GitHub repository.
-
-### Coveralls
-
-[Coveralls](https://coveralls.io/github/MitocGroup/deep-microservices-todo-app) provides 
-constant updates on your project's automated test coverage. It is now available for open source projects 
-to start tracking code coverage on project.
-
-### Codacy
-
-[Codacy](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app) offers an automated 
-code review tool for developers that continuously monitors code for problematic patterns, with the aim being 
-to reduce the amount of time spent poring over code style.
-
-### ESDoc
-
-[ESDoc](https://esdoc.org) is a documentation generator for JavaScript(ES6). It produces a practical documentation, 
-measures the coverage, integrates the test code and more.
-
-
-## Digital Enterprise End-to-end Platform
-
-[Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS. We enable businesses and developers to achieve more by doing less. [DEEP Framework](https://github.com/MitocGroup/deep-framework) abstracts the cloud services functionality and makes it easy to use and developer friendly.
-
-DEEP is using [microservices architecture](https://en.wikipedia.org/wiki/Microservices) on serverless environments from cloud providers like AWS. [DEEP Microservice](https://github.com/MitocGroup/deep-framework/blob/master/docs/microservice.md) is the predefined structure of a microservice (an application) in DEEP. There is clear separation between frontend, backend and database, as well as unit tests and documentation.
-
-> [DEEP Marketplace](https://www.deep.mg) (aka [www.deep.mg](https://www.deep.mg)) is a web application built using DEEP and published on serverless environment from [Amazon Web Services](https://aws.amazon.com) (aka [aws.amazon.com](https://aws.amazon.com)). We make it faster and easier for developers to build and publish their software, as well as for businesses to discover and test applications they are looking for. Our goal is to connect businesses with developers, and empower technical teams to build self-service software that none technical teams could use. The marketplace is like Apple's App Store for web applications that run natively on cloud providers like AWS.
-
-## Feedback
+### Feedback
 
 We are eager to get your feedback, so please use whatever communication channel you prefer:
-- [github issues](https://github.com/MitocGroup/deep-framework/issues)
+- [github issues](https://github.com/MitocGroup/deep-microservices-todo-app/issues)
 - [gitter chat room](https://gitter.im/MitocGroup/deep-framework)
 - [deep email address](mailto:feedback@deep.mg)
 
-## Contribution
+### Contribution
 
 This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
 
@@ -149,6 +144,19 @@ This project is open source, and we encourage developers to contribute. Here bel
 3. Perform a [pull request](http://help.github.com/pull-requests/) from your repository back into original repository in GitHub.
 
 Make sure you update `package.json` (or `deepkg.json`, depends on the use case) and put your name and contact information in contributors section. We would like to recognize the work and empower every contributor in creative ways :)
+
+### Roadmap
+
+Our short-to-medium-term roadmap items, in order of descending priority:
+
+Feature | Details | Owner
+--------|---------|------
+Implement end-to-end testing | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+
+### Changelog
+
+Changelog files are located in `/changelog` folder.
+> See [CHANGELOG.md](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/CHANGELOG.md) for latest changelog.
 
 ### License
 
