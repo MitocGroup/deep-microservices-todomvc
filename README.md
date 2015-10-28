@@ -5,10 +5,10 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/d3dd5bd83d75491dbd3bd1f935d8a7fb)](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-todo-app/badge.svg?branch=master&service=github)](https://coveralls.io/github/MitocGroup/deep-microservices-todo-app)
 
-`DEEP Todo App` is a web app inspired from AngularJS TodoMVC Example 
-(https://github.com/tastejs/todomvc/tree/master/examples/angularjs). It reuses AngularJS module and integrates using
-[DEEP Framework](https://github.com/MitocGroup/deep-framework) to streamline development and deployment 
-using cloud-based web services.
+`DEEP Todo App` (https://github.com/MitocGroup/deep-microservices-todo-app) is a web app inspired from 
+AngularJS TodoMVC Example (https://github.com/tastejs/todomvc/tree/master/examples/angularjs). It reuses 
+AngularJS module and integrates using [DEEP Framework](https://github.com/MitocGroup/deep-framework) 
+to streamline development and deploymentusing cloud-based web services.
 
 ## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
