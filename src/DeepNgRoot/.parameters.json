@@ -1,8 +1,0 @@
-{
-  "globals": {
-    "userProviderEndpoint": "@deep.auth:user-retrieve",
-    "security|identityProviders|www.amazon.com": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb"
-  },
-  "backend": {},
-  "frontend": {}
-}

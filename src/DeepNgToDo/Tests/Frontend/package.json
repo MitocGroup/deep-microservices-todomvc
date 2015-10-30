@@ -18,6 +18,7 @@
       "angular": "github:angular/bower-angular@1.4.0",
       "angular-mocks": "github:angular/bower-angular-mocks@1.4.4",
       "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
+      "css": "github:systemjs/plugin-css@0.1.13",
       "es5-shim": "github:es-shims/es5-shim@^4.1.7",
       "es6-shim": "github:es-shims/es6-shim@^0.32.3"
     },
