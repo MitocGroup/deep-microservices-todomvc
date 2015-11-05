@@ -23,7 +23,7 @@
     </section>
     <footer class="footer" ng-show="toDoService.hasTodo" ng-cloak>
         <span class="todo-count"><strong>{{toDoService.todoNumber}}</strong>
-            <ng-pluralize count="toDoService.tasksNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+            <ng-pluralize count="toDoService.todoNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
         </span>
         <ul class="filters">
             <li>

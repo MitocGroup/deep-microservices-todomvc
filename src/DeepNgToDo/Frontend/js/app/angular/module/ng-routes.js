@@ -10,6 +10,9 @@ var routes = {
     controller: 'DeepNgToDoController',
     controllerAs: 'todoCtrl',
     templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html'),
+    data: {
+      pageTitle: 'DEEP Framework • TodoMVC',
+    },
   },
 };
 

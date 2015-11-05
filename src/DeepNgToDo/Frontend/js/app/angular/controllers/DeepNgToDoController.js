@@ -58,12 +58,16 @@ class DeepNgToDoController {
 
     this.prevEvent = event;
 
-    if (this.reverted) {
-      this.reverted = null;
+    if (this.toDoService.reverted) {
+      this.toDoService.reverted = null;
       return;
     }
 
     todo.Title = todo.Title.trim();
+
+    if (todo.Title === "") {
+      this.delete(todo);
+    }
 
     if (this.toDoService.originalTodo && todo.Title === this.toDoService.originalTodo.Title) {
       this.toDoService.editedTodo = null;
