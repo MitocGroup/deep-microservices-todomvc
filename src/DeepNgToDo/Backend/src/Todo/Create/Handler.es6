@@ -27,8 +27,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param callback
    */
   createTodo(data, callback) {
-    let deepDb = DeepFramework.Kernel.container.get('db');
-    let TodoList = deepDb.get('Todo');
+    let TodoList = this._kernel.get('db').get('Todo');
 
     TodoList.createItem(data, (err, todo) => {
       callback(err, todo);

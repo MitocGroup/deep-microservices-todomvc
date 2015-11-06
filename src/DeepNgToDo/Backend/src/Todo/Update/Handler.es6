@@ -12,8 +12,7 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   handle(request) {
-    let deepDb     = DeepFramework.Kernel.container.get('db');
-    let Todo    = deepDb.get('Todo');
+    let Todo = this._kernel.get('db').get('Todo');
 
     if (!request.data.Id || typeof request.data.Id !== 'string') {
       throw new InvalidArgumentException(request.data.Id, 'string');
