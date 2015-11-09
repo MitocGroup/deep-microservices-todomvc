@@ -14,19 +14,27 @@ to streamline development and deploymentusing cloud-based web services.
 
 `DEEP Todo App` can be used by executing the following 4 simple steps in command line:
 
-1. `npm install deepify -g` # Install DEEP CLI, also known as deepify
+1. Install DEEP CLI, also known as deepify:
+
+  `npm install deepify -g`
 > deepify is a collection of tools that empower developers and devops engineers to automate
 the management of web apps built on top of DEEP ecosystem.
 
-2. `git clone https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app` # Using git, clone this repository
+2. Using git, clone this repository:
+
+  `git clone https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app`
 > git clone makes a copy of the repository, allowing you to use the code locally.
 
-3. `deepify server ~/deep-todo-app -o` # Using deepify, run locally the helloworld example
+3. Using deepify, run locally the helloworld example:
+
+  `deepify server ~/deep-todo-app -o`
 > deepify launches a web server that can be used for local development, without making calls
 to web services from cloud providers like AWS. This step can be also labeled as
 [Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
-4. `deepify deploy ~/deep-todo-app` # Using deepify, deploy to AWS the helloworld example
+4. Using deepify, deploy to AWS the helloworld example:
+
+  `deepify deploy ~/deep-todo-app`
 > deepify provisions the infrastructure and deploys the web app, empowering developers and
 devops engineers to automate the process. This step can be also labeled as
 [Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
