@@ -7,8 +7,8 @@
 
 `DEEP Todo App` (https://github.com/MitocGroup/deep-microservices-todo-app) is a web app inspired from 
 AngularJS TodoMVC Example (https://github.com/tastejs/todomvc/tree/master/examples/angularjs). It reuses 
-AngularJS module and integrates using [DEEP Framework](https://github.com/MitocGroup/deep-framework) 
-to streamline development and deploymentusing cloud-based web services.
+TodoMVC's module and integrates with [DEEP Framework](https://github.com/MitocGroup/deep-framework) 
+to streamline development and deployment of the web app using cloud-based web services.
 
 ## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
