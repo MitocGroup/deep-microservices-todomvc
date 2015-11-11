@@ -1,7 +1,7 @@
 'use strict';
 
 if (typeof Symbol === 'undefined') {
-  require('babel-core/polyfill');
+  require('babel-polyfill');
 }
 
 import DeepFramework from 'deep-framework';

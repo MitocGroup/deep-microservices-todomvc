@@ -20,8 +20,8 @@
     "postinstall": "BABEL_ENV=production babel -x \".es6\" ./ --out-dir ./"
   },
   "dependencies": {
-    "deep-framework": "*",
-    "babel-core": "5.5.*"
+    "deep-framework": "1.1.*",
+    "babel-polyfill": "6.1.*"
   },
   "devDependencies": {
   },
