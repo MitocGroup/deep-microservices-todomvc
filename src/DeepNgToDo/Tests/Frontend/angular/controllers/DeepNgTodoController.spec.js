@@ -79,7 +79,7 @@ describe('Controllers', function() {
   describe('DeepNgToDoController', function() {
     it('DeepNgToDoController constructor sets valid default values',
       function() {
-        expect(Object.keys(controller).length).toBe(4);
+        expect(Object.keys(controller).length).toBe(5);
         expect(typeof controller.toDoService).toEqual('object');
         expect(typeof controller.deepLog).toEqual('object');
       }
@@ -134,7 +134,7 @@ describe('Controllers', function() {
       };
       let event = 'blur';
       controller.prevEvent = false;
-      controller.reverted = true;
+      controller.toDoService.reverted = true;
 
       try {
         actualResult = controller.update(completedTask, event);
@@ -144,7 +144,7 @@ describe('Controllers', function() {
 
       expect(actualResult).toBe(undefined);
       expect(error).toBe(null);
-      expect(controller.reverted).toBe(null);
+      expect(controller.toDoService.reverted).toBe(null);
     });
 
     it(
@@ -158,7 +158,7 @@ describe('Controllers', function() {
         };
         let event = 'blur';
         controller.prevEvent = false;
-        controller.reverted = false;
+        controller.toDoService.reverted = false;
 
         try {
           actualResult = controller.update(completedTask, event);
@@ -167,7 +167,7 @@ describe('Controllers', function() {
         }
 
         expect(error).toBe(null);
-        expect(controller.reverted).toBe(false);
+        expect(controller.toDoService.reverted).toBe(false);
         expect(controller.toDoService.editedTodo).toBe(null);
         expect(actualResult).toBe(undefined);
       }

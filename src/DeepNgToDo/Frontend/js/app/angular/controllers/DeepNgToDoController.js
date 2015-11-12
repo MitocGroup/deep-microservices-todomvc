@@ -12,11 +12,21 @@ class DeepNgToDoController {
    * @param $scope
    * @param {DeepNgToDoService} deepNgToDoService
    * @param {DeepNgLoginService} deepNgLoginService
+   * @param $stateParams
    */
-  constructor($scope, deepNgToDoService, deepNgLoginService) {
+  constructor($scope, deepNgToDoService, deepNgLoginService, $stateParams) {
+    this.$stateParams = $stateParams;
+
     this.deepLog = DeepFramework.Kernel.container.get('log');
     $scope.toDoService = deepNgToDoService;
     this.toDoService = deepNgToDoService;
+
+    $scope.$on('$stateChangeSuccess', () => {
+      let status = $scope.status = $stateParams.status || '';
+      $scope.statusFilter = (status === 'active') ?
+      { Completed: false } : (status === 'completed') ?
+      { Completed: true } : {};
+    });
 
     this.throttledToggleCompleted = _.debounce((todo, completed) => {
       this.toDoService.toggleCompleted(todo, completed);
@@ -58,12 +68,16 @@ class DeepNgToDoController {
 
     this.prevEvent = event;
 
-    if (this.reverted) {
-      this.reverted = null;
+    if (this.toDoService.reverted) {
+      this.toDoService.reverted = null;
       return;
     }
 
     todo.Title = todo.Title.trim();
+
+    if (todo.Title === "") {
+      this.delete(todo);
+    }
 
     if (this.toDoService.originalTodo && todo.Title === this.toDoService.originalTodo.Title) {
       this.toDoService.editedTodo = null;
@@ -101,7 +115,7 @@ class DeepNgToDoController {
 }
 
 angular.module(moduleName).controller('DeepNgToDoController',
-  ['$scope', 'deepNgToDoService', 'deepNgLoginService', (...args) => {
+  ['$scope', 'deepNgToDoService', 'deepNgLoginService', '$stateParams', (...args) => {
     return new DeepNgToDoController(...args);
   },]
 

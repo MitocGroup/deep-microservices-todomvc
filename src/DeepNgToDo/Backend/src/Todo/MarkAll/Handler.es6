@@ -10,8 +10,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   constructor(...args) {
     super(...args);
 
-    let deepDb = DeepFramework.Kernel.container.get('db');
-    this.todoTable = deepDb.get('Todo');
+    this.todoTable = this._kernel.get('db').get('Todo');
   }
 
   handle(request) {
@@ -50,7 +49,6 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param {Function} callback
    */
   updateTodo(todo, callback) {
-    console.log(todo.Id);
     if (!todo.Id || typeof todo.Id !== 'string') {
       throw new InvalidArgumentException(todo.Id, 'string');
     }

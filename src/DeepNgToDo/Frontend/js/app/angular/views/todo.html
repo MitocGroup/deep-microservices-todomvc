@@ -23,17 +23,17 @@
     </section>
     <footer class="footer" ng-show="toDoService.hasTodo" ng-cloak>
         <span class="todo-count"><strong>{{toDoService.todoNumber}}</strong>
-            <ng-pluralize count="toDoService.tasksNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+            <ng-pluralize count="toDoService.todoNumber" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
         </span>
         <ul class="filters">
             <li>
-                <a ng-class="{selected: !statusFilter}" ng-click="statusFilter = ''" href="javascript:;">All</a>
+                <a ng-href="#/" ng-class="{selected: !statusFilter}" ng-click="statusFilter = ''" href="javascript:;">All</a>
             </li>
             <li>
-                <a ng-class="{selected: statusFilter.Completed === false}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
+                <a ng-href="#/active" ng-class="{selected: statusFilter.Completed === false}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
             </li>
             <li>
-                <a ng-class="{selected: statusFilter.Completed === true}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
+                <a ng-href="#/completed" ng-class="{selected: statusFilter.Completed === true}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
             </li>
         </ul>
         <button class="clear-completed" ng-show="toDoService.completedCount" ng-click="toDoService.deleteCompleted()">Clear completed</button>
