@@ -17,7 +17,8 @@
     "DEEP TodoMVC"
   ],
   "scripts": {
-    "postinstall": "BABEL_ENV=production babel -x \".es6\" ./ --out-dir ./"
+    "postinstall": "npm run compile",
+    "compile": "deepify compile-es6 `pwd`"
   },
   "dependencies": {
     "deep-framework": "1.1.*",
