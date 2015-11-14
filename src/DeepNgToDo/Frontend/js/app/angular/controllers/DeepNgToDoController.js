@@ -30,11 +30,11 @@ class DeepNgToDoController {
 
     this.throttledToggleCompleted = _.debounce((todo, completed) => {
       this.toDoService.toggleCompleted(todo, completed);
-    }, 1000);
+    }, 300);
 
     this.throttledMarkAll = _.debounce((state) => {
       this.toDoService.markAllSend(state);
-    }, 1000);
+    }, 500);
 
     deepNgLoginService.anonymousLogin().then(() => {
       deepNgToDoService.fetchAllToDo().catch((error) => {
