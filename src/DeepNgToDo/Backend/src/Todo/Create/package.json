@@ -25,8 +25,8 @@
     "compile": "deepify compile-es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "1.2.*",
-    "babel-polyfill": "6.1.*"
+    "deep-framework": "^1.2.x",
+    "babel-polyfill": "^6.1.x"
   },
   "devDependencies": {
   },
