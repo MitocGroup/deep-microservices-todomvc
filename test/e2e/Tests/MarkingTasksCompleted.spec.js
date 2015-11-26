@@ -1,6 +1,6 @@
-var taskList = require('../POMs/TaskList.js');
+var taskList = require('../POMs/TasksList.js');
 
-describe('Test1', function () {
+describe('Verify that tasks can be marked completed/active', function () {
 
   beforeAll(function() {
     //Opening ToDoApp
@@ -9,7 +9,7 @@ describe('Test1', function () {
     taskList.clearAllTasks();
   });
 
-  it('should verify that tasks can be successfully marked completed/active and then filtered', function() {
+  it('Validating that tasks can be successfully marked completed/active and then filtered', function() {
     //Creating two new tasks
     taskList.addTask('first test task');
     taskList.addTask('second test task');

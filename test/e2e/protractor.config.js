@@ -6,7 +6,7 @@ exports.config = {
         'browserName': 'chrome',
     },
 
-    framework: 'jasmine',
+    framework: 'jasmine2',
 
     specs: ['./Tests/*.spec.js'],
 

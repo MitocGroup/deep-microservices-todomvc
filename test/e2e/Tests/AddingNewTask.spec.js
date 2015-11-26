@@ -1,4 +1,4 @@
-var taskList = require('../POMs/TaskList.js');
+var taskList = require('../POMs/TasksList.js');
 
 describe('Verify that new task can be successfully added', function () {
 
