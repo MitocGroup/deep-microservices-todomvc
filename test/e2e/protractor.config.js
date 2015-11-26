@@ -3,6 +3,9 @@ var config = {
 
     capabilities: {
         'browserName': 'chrome',
+        'chromeOptions': {
+            args: ['--test-type']
+        }
     },
 
     framework: 'jasmine2',
