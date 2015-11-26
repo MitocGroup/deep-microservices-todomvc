@@ -1,6 +1,14 @@
 language: node_js
 sudo: false
 node_js:
+- 0.11.0
+- 0.11.1
+- 0.11.2
+- 0.11.3
+- 0.11.4
+- 0.11.5
+- 0.11.6
+- 0.11.7
 - 0.12.1
 - 0.12.2
 - 0.12.3
@@ -37,7 +45,6 @@ before_install:
 - npm install -g deepify
 - npm install -g jspm
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-- npm install -g protractor
 - npm install -g babel@5.8.19
 - npm install -g browserify@11.2.0
 - npm install -g jscs@2.1.1
