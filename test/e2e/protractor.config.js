@@ -1,12 +1,20 @@
 var config = {
-    seleniumAddress: 'http://localhost:4444/wd/hub/',
+    //seleniumAddress: 'http://localhost:4444/wd/hub/',
+    //
+    //capabilities: {
+    //    'browserName': 'chrome',
+    //    'chromeOptions': {
+    //        args: ['--test-type']
+    //    }
+    //},
 
-    capabilities: {
-        'browserName': 'chrome',
-        'chromeOptions': {
-            args: ['--test-type']
-        }
-    },
+    multiCapabilities: [{
+        browserName: 'firefox',
+    }, {
+        browserName: 'chrome',
+    }, {
+        browserName: 'internet explorer',
+    }],
 
     framework: 'jasmine2',
 
