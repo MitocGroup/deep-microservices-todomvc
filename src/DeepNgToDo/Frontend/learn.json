@@ -2274,7 +2274,7 @@
 	"backend": {
 		"name": "DEEP Framework",
 	  	"description": "<a href=\"https://github.com/MitocGroup/deep-framework\">DEEP Framework</a> is a serverless web framework, core component of the <a href=\"https://github.com/MitocGroup/deep-framework/blob/master/README.md#appendix-b-deep-ecosystem\">Platform-as-a-Service</a> that abstracts web apps and web services from specific cloud providers. This framework enables developers build cloud-native applications orplatforms using <a href=\"https://en.wikipedia.org/wiki/Microservices\">microservices architecture</a> in a completely <a href=\"https://github.com/MitocGroup/deep-framework#appendix-a-serverless-architecture\">serverless approach</a>.",
-	  	"homepage": "https://github.com/MitocGroup/deep-framework",
+	  	"homepage": "github.com/MitocGroup/deep-framework",
 		"examples": [{
 			"name": "Example",
 			"url": "https://github.com/MitocGroup/deep-microservices-todo-app"
