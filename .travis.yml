@@ -10,6 +10,10 @@ node_js:
 - 0.12.7
 - 0.12.8
 
+notifications:
+  email:
+    vcernomschi@mitocgroup.com
+
 branches:
   only:
   - master
