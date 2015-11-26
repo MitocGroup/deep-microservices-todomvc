@@ -9,9 +9,6 @@ node_js:
 - 0.12.6
 - 0.12.7
 - 0.12.8
-- 0.12.9
-- 0.13.0
-- 0.13.1
 
 cache:
   directories:
@@ -36,7 +33,6 @@ env:
 addons:
   sauce_connect: true
 before_install:
-- npm install -g protractor
 - npm install -g deepify
 - npm install -g jspm
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
