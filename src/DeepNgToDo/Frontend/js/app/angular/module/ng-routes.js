@@ -29,6 +29,7 @@ class Config {
   constructor($stateProvider, $urlRouterProvider) {
     /* Define application level routes */
     let stateNames = Object.keys(routes);
+    $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/');
     angular.forEach(stateNames, function routesRegister(stateName) {
       $stateProvider.state(stateName, routes[stateName]);
