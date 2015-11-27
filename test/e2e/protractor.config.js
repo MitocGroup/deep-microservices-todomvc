@@ -4,7 +4,7 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  //it is not working for Sauce Labs
+  //comment to run on Sauce Lab
   //seleniumAddress: 'http://localhost:4444/wd/hub',
 
   specs: ['./Tests/*.spec.js'],
@@ -14,35 +14,36 @@ exports.config = {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
-      //seleniumVersion: '2.47.0',
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'firefox',
-      //seleniumVersion: '2.46.0',
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'IE on win7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'internet explorer',
-      //seleniumVersion: '2.46.0',
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Safari on iPhone test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-      browserName: 'Safari',
+      browserName: 'safari',
       platformName: "iOS",
       platformVersion: "7.1",
       deviceName: "iPhone Simulator",
-      //seleniumVersion: '2.47.0',
+    },
+    {
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      name: 'Safari on OS X10.9 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'safari',
+      platform: "OS X 10.9",
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Google Nexus 7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       deviceName: 'Google Nexus 7 HD Emulator',
-      browserName: 'Chrome',
-      // sharding tests, - very cool
+      browserName: 'chrome',
       shardTestFiles: true,
       maxInstances: 5,
     },
