@@ -2,49 +2,44 @@ exports.config = {
 
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
+  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+  build: process.env.TRAVIS_BUILD_NUMBER,
 
-  //seleniumAddress: 'http://localhost:4445/wd/hub', // tried with 'http://localhost:4444/wd/hub'
+  //it is not working for Sauce Labs
+  //seleniumAddress: 'http://localhost:4445/wd/hub',
+
   specs: ['./Tests/*.spec.js'],
 
-  capabilities: {
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    build: process.env.TRAVIS_BUILD_NUMBER,
-    name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-    browserName: 'chrome',
-    seleniumVersion: '2.47.0',
-    chromedriverVersion: '2.20',
-  },
-
-  //multiCapabilities: [
-  //  {
-  //    sauceUser: process.env.SAUCE_USERNAME,
-  //    sauceKey: process.env.SAUCE_ACCESS_KEY,
-  //    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-  //    build: process.env.TRAVIS_BUILD_NUMBER,
-  //    name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-  //    browserName: 'firefox',
-  //    seleniumVersion: '2.46.0',
-  //  },
-  //  {
-  //    sauceUser: process.env.SAUCE_USERNAME,
-  //    sauceKey: process.env.SAUCE_ACCESS_KEY,
-  //    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-  //    build: process.env.TRAVIS_BUILD_NUMBER,
-  //    name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-  //    browserName: 'chrome',
-  //    seleniumVersion: '2.47.0',
-  //    chromedriverVersion: '2.20',
-  //  },
-  //  {
-  //    sauceUser: process.env.SAUCE_USERNAME,
-  //    sauceKey: process.env.SAUCE_ACCESS_KEY,
-  //    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-  //    build: process.env.TRAVIS_BUILD_NUMBER,
-  //    name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-  //    browserName: 'internet explorer',
-  //    seleniumVersion: '2.48.0'
-  //  }
-  //],
+  multiCapabilities: [
+    {
+      name: 'Chrome test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'chrome',
+      seleniumVersion: '2.47.0',
+    },
+    {
+      name: 'Firefox test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'firefox',
+      seleniumVersion: '2.47.0',
+    },
+    {
+      name: 'IE test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'internet explorer',
+      seleniumVersion: '2.47.0',
+    },
+    {
+      name: 'Safari test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      platformName: "iOS",
+      platformVersion: "7.1",
+      deviceName: "iPhone Simulator",
+      seleniumVersion: '2.47.0',
+    },
+    {
+      name: 'Android test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'android',
+      shardTestFiles: true,
+      maxInstances: 5,
+    },
+  ],
 
   framework: 'jasmine2',
 
