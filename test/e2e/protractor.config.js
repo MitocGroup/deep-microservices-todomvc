@@ -1,13 +1,12 @@
 var config = {
 
-  sauceUser: process.env.SAUCE_USERNAME,
-  sauceKey: process.env.SAUCE_ACCESS_KEY,
-
-  seleniumAddress: 'http://localhost:4445/wd/hub',
+  seleniumAddress: 'http://localhost:4445/wd/hub', // tried with 'http://localhost:4444/wd/hub'
   specs: ['./Tests/*.spec.js'],
 
   multiCapabilities: [
     {
+      sauceUser: process.env.SAUCE_USERNAME,
+      sauceKey: process.env.SAUCE_ACCESS_KEY,
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       build: process.env.TRAVIS_BUILD_NUMBER,
       name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
@@ -15,6 +14,8 @@ var config = {
       seleniumVersion: '2.46.0',
     },
     {
+      sauceUser: process.env.SAUCE_USERNAME,
+      sauceKey: process.env.SAUCE_ACCESS_KEY,
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       build: process.env.TRAVIS_BUILD_NUMBER,
       name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
@@ -23,6 +24,8 @@ var config = {
       chromedriverVersion: '2.20',
     },
     {
+      sauceUser: process.env.SAUCE_USERNAME,
+      sauceKey: process.env.SAUCE_ACCESS_KEY,
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       build: process.env.TRAVIS_BUILD_NUMBER,
       name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
