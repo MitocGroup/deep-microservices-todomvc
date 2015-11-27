@@ -4,9 +4,6 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  //comment to run on Sauce Lab
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-
   specs: ['./Tests/*.spec.js'],
 
   multiCapabilities: [

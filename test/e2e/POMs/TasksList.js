@@ -21,6 +21,10 @@ var TaskList = function () {
   this.lastTask = element(by.xpath('html/body/div/section/section/ul/li[last()]/div/label'));
   //Tasks names in the list
   this.taskNameGeneral = element.all(by.css('.todo-list li'));
+  //Tasks count
+  this.tasksCount = element(by.css('.todo-count'));
+  //Task editing input
+  this.editTask = element(by.css('.edit.ng-valid'));
 
   //Function returns the state of "Check All" checkbox (null if checkbox is unchecked, true if checkbox is checked)
   this.isCheckAllSelected = function () {
@@ -40,6 +44,7 @@ var TaskList = function () {
     return this.taskNameGeneral.count();
   };
 
+  //Function deletes all existing tasks
   this.clearAllTasks = function () {
     browser.sleep(10000);
     var self = this;
@@ -70,17 +75,21 @@ var TaskList = function () {
       });
   };
 
-  this.clearCompleted = function () {
-    //Waiting for the [All] button to become displayed
-    browser.wait(protractor.ExpectedConditions.visibilityOf(this.allBtn));
-    //Clicking on the "Check all" checkbox to make all tasks completed
-    this.checkAll.click();
-    //Verifying that all tasks are marked completed
-    expect(this.checkedBoxesGeneral.count()).toEqual(this.totalTasksCount());
-    //Clicking on the "Clear completed" button to delete all completed tasks
-    this.clearCompletedBtn.click();
-    //Clicking on the "Check all" checkbox
-    this.checkAll.click();
+  //Function gets task count number
+  this.tasksCountNumber = function(countNumber) {
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(this.tasksCount));
+
+    var message = countNumber === 1 ? ' item left': ' items left';
+
+    expect(this.tasksCount.getText()).toEqual(countNumber + message);
+  };
+
+  this.actionsBeforeAll = function() {
+    //Opening ToDoApp
+    browser.get(this.url);
+    //Deleting all existing tasks
+    this.clearAllTasks();
   };
 };
 
