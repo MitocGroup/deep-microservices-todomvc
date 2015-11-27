@@ -3,33 +3,32 @@ var config = {
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
 
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  seleniumAddress: 'http://localhost:4445/wd/hub',
   specs: ['./Tests/*.spec.js'],
-  baseUrl: 'http://localhost:8000',
 
   multiCapabilities: [
-    {
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      build: process.env.TRAVIS_BUILD_NUMBER,
-      name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-      browserName: 'firefox',
-      seleniumVersion: '2.47.0',
-    },
+    //{
+    //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    //  build: process.env.TRAVIS_BUILD_NUMBER,
+    //  name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
+    //  browserName: 'firefox',
+    //  seleniumVersion: '2.47.0',
+    //},
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       build: process.env.TRAVIS_BUILD_NUMBER,
       name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
-      seleniumVersion: '2.47.0',
-      chromedriverVersion: '2.20',
+      //seleniumVersion: '2.47.0',
+      //chromedriverVersion: '2.20',
     },
-    {
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      build: process.env.TRAVIS_BUILD_NUMBER,
-      name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
-      browserName: 'internet explorer',
-      seleniumVersion: '2.47.0'
-    }
+    //{
+    //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    //  build: process.env.TRAVIS_BUILD_NUMBER,
+    //  name: 'ng-pattern-restrict Chrome build ' + process.env.TRAVIS_BUILD_NUMBER,
+    //  browserName: 'internet explorer',
+    //  seleniumVersion: '2.47.0'
+    //}
   ],
 
   framework: 'jasmine2',
