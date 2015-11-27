@@ -42,10 +42,10 @@ exports.config = {
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Google Nexus 7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-      deviceName: 'Google Nexus 7 HD Emulator',
+      deviceName: 'LG Nexus 4 Emulator',
       browserName: 'chrome',
-      shardTestFiles: true,
-      maxInstances: 5,
+      //shardTestFiles: true,
+      //maxInstances: 5,
     },
   ],
 
