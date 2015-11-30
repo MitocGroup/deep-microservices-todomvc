@@ -1,7 +1,7 @@
-/* global element */
-/* global by */
 /* global browser */
 /* global protractor */
+/* global element */
+/* global by */
 
 'use strict';
 
