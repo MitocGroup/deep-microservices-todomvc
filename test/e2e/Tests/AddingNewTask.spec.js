@@ -1,6 +1,8 @@
+'use strict';
+
 var taskList = require('../POMs/TasksList.js');
 
-describe('Verify that new task can be successfully added', function () {
+describe('Verify that new task can be successfully added', function() {
 
   beforeAll(function() {
     //Opening ToDoApp
@@ -9,7 +11,7 @@ describe('Verify that new task can be successfully added', function () {
     taskList.clearAllTasks();
   });
 
-  it('Adding new task and validating that task is added', function () {
+  it('Adding new task and validating that task is added', function() {
     //Adding new task
     taskList.addTask('protractor test task');
   });

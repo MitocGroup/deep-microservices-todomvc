@@ -1,12 +1,14 @@
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Check that tasks count decreases after creating new tasks', function () {
+describe('Check that tasks count decreases after creating new tasks', function() {
 
   beforeAll(function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that tasks count decreases after creating new tasks', function () {
+  it('Verify that tasks count decreases after creating new tasks', function() {
     //Adding new task
     TaskList.addTask('protractor test task1');
 
@@ -26,5 +28,3 @@ describe('Check that tasks count decreases after creating new tasks', function (
   });
 
 });
-
-

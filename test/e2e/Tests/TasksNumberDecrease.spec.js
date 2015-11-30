@@ -1,12 +1,14 @@
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Check that tasks count decreases after marking tasks completed', function () {
+describe('Check that tasks count decreases after marking tasks completed', function() {
 
   beforeAll(function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that tasks count decreases after marking tasks completed', function () {
+  it('Verify that tasks count decreases after marking tasks completed', function() {
     //Adding two new task
     var timestamp = new Date();
     var firstTaskName = 'first test task name ' + timestamp.toString();
@@ -37,5 +39,3 @@ describe('Check that tasks count decreases after marking tasks completed', funct
   });
 
 });
-
-

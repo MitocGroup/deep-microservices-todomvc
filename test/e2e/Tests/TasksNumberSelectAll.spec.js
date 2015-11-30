@@ -1,12 +1,14 @@
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Check that tasks count updates after clicking on "Select All" checkbox', function () {
+describe('Check that tasks count updates after clicking on "Select All" checkbox', function() {
 
   beforeAll(function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that tasks count updates after clicking on "Select All" checkbox', function () {
+  it('Verify that tasks count updates after clicking on "Select All" checkbox', function() {
     //Adding two new task
     TaskList.addTask('protractor test task1');
     TaskList.addTask('protractor test task2');
@@ -33,5 +35,3 @@ describe('Check that tasks count updates after clicking on "Select All" checkbox
   });
 
 });
-
-

@@ -1,4 +1,4 @@
-//var expect = require('chai').expect;
+'use strict';
 
 var LeftPanel = function() {
 
