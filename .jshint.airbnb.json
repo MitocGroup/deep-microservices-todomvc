@@ -30,7 +30,7 @@
     "describe": false,
     "driver": false,
     "expect": false,
-    "element": true,
+    "element": false,
     "inject": false,
     "it": false,
     "list": false,
