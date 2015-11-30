@@ -1,5 +1,7 @@
 /* global element */
 /* global by */
+/* global browser */
+/* global protractor */
 
 'use strict';
 
@@ -75,7 +77,7 @@ var TaskList = function() {
           expect(self.checkAll.isDisplayed()).toEqual(true);
 
           //Checking if "Select All" checkbox is checked or not
-          if (self.isCheckAllSelected == 'true') {
+          if (self.isCheckAllSelected === 'true') {
 
             //Clicking on the "Clear completed" button to delete all completed tasks
             self.clearCompletedBtn.click();

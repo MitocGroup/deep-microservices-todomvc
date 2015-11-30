@@ -7,30 +7,30 @@ var LeftPanel = function() {
 
   //Url link for testing
   this.url = 'http://todo.deep.mg';
-  this.headerTittle = element(by.xpath("html/body/div[1]/section/header/h1"));
-  this.deepFrameworkTitle = element(by.xpath("html/body/aside/header/h3"));
-  this.example = element(by.xpath("html/body/aside/header/span/h5"));
-  this.sourceLink = element(by.xpath("html/body/aside/header/span/a"));
-  this.deepFrameworkLink = element(by.xpath("html/body/aside/blockquote/p/a[1]"));
-  this.platformAsAService = element(by.xpath("html/body/aside/blockquote/p/a[2]"));
-  this.microservicesArchitecture = element(by.xpath("html/body/aside/blockquote/p/a[3]"));
-  this.serverLessApproach = element(by.xpath("html/body/aside/blockquote/p/a[4]"));
-  this.leftTextBlock = element(by.xpath("html/body/aside/blockquote/p"));
-  this.deepFrameworkSecondlLink = element(by.xpath("html/body/aside/blockquote/footer/a"));
-  this.officialResources = element(by.xpath("html/body/aside/h4[1]"));
-  this.documentationLink = element(by.xpath("html/body/aside/ul[1]/li[1]/a"));
-  this.apiReferenceLink = element(by.xpath("html/body/aside/ul[1]/li[2]/a"));
-  this.quickStartLink = element(by.xpath("html/body/aside/ul[1]/li[3]/a"));
-  this.applicationsBuiltWithDeepFrameworkLink = element(by.xpath("html/body/aside/ul[1]/li[4]/a"));
-  this.community = element(by.xpath("html/body/aside/h4[2]"));
-  this.bugTrackerOnGitHub = element(by.xpath("html/body/aside/ul[2]/li/a"));
-  this.leftBlockFooterText = element(by.xpath("html/body/aside/footer/em"));
-  this.leftBlockFooterLink = element(by.xpath("html/body/aside/footer/em/a"));
-  this.doubleClickFooterText = element(by.xpath("html/body/div[1]/footer/p[1]"));
-  this.mitocGroupFooterText = element(by.xpath("html/body/div[1]/footer/p[2]"));
-  this.mitocGroupFooterLink = element(by.xpath("html/body/div[1]/footer/p[2]/a"));
-  this.toDoMvcFooterText = element(by.xpath("html/body/div[1]/footer/p[3]"));
-  this.toDoMvcFooterLink = element(by.xpath("html/body/div[1]/footer/p[3]/a"));
+  this.headerTittle = element(by.xpath('html/body/div[1]/section/header/h1'));
+  this.deepFrameworkTitle = element(by.xpath('html/body/aside/header/h3'));
+  this.example = element(by.xpath('html/body/aside/header/span/h5'));
+  this.sourceLink = element(by.xpath('html/body/aside/header/span/a'));
+  this.deepFrameworkLink = element(by.xpath('html/body/aside/blockquote/p/a[1]'));
+  this.platformAsAService = element(by.xpath('html/body/aside/blockquote/p/a[2]'));
+  this.microservicesArchitecture = element(by.xpath('html/body/aside/blockquote/p/a[3]'));
+  this.serverLessApproach = element(by.xpath('html/body/aside/blockquote/p/a[4]'));
+  this.leftTextBlock = element(by.xpath('html/body/aside/blockquote/p'));
+  this.deepFrameworkSecondlLink = element(by.xpath('html/body/aside/blockquote/footer/a'));
+  this.officialResources = element(by.xpath('html/body/aside/h4[1]'));
+  this.documentationLink = element(by.xpath('html/body/aside/ul[1]/li[1]/a'));
+  this.apiReferenceLink = element(by.xpath('html/body/aside/ul[1]/li[2]/a'));
+  this.quickStartLink = element(by.xpath('html/body/aside/ul[1]/li[3]/a'));
+  this.applicationsBuiltWithDeepFrameworkLink = element(by.xpath('html/body/aside/ul[1]/li[4]/a'));
+  this.community = element(by.xpath('html/body/aside/h4[2]'));
+  this.bugTrackerOnGitHub = element(by.xpath('html/body/aside/ul[2]/li/a'));
+  this.leftBlockFooterText = element(by.xpath('html/body/aside/footer/em'));
+  this.leftBlockFooterLink = element(by.xpath('html/body/aside/footer/em/a'));
+  this.doubleClickFooterText = element(by.xpath('html/body/div[1]/footer/p[1]'));
+  this.mitocGroupFooterText = element(by.xpath('html/body/div[1]/footer/p[2]'));
+  this.mitocGroupFooterLink = element(by.xpath('html/body/div[1]/footer/p[2]/a'));
+  this.toDoMvcFooterText = element(by.xpath('html/body/div[1]/footer/p[3]'));
+  this.toDoMvcFooterLink = element(by.xpath('html/body/div[1]/footer/p[3]/a'));
 
   this.checkHeaderTittle = function() {
     expect(this.headerTittle.isDisplayed()).toEqual(true);
@@ -182,7 +182,7 @@ var LeftPanel = function() {
     this.checkMitocGroupFooterLink();
     this.checkToDoMvcFooterText();
     this.checkToDoMvcFooterLink();
-  }
+  };
 };
 
 module.exports = new LeftPanel();
