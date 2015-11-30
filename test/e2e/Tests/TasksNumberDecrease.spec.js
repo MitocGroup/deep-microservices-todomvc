@@ -9,8 +9,8 @@ describe('Check that tasks count decreases after marking tasks completed', funct
   it('Verify that tasks count decreases after marking tasks completed', function () {
     //Adding two new task
     let timestamp = new Date();
-    let firstTaskName = 'test task name ' + timestamp.toString;
-    let secondTaskName = 'test task name ' + timestamp.toString;
+    let firstTaskName = 'first test task name ' + timestamp.toString;
+    let secondTaskName = 'second test task name ' + timestamp.toString;
 
     TaskList.addTask(firstTaskName);
     TaskList.addTask(secondTaskName);
