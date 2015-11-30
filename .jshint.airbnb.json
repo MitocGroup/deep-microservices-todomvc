@@ -4,6 +4,7 @@
   "node": true,
   "mocha": true,
   "jasmine": true,
+  "protractor": true,
   "esnext": true,
   "camelcase": true,
   "eqeqeq": true,
