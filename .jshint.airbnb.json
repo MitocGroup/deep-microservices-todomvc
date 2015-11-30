@@ -4,6 +4,7 @@
   "browser": true,
   "jquery": true,
   "node": true,
+  "angular": true,
   "mocha": true,
   "jasmine": true,
   "jasmine2": true,
