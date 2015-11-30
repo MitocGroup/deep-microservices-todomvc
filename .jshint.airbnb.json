@@ -1,9 +1,12 @@
 {
+  "expr": true,
+  "es5": true,
   "browser": true,
   "jquery": true,
   "node": true,
   "mocha": true,
   "jasmine": true,
+  "jasmine2": true,
   "protractor": true,
   "chai": true,
   "esnext": true,
