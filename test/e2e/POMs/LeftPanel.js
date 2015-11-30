@@ -1,3 +1,6 @@
+/* global element */
+/* global by */
+
 'use strict';
 
 var LeftPanel = function() {

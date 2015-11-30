@@ -1,4 +1,5 @@
 {
+  "browser": true,
   "jquery": true,
   "node": true,
   "mocha": true,
@@ -14,21 +15,5 @@
   "strict": true,
   "undef": true,
   "unused": true,
-  "eqnull": true,
-  "globals": {
-    "after": false,
-    "afterEach": false,
-    "before": false,
-    "beforeEach": false,
-    "by": false,
-    "browser": false,
-    "describe": false,
-    "driver": false,
-    "expect": false,
-    "element": false,
-    "inject": false,
-    "it": false,
-    "list": false,
-    "protractor": false
-  }
+  "eqnull": true
 }
