@@ -57,7 +57,7 @@ var TaskList = function() {
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
     //Waiting for new created task to appear on the page
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value))
+    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value));
   };
 
   //Function gets the number of tasks in the list
