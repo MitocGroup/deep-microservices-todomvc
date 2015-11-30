@@ -5,6 +5,7 @@
   "mocha": true,
   "jasmine": true,
   "protractor": true,
+  "chai": true,
   "esnext": true,
   "camelcase": true,
   "eqeqeq": true,
