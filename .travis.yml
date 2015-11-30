@@ -13,7 +13,6 @@ branches:
     - dev
     - stage
     - testing
-    - e2e-testing
 addons:
   sauce_connect: true
 env:
