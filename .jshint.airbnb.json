@@ -1,6 +1,8 @@
 {
   "expr": true,
   "es5": true,
+  "by": true,
+  "element": true,
   "browser": true,
   "jquery": true,
   "node": true,
