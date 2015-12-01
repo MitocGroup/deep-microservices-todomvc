@@ -1,18 +1,15 @@
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Check that [Clear Completed] button appears if at least one task is completed', function () {
+describe('Check that [Clear Completed] button appears if at least one task is completed', function() {
 
   beforeAll(function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that [Clear Completed] button appears if at least one task is completed', function () {
+  it('Verify that [Clear Completed] button appears if at least one task is completed', function() {
 
     //Adding two new task
     TaskList.addTask('protractor test task1');
-      //.then(function() {
-      //  console.log('first task is created');
-      //});
     TaskList.addTask('protractor test task2');
 
     //Verify that [Clear Completed] button is not displayed
@@ -52,4 +49,3 @@ describe('Check that [Clear Completed] button appears if at least one task is co
   });
 
 });
-

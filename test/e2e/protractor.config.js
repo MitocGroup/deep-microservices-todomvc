@@ -10,20 +10,18 @@ exports.config = {
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-      'browserName': 'chrome',
-      'chromeOptions' : {
-        args: ['--window-size=2000,500']
-      },
+      browserName: 'chrome',
       shardTestFiles: true,
       maxInstances: 5,
     },
-    //{
-    //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    //  name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    //  browserName: 'firefox',
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
-    //},
+    {
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'firefox',
+      shardTestFiles: true,
+      maxInstances: 5,
+    },
+    //@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     //  name: 'IE on win7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,

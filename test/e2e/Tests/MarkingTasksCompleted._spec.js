@@ -1,6 +1,11 @@
+/* global browser */
+/* global protractor */
+
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Verify that tasks can be marked completed/active', function () {
+describe('Verify that tasks can be marked completed/active', function() {
 
   beforeAll(function() {
     //Opening ToDoApp
@@ -45,5 +50,3 @@ describe('Verify that tasks can be marked completed/active', function () {
   });
 
 });
-
-
