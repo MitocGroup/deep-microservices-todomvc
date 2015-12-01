@@ -3,15 +3,13 @@ var TaskList = require('../POMs/TasksList.js');
 describe('Check that tasks count decreases after marking tasks completed', function () {
 
   beforeAll(function() {
+
     TaskList.actionsBeforeAll();
   });
 
   it('Verify that tasks count decreases after marking tasks completed', function () {
-    //Adding two new task
-    let timestamp = new Date();
-    let firstTaskName = 'test task name ' + timestamp.toString;
-    let secondTaskName = 'test task name ' + timestamp.toString;
 
+    //Adding two new task
     TaskList.addTask(firstTaskName);
     TaskList.addTask(secondTaskName);
 

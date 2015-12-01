@@ -7,23 +7,15 @@ describe('Check that [Clear Completed] button appears if at least one task is co
   });
 
   it('Verify that [Clear Completed] button appears if at least one task is completed', function () {
+
     //Adding two new task
     TaskList.addTask('protractor test task1');
+      //.then(function() {
+      //  console.log('first task is created');
+      //});
     TaskList.addTask('protractor test task2');
 
     //Verify that [Clear Completed] button is not displayed
-    expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(false);
-
-    //Clicking on the "Select All" checkbox, it will make all tasks completed
-    TaskList.checkAll.click();
-
-    //Verify that [Clear Completed] button becomes displayed
-    expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(true);
-
-    //Clicking on the "Select All" checkbox again, it will make all tasks active again
-    TaskList.checkAll.click();
-
-    //Verify that [Clear Completed] button becomes not displayed again
     expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(false);
 
     //Clicking on the first task's checkbox, it will make it completed
@@ -35,8 +27,23 @@ describe('Check that [Clear Completed] button appears if at least one task is co
     //Clicking on the first task's checkbox again, it will the task active again
     TaskList.checkBtnGeneral.get(0).click();
 
-    //Verify that [Clear Completed] button becomes not displayed again
+    //Verify that [Clear Completed] button becomes not displayed
     expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(false);
+
+    //Clicking on the "Select All" checkbox, it will make all tasks completed
+    TaskList.checkAll.click();
+
+    //Verifying that there are 2 tasks displayed before deleting
+    expect(TaskList.totalTasksCount()).toEqual(2);
+
+    //Verify that [Clear Completed] button becomes displayed
+    expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(true);
+
+    //Clicking on [Clear Completed] button to delete all tasks
+    TaskList.clearCompletedBtn.click();
+
+    //Verifying that there are no tasks displayed after deleting
+    expect(TaskList.totalTasksCount()).toEqual(0);
   });
 
   afterEach(function() {

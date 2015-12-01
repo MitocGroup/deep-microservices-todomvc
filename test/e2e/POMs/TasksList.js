@@ -1,6 +1,8 @@
 var TaskList = function () {
   //Url link for testing
-  this.url = 'http://todo.deep.mg';
+  //this.url = 'http://d1yrp9v1lwog2b.cloudfront.net/';
+  this.url = 'http://todo.deep.mg/';
+
 
   //Text field for creating new task
   this.taskInput = element(by.model('todoCtrl.title'));
@@ -23,11 +25,14 @@ var TaskList = function () {
   //[Clear Completed] button
   this.clearCompletedBtn = element(by.css('.clear-completed'));
 
+  //Delete buttons for tasks
+  this.deleteBtn =  element(by.css('.destroy'));
+
   //First task in the list
-  this.firstTask = element(by.xpath('html/body/div/section/section/ul/li[1]/div/label'));
+  this.firstTask = element(by.xpath('html/body/div/div/section/section/ul/li[1]/div/label'));
 
   //Last task in the list
-  this.lastTask = element(by.xpath('html/body/div/section/section/ul/li[last()]/div/label'));
+  this.lastTask = element(by.xpath('html/body/div/div/section/section/ul/li[last()]/div/label'));
 
   //Tasks names in the list
   this.taskNameGeneral = element.all(by.css('.todo-list li'));
@@ -50,7 +55,7 @@ var TaskList = function () {
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
     //Waiting for new created task to appear on the page
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value))
+    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value), 20000)
   };
 
   //Function gets the number of tasks in the list
@@ -115,6 +120,27 @@ var TaskList = function () {
 
     //Deleting all existing tasks
     this.clearAllTasks();
+  };
+
+  this.taskEditing = function(taskIndex, editedValue) {
+
+    //Double click on the task to make it editable
+    browser.actions().doubleClick(this.taskNameGeneral.get(taskIndex)).perform();
+
+    //Verifying that input is displayed
+    expect(this.editTask.isDisplayed()).toEqual(true);
+
+    //Removing previous task name from input
+    this.editTask.clear();
+
+    //Adding new value into input and pressing "enter" button
+    this.editTask.sendKeys(editedValue, protractor.Key.ENTER);
+
+    //Waiting until new task is actually created and displayed
+    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.taskNameGeneral.get(taskIndex), editedValue), 10000);
+
+    //Verifying that new value is saved
+    expect(element(by.css('.todo-list')).getText()).toEqual(editedValue);
   };
 };
 
