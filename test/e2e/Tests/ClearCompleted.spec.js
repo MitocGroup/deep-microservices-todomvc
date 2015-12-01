@@ -1,3 +1,5 @@
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
 describe('Check that [Clear Completed] button appears if at least one task is completed', function() {
