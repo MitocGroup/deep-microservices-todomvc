@@ -1,4 +1,5 @@
 /* global browser */
+
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');
