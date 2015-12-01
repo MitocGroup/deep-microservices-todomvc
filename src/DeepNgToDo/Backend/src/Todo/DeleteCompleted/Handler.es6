@@ -15,19 +15,25 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   handle(request) {
     let frameworkException = DeepFramework.Core.Exception;
+    let data = request.data;
 
-    if (!Array.isArray(request.data)) {
-      throw new frameworkException.InvalidArgumentException(request.data, 'array');
+    if (!Array.isArray(data)) {
+      throw new frameworkException.InvalidArgumentException(data, 'array');
     }
 
-    if (!request.data.length) {
+    if (!data.length) {
       return this.createResponse({}).send();
     }
 
     let deletedCount = 0;
 
     // Validate given ids
-    for (let id of request.data) {
+    for (let index in data) {
+      if (!data.hasOwnProperty(index)) {
+        continue;
+      }
+      let id = data[index];
+
       if (!id || typeof id !== 'string') {
         throw new frameworkException.InvalidArgumentException(id, 'string');
       }
@@ -37,7 +43,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
           throw new frameworkException.DatabaseOperationException(err);
         }
 
-        if (request.data.length == ++deletedCount) {
+        if (data.length == ++deletedCount) {
           return this.createResponse({}).send();
         }
       });
