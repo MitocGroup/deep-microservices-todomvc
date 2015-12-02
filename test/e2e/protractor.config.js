@@ -7,7 +7,7 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/AddingNewTask.spec.js'],
+  specs: ['./Tests/*.spec.js'],
 
   multiCapabilities: [
     {
