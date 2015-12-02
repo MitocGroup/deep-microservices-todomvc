@@ -1,4 +1,5 @@
 /* global browser */
+
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');
@@ -8,6 +9,7 @@ describe('Verify that new task can be successfully added', function() {
   beforeAll(function() {
     //Opening ToDoApp
     browser.get(TaskList.url);
+
     //Deleting all existing tasks
     TaskList.clearAllTasks();
   });

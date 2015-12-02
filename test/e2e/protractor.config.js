@@ -4,23 +4,27 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/*.spec.js'],
+  specs: ['./Tests/TasksNumberSelectAll.spec.js'],
 
   multiCapabilities: [
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
+      chromeOptions: {
+        args: ['--window-size=2000,500'],
+      },
       shardTestFiles: true,
       maxInstances: 5,
     },
-    {
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-      browserName: 'firefox',
-      shardTestFiles: true,
-      maxInstances: 5,
-    },
+
+    //{
+    //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    //  name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    //  browserName: 'firefox',
+    //  shardTestFiles: true,
+    //  maxInstances: 5,
+    //},
     //@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
@@ -62,10 +66,13 @@ exports.config = {
   jasmineNodeOpts: {
     // If true, display spec names.
     isVerbose: true,
+
     // If true, print colors to the terminal.
     showColors: true,
+
     // If true, include stack traces in failures.
     includeStackTrace: true,
+
     // Default time to wait in ms before a test fails.
     defaultTimeoutInterval: 50000,
   },

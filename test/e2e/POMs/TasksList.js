@@ -5,10 +5,10 @@
 
 'use strict';
 
-var TaskList = function () {
-  //Url link for testing
-  this.url = 'http://todo.deep.mg';
+var TaskList = function() {
 
+  //Url link for testing
+  this.url = 'http://localhost:8000/';
 
   //Text field for creating new task
   this.taskInput = element(by.model('todoCtrl.title'));
@@ -50,12 +50,12 @@ var TaskList = function () {
   this.editTask = element(by.css('.edit.ng-valid'));
 
   //Function returns the state of "Check All" checkbox (null if checkbox is unchecked, true if checkbox is checked)
-  this.isCheckAllSelected = function () {
+  this.isCheckAllSelected = function() {
     return this.checkAll.getAttribute('checked');
   };
 
   //Function creates new ToDo task
-  this.addTask = function (value) {
+  this.addTask = function(value) {
 
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
@@ -65,52 +65,40 @@ var TaskList = function () {
   };
 
   //Function gets the number of tasks in the list
-  this.totalTasksCount = function () {
+  this.totalTasksCount = function() {
     return this.taskNameGeneral.count();
   };
 
   //Function deletes all existing tasks
-  this.clearAllTasks = function () {
+  this.clearAllTasks = function() {
     browser.sleep(10000);
-    var self = this;
+    var _this = this;
     this.totalTasksCount()
-      .then(function (number) {
+      .then(function(number) {
+        _this.isCheckAllSelected()
+          .then(function(resultState) {
+            if (number > 0) {
+              //Checking if "Select All" checkbox is checked or not
+              if (resultState == null) {
+                //Clicking on the "Check all" checkbox
+                _this.checkAll.click();
+              }
 
-        //Checking if there are tasks in the list
-        if (number > 0) {
-          expect(self.checkAll.isDisplayed()).toEqual(true);
+              //Clicking on the "Clear completed" button to delete all completed tasks
+              _this.clearCompletedBtn.click();
 
-          //Checking if "Select All" checkbox is checked or not
-          if (self.isCheckAllSelected === 'true') {
+              //Verifying that "Check All" checkbox is checked
+              expect(_this.checkAll.getAttribute('checked')).toEqual('true');
 
-            //Clicking on the "Clear completed" button to delete all completed tasks
-            self.clearCompletedBtn.click();
-
-            //Verifying that "Check All" checkbox is checked
-            expect(self.checkAll.getAttribute('checked')).toEqual('true');
-
-            //Clicking on the "Check all" checkbox
-            self.checkAll.click();
-          } else {
-
-            //Clicking on the "Check all" checkbox
-            self.checkAll.click();
-
-            //Clicking on the "Clear completed" button to delete all completed tasks
-            self.clearCompletedBtn.click();
-
-            //Verifying that "Check All" checkbox is checked
-            expect(self.checkAll.getAttribute('checked')).toEqual('true');
-
-            //Clicking on the "Check All" checkbox
-            self.checkAll.click();
-          }
-        }
+              //Clicking on the "Check All" checkbox
+              _this.checkAll.click();
+            }
+          });
       });
   };
 
   //Function gets task count number
-  this.tasksCountNumber = function (countNumber) {
+  this.itemsLeftNumber = function(countNumber) {
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(this.tasksCount));
 
@@ -119,7 +107,7 @@ var TaskList = function () {
     expect(this.tasksCount.getText()).toEqual(countNumber + message);
   };
 
-  this.actionsBeforeAll = function () {
+  this.actionsBeforeAll = function() {
 
     //Opening ToDoApp
     browser.get(this.url);
@@ -128,7 +116,7 @@ var TaskList = function () {
     this.clearAllTasks();
   };
 
-  this.taskEditing = function (taskIndex, editedValue) {
+  this.taskEditing = function(taskIndex, editedValue) {
 
     //Double click on the task to make it editable
     browser.actions().doubleClick(this.taskNameGeneral.get(taskIndex)).perform();

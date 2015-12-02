@@ -13,13 +13,13 @@ describe('Check that tasks count decreases after creating new tasks', function()
     TaskList.addTask('protractor test task1');
 
     //Verify that count is "1"
-    TaskList.tasksCountNumber(1);
+    TaskList.itemsLeftNumber(1);
 
     //Adding one more task
     TaskList.addTask('protractor test task2');
 
     //Verify that count is "2"
-    TaskList.tasksCountNumber(2);
+    TaskList.itemsLeftNumber(2);
   });
 
   afterEach(function() {
