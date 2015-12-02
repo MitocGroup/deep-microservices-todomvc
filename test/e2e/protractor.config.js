@@ -4,27 +4,23 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/TasksNumberSelectAll.spec.js'],
+  specs: ['./Tests/*.spec.js'],
 
   multiCapabilities: [
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
-      chromeOptions: {
-        args: ['--window-size=2000,500'],
-      },
       shardTestFiles: true,
       maxInstances: 5,
     },
-
-    //{
-    //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    //  name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    //  browserName: 'firefox',
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
-    //},
+    {
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
+      browserName: 'firefox',
+      shardTestFiles: true,
+      maxInstances: 5,
+    },
     //@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
