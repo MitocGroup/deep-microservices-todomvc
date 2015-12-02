@@ -1,10 +1,13 @@
 exports.config = {
 
+  //Url link for testing
+  testUrl: 'http://todo.deep.mg/',
+
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/*.spec.js'],
+  specs: ['./Tests/AddingNewTask.spec.js'],
 
   multiCapabilities: [
     {
@@ -21,6 +24,7 @@ exports.config = {
       shardTestFiles: true,
       maxInstances: 5,
     },
+
     //@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,

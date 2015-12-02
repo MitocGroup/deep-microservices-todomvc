@@ -5,10 +5,12 @@
 
 'use strict';
 
+var config = require('../protractor.config.js');
+
 var TaskList = function() {
 
-  //Url link for testing
-  this.url = 'http://localhost:8000/';
+  //Testing url from protractor.config.js
+  this.url = config.config.testUrl;
 
   //Text field for creating new task
   this.taskInput = element(by.model('todoCtrl.title'));
