@@ -1,3 +1,8 @@
+/* global browser */
+/* global protractor */
+
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
 describe('Check that task deletes if it is empty during updating', function() {

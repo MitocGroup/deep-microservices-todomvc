@@ -16,13 +16,14 @@ var TaskList = function() {
   this.taskInput = element(by.model('todoCtrl.title'));
 
   //"Check All" checkbox
-  this.checkAll = element(by.css('.toggle-all'));
+  this.checkAll = element(by.model('allChecked'));
 
   //[All] button
   this.allBtn = element(by.linkText('All'));
 
-  //General selector for checked checkboxes
-  this.checkBtnGeneral = element.all(by.css('.toggle'));
+  //General selector for checkboxes
+  //this.checkBtnGeneral = element.all(by.css('.toggle'));
+  this.checkBtnGeneral = element.all(by.model('todo.Completed'));
 
   //[Active] button
   this.activeBtn = element(by.linkText('Active'));
@@ -37,13 +38,13 @@ var TaskList = function() {
   this.deleteBtn = element(by.css('.destroy'));
 
   //First task in the list
-  this.firstTask = element(by.xpath('html/body/div/div/section/section/ul/li[1]/div/label'));
+  this.firstTask = element.all(by.repeater('todo in todoList')).first();
 
   //Last task in the list
   this.lastTask = element(by.xpath('html/body/div/div/section/section/ul/li[last()]/div/label'));
 
   //Tasks names in the list
-  this.taskNameGeneral = element.all(by.css('.todo-list li'));
+  this.taskNameGeneral = element.all(by.repeater('todo in todoList'));
 
   //Tasks count
   this.tasksCount = element(by.css('.todo-count'));

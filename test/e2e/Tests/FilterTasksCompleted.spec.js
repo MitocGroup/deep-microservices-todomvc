@@ -1,5 +1,4 @@
 /* global browser */
-/* global protractor */
 
 'use strict';
 

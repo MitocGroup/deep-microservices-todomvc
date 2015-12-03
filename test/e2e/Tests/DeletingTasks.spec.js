@@ -4,7 +4,7 @@
 
 var TaskList = require('../POMs/TasksList.js');
 
-describe('Verify that new task can be successfully added', function() {
+describe('Verify that new task can be successfully deleted', function() {
 
   beforeAll(function() {
     //Opening ToDoApp
@@ -14,13 +14,13 @@ describe('Verify that new task can be successfully added', function() {
     TaskList.clearAllTasks();
   });
 
-  it('Adding new task and validating that task is added', function() {
+  it('Deleting a task and validating that task is deleted', function() {
 
     //Adding new task
     TaskList.addTask('protractor test task');
 
     //Hovering on created task
-    browser.actions().mouseMove(TaskList.lastTask).perform();
+    browser.actions().mouseMove(TaskList.firstTask).perform();
 
     //Verifying that [x] button appeared next to task name
     expect(TaskList.deleteBtn.isDisplayed()).toEqual(true);
