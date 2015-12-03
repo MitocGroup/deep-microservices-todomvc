@@ -14,19 +14,19 @@ describe('Check that tasks count updates after clicking on "Select All" checkbox
     TaskList.addTask('protractor test task2');
 
     //Verify that count is "2"
-    TaskList.tasksCountNumber(2);
+    TaskList.itemsLeftNumber(2);
 
     //Clicking on the "Select All" checkbox, it will make all tasks completed
     TaskList.checkAll.click();
 
     //Verify that count becomes "0"
-    TaskList.tasksCountNumber(0);
+    TaskList.itemsLeftNumber(0);
 
     //Clicking on the "Select All" checkbox again, it will make all tasks active again
     TaskList.checkAll.click();
 
     //Verify that count becomes "2"
-    TaskList.tasksCountNumber(2);
+    TaskList.itemsLeftNumber(2);
   });
 
   afterEach(function() {

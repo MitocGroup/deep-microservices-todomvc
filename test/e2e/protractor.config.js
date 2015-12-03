@@ -1,5 +1,8 @@
 exports.config = {
 
+  //Url link for testing
+  testUrl: 'http://todo.deep.mg/',
+
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
@@ -21,6 +24,7 @@ exports.config = {
       shardTestFiles: true,
       maxInstances: 5,
     },
+
     //@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
@@ -62,10 +66,13 @@ exports.config = {
   jasmineNodeOpts: {
     // If true, display spec names.
     isVerbose: true,
+
     // If true, print colors to the terminal.
     showColors: true,
+
     // If true, include stack traces in failures.
     includeStackTrace: true,
+
     // Default time to wait in ms before a test fails.
     defaultTimeoutInterval: 50000,
   },
