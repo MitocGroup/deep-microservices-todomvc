@@ -1,3 +1,5 @@
+'use strict';
+
 var TaskList = require('../POMs/TasksList.js');
 
 describe('Check that task name can be updated', function() {
