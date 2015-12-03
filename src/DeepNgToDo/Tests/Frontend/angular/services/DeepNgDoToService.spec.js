@@ -88,10 +88,6 @@ describe('Services', function() {
     }
   );
 
-  it('Check hasToDo() method returns false', function() {
-    expect(deepNgToDoService.hasTodo).toBe(false);
-  });
-
   it('Check updateTodo() method returns promise with reponse.isError',
     function() {
       let error = null;
@@ -191,14 +187,6 @@ describe('Services', function() {
     }
   );
 
-  it('Check todoNumber() getter returns 0', function() {
-    expect(deepNgToDoService.todoNumber).toBe(0);
-  });
-
-  it('Check completedCount() getter returns 0', function() {
-    expect(deepNgToDoService.completedCount).toBe(0);
-  });
-
   it('Check deleteTodo() method returns promise with reponse.isError',
     function() {
       let todo = {
@@ -219,7 +207,6 @@ describe('Services', function() {
 
       try {
         deepNgToDoService.todoList = [todo,];
-        expect(deepNgToDoService.todoNumber).toBe(1);
         actualResult = deepNgToDoService.deleteTodo(todo);
       } catch (e) {
         error = e;
@@ -227,7 +214,6 @@ describe('Services', function() {
 
       expect(error).toBe(null);
       expect(actualResult).not.toEqual(null);
-      expect(deepNgToDoService.todoNumber).toBe(0);
     }
   );
 
@@ -251,7 +237,6 @@ describe('Services', function() {
 
       try {
         deepNgToDoService.todoList = [todo,];
-        expect(deepNgToDoService.todoNumber).toBe(1);
         actualResult = deepNgToDoService.deleteTodo(todo);
       } catch (e) {
         error = e;
@@ -259,7 +244,6 @@ describe('Services', function() {
 
       expect(error).toBe(null);
       expect(actualResult).not.toEqual(null);
-      expect(deepNgToDoService.todoNumber).toBe(0);
     }
   );
 
@@ -269,7 +253,6 @@ describe('Services', function() {
       Completed: false,
     };
     deepNgToDoService.todoList = [todo,];
-    expect(deepNgToDoService.todoNumber).toBe(1);
     expect(deepNgToDoService.toggleCompleted(todo, true)).not.toEqual(null);
   });
 
@@ -283,7 +266,6 @@ describe('Services', function() {
       editing: null,
     };
     deepNgToDoService.todoList = [todo,];
-    expect(deepNgToDoService.todoNumber).toBe(1);
     expect(deepNgToDoService.todoNgClass(todo)).toEqual(expectedResult);
   });
 
@@ -294,7 +276,6 @@ describe('Services', function() {
         Completed: false,
       };
       deepNgToDoService.todoList = [todo,];
-      expect(deepNgToDoService.todoNumber).toBe(1);
       deepNgToDoService.editTodo(todo);
 
       // check values
@@ -322,7 +303,6 @@ describe('Services', function() {
     };
     deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
       secondUncompletedTask,];
-    expect(deepNgToDoService.todoNumber).toBe(2);
     deepNgToDoService.markAll(true);
     for (let todo of deepNgToDoService.todoList) {
       expect(todo.Completed).toBe(true);
@@ -354,7 +334,6 @@ describe('Services', function() {
       };
       deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
         secondUncompletedTask,];
-      expect(deepNgToDoService.completedCount).toBe(1);
       let actualResult = null;
       let error = null;
       try {
@@ -394,7 +373,6 @@ describe('Services', function() {
       };
       deepNgToDoService.todoList = [firstUncompletedTask, completedTask,
         secondUncompletedTask,];
-      expect(deepNgToDoService.completedCount).toBe(1);
       let actualResult = null;
       let error = null;
       try {
