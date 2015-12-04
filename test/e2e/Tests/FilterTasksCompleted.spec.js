@@ -25,7 +25,8 @@ describe('Verify that [Completed] button filters tasks and displays only complet
     //Clicking on the [Completed] button
     TaskList.completedBtn.click();
 
-    //Verifying that only one task is displayed on the page
+    //
+    it('Verifying that only one task is displayed on the page')
     expect(TaskList.totalTasksCount()).toEqual(1);
 
     //Verifying that valid task is displayed: the one which was marked as completed
