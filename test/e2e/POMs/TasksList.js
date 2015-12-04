@@ -16,7 +16,7 @@ var TaskList = function() {
   this.taskInput = element(by.model('todoCtrl.title'));
 
   //"Check All" checkbox
-  this.checkAll = element(by.model('allChecked'));
+  this.checkAll = element(by.css('.toggle-all'));
 
   //[All] button
   this.allBtn = element(by.linkText('All'));
