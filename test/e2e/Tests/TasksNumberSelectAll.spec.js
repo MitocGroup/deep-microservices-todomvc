@@ -8,28 +8,32 @@ describe('Check that tasks count updates after clicking on "Select All" checkbox
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that tasks count updates after clicking on "Select All" checkbox', function() {
-    //Adding two new task
-    TaskList.addTask('protractor test task1');
-    TaskList.addTask('protractor test task2');
+  it('Create the first task', function() {
+    TaskList.addTask('first test task');
+  });
 
-    //Verify that count is "2"
-    TaskList.itemsLeftNumber(2);
+  it('Create the second task and verify that count is 1', function() {
+    TaskList.addTask('second test task');
 
-    //Clicking on the "Select All" checkbox, it will make all tasks completed
-    TaskList.checkAll.click();
+    //Waiting for the [All] button to become displayed
+    browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));
 
-    //Verify that count becomes "0"
-    TaskList.itemsLeftNumber(0);
-
-    //Clicking on the "Select All" checkbox again, it will make all tasks active again
-    TaskList.checkAll.click();
-
-    //Verify that count becomes "2"
     TaskList.itemsLeftNumber(2);
   });
 
-  afterEach(function() {
+  it('Clicking on the "Select All" checkbox and verify that count becomes 0', function() {
+    TaskList.checkAll.click();
+
+    TaskList.itemsLeftNumber(0);
+  });
+
+  it('Clicking on the "Select All" checkbox again and verify that count becomes 2', function() {
+    TaskList.checkAll.click();
+
+    TaskList.itemsLeftNumber(2);
+  });
+
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

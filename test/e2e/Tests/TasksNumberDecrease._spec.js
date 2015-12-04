@@ -34,7 +34,7 @@ describe('Check that tasks count decreases after marking tasks completed', funct
     TaskList.itemsLeftNumber(0);
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

@@ -15,11 +15,10 @@ describe('Verify that new task can be successfully added', function() {
   });
 
   it('Adding new task and validating that task is added', function() {
-    //Adding new task
     TaskList.addTask('protractor test task');
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

@@ -14,14 +14,19 @@ describe('Verify that [Active] button filters tasks and displays only active one
     TaskList.clearAllTasks();
   });
 
-  it('Validating that [Active] button filters tasks and displays only active ones', function() {
-    //Creating two new tasks
+  it('Create the first task', function() {
     TaskList.addTask('first test task');
+  });
+
+  it('Create the second task', function() {
     TaskList.addTask('second test task');
+  });
 
-    //Clicking on the [Check] button for the first task (this makes it completed)
+  it('Clicking on the [Check] button for the first task (this makes it completed)', function() {
     TaskList.checkBtnGeneral.get(0).click();
+  });
 
+  it('Validating that [Active] button filters tasks and displays only active ones', function() {
     //Clicking on the [Active] button
     TaskList.activeBtn.click();
 
@@ -32,7 +37,7 @@ describe('Verify that [Active] button filters tasks and displays only active one
     expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('second test task');
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

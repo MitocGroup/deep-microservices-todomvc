@@ -8,21 +8,19 @@ describe('Check that tasks count increases after creating new tasks', function()
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that tasks count increases after creating new tasks', function() {
-    //Adding new task
-    TaskList.addTask('protractor test task1');
+  it('Create the first task and verify that count is 1', function() {
+    TaskList.addTask('first test task');
 
-    //Verify that count is "1"
     TaskList.itemsLeftNumber(1);
+  });
 
-    //Adding one more task
-    TaskList.addTask('protractor test task2');
+  it('Create the second task and verify that count is 2', function() {
+    TaskList.addTask('second test task');
 
-    //Verify that count is "2"
     TaskList.itemsLeftNumber(2);
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

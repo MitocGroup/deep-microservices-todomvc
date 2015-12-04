@@ -8,15 +8,15 @@ describe('Check that task name can be updated', function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that task name can be updated', function() {
-    //Adding new task
+  it('Adding new task', function() {
     TaskList.addTask('protractor test task1');
+  });
 
-    //Editing the task name
+  it('Updating the task name and verifying that it is saved', function() {
     TaskList.taskEditing(0, 'updated task name');
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

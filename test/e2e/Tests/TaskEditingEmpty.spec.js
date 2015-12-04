@@ -11,20 +11,26 @@ describe('Check that task deletes if it is empty during updating', function() {
     TaskList.actionsBeforeAll();
   });
 
-  it('Verify that task deletes if it is empty during updating', function() {
-    //Adding new task
-    TaskList.addTask('firstTaskName');
-    TaskList.addTask('secondTaskName');
+  it('Create the first task', function() {
+    TaskList.addTask('first test task');
+  });
+
+  it('Create the second task', function() {
+    TaskList.addTask('second test task');
 
     //Verifying that there are 2 tasks displayed
     expect(TaskList.totalTasksCount()).toEqual(2);
+  });
 
+  it('Clear previous task name', function() {
     //Double click on the task to make it editable
     browser.actions().doubleClick(TaskList.taskNameGeneral.get(0)).perform();
 
     //Removing previous task name from input
     TaskList.editTask.clear();
+  });
 
+  it('Save the task and verify that it is deleted', function() {
     //Pressing "enter" button
     TaskList.editTask.sendKeys(protractor.Key.ENTER);
 
@@ -32,10 +38,10 @@ describe('Check that task deletes if it is empty during updating', function() {
     expect(TaskList.totalTasksCount()).toEqual(1);
 
     //Verifying that proper task is displayed (the one which was not deleted)
-    expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('secondTaskName');
+    expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('second test task');
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

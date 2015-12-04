@@ -14,14 +14,21 @@ describe('Verify that clicking on checkbox makes task completed', function() {
     TaskList.clearAllTasks();
   });
 
-  it('Validating that clicking on checkbox makes task completed', function() {
-    //Creating two new tasks
+  it('Create the first task', function() {
     TaskList.addTask('first test task');
+  });
+
+  it('Create the second task', function() {
     TaskList.addTask('second test task');
+
+    //Waiting for the [All] button to become displayed
+    browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));
 
     //Verifying that tasks count is equal to 2
     TaskList.itemsLeftNumber(2);
+  });
 
+  it('Validating that clicking on checkbox makes task completed', function() {
     //Clicking on the [Check] button for the first task (this makes it completed)
     TaskList.checkBtnGeneral.get(0).click();
 
@@ -29,7 +36,7 @@ describe('Verify that clicking on checkbox makes task completed', function() {
     TaskList.itemsLeftNumber(1);
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });

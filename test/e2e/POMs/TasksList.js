@@ -59,7 +59,6 @@ var TaskList = function() {
 
   //Function creates new ToDo task
   this.addTask = function(value) {
-
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
@@ -102,7 +101,6 @@ var TaskList = function() {
 
   //Function gets task count number
   this.itemsLeftNumber = function(countNumber) {
-
     browser.wait(protractor.ExpectedConditions.visibilityOf(this.tasksCount));
 
     var message = countNumber === 1 ? ' item left' : ' items left';
@@ -111,7 +109,6 @@ var TaskList = function() {
   };
 
   this.actionsBeforeAll = function() {
-
     //Opening ToDoApp
     browser.get(this.url);
 
@@ -120,7 +117,6 @@ var TaskList = function() {
   };
 
   this.taskEditing = function(taskIndex, editedValue) {
-
     //Double click on the task to make it editable
     browser.actions().doubleClick(this.taskNameGeneral.get(taskIndex)).perform();
 

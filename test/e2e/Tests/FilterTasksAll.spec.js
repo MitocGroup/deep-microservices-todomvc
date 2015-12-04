@@ -15,17 +15,22 @@ describe('Verify that [All] button displays both active/completed tasks', functi
     TaskList.clearAllTasks();
   });
 
-  it('Validating that [All] button displays both active/completed tasks', function() {
-    //Creating two new tasks
+  it('Create the first task', function() {
     TaskList.addTask('first test task');
+  });
+
+  it('Create the second task', function() {
     TaskList.addTask('second test task');
 
     //Waiting for the [All] button to become displayed
     browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));
+  });
 
-    //Clicking on the [Check] button for the first task (this makes it completed)
+  it('Clicking on the [Check] button for the first task (this makes it completed)', function() {
     TaskList.checkBtnGeneral.get(0).click();
+  });
 
+  it('Validating that [Completed] button displays only completed tasks', function() {
     //Clicking on the [Completed] button
     TaskList.completedBtn.click();
 
@@ -34,7 +39,9 @@ describe('Verify that [All] button displays both active/completed tasks', functi
 
     //Verifying that valid task is displayed: the one which was marked as completed
     expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('first test task');
+  });
 
+  it('Validating that [Active] button displays only active tasks', function() {
     //Clicking on the [Active] button
     TaskList.activeBtn.click();
 
@@ -43,7 +50,9 @@ describe('Verify that [All] button displays both active/completed tasks', functi
 
     //Verifying that valid task is displayed: the one which was not marked as completed
     expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('second test task');
+  });
 
+  it('Validating that [All] button displays both active/completed tasks', function() {
     //Clicking on the [All] button
     TaskList.allBtn.click();
 
@@ -51,7 +60,7 @@ describe('Verify that [All] button displays both active/completed tasks', functi
     expect(TaskList.totalTasksCount()).toEqual(2);
   });
 
-  afterEach(function() {
+  afterAll(function() {
     //Deleting all existing tasks before each spec to avoid conflicts
     TaskList.clearAllTasks();
   });
