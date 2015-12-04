@@ -161,21 +161,24 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+**/node_modules
+**/src/DeepNgRoot
 
 # Debug log from npm
 npm-debug.log
 
-#Transpiled Lambdas code
+# Transpiled Lambdas code
 **/Backend/src/**/*.js
 
-#Lambda archives and checksums
+# Lambda archives and checksums
 **/Backend/src/**/*.zip
 **/Backend/src/**/*.sfv
 **/Backend/src/**/_config.json
 
-#Frontend dependencies
+# Frontend dependencies
 **/js/vendor/
 **/Frontend/vendor/
 
-#Coverage files
+# Coverage files
 **/coverage
+
