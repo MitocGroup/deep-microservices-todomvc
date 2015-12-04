@@ -67,13 +67,6 @@ class DeepNgToDoService {
     return defer.promise;
   }
 
-  /**
-   * Returns true if tasks exist
-   */
-  get hasTodo() {
-    return this.todoList.length > 0;
-  }
-
   fetchAllToDo() {
     let defer = this.$q.defer();
     let _this = this;
@@ -178,29 +171,6 @@ class DeepNgToDoService {
     });
 
     return defer.promise;
-  }
-
-  /**
-   * Returns active tasks count
-   * @returns {number}
-   */
-  get todoNumber() {
-    let remainingCount = 0;
-
-    for (let todo of this.todoList) {
-      if (!todo.Completed) {
-        remainingCount++;
-      }
-    }
-    return remainingCount;
-  }
-
-  /**
-   * Returns completed tasks count
-   * @returns {number}
-   */
-  get completedCount() {
-    return this.todoList.length - this.todoNumber;
   }
 
   /**

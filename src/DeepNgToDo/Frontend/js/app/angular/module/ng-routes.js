@@ -6,20 +6,30 @@ import moduleName from '../name';
 var deepAsset = DeepFramework.Kernel.container.get('asset');
 var routes = {
   'app': {
-    url: '/:status',
+    url: '',
+    templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/layout.html'),
     controller: 'DeepNgToDoController',
     controllerAs: 'todoCtrl',
-    templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html'),
     data: {
       pageTitle: 'DEEP Framework • TodoMVC',
     },
   },
+  'app.todo': {
+    url: '/:status',
+    views: {
+      'todo': {
+        controller: 'DeepNgToDoStateController',
+        templateUrl: deepAsset.locate('@deep.ng.todo:js/app/angular/views/todo.html'),
+      },
+    },
+  }
 };
 
 class Config {
   constructor($stateProvider, $urlRouterProvider) {
     /* Define application level routes */
     let stateNames = Object.keys(routes);
+    $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/');
     angular.forEach(stateNames, function routesRegister(stateName) {
       $stateProvider.state(stateName, routes[stateName]);

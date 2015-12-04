@@ -2,3 +2,4 @@
 'format es6';
 
 import './DeepNgToDoController';
+import './DeepNgToDoStateController';
