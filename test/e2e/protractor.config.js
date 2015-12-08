@@ -1,7 +1,7 @@
 exports.config = {
 
   //Url link for testing
-  testUrl: 'http://todo.deep.mg/',
+  testUrl: 'http://d30ayscf0atmfs.cloudfront.net/',
 
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
@@ -15,23 +15,23 @@ exports.config = {
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
       shardTestFiles: true,
-      maxInstances: 3,
+      maxInstances: 5,
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'firefox',
       shardTestFiles: true,
-      maxInstances: 3,
+      maxInstances: 5,
     },
 
-    //@todo - uncomment out when it will ready for configurations below
+    ////@todo - uncomment out when it will ready for configurations below
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     //  name: 'IE on win7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
     //  browserName: 'internet explorer',
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
+    //  //shardTestFiles: true,
+    //  //maxInstances: 5,
     //},
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
@@ -40,24 +40,24 @@ exports.config = {
     //  platformName: "iOS",
     //  platformVersion: "7.1",
     //  deviceName: "iPhone Simulator",
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
+    //  //shardTestFiles: true,
+    //  //maxInstances: 5,
     //},
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     //  name: 'Safari on OS X10.9 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
     //  browserName: 'safari',
     //  platform: "OS X 10.9",
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
+    //  //shardTestFiles: true,
+    //  //maxInstances: 5,
     //},
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     //  name: 'Chrome on Google Nexus 7 test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
     //  deviceName: 'LG Nexus 4 Emulator',
     //  browserName: 'chrome',
-    //  shardTestFiles: true,
-    //  maxInstances: 5,
+    //  //shardTestFiles: true,
+    //  //maxInstances: 5,
     //},
   ],
 

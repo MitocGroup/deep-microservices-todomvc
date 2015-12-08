@@ -47,4 +47,3 @@ describe('Check that task deletes if it is empty during updating', function() {
   });
 
 });
-

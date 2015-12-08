@@ -10,7 +10,6 @@ describe('Check that [Clear Completed] button appears if at least one task is co
 
   it('Add first new task', function() {
     TaskList.addTask('protractor test task1');
-
   });
 
   it('Add second new task', function() {

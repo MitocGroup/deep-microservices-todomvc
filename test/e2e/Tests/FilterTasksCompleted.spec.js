@@ -7,11 +7,7 @@ var TaskList = require('../POMs/TasksList.js');
 describe('Verify that [Completed] button filters tasks and displays only completed ones', function() {
 
   beforeAll(function() {
-    //Opening ToDoApp
-    browser.get(TaskList.url);
-
-    //Deleting all existing tasks
-    TaskList.clearAllTasks();
+    TaskList.actionsBeforeAll();
   });
 
   it('Create the first task', function() {
