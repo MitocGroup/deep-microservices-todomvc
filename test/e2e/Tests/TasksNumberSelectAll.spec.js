@@ -1,3 +1,6 @@
+/* global browser */
+/* global protractor */
+
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');

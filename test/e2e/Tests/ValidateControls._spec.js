@@ -1,3 +1,5 @@
+/* global browser */
+
 'use strict';
 
 var leftPanel = require('../POMs/LeftPanel.js');
