@@ -10,8 +10,8 @@ istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
 ### Upload Coverage info to Codacy ###
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 
-echo "CONTENT AFTER:"
-head ${__COVERAGE_PATH}"/lcov.info"
+### Log top 20 file path to be able see path format from travis###
+head -n 20 ${__COVERAGE_PATH}"/lcov.info"
 
 ### Cleanup! ###
 #remove all generated reports
