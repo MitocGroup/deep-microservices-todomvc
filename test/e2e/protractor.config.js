@@ -1,7 +1,7 @@
 exports.config = {
 
   //Url link for testing
-  testUrl: 'http://d30ayscf0atmfs.cloudfront.net/',
+  testUrl: 'http://d232g0gmyydboy.cloudfront.net/',
 
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
@@ -15,14 +15,14 @@ exports.config = {
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
       shardTestFiles: true,
-      maxInstances: 5,
+      maxInstances: 1,
     },
     {
       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
       name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'firefox',
       shardTestFiles: true,
-      maxInstances: 5,
+      maxInstances: 1,
     },
 
     ////@todo - uncomment out when it will ready for configurations below
