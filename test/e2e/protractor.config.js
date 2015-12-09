@@ -1,7 +1,7 @@
 exports.config = {
 
   //Url link for testing
-  testUrl: 'http://d232g0gmyydboy.cloudfront.net/',
+  testUrl: 'http://d1om2xh63shh0v.cloudfront.net',
 
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
