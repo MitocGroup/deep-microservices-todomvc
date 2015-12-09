@@ -34,10 +34,6 @@ describe('Services', function() {
     expect(deepNgToDoService.allChecked).toBe(false);
   });
 
-  it('Check createToDo() method for !title returns promise', function() {
-    expect(deepNgToDoService.createToDo().constructor.name).toBe(false);
-  });
-
   it('Check createToDo() with title returns promise with reponse.isError',
     function() {
       let error = null;
