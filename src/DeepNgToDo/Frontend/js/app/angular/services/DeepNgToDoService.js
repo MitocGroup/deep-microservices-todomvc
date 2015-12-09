@@ -27,10 +27,6 @@ class DeepNgToDoService {
     let _this = this;
     let defer = this.$q.defer();
 
-    if (!title) {
-      return false;
-    }
-
     let newTodo = {
       Title: title.trim(),
       Completed: false,
