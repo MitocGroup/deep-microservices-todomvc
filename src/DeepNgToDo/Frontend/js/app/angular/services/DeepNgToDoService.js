@@ -27,10 +27,6 @@ class DeepNgToDoService {
     let _this = this;
     let defer = this.$q.defer();
 
-    if (!title) {
-      return false;
-    }
-
     let newTodo = {
       Title: title.trim(),
       Completed: false,
@@ -115,7 +111,7 @@ class DeepNgToDoService {
     let updatedList = [];
 
     for (let todo of this.todoList) {
-      if (todo.Completed == state) {
+      if (todo.Completed === state) {
         todo.Completed = state;
       }
       updatedList.push(todo);

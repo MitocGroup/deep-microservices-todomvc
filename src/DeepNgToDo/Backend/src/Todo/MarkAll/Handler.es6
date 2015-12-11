@@ -15,18 +15,24 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   handle(request) {
     let frameworkException = DeepFramework.Core.Exception;
+    let data = request.data;
 
-    if (!Array.isArray(request.data)) {
+    if (!Array.isArray(data)) {
       throw new frameworkException.InvalidArgumentException(request.data, 'array');
     }
 
-    if (!request.data.length) {
+    if (!data.length) {
       return this.createResponse({}).send();
     }
 
     let updatedCount = 0;
 
-    for (let todo of request.data) {
+    for (let index in data) {
+      if (!data.hasOwnProperty(index)) {
+        continue;
+      }
+      let todo = data[index];
+
       if (!todo || typeof todo !== 'object') {
         throw new frameworkException.InvalidArgumentException(todo, 'object');
       }

@@ -26,7 +26,7 @@ describe('Controllers', function() {
         anonymousLogin: anonymousLogin(),
       };
     })
-    .factory('deepNgToDoService', function($q) {
+    .factory('deepNgToDoService', function() {
       var fetchAllToDo = () => {
         return ['test', 'fetched'];
       };
@@ -79,7 +79,7 @@ describe('Controllers', function() {
   describe('DeepNgToDoController', function() {
     it('DeepNgToDoController constructor sets valid default values',
       function() {
-        expect(Object.keys(controller).length).toBe(5);
+        expect(Object.keys(controller).length).toBe(4);
         expect(typeof controller.toDoService).toEqual('object');
         expect(typeof controller.deepLog).toEqual('object');
       }

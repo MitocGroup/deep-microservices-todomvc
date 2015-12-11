@@ -24,7 +24,7 @@ class DeepNgToDoController {
       $scope.todoList = deepNgToDoService.todoList;
       $scope.remainingCount = $filter('filter')($scope.todoList, { Completed: false }).length;
       $scope.completedCount = $scope.todoList.length - $scope.remainingCount;
-      $scope.allChecked = !$scope.remainingCount;
+      $scope.allChecked = !$scope.remainingCount && $scope.todoList.length > 0;
     }, true);
 
     this.throttledToggleCompleted = _.debounce((todo, completed) => {
@@ -43,16 +43,19 @@ class DeepNgToDoController {
   }
 
   create() {
-    this.saving = true;
-    this.toDoService.createToDo(this.title)
-      .catch((error) => {
-        this.deepLog.log(error);
-      })
-      .finally(() => {
-        this.title = '';
-        this.saving = false;
-      }
-    );
+    let title = this.title.trim();
+    if (title) {
+      this.saving = true;
+      this.toDoService.createToDo(title)
+        .catch((error) => {
+          this.deepLog.log(error);
+        })
+        .finally(() => {
+          this.title = '';
+          this.saving = false;
+        }
+      );
+    }
   }
 
   /**
