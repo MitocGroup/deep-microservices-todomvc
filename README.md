@@ -19,21 +19,21 @@ to streamline development and deployment of the web app using cloud-based web se
 > deepify is a collection of tools that empower developers and devops engineers to automate
 the management of web apps built on top of DEEP ecosystem.
 
-2. Using git, clone this repository:
+2. Using deepify, pickup todo app directly from GitHub:
 
-  `git clone https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app`
-> git clone makes a copy of the repository, allowing you to use the code locally.
+  `deepify install https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app`
+> deepify fetches todo app sources and unpack them locally
 
 3. Using deepify, run locally the helloworld example:
 
-  `deepify server ~/deep-todo-app/src -o`
+  `deepify server ~/deep-todo-app -o`
 > deepify launches a web server that can be used for local development, without making calls
 to web services from cloud providers like AWS. This step can be also labeled as
 [Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
 4. Using deepify, deploy to AWS the helloworld example:
 
-  `deepify deploy ~/deep-todo-app/src`
+  `deepify deploy ~/deep-todo-app`
 > deepify provisions the infrastructure and deploys the web app, empowering developers and
 devops engineers to automate the process. This step can be also labeled as
 [Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
