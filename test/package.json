@@ -18,5 +18,5 @@
     "type": "git",
     "url": "https://github.com/MitocGroup/deep-microservices-todo-app.git"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
