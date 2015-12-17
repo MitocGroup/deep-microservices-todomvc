@@ -10,7 +10,7 @@ checkStatus () {
 isLocalServerUp () {
   NEXT_WAIT_INDEX=0
   CHECK_STATUS_TIMEOUT=3
-  DEEPIFY_TIMEOUT=1000
+  DEEPIFY_TIMEOUT=3000
   CURRENT_TIMEOUT=0
 
   while true; do
