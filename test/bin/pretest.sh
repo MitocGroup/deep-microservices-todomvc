@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#to disable interactive user interaction like prompts in terminal (an default value is always chosen)
+export DEEP_NO_INTERACTION=1
+
 checkStatus () {
 	curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
 }
