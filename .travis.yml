@@ -19,7 +19,7 @@ env:
     - secure: i6DYnNlhKrlxs4OIqn8IN3HRXPv2zy5xPeB8QNJ0Oo1OShBzf3+WrbukG/7fykHtYzBBFMg/COBOWtP/r11XY96DOhOl/zq+LR+puPC+Pj+frCJuvCzfWGmgoUYgajM+JYgPn75YdRM9ge0xB9olSBYmQxPVCZ2NYKAizmOTnsIIvL5sIvo9us8wwIeNhJdFDzWnNeKDLTqfwMqo7gX9hSE7w50ZLX2KOa+ze8kcA/ouFj/VQE3icSc6jAjQmkSx1yuFGAaUmMCxAZX9MECFGt6geCtL5wM601moOIuEhq5giYJUHZI0CIKeo4aGX/PX41nfocmbT51NIO/Hgy4uPKBBbjiBkymtbC/+803dEktUqxwJvTLERIBUjo/Gz86BFExehdTLpMMz3P9MOvDe6L8Xn5zHLwoblAjcFlcXOrFgRLk68hRtJQ3ycUdRpROHLLF9cWSY0wKKzCgVudazgbRc4IO/+1TPG1wYB2/Fw3999Xb9KcyHsCMmc8uGR24SuCvQfy3SgKYbJwOJGd3WSfQkJliZaWsEqH8/pcSxlBhEdqDYrN87cCHAp6XcpC/GQWiLRS9TMlBdf2m/YJJUcSxcs6DzFky581CjFKFQsoc4TR5kzp0CKyzEOeR88WW8A6/rtC6iGZnqoEdBpNYVa1B4Wdu4MNGTFdoNraJjYlo=
 before_install:
   - npm install -g deepify
-  - npm install -g jspm
+  - npm install -g jspm@0.16.15
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - npm install -g babel@5.8.19
   - npm install -g browserify@11.2.0
