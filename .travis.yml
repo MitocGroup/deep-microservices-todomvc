@@ -17,6 +17,8 @@ addons:
   sauce_connect: true
 env:
   global:
+    #to disable interactive user interaction like prompts in terminal (an default value is always chosen)
+    DEEP_NO_INTERACTION=1
     #JSPM_GITHUB_AUTH_TOKEN=[secured]
     - secure: MEwysS3HqSUfT/7AnpgqYpZXyFkXQSQDH0YsoA0lUO+tJyIHLrEuJuEIHEazKvD7VYbQNBYjJYf92uTxh1egakH60eC/QyrluFSqu5KFtpx/lnyfMNkl7feld+jQxO7kXKGxhjaqxmhn2Gp/42tV+FUFb7dU3kZgh0R6vCluado9Vm1tWwVjRUYVEzp2avRwolBsn5xqLVVvMakulEOKT4py5/Pmnm9iZEGWBw+0dIxdtWTQDGDCHshcdTP7QxcWWUe7B9P979M24ePSmmQC9jFLAQo7JCvj6fJW+gNK590XmJZKNmtpdG+Jo8rjhRjbUaeUzaZsw15aJoFuUsrfdxuNKtAYDZ92q2390FAF0czYBIBRwsiLcIS6P3Lsf5Tbq0WTLrEU7cTKwAmB3jEiNXPY+3OkkqT5kGmwKzEp0LgR7d/Ht/iecXSfzrP5Am4XYtOUPsRn9kig0t4Zb6iHyrAc+Zvnb3FzLMSSllayTAcXF9wHvqSeSdJ3qN2vUMEXN5KNWIkcGMiqQD6g0Jcgdl0MHOBSrgjzJQKJpLYVObP/tlsDaxUyIHgqjEQtXSnRIW4cNoOwgk9ltpzWBtT0z+DW6A/tDNcc2y7ejX7bjHSXxxWAk/jNjCAaYPINiWu+HL6UoPjnwiy7NOlJRMXoS7zR0Gmqr0cfKl1+VVIPP90=
     #CODACY_PROJECT_TOKEN=[secured]
@@ -51,6 +53,8 @@ before_install:
   - npm install -g karma-ng-html2js-preprocessor@0.2.0
   - npm install -g protractor@3.0.0
   - cp test/package.json .
+  - cp src/deeploy.example.json src/deeploy.json
   - deepify init-backend ./src
+
 after_success:
   - npm run coverage
