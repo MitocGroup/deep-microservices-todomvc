@@ -5,8 +5,12 @@ source $(dirname $0)/_head.sh
 #to disable interactive user interaction like prompts in terminal (an default value is always chosen)
 export DEEP_NO_INTERACTION=1
 
+echo "copying file"
+
 #copy deeploy.json from deeploy.example.json
-cp ${__SRC_PATH}deeploy.example.json ${__SRC_PATH}deeploy.json
+cp ${__SRC_PATH}"deeploy.example.json" ${__SRC_PATH}"deeploy.json"
+
+head -n 20 ${__SRC_PATH}"deeploy.json"
 
 checkStatus () {
 	curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
