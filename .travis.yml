@@ -51,6 +51,6 @@ before_install:
   - npm install -g karma-ng-html2js-preprocessor@0.2.0
   - npm install -g protractor@3.0.0
   - cp test/package.json .
-  - deepify init-backend
+  - deepify init-backend ./src
 after_success:
   - npm run coverage
