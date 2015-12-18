@@ -16,7 +16,7 @@ exports.config = {
       browserName: 'chrome',
     //  shardTestFiles: true,
     //  maxInstances: 5,
-    //},
+    },
     //{
     //  'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     //  name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
