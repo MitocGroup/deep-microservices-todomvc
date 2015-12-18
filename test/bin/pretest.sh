@@ -10,6 +10,9 @@ echo "copying file"
 #copy deeploy.json from deeploy.example.json
 cp ${__SRC_PATH}"deeploy.example.json" ${__SRC_PATH}"deeploy.json"
 
+echo "Current path"
+pwd
+
 head -n 20 ${__SRC_PATH}"deeploy.json"
 
 checkStatus () {
