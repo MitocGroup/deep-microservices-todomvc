@@ -2,8 +2,6 @@
 
 source $(dirname $0)/_head.sh
 
-head -n 20 ${__SRC_PATH}"deeploy.json"
-
 checkStatus () {
 	curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
 }
