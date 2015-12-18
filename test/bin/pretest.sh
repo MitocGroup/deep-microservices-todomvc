@@ -5,13 +5,8 @@ source $(dirname $0)/_head.sh
 #to disable interactive user interaction like prompts in terminal (an default value is always chosen)
 export DEEP_NO_INTERACTION=1
 
-echo "copying file"
-
 #copy deeploy.json from deeploy.example.json
 cp ${__SRC_PATH}"deeploy.example.json" ${__SRC_PATH}"deeploy.json"
-
-echo "Current path"
-pwd
 
 head -n 20 ${__SRC_PATH}"deeploy.json"
 
@@ -49,4 +44,4 @@ isLocalServerUp () {
 }
 
 #launch local server and check if it up and running
-deepify server ../src & sleep 15 & isLocalServerUp
+deepify server ${__SRC_PATH} & sleep 15 & isLocalServerUp
