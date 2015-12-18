@@ -44,4 +44,4 @@ isLocalServerUp () {
 }
 
 #launch local server and check if it up and running
-deepify server ${__SRC_PATH} & sleep 15 & isLocalServerUp
+deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
