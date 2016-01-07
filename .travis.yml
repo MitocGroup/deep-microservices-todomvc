@@ -32,7 +32,7 @@ before_install:
   - npm install -g istanbul@0.3.21
   - npm install -g istanbul-combine@0.3.0
   - npm install -g phantomjs@1.9.18
-  - npm install -g karma@0.13.11
+  - npm install -g karma@0.13.19
   - npm install -g karma-jspm@2.0.1
   - npm install -g karma-jasmine@0.3.6
   - npm install -g karma-babel-preprocessor@5.2.2
