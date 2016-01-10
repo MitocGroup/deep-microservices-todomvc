@@ -26,7 +26,7 @@ describe('Controllers', function() {
         anonymousLogin: anonymousLogin(),
       };
     })
-    .factory('deepNgToDoService', function($q) {
+    .factory('deepNgToDoService', function() {
       var fetchAllToDo = () => {
         return ['test', 'fetched'];
       };

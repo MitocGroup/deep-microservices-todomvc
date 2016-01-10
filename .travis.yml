@@ -1,7 +1,9 @@
 language: node_js
 sudo: false
 node_js:
-  - 0.12
+  # 0.12.0 is require old protractor version
+  #- 0.12.0
+  - 4.2.2
 cache:
   directories:
     - $(npm root -g)
@@ -11,12 +13,21 @@ branches:
     - dev
     - stage
     - testing
+addons:
+  sauce_connect: true
 env:
   global:
+    #to disable interactive user interaction like prompts in terminal (an default value is always chosen)
+    - DEEP_NO_INTERACTION=1
     #JSPM_GITHUB_AUTH_TOKEN=[secured]
     - secure: MEwysS3HqSUfT/7AnpgqYpZXyFkXQSQDH0YsoA0lUO+tJyIHLrEuJuEIHEazKvD7VYbQNBYjJYf92uTxh1egakH60eC/QyrluFSqu5KFtpx/lnyfMNkl7feld+jQxO7kXKGxhjaqxmhn2Gp/42tV+FUFb7dU3kZgh0R6vCluado9Vm1tWwVjRUYVEzp2avRwolBsn5xqLVVvMakulEOKT4py5/Pmnm9iZEGWBw+0dIxdtWTQDGDCHshcdTP7QxcWWUe7B9P979M24ePSmmQC9jFLAQo7JCvj6fJW+gNK590XmJZKNmtpdG+Jo8rjhRjbUaeUzaZsw15aJoFuUsrfdxuNKtAYDZ92q2390FAF0czYBIBRwsiLcIS6P3Lsf5Tbq0WTLrEU7cTKwAmB3jEiNXPY+3OkkqT5kGmwKzEp0LgR7d/Ht/iecXSfzrP5Am4XYtOUPsRn9kig0t4Zb6iHyrAc+Zvnb3FzLMSSllayTAcXF9wHvqSeSdJ3qN2vUMEXN5KNWIkcGMiqQD6g0Jcgdl0MHOBSrgjzJQKJpLYVObP/tlsDaxUyIHgqjEQtXSnRIW4cNoOwgk9ltpzWBtT0z+DW6A/tDNcc2y7ejX7bjHSXxxWAk/jNjCAaYPINiWu+HL6UoPjnwiy7NOlJRMXoS7zR0Gmqr0cfKl1+VVIPP90=
     #CODACY_PROJECT_TOKEN=[secured]
     - secure: i6DYnNlhKrlxs4OIqn8IN3HRXPv2zy5xPeB8QNJ0Oo1OShBzf3+WrbukG/7fykHtYzBBFMg/COBOWtP/r11XY96DOhOl/zq+LR+puPC+Pj+frCJuvCzfWGmgoUYgajM+JYgPn75YdRM9ge0xB9olSBYmQxPVCZ2NYKAizmOTnsIIvL5sIvo9us8wwIeNhJdFDzWnNeKDLTqfwMqo7gX9hSE7w50ZLX2KOa+ze8kcA/ouFj/VQE3icSc6jAjQmkSx1yuFGAaUmMCxAZX9MECFGt6geCtL5wM601moOIuEhq5giYJUHZI0CIKeo4aGX/PX41nfocmbT51NIO/Hgy4uPKBBbjiBkymtbC/+803dEktUqxwJvTLERIBUjo/Gz86BFExehdTLpMMz3P9MOvDe6L8Xn5zHLwoblAjcFlcXOrFgRLk68hRtJQ3ycUdRpROHLLF9cWSY0wKKzCgVudazgbRc4IO/+1TPG1wYB2/Fw3999Xb9KcyHsCMmc8uGR24SuCvQfy3SgKYbJwOJGd3WSfQkJliZaWsEqH8/pcSxlBhEdqDYrN87cCHAp6XcpC/GQWiLRS9TMlBdf2m/YJJUcSxcs6DzFky581CjFKFQsoc4TR5kzp0CKyzEOeR88WW8A6/rtC6iGZnqoEdBpNYVa1B4Wdu4MNGTFdoNraJjYlo=
+    #SAUCE_USERNAME=[secured]
+    - secure: o1ni6XQ2naZvik5USOdd0CBkcAVhSmYcumEol4/gX+d7Rq3/h20B5WeDEKq55mOkPRq5WLPZfdE5KoDHLvz4qNs+pmwAUNy5lvbhs2RU8DvJVzJAHSoyKCXwJr/kmACjDH0/95FyUrCtml4b7gpFRCtTfhhnUCQDtdXO64znvQqN2Yyd/igNZ6lTs6nK7GnzKYChhF1WsIs9ROLY05yGlWy87JWW2xwMtDTP4ufF1EqlHAT6taDcV+a+6iywkFA9EBo7t5+ZO9m2IfHHEvTBbePvUNMTPf8K07EHZM83+b6sjYU/ucYGzHg0E+YmAsnmy1ALjf+6KyOz+UnSm9zC0htMHH1TzS+rNK6KfYELlTIiIB2wYgKNwnrWsYk21+EkzKE+0J+7ytCtZUbcI8NbFeZ9l73tXbNT5n5ATBSY9rpG3CpaKNvXwlCO0vPVctTuk20q92aKcVvFy7/iu5UhUoEY5b/yN4f0f9fcuRr304FwifHGUiCs3kTQ7VDz5TKOSjjTptjcAq3hMMXZqoVFrkuH1IWUCUGycim/keojpgz419FatkDnroBLknWrqjvXXVIqr2ZROtKZVoq0eHXAgeDdqkomzigHKIEJDzTwXEC9TtUDQ7HhTA3P+Vk7cIp6MGuq+Xi6dW0M6jOJ/VMU5jfAJ0yX//1seSVTKWBGkOo=
+    #SAUCE_ACCESS_KEY =[secured]
+    - secure: f+HaFd/PrMhX0XyYQudPhOpjGWPXN/jjiV9nzMxr8U14v0ej3f2feWoz/2MW//C44bGgHtpcm83k2+GwW2FTOTt4AANb/KKhAoBiWnLei/WH7QNNm8D+MrNBluOjKAkcD67j1redfFO6buUJ7nSCcRtuYQ53n6xfs7KWORHxHlg3n7dzM+f5qMnFfdjIUbHH90eTORSrmYS6t8a2niGUxVY22JTuTCKFRx2dhD9w84LiTRvK/do6ZAVuoSzbXhcBap0Yuv84mUWydLsaJqskfmZ4z6ViYhr+cCqcmBsmc/12XljqwyPX0YonKrrzw17xw6ofCpBwUB6x+UH4iqd/vdP8F1dhEgLXpar58ZsWf9g/zflmTdnkw7KNeshTVUsHq9X5C7t43VyRPQZ5Eo6xOAsSVP/Fd9OdNne/bInUsJmIURUTEQBH6hIVyQ7F3OCXCzpOUJOyoyc6DO0tDGMxz4SToFY1bTtOhGqgR1ErruI3H7lpMVRRgrxBRhoY+E7N6Ak8Ypun/SqY9F1p6QIgpisVuUkfFUxbBOZ4Lhojk6wigZ3GKKCEQUV6MdRVBaQ7hSO1xW4AGu5s96BZzz2VrKH6MxxiNQ65b0V8ZgAYMb3fzsbHiTrgNC1Kgb4r/bpbBRsk0vhRZZ8jIau2F+dxsrMQGMcTSpvyplfWNsoK4Hg=
+
 before_install:
   - npm install -g deepify
   - npm install -g jspm@0.16.15
@@ -24,8 +35,7 @@ before_install:
   - npm install -g babel@5.8.19
   - npm install -g browserify@11.2.0
   - npm install -g jscs@2.1.1
-  - npm install -g mocha@2.3.3
-  - npm install -g mocha-babel@3.0.0
+  - npm install -g mocha@2.3.4
   - npm install -g codacy-coverage@1.1.3
   - npm install -g chai@3.3.0
   - npm install -g jasmine-core@2.3.4
@@ -40,6 +50,10 @@ before_install:
   - npm install -g karma-verbose-reporter@0.0.3
   - npm install -g karma-phantomjs-launcher@0.2.1
   - npm install -g karma-ng-html2js-preprocessor@0.2.0
+  - npm install -g protractor@3.0.0
   - cp test/package.json .
+  - cp src/deeploy.example.json src/deeploy.json
+  - deepify init-backend ./src
+
 after_success:
   - npm run coverage

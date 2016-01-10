@@ -1,7 +1,6 @@
 'use strict';
 'format es6';
 
-/* global DeepFramework */
 /* global angular */
 
 import moduleName from '../name';
