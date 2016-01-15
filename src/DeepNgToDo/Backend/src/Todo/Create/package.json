@@ -1,7 +1,7 @@
 {
   "name": "deep-ng-todo-create",
   "version": "0.0.1",
-  "description": "Create an todo",
+  "description": "Create a todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
@@ -25,7 +25,7 @@
     "compile": "deepify compile-es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "^1.5.x"
+    "deep-framework": "^1.6.x"
   },
   "devDependencies": {
   },

@@ -1,7 +1,7 @@
 {
   "name": "deep-ng-todo-delete",
   "version": "0.0.1",
-  "description": "Delete an todo",
+  "description": "Delete a todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
@@ -21,7 +21,7 @@
     "compile": "deepify compile-es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "^1.5.x"
+    "deep-framework": "^1.6.x"
   },
   "devDependencies": {
   },
