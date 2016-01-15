@@ -3,7 +3,6 @@
 import DeepFramework from 'deep-framework';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
-
   /**
    * @param {Array} args
    */
@@ -11,30 +10,24 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     super(...args);
   }
 
+  /**
+   * @param request
+   */
   handle(request) {
-    if (!request.data.Id || typeof request.data.Id !== 'string') {
-      throw new DeepFramework.Core.Exception.InvalidArgumentException(request.data.Id, 'string');
+    let todoId = request.getParam('Id');
+
+    if (typeof todoId !== 'string') {
+      throw new DeepFramework.Core.Exception.InvalidArgumentException(todoId, 'string');
     }
 
-    this.deleteTodo(request.data, (err) => {
+    let TodoModel = this.kernel.get('db').get('Todo');
+
+    TodoModel.deleteById(todoId, (err) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
 
       return this.createResponse({}).send();
-    });
-  }
-
-  /**
-   * Delete Todo
-   * @param data
-   * @param callback
-   */
-  deleteTodo(data, callback) {
-    let Todo = this._kernel.get('db').get('Todo');
-
-    Todo.deleteById(data.Id, (err) => {
-      callback(err);
     });
   }
 }

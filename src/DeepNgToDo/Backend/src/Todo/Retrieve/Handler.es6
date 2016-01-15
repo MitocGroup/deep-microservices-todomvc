@@ -3,7 +3,6 @@
 import DeepFramework from 'deep-framework';
 
 export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
-
   /**
    * @param {Array} args
    */
@@ -11,9 +10,14 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
     super(...args);
   }
 
+  /**
+   * @param request
+   */
   handle(request) {
-    if (request.data.Id) {
-      this.retrieveTodo(request.data.Id, (todo) => {
+    let todoId = request.getParam('Id');
+
+    if (todoId) {
+      this.retrieveTodo(todoId, (todo) => {
         return this.createResponse(todo).send();
       });
     } else {
@@ -24,13 +28,12 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * Retrieve todo
-   * @param callback
+   * @param {Function} callback
    */
   retrieveAllTodo(callback) {
-    let Todo = this._kernel.get('db').get('Todo');
+    let TodoModel = this.kernel.get('db').get('Todo');
 
-    Todo.findAll((err, todo) => {
+    TodoModel.findAll((err, todo) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
@@ -40,14 +43,13 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * retrieve Todo
-   * @param todoId
-   * @param callback
+   * @param {String} todoId
+   * @param {Function} callback
    */
   retrieveTodo(todoId, callback) {
-    let Todo = this._kernel.get('db').get('Todo');
+    let TodoModel = this.kernel.get('db').get('Todo');
 
-    Todo.findOneById(todoId, (err, todo) => {
+    TodoModel.findOneById(todoId, (err, todo) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
