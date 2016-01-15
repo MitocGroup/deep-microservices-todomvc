@@ -11,16 +11,21 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
     super(...args);
   }
 
+  /**
+   * @param request
+   */
   handle(request) {
-    let Todo = this._kernel.get('db').get('Todo');
+    let todoId = request.getParam('Id');
 
-    if (!request.data.Id || typeof request.data.Id !== 'string') {
-      throw new InvalidArgumentException(request.data.Id, 'string');
+    if (typeof todoId !== 'string') {
+      throw new InvalidArgumentException(todoId, 'string');
     }
 
-    Todo.updateItem(request.data.Id, request.data, (err, todo) => {
+    let TodoModel = this.kernel.get('db').get('Todo');
+
+    TodoModel.updateItem(todoId, request.data, (err, todo) => {
       if (err) {
-        throw new DatabaseOperationException(err);
+        throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
 
       return this.createResponse(todo.get()).send();
