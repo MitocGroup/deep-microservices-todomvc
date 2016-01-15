@@ -25,7 +25,7 @@
     "compile": "deepify compile-es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "^1.5.x"
+    "deep-framework": "^1.6.x"
   },
   "devDependencies": {
   },
