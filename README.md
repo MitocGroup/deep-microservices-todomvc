@@ -41,6 +41,15 @@ devops engineers to automate the process. This step can be also labeled as
 To learn more about `DEEP CLI` and `DEEP Framework`, please follow the link
 [What is DEEP Framework?](https://github.com/MitocGroup/deep-framework/blob/master/README.md#what-is-deep-framework-)
 
+### Windows configuration
+  1. Before starting you should have installed and configured correctly node and npm (versions more than 0.12 are supported).
+  2. Before starting you should install Git Bash (please refer to http://git-scm.com/). 
+> It launches a full featured console window running Bash, so you can use Git as well as a set of common command line tools or Unix programs.
+> Starting with Git version 2, Git Bash will by default launch in MinTTY, a terminal emulator which comes with MSYS2, making it easily usable even for users not accustomed to a console experience.
+
+  3. All commands should be run from MinTTY.
+  4. Optionally: you need to have the AWS CLI installed and configured to your AWS account (http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) otherwise you will get first deepify run failed and then you should enter credentials manually.
+
 ### Running Microservices in Development
 
 See Step 3 in 
