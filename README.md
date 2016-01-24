@@ -11,7 +11,8 @@ to streamline development and deployment of the web app using cloud-based web se
 
 ## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-`DEEP Todo App` can be used by executing the following 4 simple steps in command line:
+`DEEP Todo App` can be used by executing the following 4 simple steps in command line ([for Windows install bash emulator](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
+):
 
 1. Install DEEP CLI, also known as deepify:
 
@@ -24,14 +25,14 @@ the management of web apps built on top of DEEP ecosystem.
   `deepify install https://github.com/MitocGroup/deep-microservices-todo-app.git ~/deep-todo-app`
 > deepify fetches todo app source code and unpack it locally
 
-3. Using deepify, run locally the helloworld example:
+3. Using deepify, run locally the todo example:
 
   `deepify server ~/deep-todo-app -o`
 > deepify launches a web server that can be used for local development, without making calls
 to web services from cloud providers like AWS. This step can be also labeled as
 [Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
-4. Using deepify, deploy to AWS the helloworld example:
+4. Using deepify, deploy to AWS the todo example:
 
   `deepify deploy ~/deep-todo-app`
 > deepify provisions the infrastructure and deploys the web app, empowering developers and
