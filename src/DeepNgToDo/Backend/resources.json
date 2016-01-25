@@ -1,5 +1,5 @@
 {
-  "todo": {
+  "task": {
     "create": {
       "description": "Lambda that creates todo task",
       "type": "lambda",
