@@ -2,6 +2,8 @@
   "browser": true,
   "jquery": true,
   "node": true,
+  "jasmine": true,
+  "mocha": true,
   "esnext": true,
   "camelcase": true,
   "eqeqeq": true,
