@@ -11,8 +11,7 @@ to streamline development and deployment of the web app using cloud-based web se
 
 ## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-`DEEP Todo App` can be used by executing the following 4 simple steps in command line (For Windows [install bash emulator](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development) and run all commands from Git Bash ):
-):
+`DEEP Todo App` can be used by executing the following 4 simple steps in command line (for Windows [install bash emulator](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development) and run all commands from Git Bash):
 
 1. Install DEEP CLI, also known as deepify:
 
