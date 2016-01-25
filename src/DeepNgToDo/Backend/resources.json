@@ -1,40 +1,42 @@
 {
-  "task": {
+  "todo": {
     "create": {
-      "description": "Lambda that creates todo task",
+      "description": "Lambda for creating todo",
       "type": "lambda",
-      "methods": ["POST"],
-      "source": "src/Task/Create"
+      "methods": [
+        "POST"
+      ],
+      "source": "src/Todo/Create"
     },
     "retrieve": {
-      "description": "Lambda that retrieves todo task",
+      "description": "Retrieves todo",
       "type": "lambda",
       "methods": ["GET"],
-      "source": "src/Task/Retrieve"
+      "source": "src/Todo/Retrieve"
     },
     "delete": {
-      "description": "Lambda that deletes todo task",
+      "description": "Lambda for deleting todo",
       "type": "lambda",
       "methods": ["DELETE"],
-      "source": "src/Task/Delete"
+      "source": "src/Todo/Delete"
     },
     "deleteCompleted": {
-      "description": "Lambda that deletes completed todo task",
+      "description": "Lambda for deleting todo",
       "type": "lambda",
       "methods": ["POST"],
-      "source": "src/Task/DeleteCompleted"
+      "source": "src/Todo/DeleteCompleted"
     },
     "update": {
-      "description": "Lambda that updates todo task",
+      "description": "Update todo",
       "type": "lambda",
       "methods": ["PUT"],
-      "source": "src/Task/Update"
+      "source": "src/Todo/Update"
     },
     "markAll": {
-      "description": "Lambda that marks or unmarks all todo tasks",
+      "description": "Lambda for mark or unmark todo list",
       "type": "lambda",
       "methods": ["POST"],
-      "source": "src/Task/MarkAll"
+      "source": "src/Todo/MarkAll"
     }
   }
 }
