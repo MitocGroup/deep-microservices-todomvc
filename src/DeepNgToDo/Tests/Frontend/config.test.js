@@ -1,18 +1,21 @@
 System.config({
-  defaultJSExtensions: true,
-  transpiler: "babel",
-  babelOptions: {
+  "transpiler": "babel",
+  "babelOptions": {
     "optional": [
       "runtime"
     ]
   },
-  paths: {
+  "paths": {
     "​*": "*​.js",
-    "github:*": "Frontend/vendor/github/*",
-    "npm:*": "Frontend/vendor/npm/*"
+    "github:*": "Frontend/vendor/github/*.js",
+    "npm:*": "Frontend/vendor/npm/*.js",
+    "*": "*.js"
   },
+  "defaultJSExtensions": true
+});
 
-  map: {
+System.config({
+  "map": {
     "angular": "github:angular/bower-angular@1.4.0",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.4",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
@@ -41,3 +44,4 @@ System.config({
     }
   }
 });
+

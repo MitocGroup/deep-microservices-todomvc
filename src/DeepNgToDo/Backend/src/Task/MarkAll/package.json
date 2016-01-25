@@ -1,12 +1,12 @@
 {
-  "name": "deep-ng-todo-update",
+  "name": "deep-ng-task-mark-all",
   "version": "0.0.1",
-  "description": "Update todo",
+  "description": "Mark or unmark todo list",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
+      "name": "Maxim Ponomariov",
+      "email": "mponomariov@mitocgroup.com"
     }
   ],
   "bugs": {

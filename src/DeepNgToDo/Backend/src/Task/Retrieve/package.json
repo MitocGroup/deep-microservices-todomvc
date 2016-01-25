@@ -1,12 +1,12 @@
 {
-  "name": "deep-ng-todo-mark-all",
+  "name": "deep-ng-task-retrieve",
   "version": "0.0.1",
-  "description": "Mark or unmark todo list",
+  "description": "Retrieve todos",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
-      "name": "Maxim Ponomariov",
-      "email": "mponomariov@mitocgroup.com"
+      "name": "Diana Rosca",
+      "email": "drosca@mitocgroup.com"
     }
   ],
   "bugs": {

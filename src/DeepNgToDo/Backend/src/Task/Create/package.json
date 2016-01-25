@@ -1,12 +1,16 @@
 {
-  "name": "deep-ng-todo-retrieve",
+  "name": "deep-ng-task-create",
   "version": "0.0.1",
-  "description": "Retrieve todos",
+  "description": "Create a todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
       "name": "Diana Rosca",
       "email": "drosca@mitocgroup.com"
+    },
+    {
+      "name": "Maxim Ponomariov",
+      "email": "mponomariov@mitocgroup.com"
     }
   ],
   "bugs": {

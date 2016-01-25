@@ -1,16 +1,12 @@
 {
-  "name": "deep-ng-todo-create",
+  "name": "deep-ng-task-delete",
   "version": "0.0.1",
-  "description": "Create a todo",
+  "description": "Delete a todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
       "name": "Diana Rosca",
       "email": "drosca@mitocgroup.com"
-    },
-    {
-      "name": "Maxim Ponomariov",
-      "email": "mponomariov@mitocgroup.com"
     }
   ],
   "bugs": {
