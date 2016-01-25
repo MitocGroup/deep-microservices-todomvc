@@ -6,37 +6,37 @@
       "methods": [
         "POST"
       ],
-      "source": "src/Todo/Create"
+      "source": "src/Task/Create"
     },
     "retrieve": {
       "description": "Retrieves todo",
       "type": "lambda",
       "methods": ["GET"],
-      "source": "src/Todo/Retrieve"
+      "source": "src/Task/Retrieve"
     },
     "delete": {
       "description": "Lambda for deleting todo",
       "type": "lambda",
       "methods": ["DELETE"],
-      "source": "src/Todo/Delete"
+      "source": "src/Task/Delete"
     },
     "deleteCompleted": {
       "description": "Lambda for deleting todo",
       "type": "lambda",
       "methods": ["POST"],
-      "source": "src/Todo/DeleteCompleted"
+      "source": "src/Task/DeleteCompleted"
     },
     "update": {
       "description": "Update todo",
       "type": "lambda",
       "methods": ["PUT"],
-      "source": "src/Todo/Update"
+      "source": "src/Task/Update"
     },
     "markAll": {
       "description": "Lambda for mark or unmark todo list",
       "type": "lambda",
       "methods": ["POST"],
-      "source": "src/Todo/MarkAll"
+      "source": "src/Task/MarkAll"
     }
   }
 }
