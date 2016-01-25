@@ -1,5 +1,7 @@
 ##Windows configuration
   1. Before starting you should have installed and configured correctly node and npm (versions more than 4.2.4 are supported).
+> If You are on Windows 7 you need to have installed [Windows SDK for Windows Server 2008 and .NET Framework 3.5](https://www.microsoft.com/en-us/download/details.aspx?id=11310)
+
   2. Before starting you should install Git Bash.
 > It launches a full featured console window running Bash, so you can use Git as well as a set of common command line tools or Unix programs.
 Starting with Git version 2, Git Bash will by default launch in MinTTY, a terminal emulator which comes with MSYS2, making it easily usable even for users not accustomed to a console experience.
