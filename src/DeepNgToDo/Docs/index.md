@@ -33,7 +33,7 @@ Starting with Git version 2, `Git Bash` will by default launch in `MinTTY`, a te
 
       ![Line enging conversions](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/src/DeepNgToDo/Docs/Git%20Setup/7.jpg)
 
-    2.8. Select Use Windows' default console window. 
+    2.8. Select Use Windows' default console window (this option is required). 
 
       ![Terminal emulator](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/src/DeepNgToDo/Docs/Git%20Setup/8.jpg)
 
