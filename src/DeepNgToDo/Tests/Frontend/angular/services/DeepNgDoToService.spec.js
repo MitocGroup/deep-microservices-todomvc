@@ -24,7 +24,6 @@ describe('Services', function() {
     expect(angular.isObject(deepNgToDoService)).toBe(true);
 
     expect(angular.isObject(deepNgToDoService.todoResource)).toBe(true);
-    console.log(deepNgToDoService.todoResource._name);
     expect(deepNgToDoService.todoResource._name).toBe('task');
 
     expect(angular.isFunction(deepNgToDoService.$q)).toBe(true);
