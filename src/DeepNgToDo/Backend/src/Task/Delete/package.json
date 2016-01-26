@@ -1,7 +1,7 @@
 {
-  "name": "deep-ng-todo-retrieve",
+  "name": "deep-ng-task-delete",
   "version": "0.0.1",
-  "description": "Retrieve todos",
+  "description": "Delete a todo",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {

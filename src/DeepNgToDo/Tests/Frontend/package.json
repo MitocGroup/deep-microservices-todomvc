@@ -1,7 +1,7 @@
 {
-  "name": "deep-ng-root-frontend",
+  "name": "deep-ng-todo-frontend",
   "version": "0.0.0",
-  "description": "DEEP Micro Services Root Frontend",
+  "description": "DEEP Micro Services Todo Frontend",
   "scripts": {
     "postinstall": "jspm install",
     "test": "karma start config.karma.js",

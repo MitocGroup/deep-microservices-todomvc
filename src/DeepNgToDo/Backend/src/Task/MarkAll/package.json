@@ -1,7 +1,7 @@
 {
-  "name": "deep-ng-todo-delete-completed",
+  "name": "deep-ng-task-mark-all",
   "version": "0.0.1",
-  "description": "Delete completed todo",
+  "description": "Mark or unmark todo list",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {

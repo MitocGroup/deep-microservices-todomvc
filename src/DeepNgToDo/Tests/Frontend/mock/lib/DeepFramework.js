@@ -647,32 +647,42 @@ DeepFramework.Kernel.load({
       "isRoot": false,
       "parameters": {},
       "resources": {
-        "todo": {
+        "task": {
           "create": {
-            "description": "Lambda for creating todo",
+            "description": "Lambda that creates todo task",
             "type": "lambda",
-            "methods": [
-              "POST"
-            ],
-            "source": "src/Todo/Create"
+            "methods": ["POST"],
+            "source": "src/Task/Create"
           },
           "retrieve": {
-            "description": "Retrieves todo",
+            "description": "Lambda that retrieves todo task",
             "type": "lambda",
             "methods": ["GET"],
-            "source": "src/Todo/Retrieve"
+            "source": "src/Task/Retrieve"
           },
           "delete": {
-            "description": "Lambda for deleting todo",
+            "description": "Lambda that deletes todo task",
             "type": "lambda",
             "methods": ["DELETE"],
-            "source": "src/Todo/Delete"
+            "source": "src/Task/Delete"
+          },
+          "deleteCompleted": {
+            "description": "Lambda that deletes completed todo task",
+            "type": "lambda",
+            "methods": ["POST"],
+            "source": "src/Task/DeleteCompleted"
           },
           "update": {
-            "description": "Update todo",
+            "description": "Lambda that updates todo task",
             "type": "lambda",
             "methods": ["PUT"],
-            "source": "src/Todo/Update"
+            "source": "src/Task/Update"
+          },
+          "markAll": {
+            "description": "Lambda that marks or unmarks all todo tasks",
+            "type": "lambda",
+            "methods": ["POST"],
+            "source": "src/Task/MarkAll"
           }
         }
       }
