@@ -3,9 +3,7 @@
     "create": {
       "description": "Lambda that creates todo task",
       "type": "lambda",
-      "methods": [
-        "POST"
-      ],
+      "methods": ["POST"],
       "source": "src/Task/Create"
     },
     "retrieve": {
