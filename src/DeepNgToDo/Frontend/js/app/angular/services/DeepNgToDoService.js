@@ -12,7 +12,7 @@ class DeepNgToDoService {
    * @param {Object} $q
    */
   constructor($q) {
-    this.todoResource = DeepFramework.Kernel.container.get('resource').get('@deep.ng.todo:todo');
+    this.todoResource = DeepFramework.Kernel.container.get('resource').get('@deep.ng.todo:task');
     this.$q = $q;
     this.todoList = [];
     this.editedTodo = null;
