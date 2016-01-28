@@ -22,7 +22,7 @@ exports.config = {
       name: 'Firefox  on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'firefox',
       shardTestFiles: true,
-      maxInstances: 5,
+      maxInstances: 1,
     },
 
     ////@todo - uncomment out when it will ready for configurations below
