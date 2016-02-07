@@ -38,6 +38,9 @@ to web services from cloud providers like AWS. This step can be also labeled as
 devops engineers to automate the process. This step can be also labeled as
 [Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
 
+  Note: Amazon CloudFront distribution takes up to 20 minutes to provision, 
+  therefore don’t worry if it returns an HTTP error in the first couple of minutes.
+
 To learn more about `DEEP CLI` and `DEEP Framework`, please follow the link
 [What is DEEP Framework?](https://github.com/MitocGroup/deep-framework/blob/master/README.md#what-is-deep-framework-)
 
