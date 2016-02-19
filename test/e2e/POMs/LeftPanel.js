@@ -14,7 +14,7 @@ var LeftPanel = function() {
   this.url = config.config.testUrl;
 
   //Header title placed in center of the page
-  this.headerTitle = element(by.xpath('html/body/div[1]/div/section/header/h1'));
+  this.headerTitle = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/section/header/h1'));
 
   //'Deep Framework' title placed in left panel
   this.deepFrameworkTitle = element(by.xpath('html/body/aside/header/h3'));
@@ -73,16 +73,16 @@ var LeftPanel = function() {
   this.leftBlockFooterLink = element(by.xpath('html/body/aside/footer/em/a'));
 
   //'Double-click to edit a todo' text placed in footer
-  this.doubleClickFooterText = element(by.xpath('html/body/div[1]/div/footer/p[1]'));
+  this.doubleClickFooterText = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[1]'));
 
   //'Written by Mitoc Group' text placed in the footer
-  this.mitocGroupFooterText = element(by.xpath('html/body/div[1]/div/footer/p[2]'));
+  this.mitocGroupFooterText = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[2]'));
 
   //'Mitoc Group' link to www.mitocgroup.com website
-  this.mitocGroupFooterLink = element(by.xpath('html/body/div[1]/div/footer/p[2]/a'));
+  this.mitocGroupFooterLink = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[2]/a'));
 
   //'Part of TodoMVC' text placed in footer
-  this.toDoMvcFooterText = element(by.xpath('html/body/div[1]/div/footer/p[3]'));
+  this.toDoMvcFooterText = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[3]'));
 
   //Function for validating all controls
   this.validateControls = function() {

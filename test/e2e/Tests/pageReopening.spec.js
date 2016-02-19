@@ -20,5 +20,4 @@ describe('Verify that new task can be successfully added', function() {
 
     expect(TaskList.taskNameGeneral.get(0).getText()).toEqual('protractor test task');
   });
-
 });

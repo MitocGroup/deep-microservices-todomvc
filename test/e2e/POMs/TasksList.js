@@ -41,7 +41,8 @@ var TaskList = function() {
   this.firstTask = element.all(by.repeater('todo in todoList')).first();
 
   //Last task in the list
-  this.lastTask = element(by.xpath('html/body/div/div/section/section/ul/li[last()]/div/label'));
+  this.lastTask = element(by.xpath('html/body/deep-gtm/deep-config/div/div/section/section/ul/li[last()]/div/label'));
+  //this.lastTask = element.all(by.repeater('todo in todoList')).last();
 
   //Tasks names in the list
   this.taskNameGeneral = element.all(by.repeater('todo in todoList'));
@@ -62,8 +63,16 @@ var TaskList = function() {
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
-    //Waiting for new created task to appear on the page
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value), 20000);
+    //browser.wait(function() {
+    //  return element.all(by.repeater('todo in todoList')).count().then(function(count) {
+    //    if (count > 0) {
+    //      return protractor.ExpectedConditions
+    //        .textToBePresentInElement(element.all(by.repeater('todo in todoList')).last(), 'protractor test task2');
+    //    }
+    //  });
+    //}, 30000);
+
+    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value), 60000);
   };
 
   //Function gets the number of tasks in the list
