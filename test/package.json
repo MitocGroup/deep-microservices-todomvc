@@ -1,7 +1,7 @@
 {
-  "name": "deep-hello-world",
+  "name": "deep-todo-world",
   "version": "0.0.1",
-  "description": "HelloWorld sample microservice",
+  "description": "Todo sample microservice",
   "scripts": {
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
     "pretest": "if [ -f '.travis.yml' ]; then test/bin/pretest.sh; else bin/pretest.sh; fi",

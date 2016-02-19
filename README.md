@@ -197,7 +197,7 @@ Our short-to-medium-term roadmap items, in order of descending priority:
 
 Feature | Details | Owner
 --------|---------|------
-Implement end-to-end testing | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+- | - | -
 
 ### Changelog
 
