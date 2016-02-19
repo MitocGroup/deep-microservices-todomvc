@@ -72,7 +72,10 @@ var TaskList = function() {
     //  });
     //}, 30000);
 
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value), config.config.jasmineNodeOpts.defaultTimeoutInterval);
+    browser.wait(
+      protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value),
+      config.config.jasmineNodeOpts.defaultTimeoutInterval
+    );
   };
 
   //Function gets the number of tasks in the list
