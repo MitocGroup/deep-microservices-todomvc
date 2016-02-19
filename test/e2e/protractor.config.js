@@ -81,6 +81,6 @@ exports.config = {
     includeStackTrace: true,
 
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 50000,
+    defaultTimeoutInterval: 120000,
   },
 };
