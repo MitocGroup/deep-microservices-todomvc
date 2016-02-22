@@ -17,7 +17,7 @@ exports.config = {
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
       shardTestFiles: true,
-      maxInstances: 1,
+      maxInstances: 5,
     },
 
     //{
