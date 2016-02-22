@@ -7,7 +7,9 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/*.spec.js'],
+  specs: [
+    './Tests/*.spec.js',
+  ],
 
   multiCapabilities: [
     {
@@ -82,6 +84,6 @@ exports.config = {
     includeStackTrace: true,
 
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 120000,
+    defaultTimeoutInterval: 100000,
   },
 };
