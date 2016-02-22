@@ -7,7 +7,7 @@
 
 var config = require('../protractor.config.js');
 
-var TaskList = function () {
+var TaskList = function() {
 
   //Testing url from protractor.config.js
   this.url = config.config.testUrl;
@@ -53,44 +53,44 @@ var TaskList = function () {
   this.editTask = element(by.css('.edit.ng-valid'));
 
   //Function returns the state of "Check All" checkbox (null if checkbox is unchecked, true if checkbox is checked)
-  this.isCheckAllSelected = function () {
+  this.isCheckAllSelected = function() {
     return this.checkAll.getAttribute('checked');
   };
 
   //Function creates new ToDo task
-  this.addTask = function (value) {
+  this.addTask = function(value) {
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
     //sleep 6 sec while task is appear
     browser.sleep(10000);
 
-    element.all(by.repeater('todo in todoList')).last().getText().then(function (lastTaskText) {
+    element.all(by.repeater('todo in todoList')).last().getText().then(function(lastTaskText) {
         expect(lastTaskText.toString()).toEqual(value);
       }
     );
   };
 
   //Function gets the number of tasks in the list
-  this.totalTasksCount = function () {
+  this.totalTasksCount = function() {
     return this.taskNameGeneral.count();
   };
 
   //Function gets the test of lat tasks in the list
-  this.getLastTaskText = function () {
+  this.getLastTaskText = function() {
     return this.taskNameGeneral.last().getText();
   };
 
 
   //Function deletes all existing tasks
-  this.clearAllTasks = function () {
+  this.clearAllTasks = function() {
 
     var _this = this;
 
     this.totalTasksCount()
-      .then(function (number) {
+      .then(function(number) {
         _this.isCheckAllSelected()
-          .then(function (resultState) {
+          .then(function(resultState) {
             if (number > 0) {
               //Checking if "Select All" checkbox is checked or not
               if (resultState == null) {
@@ -112,7 +112,7 @@ var TaskList = function () {
   };
 
   //Function gets task count number
-  this.itemsLeftNumber = function (countNumber) {
+  this.itemsLeftNumber = function(countNumber) {
     browser.wait(protractor.ExpectedConditions.visibilityOf(this.tasksCount));
 
     var message = countNumber === 1 ? ' item left' : ' items left';
@@ -120,7 +120,7 @@ var TaskList = function () {
     expect(this.tasksCount.getText()).toEqual(countNumber + message);
   };
 
-  this.actionsBeforeAll = function () {
+  this.actionsBeforeAll = function() {
     //Opening ToDoApp
     browser.get(this.url, config.config.jasmineNodeOpts.defaultTimeoutInterval);
 
@@ -131,7 +131,7 @@ var TaskList = function () {
     this.clearAllTasks();
   };
 
-  this.taskEditing = function (taskIndex, editedValue) {
+  this.taskEditing = function(taskIndex, editedValue) {
     //Double click on the task to make it editable
     browser.actions().doubleClick(this.taskNameGeneral.get(taskIndex)).perform();
 
