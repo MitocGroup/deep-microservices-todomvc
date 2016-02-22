@@ -42,7 +42,6 @@ var TaskList = function() {
 
   //Last task in the list
   this.lastTask = element(by.xpath('html/body/deep-gtm/deep-config/div/div/section/section/ul/li[last()]/div/label'));
-  //this.lastTask = element.all(by.repeater('todo in todoList')).last();
 
   //Tasks names in the list
   this.taskNameGeneral = element.all(by.repeater('todo in todoList'));

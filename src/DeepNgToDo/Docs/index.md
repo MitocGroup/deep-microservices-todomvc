@@ -1,5 +1,5 @@
 ##Windows configuration
-  1. Before starting you should have installed and configured correctly node and npm (versions more than 4.2.4 are supported).
+  1. Before starting you should have installed and configured correctly node and npm (versions more than 4.2.4 are supported), and DynamoDB on your computer requires the Java Runtime Engine (JRE) version 6.x or newer; it will not run on older JRE versions.
 > If You are on `Windows 7` you need to have installed [`Windows SDK` for `Windows Server 2008` and `.NET Framework 3.5`](https://www.microsoft.com/en-us/download/details.aspx?id=11310)
 
   2. Before starting you should install Git Bash.
