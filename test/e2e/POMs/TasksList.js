@@ -151,8 +151,8 @@ var TaskList = function() {
 
     //Waiting until new task is actually created and displayed
     browser.wait(
-      protractor.ExpectedConditions.textToBePresentInElement(this.taskNameGeneral.get(taskIndex), editedValue),
-      10000
+      protractor.ExpectedConditions.textToBePresentInElement(
+        this.taskNameGeneral.get(taskIndex), editedValue), 10000
     );
 
     //Verifying that new value is saved
