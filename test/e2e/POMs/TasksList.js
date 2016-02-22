@@ -62,19 +62,18 @@ var TaskList = function() {
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
-    //browser.wait(function() {
-    //  return element.all(by.repeater('todo in todoList')).count().then(function(count) {
-    //    if (count > 0) {
-    //      return protractor.ExpectedConditions
-    //        .textToBePresentInElement(element.all(by.repeater('todo in todoList')).last(), 'protractor test task2');
-    //    }
-    //  });
-    //}, 30000);
+    //sleep 6 sec while task is appear
+    browser.sleep(10000);
 
-    browser.wait(
-      protractor.ExpectedConditions.textToBePresentInElement(this.lastTask, value),
-      config.config.jasmineNodeOpts.defaultTimeoutInterval
+    element.all(by.repeater('todo in todoList')).last().getText().then(function(lastTaskText) {
+        expect(lastTaskText.toString()).toEqual(value);
+      }
     );
+
+    //browser.wait(
+    //  protractor.ExpectedConditions.textToBePresentInElementValue(element.all(by.repeater('todo in todoList')).last(), value),
+    //  config.config.jasmineNodeOpts.defaultTimeoutInterval
+    //);
   };
 
   //Function gets the number of tasks in the list
@@ -82,10 +81,17 @@ var TaskList = function() {
     return this.taskNameGeneral.count();
   };
 
+  //Function gets the test of lat tasks in the list
+  this.getLastTaskText = function() {
+    return this.taskNameGeneral.last().getText();
+  };
+
+
   //Function deletes all existing tasks
   this.clearAllTasks = function() {
-    browser.sleep(10000);
+
     var _this = this;
+
     this.totalTasksCount()
       .then(function(number) {
         _this.isCheckAllSelected()
@@ -122,6 +128,9 @@ var TaskList = function() {
   this.actionsBeforeAll = function() {
     //Opening ToDoApp
     browser.get(this.url, config.config.jasmineNodeOpts.defaultTimeoutInterval);
+
+    //wait untill all task will be loaded
+    browser.sleep(config.config.jasmineNodeOpts.defaultTimeoutInterval/10);
 
     //Deleting all existing tasks
     this.clearAllTasks();

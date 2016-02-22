@@ -7,7 +7,7 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   build: process.env.TRAVIS_BUILD_NUMBER,
 
-  specs: ['./Tests/ValidateControls.spec.js'],
+  specs: ['./Tests/*.spec.js'],
 
   multiCapabilities: [
     {
@@ -15,7 +15,7 @@ exports.config = {
       name: 'Chrome on Linux test for build: ' + process.env.TRAVIS_BUILD_NUMBER,
       browserName: 'chrome',
       shardTestFiles: true,
-      maxInstances: 5,
+      maxInstances: 1,
     },
 
     //{
