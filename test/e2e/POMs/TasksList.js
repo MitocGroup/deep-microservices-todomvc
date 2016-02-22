@@ -122,7 +122,7 @@ var TaskList = function() {
 
   this.actionsBeforeAll = function() {
     //Opening ToDoApp
-    browser.get(this.url);
+    browser.get(this.url, config.config.jasmineNodeOpts.defaultTimeoutInterval);
 
     //Deleting all existing tasks
     this.clearAllTasks();
