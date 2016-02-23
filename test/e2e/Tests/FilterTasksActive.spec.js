@@ -13,7 +13,7 @@ describe('Verify that [Active] button filters tasks and displays only active one
   });
 
   it('Create the second task', function() {
-    TaskList.addTask('second test task');
+    TaskList.addTask('second test task', true);
   });
 
   it('Clicking on the [Check] button for the first task (this makes it completed)', function() {

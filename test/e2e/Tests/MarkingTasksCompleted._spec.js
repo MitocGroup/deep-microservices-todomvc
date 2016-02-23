@@ -16,7 +16,7 @@ describe('Verify that clicking on checkbox makes task completed', function() {
   });
 
   it('Create the second task', function() {
-    TaskList.addTask('second test task');
+    TaskList.addTask('second test task', true);
 
     //Waiting for the [All] button to become displayed
     browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));

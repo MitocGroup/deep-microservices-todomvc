@@ -13,7 +13,7 @@ describe('Check that [Clear Completed] button appears if at least one task is co
   });
 
   it('Add second new task', function() {
-    TaskList.addTask('protractor test task2');
+    TaskList.addTask('protractor test task2', true);
 
     //Verify that [Clear Completed] button is not displayed
     expect(TaskList.clearCompletedBtn.isDisplayed()).toEqual(false);

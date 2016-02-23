@@ -16,7 +16,7 @@ describe('Check that tasks count decreases after marking tasks completed', funct
 
     //Adding two new task
     TaskList.addTask(firstTaskName);
-    TaskList.addTask(secondTaskName);
+    TaskList.addTask(secondTaskName, true);
 
     //Verify that count is "2"
     TaskList.itemsLeftNumber(2);

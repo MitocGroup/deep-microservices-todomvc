@@ -15,7 +15,7 @@ describe('Check that tasks count increases after creating new tasks', function()
   });
 
   it('Create the second task and verify that count is 2', function() {
-    TaskList.addTask('second test task');
+    TaskList.addTask('second test task', true);
 
     TaskList.itemsLeftNumber(2);
   });

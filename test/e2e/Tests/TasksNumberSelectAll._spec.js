@@ -16,7 +16,7 @@ describe('Check that tasks count updates after clicking on "Select All" checkbox
   });
 
   it('Create the second task and verify that count is 1', function() {
-    TaskList.addTask('second test task');
+    TaskList.addTask('second test task', true);
 
     //Waiting for the [All] button to become displayed
     browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));

@@ -16,7 +16,7 @@ describe('Check that task deletes if it is empty during updating', function() {
   });
 
   it('Create the second task', function() {
-    TaskList.addTask('second test task');
+    TaskList.addTask('second test task', true);
 
     //Verifying that there are 2 tasks displayed
     expect(TaskList.totalTasksCount()).toEqual(2);

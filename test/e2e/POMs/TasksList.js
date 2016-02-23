@@ -6,6 +6,7 @@
 'use strict';
 
 var config = require('../protractor.config.js');
+var General = require('../General/General.js');
 
 var TaskList = function() {
 
@@ -58,12 +59,13 @@ var TaskList = function() {
   };
 
   //Function creates new ToDo task
-  this.addTask = function(value) {
+  this.addTask = function(value, isSecondTask) {
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
 
-    //sleep 6 sec while task is appear
-    browser.sleep(10000);
+    var maxIndex = (!isSecondTask)? 0: 1;
+
+    General.waitCustom(this.taskNameGeneral, maxIndex, 'last task is displayed in the list')
 
     element.all(by.repeater('todo in todoList')).last().getText().then(function(lastTaskText) {
         expect(lastTaskText.toString()).toEqual(value);
