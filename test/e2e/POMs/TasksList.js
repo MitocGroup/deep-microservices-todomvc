@@ -65,7 +65,7 @@ var TaskList = function() {
 
     var maxIndex = (!isSecondTask)? 0: 1;
 
-    General.waitCustom(this.taskNameGeneral, maxIndex, 'last task is displayed in the list')
+    General.waitCustom(this.taskNameGeneral, maxIndex, 'last task is displayed in the list');
 
     element.all(by.repeater('todo in todoList')).last().getText().then(function(lastTaskText) {
         expect(lastTaskText.toString()).toEqual(value);
