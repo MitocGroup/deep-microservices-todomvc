@@ -11,13 +11,18 @@ to streamline development and deployment of the web app using cloud-based web se
 
 ## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-`DEEP Todo App` can be used by executing the following 4 simple steps in command line (for Windows [install bash emulator](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/src/DeepNgToDo/Docs/index.md) and run all commands from Git Bash):
+`DEEP Todo App` can be used by executing the following 4 simple steps in command line:
 
 1. Install DEEP CLI, also known as deepify:
 
   `npm install deepify -g`
 > deepify is a collection of tools that empower developers and devops engineers to automate
 the management of web apps built on top of DEEP ecosystem.
+
+  Note: If you want to use `deepify` on Windows, please follow the steps from
+  [Windows Configuration](https://github.com/MitocGroup/deep-framework/blob/master/docs/windows.md)
+  before running `npm install deepify -g` and make sure all `npm` and `deepify` commands are executed
+  inside Git Bash.
 
 2. Using deepify, pickup todo app directly from GitHub:
 
