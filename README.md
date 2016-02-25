@@ -136,10 +136,49 @@ Besides of Karma we also provide ```Mocha + Chai``` preconfiguration for backend
 As best practice was configured code coverage tool ```Istanbul``` to gather actual code coverage metrics in ES6 
 without code transpiling (was used ```isparta``` reporter).
 
-### Running End to End Tests
+### Setup and Running End to End Tests
 
-Coming soon
+End to End tests are written in
+[Protractor](https://github.com/angular/protractor). 
 
+1. Setup
+   Use npm to install Protractor globally with:
+      
+   `npm install -g protractor`
+   
+> This will install two command line tools, protractor and webdriver-manager. 
+
+>Try running protractor `--version` to make sure it's working.
+
+>The webdriver-manager is a helper tool to easily get an instance of a Selenium Server running. 
+
+>Use it to download the necessary binaries with:
+
+>  `webdriver-manager update`
+
+>Now start up a server with:
+
+>  `webdriver-manager start`
+
+2. Running
+   Travis CI integrates with Sauce Labs, a browser and mobile testing platform. It integrates well with Selenium. 
+   We provide a Protractor configuration file to run them. 
+
+* the configuration is found at `test/e2e/protractor.config.js`
+* the e2e tests are found `test/e2e/Tests` folder and have names `*.spec.js`
+* the POMs are found in `test/e2e/POMs` folder
+
+The easiest way to run the e2e tests is to use the supplied npm script (webdriver should be started previously - `webdriver-manager start`):
+
+```
+protractor test/e2e/protractor.config.js
+```
+
+> What is POM?
+  - Page Object Model is a design pattern to create Object Repository for web UI elements.
+  - Under this model, for each web page in the application there should be corresponding page class.
+  - This Page class will find the WebElements of that web page and also contains Page methods which perform operations on those WebElements.
+  - Name of these methods should be given as per the task they are performing i.e., if a loader is waiting for payment gateway to be appear, POM method name can be waitForPaymentScreenDisplay().
 
 ## How can I get involved? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
@@ -166,7 +205,7 @@ Our short-to-medium-term roadmap items, in order of descending priority:
 
 Feature | Details | Owner
 --------|---------|------
-Implement end-to-end testing | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+- | - | -
 
 ### Changelog
 

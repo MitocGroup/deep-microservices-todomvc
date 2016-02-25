@@ -1,0 +1,10 @@
+{
+  "appIdentifier": "test_dsfdsfsdfba8314f2a31e765448a2b3632ca0a54",
+  "env": "dev",
+  "awsAccountId": 123456789012,
+  "aws": {
+    "accessKeyId": "AKIAIWKPOIUYTRJ54U5A",
+    "secretAccessKey": "trt6gjGPO65ytruio6ssufSgcaa1WYdy+0C5NiTuh",
+    "region": "us-west-2"
+  }
+}

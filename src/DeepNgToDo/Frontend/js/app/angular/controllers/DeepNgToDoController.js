@@ -20,7 +20,7 @@ class DeepNgToDoController {
     this.toDoService = deepNgToDoService;
     $scope.todoList = deepNgToDoService.todoList;
 
-    $scope.$watch(() => { return deepNgToDoService.todoList }, () => {
+    $scope.$watch(() => { return deepNgToDoService.todoList; }, () => {
       $scope.todoList = deepNgToDoService.todoList;
       $scope.remainingCount = $filter('filter')($scope.todoList, { Completed: false }).length;
       $scope.completedCount = $scope.todoList.length - $scope.remainingCount;

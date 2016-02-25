@@ -10,7 +10,7 @@
   "eqeqeq": true,
   "indent": 2,
   "latedef": true,
-  "maxlen": 100,
+  "maxlen": 120,
   "newcap": true,
   "quotmark": "single",
   "strict": true,

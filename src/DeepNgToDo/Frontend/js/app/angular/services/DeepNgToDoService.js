@@ -111,7 +111,7 @@ class DeepNgToDoService {
     let updatedList = [];
 
     for (let todo of this.todoList) {
-      if (todo.Completed == state) {
+      if (todo.Completed === state) {
         todo.Completed = state;
       }
       updatedList.push(todo);
