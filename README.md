@@ -25,6 +25,7 @@ the management of web apps built on top of DEEP ecosystem.
   inside Git Bash.
 
 2. Using deepify, pickup todo app directly from GitHub:
+  
   `mkdir todo-app`
 
   `cd todo-app`
