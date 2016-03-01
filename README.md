@@ -26,9 +26,9 @@ the management of web apps built on top of DEEP ecosystem.
 
 2. Using deepify, pickup todo app directly from GitHub:
   
-  `mkdir todo-app`
+  `mkdir ~/todo-app`
 
-  `cd todo-app`
+  `cd ~/todo-app`
   
   `deepify install github://MitocGroup/deep-microservices-todo-app`
   
@@ -36,14 +36,14 @@ the management of web apps built on top of DEEP ecosystem.
 
 3. Using deepify, run locally the todo example:
 
-  `deepify server ~/deep-todo-app -o`
+  `deepify server ~/todo-app -o`
 > deepify launches a web server that can be used for local development, without making calls
 to web services from cloud providers like AWS. This step can be also labeled as
 [Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
 4. Using deepify, deploy to AWS the todo example:
 
-  `deepify deploy ~/deep-todo-app`
+  `deepify deploy ~/todo-app`
 > deepify provisions the infrastructure and deploys the web app, empowering developers and
 devops engineers to automate the process. This step can be also labeled as
 [Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
