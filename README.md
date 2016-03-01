@@ -27,10 +27,10 @@ the management of web apps built on top of DEEP ecosystem.
 2. Using deepify, pickup todo app directly from GitHub:
   
   `deepify install github://MitocGroup/deep-microservices-todo-app ~/deep-todo-app`
+> deepify fetches todo app source code and unpack it locally
 
   *Note: As an alternative, you can create the app directory first and run commands inside it. For example:
   `mkdir ~/deep-todo-app && cd ~/deep-todo-app && deepify install github://MitocGroup/deep-microservices-todo-app`*
-> deepify fetches todo app source code and unpack it locally
 
 3. Using deepify, run locally the todo example:
 
