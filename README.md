@@ -19,37 +19,35 @@ to streamline development and deployment of the web app using cloud-based web se
 > deepify is a collection of tools that empower developers and devops engineers to automate
 the management of web apps built on top of DEEP ecosystem.
 
-  Note: If you want to use `deepify` on Windows, please follow the steps from
+  *Note: If you want to use `deepify` on Windows, please follow the steps from
   [Windows Configuration](https://github.com/MitocGroup/deep-framework/blob/master/docs/windows.md)
   before running `npm install deepify -g` and make sure all `npm` and `deepify` commands are executed
-  inside Git Bash.
+  inside Git Bash.*
 
 2. Using deepify, pickup todo app directly from GitHub:
   
-  `mkdir ~/todo-app`
-
-  `cd ~/todo-app`
-  
-  `deepify install github://MitocGroup/deep-microservices-todo-app`
-  
+  `deepify install github://MitocGroup/deep-microservices-todo-app ~/deep-todo-app`
 > deepify fetches todo app source code and unpack it locally
+
+  *Note: As an alternative, you can create the app directory first and run commands inside it. For example:
+  `mkdir ~/deep-todo-app && cd ~/deep-todo-app && deepify install github://MitocGroup/deep-microservices-todo-app`*
 
 3. Using deepify, run locally the todo example:
 
-  `deepify server ~/todo-app -o`
+  `deepify server ~/deep-todo-app -o`
 > deepify launches a web server that can be used for local development, without making calls
 to web services from cloud providers like AWS. This step can be also labeled as
 [Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
 
 4. Using deepify, deploy to AWS the todo example:
 
-  `deepify deploy ~/todo-app`
+  `deepify deploy ~/deep-todo-app`
 > deepify provisions the infrastructure and deploys the web app, empowering developers and
 devops engineers to automate the process. This step can be also labeled as
 [Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
 
-  Note: Amazon CloudFront distribution takes up to 20 minutes to provision, 
-  therefore don’t worry if it returns an HTTP error in the first couple of minutes.
+  *Note: Amazon CloudFront distribution takes up to 20 minutes to provision, 
+  therefore don’t worry if it returns an HTTP error in the first couple of minutes.*
 
 To learn more about `DEEP CLI` and `DEEP Framework`, please follow the link
 [What is DEEP Framework?](https://github.com/MitocGroup/deep-framework/blob/master/README.md#what-is-deep-framework-)
