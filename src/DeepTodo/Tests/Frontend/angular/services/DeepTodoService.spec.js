@@ -133,7 +133,7 @@ describe('Services', function() {
     }
   );
 
-  it('Check fetchAllTodo() method returns promise with !reponse.isError',
+  it('Check fetchAllTasks() method returns promise with !reponse.isError',
     function() {
       let error = null;
       let actualResult = null;
@@ -148,7 +148,7 @@ describe('Services', function() {
       };
 
       try {
-        actualResult = deepTodoService.fetchAllTodo();
+        actualResult = deepTodoService.fetchAllTasks();
       } catch (e) {
         error = e;
       }
@@ -158,7 +158,7 @@ describe('Services', function() {
     }
   );
 
-  it('Check fetchAllTodo() method returns promise with reponse.isError',
+  it('Check fetchAllTasks() method returns promise with reponse.isError',
     function() {
       let error = null;
       let actualResult = null;
@@ -173,7 +173,7 @@ describe('Services', function() {
       };
 
       try {
-        actualResult = deepTodoService.fetchAllTodo();
+        actualResult = deepTodoService.fetchAllTasks();
       } catch (e) {
         error = e;
       }

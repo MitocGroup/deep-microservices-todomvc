@@ -27,7 +27,7 @@ describe('Controllers', function() {
       };
     })
     .factory('deepTodoService', function() {
-      var fetchAllTodo = () => {
+      var fetchAllTasks = () => {
         return ['test', 'fetched'];
       };
 
@@ -40,7 +40,7 @@ describe('Controllers', function() {
       };
 
       return {
-        fetchAllTodo: fetchAllTodo,
+        fetchAllTasks: fetchAllTasks,
         todoList: ['test', 'fetched'],
         editedTask: null,
         allChecked: false,

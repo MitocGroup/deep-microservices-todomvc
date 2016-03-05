@@ -63,7 +63,7 @@ class DeepTodoService {
     return defer.promise;
   }
 
-  fetchAllTodo() {
+  fetchAllTasks() {
     let defer = this.$q.defer();
     let _this = this;
 

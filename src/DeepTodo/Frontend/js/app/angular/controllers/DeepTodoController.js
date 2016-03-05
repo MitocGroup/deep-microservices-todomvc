@@ -36,7 +36,7 @@ class DeepTodoController {
     }, 400);
 
     deepLoginService.anonymousLogin().then(() => {
-      deepTodoService.fetchAllTodo().catch((error) => {
+      deepTodoService.fetchAllTasks().catch((error) => {
         this.deepLog.log(error);
       });
     });
