@@ -5,7 +5,7 @@
 
 var config = require('../protractor.config.js');
 
-//Declare variable ToDoAppPageElements which contains all selectors
+//Declare variable TodoAppPageElements which contains all selectors
 var LeftPanel = function() {
 
   var _this = this;
@@ -82,7 +82,7 @@ var LeftPanel = function() {
   this.mitocGroupFooterLink = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[2]/a'));
 
   //'Part of TodoMVC' text placed in footer
-  this.toDoMvcFooterText = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[3]'));
+  this.todoMvcFooterText = element(by.xpath('html/body/deep-gtm/deep-config/div[1]/div/footer/p[3]'));
 
   //Function for validating all controls
   this.validateControls = function() {
@@ -135,10 +135,10 @@ var LeftPanel = function() {
     expect(_this.mitocGroupFooterText.getText()).toEqual('Written by Mitoc Group');
     expect(_this.mitocGroupFooterLink.isDisplayed()).toEqual(true);
     expect(_this.mitocGroupFooterLink.getText()).toEqual('Mitoc Group');
-    expect(_this.toDoMvcFooterText.isDisplayed()).toEqual(true);
-    expect(_this.toDoMvcFooterText.getText()).toEqual('Part of TodoMVC');
+    expect(_this.todoMvcFooterText.isDisplayed()).toEqual(true);
+    expect(_this.todoMvcFooterText.getText()).toEqual('Part of TodoMVC');
   }.bind(_this);
 };
 
-//Exporting ToDoAppPageElements function
+//Exporting TodoAppPageElements function
 module.exports = new LeftPanel();

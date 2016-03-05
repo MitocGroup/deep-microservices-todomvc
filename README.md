@@ -1,4 +1,4 @@
-![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP ToDo App 
+![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Todo App 
 ===============
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)
@@ -68,7 +68,7 @@ See Step 4 in
 ## Directory Layout [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
 ```
-DeepNgToDo/             --> root folder of the DeepNgToDo microservice
+DeepTodo/               --> root folder of the DeepTodo microservice
   Frontend/             --> this folder includes everything front-end related
     .deepignore         --> this file is used only when front-end is supposed to be ignored
     _build/             --> this folder, if exists, is used by default and everything else is ignored

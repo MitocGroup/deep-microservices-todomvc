@@ -58,7 +58,7 @@ var TaskList = function() {
     return this.checkAll.getAttribute('checked');
   };
 
-  //Function creates new ToDo task
+  //Function creates new Todo task
   this.addTask = function(value, isSecondTask) {
     //Inputting the task name into text field and pressing on enter button
     this.taskInput.sendKeys(value, protractor.Key.ENTER);
@@ -123,7 +123,7 @@ var TaskList = function() {
   };
 
   this.actionsBeforeAll = function() {
-    //Opening ToDoApp
+    //Opening Todo App
     browser.get(this.url, config.config.jasmineNodeOpts.defaultTimeoutInterval);
 
     //wait untill all task will be loaded
