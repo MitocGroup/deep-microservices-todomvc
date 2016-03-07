@@ -25,13 +25,13 @@ describe('Directives', function() {
       scope.escape = false;
 
       compile(el)(scope);
-      expect(browser.deferredFns.length).toBe(0);
+      expect(browser.deferredFns.length, 'for escape=false').toBe(0);
 
       scope.$apply(function() {
         scope.escape = true;
       });
 
-      expect(browser.deferredFns.length).toBe(0);
+      expect(browser.deferredFns.length, 'for escape=false').toBe(0);
     });
   });
 });
