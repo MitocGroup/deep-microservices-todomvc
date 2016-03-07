@@ -45,7 +45,7 @@ describe('Controllers', function() {
         editedTask: null,
         allChecked: false,
         createTask: createTask,
-        deleteTask: deleTask,
+        deleteTask: deleteTask,
         originalTask: {
           Title: 'todo',
           Completed: true,
