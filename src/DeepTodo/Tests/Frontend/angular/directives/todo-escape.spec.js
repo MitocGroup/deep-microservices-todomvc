@@ -31,7 +31,7 @@ describe('Directives', function() {
         scope.escape = true;
       });
 
-      expect(browser.deferredFns.length, 'for escape=false').toBe(0);
+      expect(browser.deferredFns.length, 'for escape=true').toBe(0);
     });
   });
 });

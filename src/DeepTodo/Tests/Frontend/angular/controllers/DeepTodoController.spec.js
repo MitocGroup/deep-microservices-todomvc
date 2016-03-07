@@ -35,8 +35,8 @@ describe('Controllers', function() {
         return 'createTask called';
       };
 
-      var deleTodo = () => {
-        return 'deleTodo called';
+      var deleteTask = () => {
+        return 'deleteTask called';
       };
 
       return {
@@ -45,7 +45,7 @@ describe('Controllers', function() {
         editedTask: null,
         allChecked: false,
         createTask: createTask,
-        deleteTask: deleTodo(),
+        deleteTask: deleTask,
         originalTask: {
           Title: 'todo',
           Completed: true,
