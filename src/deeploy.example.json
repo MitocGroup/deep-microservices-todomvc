@@ -1,0 +1,11 @@
+{
+  "appIdentifier": "f401ef9465f376891676f6953a2b44b6",
+  "appName": "My Custom Todo App",
+  "env": "dev",
+  "awsAccountId": 123456789012,
+  "aws": {
+    "accessKeyId": "gfdgfd",
+    "secretAccessKey": "+gfdgfdgfdgfd/dEFpHV20ZxpQAkUqXwCSZBtZhCL",
+    "region": "us-west-2"
+  }
+}

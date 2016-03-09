@@ -1,0 +1,31 @@
+{
+  "name": "deep-todo-task-delete",
+  "version": "0.0.1",
+  "description": "Delete a todo",
+  "author": "Mitoc Group <hello@mitocgroup.com>",
+  "contributors": [
+    {
+      "name": "Diana Rosca",
+      "email": "drosca@mitocgroup.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-microservices-todo-app/issues"
+  },
+  "keywords": [
+    "DEEP",
+    "DEEP TodoMVC"
+  ],
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "deepify compile-es6 `pwd`"
+  },
+  "dependencies": {
+    "deep-framework": "^1.x.x"
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": false,
+  "private": true,
+  "analyze": true
+}
