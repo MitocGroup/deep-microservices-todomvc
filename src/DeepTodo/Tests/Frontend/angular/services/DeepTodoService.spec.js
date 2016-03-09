@@ -1,3 +1,6 @@
+/* global angular */
+/* global inject */
+
 'use strict';
 
 import moduleName from '../../../../Frontend/js/app/angular/name';

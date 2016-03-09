@@ -1,3 +1,5 @@
+/* global angular */
+
 'use strict';
 'format es6';
 
@@ -16,4 +18,4 @@ angular.module(moduleName)
       });
     };
   },
-])
+]);
