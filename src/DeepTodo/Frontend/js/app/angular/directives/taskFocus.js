@@ -7,7 +7,7 @@ import moduleName from '../name';
 
 export default
 angular.module(moduleName)
-  .directive('taskFocus', ['$timeout', function taskEscapeDirective($timeout) {
+  .directive('taskFocus', ['$timeout', function taskFocusDirective($timeout) {
     return function(scope, elem, attrs) {
       scope.$watch(attrs.taskFocus, function(newVal) {
         if (newVal) {

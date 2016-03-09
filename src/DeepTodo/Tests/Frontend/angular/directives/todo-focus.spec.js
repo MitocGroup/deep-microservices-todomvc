@@ -24,13 +24,13 @@ describe('Directives', function() {
       scope.focus = false;
 
       compile(el)(scope);
-      expect(browser.deferredFns.length).toBe(0);
+      expect(browser.deferredFns.length, 'for focus=false').toBe(0);
 
       scope.$apply(function() {
         scope.focus = true;
       });
 
-      expect(browser.deferredFns.length).toBe(1);
+      expect(browser.deferredFns.length, 'for focus=true').toBe(0);
     });
   });
 });
