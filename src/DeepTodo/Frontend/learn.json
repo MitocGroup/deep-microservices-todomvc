@@ -2276,8 +2276,11 @@
 	  	"description": "<a href=\"https://github.com/MitocGroup/deep-framework\">DEEP Framework</a> is a full-stack web framework that abstracts web apps and web services from specific cloud providers. This framework enables developers build cloud-native applications or platforms using <a href=\"https://en.wikipedia.org/wiki/Microservices\">microservices architecture</a> in a completely <a href=\"https://github.com/MitocGroup/deep-framework#appendix-a-serverless-architecture\">serverless approach</a>.",
 	  	"homepage": "github.com/MitocGroup/deep-framework",
 		"examples": [{
-			"name": "Example",
+			"name": "Source",
 			"url": "https://github.com/MitocGroup/deep-microservices-todo-app"
+		}, {
+			"name": "Benchmarking",
+			"url": "https://todo.deep.mg/#/deep-benchmarking"
 		}],
 		"link_groups": [{
 			"heading": "Official Resources",
