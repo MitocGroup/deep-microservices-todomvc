@@ -6,5 +6,7 @@ source $(dirname $0)/_head.sh
 echo "TRAVIS_NODE_VERSION: ${TRAVIS_NODE_VERSION}"
 
 if [ ${TRAVIS_NODE_VERSION} != '0.10' ]; then
-  protractor ${__PROTRACTOR_CONFIG_PATH} --troubleshoot true
+  npm install -g protractor@3.0.x
+else
+  npm install -g protractor@3.0.x
 fi
