@@ -5,8 +5,6 @@ __SCRIPT_PATH=$(cd $(dirname $0); pwd -P)
 __ROOT_PATH="${__SCRIPT_PATH}/../../"
 __SRC_PATH="${__ROOT_PATH}src/"
 __COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
-__PROTRACTOR_CONFIG_PATH="${__ROOT_PATH}test/e2e/protractor.config.js"
-
 
 subpath_run_cmd () {
     local DIR
