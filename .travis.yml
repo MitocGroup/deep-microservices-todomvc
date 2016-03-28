@@ -40,7 +40,7 @@ before_install:
   - npm install -g jasmine-core@2.3.x
   - npm install -g istanbul@0.3.x
   - npm install -g istanbul-combine@0.3.x
-  - npm install -g phantomjs@1.9.x
+  - npm install -g phantomjs@1.9.18
   - npm install -g karma@0.13.x
   - npm install -g karma-jspm@2.0.x
   - npm install -g karma-jasmine@0.3.x
@@ -49,7 +49,7 @@ before_install:
   - npm install -g karma-verbose-reporter@0.0.x
   - npm install -g karma-phantomjs-launcher@0.2.x
   - npm install -g karma-ng-html2js-preprocessor@0.2.x
-  - npm install -g protractor@3.0.x
+  - test/bin/protractor_install.sh
   - cp test/package.json .
   - cp src/deeploy.example.json src/deeploy.json
   - deepify init-backend ./src
