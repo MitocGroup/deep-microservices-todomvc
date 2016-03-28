@@ -71,15 +71,12 @@ See Step 4 in
 DeepTodo/               --> root folder of the DeepTodo microservice
   Frontend/             --> this folder includes everything front-end related
     .deepignore         --> this file is used only when front-end is supposed to be ignored
-    _build/             --> this folder, if exists, is used by default and everything else is ignored
     bootstrap.js        --> this file loads the front-end functionality of particular JavaScript app
-    index.html          --> this file is required only for root microservice
+    package.json        --> this file contains the metadata of current front-end (required by JSPM)
     js/                 --> this folder includes all JavaScript files
-      package.json      --> this file contains the metadata of current front-end (required by JSPM)
-      config.system.js  --> this file contains the config data used by JSPM
       app/              --> this folder includes the JavaScript files for web app (e.g. AngularJS, React.js, Backbone.js, etc.)
-      lib/              --> this folder includes the JavaScript libraries
-      vendor/           --> this folder includes the JavaScript files provided by vendors
+        angular/        --> this folder includes the JavaScript files for AngularJS app
+        ...
     css/                --> this folder includes all stylesheets
     img/                --> this folder includes all images
     fonts/              --> this folder includes all fonts
@@ -87,14 +84,23 @@ DeepTodo/               --> root folder of the DeepTodo microservice
   Backend/              --> this folder includes everything back-end related
     .deepignore         --> this file is used only when back-end is supposed to be ignored
     resources.json      --> this file contains the metadata of back-end resoures like Lambda, API Gateway, and so on
-    src/                --> this folder includes all files used by back-end
-      Todo/             --> this folder includes the Todo code loaded into Lambda
-        bootstrap.js    --> this file loads the back-end functionality of current Lambda
-        package.json    --> this file contains the metadata of current back-end (required by NPM)
-        Handler.js      --> this file contains the main code (entry point) for current Lambda
+    src/                --> this folder includes all source files used by back-end
+      Task/             --> this folder includes the code that manages Task object
+        Create/         --> this folder includes the Lambda function that creates Task in DynamoDB
+          bootstrap.es6 --> this file loads the back-end functionality of current Lambda
+          package.json  --> this file contains the metadata of current back-end (required by NPM)
+          Handler.es6   --> this file contains the main code (entry point) for current Lambda
+        Delete/         --> this folder includes the Lambda function that deletes Task from DynamoDB
+          ...
+        Retrieve/       --> this folder includes the Lambda function that retrieves Task(s) from DynamoDB
+          ...
+        Update/         --> this folder includes the Lambda function that updates Task in DynamoDB
+          ...
     ...
-  Models/               --> this folder includes everything models related
-    Todo.json           --> this file is an example of the Todo's model definition
+  Data/                 --> this folder includes everything data related
+    .deepignore         --> this file is used only when data is supposed to be ignored
+    Models/             --> this folder includes everything models related
+      Task.json         --> this file is an example of the Todo's model definition
     ...
   Docs/                 --> this folder includes everything documentation related
     index.md            --> this file is an example of index markdown documentation
@@ -104,6 +110,7 @@ DeepTodo/               --> root folder of the DeepTodo microservice
     Backend/            --> this folder includes back-end related tests
     ...
   deepkg.json           --> this file contains the metadata of this microservice
+  hook.init.js          --> this file is deepify hook that copies learn.json to deep.ng.root
   parameters.json       --> this file contains the parameters used by this microservice
 ```
 
