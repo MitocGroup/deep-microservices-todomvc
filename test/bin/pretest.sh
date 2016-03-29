@@ -36,4 +36,6 @@ isLocalServerUp () {
 }
 
 #launch local server and check if it up and running
-deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
+if [ ${TRAVIS_NODE_VERSION} != '5.9' ]; then
+  deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
+fi
