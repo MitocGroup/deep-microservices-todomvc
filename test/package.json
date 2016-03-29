@@ -6,7 +6,7 @@
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
     "pretest": "if [ -f '.travis.yml' ]; then test/bin/pretest.sh; else bin/pretest.sh; fi",
     "test": "if [ -f '.travis.yml' ]; then test/bin/test.sh; else bin/test.sh; fi",
-    "posttest": "if [ -f '.travis.yml' ]; then protractor test/e2e/protractor.config.js; else protractor ./e2e/protractor.config.js; fi",
+    "posttest": "if [ -f '.travis.yml' ]; then test/bin/posttest.sh; else bin/posttest.sh; fi",
     "coverage": "if [ -f '.travis.yml' ]; then test/bin/coverage.sh; else bin/coverage.sh; fi",
     "build": "npm run build:styles && npm run build:modules",
     "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
