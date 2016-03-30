@@ -41,15 +41,15 @@ before_install:
   - npm install -g jasmine-core@2.3.x
   - npm install -g istanbul@0.3.x
   - npm install -g istanbul-combine@0.3.x
-  - npm run phantomjs-install
-  - npm install -g karma@0.13.x
-  - npm install -g karma-jspm@2.0.x
-  - npm install -g karma-jasmine@0.3.x
-  - npm install -g karma-babel-preprocessor@5.2.x
+  - npm install -g phantomjs@1.9.18
+  - npm install -g karma@0.13.19
+  - npm install -g karma-jspm@2.0.1
+  - npm install -g karma-jasmine@0.3.6
+  - npm install -g karma-babel-preprocessor@5.2.2
   - npm install -g karma-coverage@douglasduteil/karma-coverage#next
-  - npm install -g karma-verbose-reporter@0.0.x
-  - npm install -g karma-phantomjs-launcher@0.2.x
-  - npm install -g karma-ng-html2js-preprocessor@0.2.x
+  - npm install -g karma-verbose-reporter@0.0.3
+  - npm install -g karma-phantomjs-launcher@0.2.1
+  - npm install -g karma-ng-html2js-preprocessor@0.2.0
   - npm run protractor-install
   - npm run protractor-prepare
 after_success:

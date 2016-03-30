@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Todo sample microservice",
   "scripts": {
-    "phantomjs-install": "if [ -f '.travis.yml' ]; then test/bin/phantomjs/install.sh; else bin/phantomjs/install.sh; fi",
     "protractor-install": "if [ -f '.travis.yml' ]; then test/bin/protractor/install.sh; else bin/protractor/install.sh; fi",
     "protractor-prepare": "if [ -f '.travis.yml' ]; then test/bin/protractor/prepare.sh; else bin/protractor/prepare.sh; fi",
     "install": "if [ -f '.travis.yml' ]; then test/bin/install.sh; else bin/install.sh; fi",
