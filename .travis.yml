@@ -11,7 +11,7 @@ branches:
     - master
     - dev
     - stage
-    - testing
+    - test
 addons:
   sauce_connect: true
 env:
