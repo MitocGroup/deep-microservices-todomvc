@@ -1,5 +1,5 @@
-Contributing to DEEP Framework
-==============================
+Contributing to deep-microservices-todo-app
+===========================================
 
 This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
 
