@@ -1,5 +1,5 @@
-Roadmap of DEEP Framework
-=========================
+Roadmap of deep-microservices-todo-app
+======================================
 
 Our list of roadmap features and functionality, in descending order of priority:
 
