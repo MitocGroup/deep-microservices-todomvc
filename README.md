@@ -1,233 +1,100 @@
-![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Todo App 
-===============
+deep-microservices-todo-app
+===========================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todo-app.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todo-app)
 [![Codacy Badge](https://api.codacy.com/project/badge/coverage/d3dd5bd83d75491dbd3bd1f935d8a7fb)](https://www.codacy.com/app/MitocGroup/deep-microservices-todo-app)
 
-`DEEP Todo App` (https://github.com/MitocGroup/deep-microservices-todo-app) is a web app inspired from 
-AngularJS TodoMVC Example (https://github.com/tastejs/todomvc/tree/master/examples/angularjs). It reuses 
-TodoMVC's module and integrates with [DEEP Framework](https://github.com/MitocGroup/deep-framework) 
-to streamline development and deployment of the web app using cloud-based web services.
-
-## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
-
-`DEEP Todo App` can be used by executing the following 4 simple steps in command line:
-
-1. Install DEEP CLI, also known as deepify:
-
-  `npm install deepify -g`
-> deepify is a collection of tools that empower developers and devops engineers to automate
-the management of web apps built on top of DEEP ecosystem.
-
-  *Note: If you want to use `deepify` on Windows, please follow the steps from
-  [Windows Configuration](https://github.com/MitocGroup/deep-framework/blob/master/docs/windows.md)
-  before running `npm install deepify -g` and make sure all `npm` and `deepify` commands are executed
-  inside Git Bash.*
-
-2. Using deepify, pickup todo app directly from GitHub:
-  
-  `deepify install github://MitocGroup/deep-microservices-todo-app ~/deep-todo-app`
-> deepify fetches todo app source code and unpack it locally
-
-  *Note: As an alternative, you can create the app directory first and run commands inside it. For example:
-  `mkdir ~/deep-todo-app && cd ~/deep-todo-app && deepify install github://MitocGroup/deep-microservices-todo-app`*
-
-3. Using deepify, run locally the todo example:
-
-  `deepify server ~/deep-todo-app -o`
-> deepify launches a web server that can be used for local development, without making calls
-to web services from cloud providers like AWS. This step can be also labeled as
-[Running Microservices in Development](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-development).
-
-4. Using deepify, deploy to AWS the todo example:
-
-  `deepify deploy ~/deep-todo-app`
-> deepify provisions the infrastructure and deploys the web app, empowering developers and
-devops engineers to automate the process. This step can be also labeled as
-[Running Microservices in Production](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#running-microservices-in-production).
-
-  *Note: Amazon CloudFront distribution takes up to 20 minutes to provision, 
-  therefore don’t worry if it returns an HTTP error in the first couple of minutes.*
-
-To learn more about `DEEP CLI` and `DEEP Framework`, please follow the link
-[What is DEEP Framework?](https://github.com/MitocGroup/deep-framework/blob/master/README.md#what-is-deep-framework-)
-
-### Running Microservices in Development
-
-See Step 3 in 
-[Getting Started](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#getting-started)
-> Coming soon (more details)
-
-### Running Microservices in Production
-
-See Step 4 in 
-[Getting Started](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/README.md#getting-started)
-> Coming soon (more details)
+deep-microservices-todo-app is a sample microservice inspired from [todomvc.com](http://todomvc.com).
+It is built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and reuses
+[TodoMVC AngularJS Example](https://github.com/tastejs/todomvc/tree/master/examples/angularjs). This
+repository is open sourced to show case how developers can build and deploy hassle-free cloud-native
+web applications.
 
 
-## Directory Layout [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
+## Getting Started
 
-```
-DeepTodo/               --> root folder of the DeepTodo microservice
-  Frontend/             --> this folder includes everything front-end related
-    .deepignore         --> this file is used only when front-end is supposed to be ignored
-    bootstrap.js        --> this file loads the front-end functionality of particular JavaScript app
-    package.json        --> this file contains the metadata of current front-end (required by JSPM)
-    js/                 --> this folder includes all JavaScript files
-      app/              --> this folder includes the JavaScript files for web app (e.g. AngularJS, React.js, Backbone.js, etc.)
-        angular/        --> this folder includes the JavaScript files for AngularJS app
-        ...
-    css/                --> this folder includes all stylesheets
-    img/                --> this folder includes all images
-    fonts/              --> this folder includes all fonts
-    ...
-  Backend/              --> this folder includes everything back-end related
-    .deepignore         --> this file is used only when back-end is supposed to be ignored
-    resources.json      --> this file contains the metadata of back-end resoures like Lambda, API Gateway, and so on
-    src/                --> this folder includes all source files used by back-end
-      Task/             --> this folder includes the code that manages Task object
-        Create/         --> this folder includes the Lambda function that creates Task in DynamoDB
-          bootstrap.es6 --> this file loads the back-end functionality of current Lambda
-          package.json  --> this file contains the metadata of current back-end (required by NPM)
-          Handler.es6   --> this file contains the main code (entry point) for current Lambda
-        Delete/         --> this folder includes the Lambda function that deletes Task from DynamoDB
-          ...
-        Retrieve/       --> this folder includes the Lambda function that retrieves Task(s) from DynamoDB
-          ...
-        Update/         --> this folder includes the Lambda function that updates Task in DynamoDB
-          ...
-    ...
-  Data/                 --> this folder includes everything data related
-    .deepignore         --> this file is used only when data is supposed to be ignored
-    Models/             --> this folder includes everything models related
-      Task.json         --> this file is an example of the Todo's model definition
-    ...
-  Docs/                 --> this folder includes everything documentation related
-    index.md            --> this file is an example of index markdown documentation
-    ...
-  Tests/                --> this folder includes everything testing related
-    Frontend/           --> this folder includes front-end related tests
-    Backend/            --> this folder includes back-end related tests
-    ...
-  deepkg.json           --> this file contains the metadata of this microservice
-  hook.init.js          --> this file is deepify hook that copies learn.json to deep.ng.root
-  parameters.json       --> this file contains the parameters used by this microservice
+### Step 1. Pre-requisites
+
+- [x] [Create an Amazon Web Services account](https://www.youtube.com/watch?v=WviHsoz8yHk)
+- [x] [Configure AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+- [x] [Get Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [x] [JDK 8 and JRE 8 Installation Start Here](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+- [x] [Install nvm](https://github.com/creationix/nvm#install-script) and [use node v4.3+](https://github.com/creationix/nvm#usage)
+- [ ] Install DEEP CLI, also known as `deepify`:
+
+```bash
+npm install deepify -g
 ```
 
+> If you want to use `deepify` on Windows, please follow the steps from
+[Windows Configuration](https://github.com/MitocGroup/deep-framework/blob/master/docs/windows.md)
+before running `npm install deepify -g` and make sure all `npm` and `deepify` commands are executed
+inside Git Bash.
 
-## How do I test this project? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
+### Step 2. Install Microservice(s) Locally
 
-Our goal is to support two kinds of testing in the deep-microservice-todo-app: Unit tests and End to End tests.
-
-### Running Unit Tests
-
-Initially microservice preconfigured with health-check unit tests. These are written in
-[Jasmine](https://github.com/jasmine/jasmine), which we run with 
-[Karma Test Runner](https://github.com/karma-runner/karma). We provide a Karma configuration file to run them.
-
-* the configuration is found at `config.karma.js`
-* the unit tests are found next to the code they are testing and are named as `*.spec.js`
-
-The easiest way to run the unit tests is to use the supplied npm script:
-
-```
-karma start path/to/config.karma.js
+```bash
+deepify install github://MitocGroup/deep-microservices-todo-app ~/deep-microservices-todo-app
 ```
 
-This script will start the Karma test runner to execute the unit tests. Moreover, Karma will sit and
-watch the source and test files for changes and then re-run the tests whenever any of them change.
-This is the recommended strategy; if your unit tests are being run every time you save a file then
-you receive instant feedback on any changes that break the expected code functionality.
+> Path parameter in all `deepify` commands is optional and if not specified, assumes current
+working directory. Therefore you can skip `~/deep-microservices-todo-app` by executing
+`mkdir ~/deep-microservices-todo-app && cd ~/deep-microservices-todo-app` before `deepify install`.
 
-You can also ask Karma to do a single run of the tests and then exit.  
+### Step 3. Run Microservice(s) in Development
 
-Besides of Karma we also provide ```Mocha + Chai``` preconfiguration for backend unit testing.
-
-As best practice was configured code coverage tool ```Istanbul``` to gather actual code coverage metrics in ES6 
-without code transpiling (was used ```isparta``` reporter).
-
-### Setup and Running End to End Tests
-
-End to End tests are written in
-[Protractor](https://github.com/angular/protractor). 
-
-1. Setup
-   Use npm to install Protractor globally with:
-      
-   `npm install -g protractor`
-   
-> This will install two command line tools, protractor and webdriver-manager. 
-
->Try running protractor `--version` to make sure it's working.
-
->The webdriver-manager is a helper tool to easily get an instance of a Selenium Server running. 
-
->Use it to download the necessary binaries with:
-
->  `webdriver-manager update`
-
->Now start up a server with:
-
->  `webdriver-manager start`
-
-2. Running
-   Travis CI integrates with Sauce Labs, a browser and mobile testing platform. It integrates well with Selenium. 
-   We provide a Protractor configuration file to run them. 
-
-* the configuration is found at `test/e2e/protractor.config.js`
-* the e2e tests are found `test/e2e/Tests` folder and have names `*.spec.js`
-* the POMs are found in `test/e2e/POMs` folder
-
-The easiest way to run the e2e tests is to use the supplied npm script (webdriver should be started previously - `webdriver-manager start`):
-
-```
-protractor test/e2e/protractor.config.js
+```bash
+deepify server ~/deep-microservices-todo-app -o
 ```
 
-> What is POM?
-  - Page Object Model is a design pattern to create Object Repository for web UI elements.
-  - Under this model, for each web page in the application there should be corresponding page class.
-  - This Page class will find the WebElements of that web page and also contains Page methods which perform operations on those WebElements.
-  - Name of these methods should be given as per the task they are performing i.e., if a loader is waiting for payment gateway to be appear, POM method name can be waitForPaymentScreenDisplay().
+> When this step is finished, you can open in your browser the link *http://localhost:8000*
+and enjoy the deep-microservices-todo-app running locally.
 
-## How can I get involved? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
+### Step 4. Run Microservice(s) in Production
 
-### Feedback
+```bash
+deepify deploy ~/deep-microservices-todo-app
+```
 
-We are eager to get your feedback, so please use whatever communication channel you prefer:
-- [github issues](https://github.com/MitocGroup/deep-microservices-todo-app/issues)
-- [gitter chat room](https://gitter.im/MitocGroup/deep-framework)
-- [deep email address](mailto:feedback@deep.mg)
+> Amazon CloudFront distribution takes up to 20 minutes to provision, therefore don’t worry
+if it returns an HTTP error in the first couple of minutes.
 
-### Contribution
+### Step 5. Remove Microservice(s) from Production
 
-This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
+```bash
+deepify undeploy ~/deep-microservices-todo-app
+```
 
-1. [Fork](http://help.github.com/forking/) this repository in GitHub.
-2. Develop the feature in your repository. Make one or more commits to your repository in GitHub.
-3. Perform a [pull request](http://help.github.com/pull-requests/) from your repository back into original repository in GitHub.
+> Amazon CloudFront distribution takes up to 20 minutes to unprovision. That's why `deepify`
+command checks every 30 seconds if it's disabled and when successful, removes it from your account.
 
-Make sure you update `package.json` (or `deepkg.json`, depends on the use case) and put your name and contact information in contributors section. We would like to recognize the work and empower every contributor in creative ways :)
 
-### Roadmap
+## Developer Resources
 
-Our short-to-medium-term roadmap items, in order of descending priority:
+Having questions related to deep-microservices-todo-app?
 
-Feature | Details | Owner
---------|---------|------
-- | - | -
+- Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
+- Chat with us: https://gitter.im/MitocGroup/deep-framework
+- Send an email: feedback@deep.mg
 
-### Changelog
+Interested in contributing to deep-microservices-todo-app?
 
-Changelog files are located in `/changelog` folder.
-> See [CHANGELOG.md](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/CHANGELOG.md) for latest changelog.
+- Contributing: https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/CONTRIBUTING.md
+- Issue tracker: https://github.com/MitocGroup/deep-microservices-todo-app/issues
+- Releases: https://github.com/MitocGroup/deep-microservices-todo-app/releases
+- Roadmap: https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/ROADMAP.md
 
-### License
+Looking for web applications that use (or are similar to) deep-microservices-todo-app?
 
-This repository can be used under the MIT license.
-> See [LICENSE](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/LICENSE) for more details.
+- Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
+- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todo-app
+- Enterprise Software Marketplace: https://www.deep.mg
 
-### Sponsors
+## Sponsors
 
 This repository is being sponsored by:
-> [Mitoc Group](http://www.mitocgroup.com)
+- [Mitoc Group](https://www.mitocgroup.com)
+- [DEEP Marketplace](https://www.deep.mg)
+
+This code can be used under MIT license:
+> See [LICENSE](https://github.com/MitocGroup/deep-microservices-todo-app/blob/master/LICENSE) for more details.
