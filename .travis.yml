@@ -29,9 +29,7 @@ env:
 
 before_install:
   - cp test/package.json .
-  - npm install -g deepify
   - npm install -g jspm@0.16.15
-  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - npm install -g babel@5.8.x
   - npm install -g browserify@11.2.x
   - npm install -g jscs@2.1.x
@@ -50,6 +48,8 @@ before_install:
   - npm install -g karma-verbose-reporter@0.0.3
   - npm install -g karma-phantomjs-launcher@0.2.1
   - npm install -g karma-ng-html2js-preprocessor@0.2.0
+  - npm install -g deepify
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - npm run protractor-install
   - npm run protractor-prepare
 after_success:
