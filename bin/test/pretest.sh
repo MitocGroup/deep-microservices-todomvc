@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# Created by vcernomschi on 10/06/2015
+#
 
 source $(dirname $0)/_head.sh
 
@@ -35,7 +38,9 @@ isLocalServerUp () {
   exit 0
 }
 
-#launch local server and check if it up and running
+##########################################################
+### launch local server and check if it up and running ###
+##########################################################
 if [ ${TRAVIS_NODE_VERSION} != '5.9' ]; then
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 fi

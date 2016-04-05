@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# Created by vcernomschi on 10/06/2015
+#
 
 echo "TRAVIS_NODE_VERSION: ${TRAVIS_NODE_VERSION}"
 

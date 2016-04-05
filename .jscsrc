@@ -1,15 +1,3 @@
 {
-  "preset": "airbnb",
-  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
-  "excludeFiles": [
-    "./src/*/Frontend/js/lib/*",
-    "./src/*/Tests/Frontend/lib/*",
-    "./src/*/Tests/Frontend/mock/lib/*",
-    "./src/*/Tests/Frontend/vendor/*"
-  ],
-  "requirePaddingNewLinesAfterBlocks": {
-    "allExcept": [
-      "inCallExpressions"
-    ]
-  }
+  "preset": "airbnb"
 }

@@ -1,0 +1,38 @@
+{
+  "name": "deep-microservices-todo-app",
+  "version": "0.0.1",
+  "description": "deep-microservices-todo-app is a sample microservice inspired from [todomvc.com](http://todomvc.com). It is built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and reuses [TodoMVC AngularJS Example](https://github.com/tastejs/todomvc/tree/master/examples/angularjs). This repository is open sourced to show case how developers can build and deploy hassle-free cloud-native web applications using microservices architecture and serverless computing.",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "https://www.mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "DEEP Dev Team",
+      "email": "hello@deep.mg",
+      "website": "https://www.deep.mg"
+    }
+  ],
+  "scripts": {
+    "prepare": "bin/test/prepare.sh",
+    "coverage": "bin/test/coverage.sh",
+    "build": "npm run build:styles && npm run build:modules",
+    "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
+    "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify",
+    "repository-update": "babel-node bin/tools/repository_update.js --no-interaction"
+  },
+  "dependencies": {
+    "minimist": "^1.2.x",
+    "fs-extra": "^0.x.x",
+    "inquirer": "0.x.x"
+  },
+  "devDependencies": {
+    "isparta": "^3.1.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MitocGroup/deep-microservices-todo-app.git"
+  },
+  "license": "MIT"
+}

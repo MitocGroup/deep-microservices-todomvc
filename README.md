@@ -50,7 +50,7 @@ deepify server ~/deep-microservices-todo-app -o
 > When this step is finished, you can open in your browser the link *http://localhost:8000*
 and enjoy the deep-microservices-todo-app running locally.
 
-### Step 4. Run Microservice(s) in Production
+### Step 4. Deploy Microservice(s) to Production
 
 ```bash
 deepify deploy ~/deep-microservices-todo-app
@@ -89,6 +89,7 @@ Looking for web applications that use (or are similar to) deep-microservices-tod
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
 - Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todo-app
 - Enterprise Software Marketplace: https://www.deep.mg
+
 
 ## Sponsors
 
