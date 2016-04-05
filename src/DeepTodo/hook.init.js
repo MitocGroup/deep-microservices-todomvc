@@ -20,7 +20,7 @@ var exports = module.exports = function(callback) {
       return;
     }
 
-    console.log('learn.json was successfully copied into DeepNgRoot');
+    console.log('learn.json was successfully copied into deep-root-angular');
 
     callback();
   })

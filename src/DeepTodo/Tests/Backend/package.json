@@ -1,6 +1,6 @@
 {
-  "name": "deep-todo-backend",
-  "version": "0.0.0",
+  "name": "DeepTodoBackend",
+  "version": "0.0.1",
   "description": "DEEP Micro Services To Do Backend",
   "scripts": {
     "install": "echo \"No install specified\" && exit 0",

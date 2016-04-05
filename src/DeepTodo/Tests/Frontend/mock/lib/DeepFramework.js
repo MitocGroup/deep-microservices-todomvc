@@ -643,7 +643,7 @@ DeepFramework.Kernel.load({
     "www.amazon.com": "amzn1.application.12057697ba3347cda73dd9f6d3b9ce2b"
   },
   "microservices": {
-    "deep.todo": {
+    "deep-todo": {
       "isRoot": false,
       "parameters": {},
       "resources": {
@@ -701,7 +701,7 @@ DeepFramework.Kernel.load({
       }
     }
   },
-  "microserviceIdentifier": "deep.todo",
+  "microserviceIdentifier": "deep-todo",
   "awsAccountId": 722084099005,
   "propertyIdentifier": "deep.mg.prod",
   "timestamp": 1441198970148,

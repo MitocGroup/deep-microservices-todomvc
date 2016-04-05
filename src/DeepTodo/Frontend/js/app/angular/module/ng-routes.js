@@ -7,7 +7,7 @@ var deepAsset = DeepFramework.Kernel.container.get('asset');
 var routes = {
   'app': {
     url: '',
-    templateUrl: deepAsset.locate('@deep.todo:js/app/angular/views/layout.html'),
+    templateUrl: deepAsset.locate('@deep-todo:js/app/angular/views/layout.html'),
     controller: 'DeepTodoController',
     controllerAs: 'todoCtrl',
     data: {
@@ -19,7 +19,7 @@ var routes = {
     views: {
       'todo': {
         controller: 'DeepTodoStateController',
-        templateUrl: deepAsset.locate('@deep.todo:js/app/angular/views/todo.html'),
+        templateUrl: deepAsset.locate('@deep-todo:js/app/angular/views/todo.html'),
       },
     },
   }

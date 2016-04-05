@@ -1,8 +1,12 @@
 {
-  "name": "deep-todo-task-delete-completed",
+  "name": "DeepTodoTaskDeleteCompleted",
   "version": "0.0.1",
   "description": "Delete completed todo",
-  "author": "Mitoc Group <hello@mitocgroup.com>",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "http://www.mitocgroup.com"
+  },
   "contributors": [
     {
       "name": "Maxim Ponomariov",
