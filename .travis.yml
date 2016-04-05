@@ -16,7 +16,7 @@ branches:
     - test
 
 before_install:
-  - cp test/package.json
+  - cp test/package.json .
   - npm install -g deepify
   - npm install -g jspm@0.16.15
   - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
