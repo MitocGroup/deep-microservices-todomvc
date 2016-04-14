@@ -10,6 +10,11 @@ __SRC_PATH="${__ROOT_PATH}src/"
 __COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
 __PROTRACTOR_CONFIG_PATH="${__ROOT_PATH}bin/e2e/protractor.config.js"
 
+__E2E_WITH_PUBLIC_REPO="public"
+__E2E_WITH_PRIVATE_REPO="private"
+__NONE_E2E="none"
+__TRAVIS_NODE_MAJOR_VERSION="${TRAVIS_NODE_VERSION:0:1}"
+
 subpath_run_cmd () {
     local DIR
     local EXPR_BACKEND

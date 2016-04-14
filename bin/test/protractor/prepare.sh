@@ -5,7 +5,7 @@
 
 echo "TRAVIS_NODE_VERSION: ${TRAVIS_NODE_VERSION}"
 
-if [ ${TRAVIS_NODE_VERSION} != '5.9' ]; then
+if [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "5" ]; then
   cp src/deeploy.example.json src/deeploy.json
   deepify init-backend ./src
 fi

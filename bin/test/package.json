@@ -16,6 +16,9 @@
   ],
   "scripts": {
     "prepare": "bin/test/prepare.sh",
+    "pretest": "bin/test/pretest.sh",
+    "test": "bin/test/test.sh",
+    "posttest": "bin/test/posttest.sh",
     "coverage": "bin/test/coverage.sh",
     "build": "npm run build:styles && npm run build:modules",
     "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
@@ -23,12 +26,8 @@
     "repository-update": "babel-node bin/tools/repository_update.js --no-interaction"
   },
   "dependencies": {
-    "minimist": "^1.2.x",
-    "fs-extra": "^0.x.x",
-    "inquirer": "0.x.x"
   },
   "devDependencies": {
-    "isparta": "^3.1.x"
   },
   "repository": {
     "type": "git",

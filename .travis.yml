@@ -13,15 +13,17 @@ branches:
     - dev
     - stage
     - test
+    - update_test
 
 before_install:
+  - cp bin/test/package.json .
   - npm run prepare
 
 after_success:
   - npm run coverage
-
-addons:
-  sauce_connect: true
+#Temporary sauce_connect addon this for trigger the e2e from inside of prepare.sh
+#addons:
+#  sauce_connect: true
 
 env:
   global:
