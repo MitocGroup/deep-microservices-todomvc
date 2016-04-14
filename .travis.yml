@@ -27,6 +27,7 @@ after_success:
 
 env:
   global:
+    - E2E_TESTING=public
     #to disable interactive user interaction like prompts in terminal (an default value is always chosen)
     - DEEP_NO_INTERACTION=1
     # JSPM_GITHUB_AUTH_TOKEN=[secured]
