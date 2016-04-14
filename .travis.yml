@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 node_js:
   - '4.3'
-
+  - '5.10'
 cache:
   directories:
     - $(npm root -g)
@@ -21,9 +21,9 @@ before_install:
 
 after_success:
   - npm run coverage
-#Temporary sauce_connect addon this for trigger the e2e from inside of prepare.sh
-#addons:
-#  sauce_connect: true
+
+addons:
+  sauce_connect: true
 
 env:
   global:

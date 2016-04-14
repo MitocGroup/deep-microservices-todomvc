@@ -27,8 +27,6 @@ npm install isparta@3.1.x
 
 if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE_REPO}" = "${E2E_TESTING}" ]; then
   npm run protractor-install
-  npm install sauce-connect
-  sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
 fi
 
 if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
