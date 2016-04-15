@@ -3,7 +3,7 @@
 source $(dirname $0)/_head.sh
 
 npm install -g babel@5.8.x &&\
-npm install -g jspm@0.17.x &&\
+npm install -g jspm@0.16.x &&\
 #npm install -g jspm@0.16.15 &&\
 npm install -g browserify@11.2.x &&\
 npm install -g jscs@2.1.x &&\
