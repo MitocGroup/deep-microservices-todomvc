@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "prepare": "bin/test/prepare.sh",
+    "install": "bin/test/install.sh",
     "pretest": "bin/test/pretest.sh",
     "test": "bin/test/test.sh",
     "posttest": "bin/test/posttest.sh",
