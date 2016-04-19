@@ -3,10 +3,23 @@
 # Created by vcernomschi on 10/06/2015
 #
 
+source $(dirname $0)/../_head.sh
+
 echo "TRAVIS_NODE_VERSION: ${TRAVIS_NODE_VERSION}"
 
-if [[ ${TRAVIS_NODE_VERSION} == 5.* ]]; then
-  npm install -g phantomjs@2.1.3
+# Fix for issue: https://github.com/Medium/phantomjs/issues/430#issuecomment-174038299
+
+#Initial PhantomJS CDNs
+Phantomjs_bitbucket_CDN="https://bitbucket.org/ariya/phantomjs/downloads"
+Phantomjs_cnpmjs_CDN="https://cnpmjs.org/downloads"
+
+#Returned code of CDN
+HTTP_CODE=`curl -o /dev/null --silent --head --write-out '%{http_code}\n' ${Phantomjs_bitbucket_CDN}`
+
+if [ "${HTTP_CODE}"="200" ]; then
+  echo "Using bitbucket source to download PhantomJS"
+  npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_bitbucket_CDN}
 else
-  npm install -g phantomjs@1.9.18
+  echo "Using cnmpjs source to download PhantomJS"
+  npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_cnpmjs_CDN}
 fi
