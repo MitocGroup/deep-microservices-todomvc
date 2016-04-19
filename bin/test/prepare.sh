@@ -27,6 +27,7 @@ jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 
 
 if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE_REPO}" = "${E2E_TESTING}" ]; then
+  echo "${E2E_TESTING}"
   bash `dirname $0`/protractor/install.sh
 fi
 
