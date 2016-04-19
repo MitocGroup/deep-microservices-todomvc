@@ -9,6 +9,7 @@ cache:
   directories:
     - $(npm root -g)
     - node_modules
+    - deep_modules
 
 branches:
   only:
