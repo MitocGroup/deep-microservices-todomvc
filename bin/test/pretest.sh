@@ -6,7 +6,7 @@
 source $(dirname $0)/_head.sh
 
 checkStatus () {
-	curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
+  curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
 }
 
 isLocalServerUp () {
