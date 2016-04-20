@@ -11,7 +11,7 @@ __COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
 
 # Need to decide the path of E2E stuff, protractor
 
-__PROTRACTOR_CONFIG_PATH="${__ROOT_PATH}bin/test/protractor.config.js"
+__PROTRACTOR_CONFIG_PATH="${__ROOT_PATH}bin/test/protractor/protractor.config.js"
 
 __E2E_WITH_PUBLIC_REPO="public"
 __E2E_WITH_PRIVATE_REPO="private"
