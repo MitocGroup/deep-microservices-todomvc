@@ -8,7 +8,7 @@ exports.config = {
   build: process.env.TRAVIS_BUILD_NUMBER,
 
   specs: [
-    './src/**/Tests/E2E/Tests/*.spec.js',
+    '../../../../src/**/Tests/E2E/Tests/*.spec.js',
   ],
 
   multiCapabilities: [
