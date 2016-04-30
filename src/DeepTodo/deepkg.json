@@ -1,7 +1,7 @@
 {
   "identifier": "deep-todo",
-  "name": "DeepTodo",
-  "description": "Manages shopping cart, as well as checkout process. Integrates seamlessly with DeepTodo microservice.",
+  "name": "deep-todo",
+  "description": "Manages shopping cart, as well as checkout process. Integrates seamlessly with deep-todo microservice.",
   "version": "0.0.1",
   "propertyRoot": false,
   "author": {
