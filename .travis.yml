@@ -23,10 +23,6 @@ branches:
     - test
 
 before_install:
-  - chmod +x $(npm config get prefix)/bin/deepify
-  - chmod +x $(npm config get prefix)/bin/jspm
-  - chmod +x $(npm config get prefix)/bin/karma
-  - chmod +x $(npm config get prefix)/bin/mocha
   - cp bin/test/package.json .
 
 after_success:
@@ -38,7 +34,7 @@ addons:
 env:
   global:
     # Set type of E2E tests. Public, private or none
-    - E2E_TESTING=none
+    - E2E_TESTING=public
     # To disable interactive user interaction like prompts in terminal (an default value is always chosen)
     - DEEP_NO_INTERACTION=1
     # JSPM_GITHUB_AUTH_TOKEN=[secured]
