@@ -18,8 +18,8 @@ HTTP_CODE=`curl -o /dev/null --silent --head --write-out '%{http_code}\n' ${Phan
 
 if [ "${HTTP_CODE}"="200" ]; then
   echo "Using cnmpjs source to download PhantomJS"
-  npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_cnpmjs_CDN}
+  npm list -g phantomjs --depth=0 || npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_cnpmjs_CDN}
 else
   echo "Using bitbucket source to download PhantomJS"
-  npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_bitbucket_CDN}
+  npm list -g phantomjs --depth=0 || npm install -g phantomjs@1.9.18 --phantomjs_cdnurl=${Phantomjs_bitbucket_CDN}
 fi

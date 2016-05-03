@@ -7,7 +7,6 @@
     "src/**/Frontend/js/config.*.js",
     "src/**/Tests/Frontend/mock/lib/DeepFramework.js",
     "src/**/Tests/Frontend/lib/DeepFramework.js",
-    "src/**/Tests/Backend/*.spec.js",
     "src/**/Frontend/sass/lumx/modules/**",
     "src/**/Frontend/_build/**"
   ],
