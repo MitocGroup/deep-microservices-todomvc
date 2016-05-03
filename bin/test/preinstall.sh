@@ -6,8 +6,7 @@ source $(dirname $0)/_head.sh
 (npm list -g babel-preset-es2015 --depth=0 || npm install -g babel-preset-es2015) &&\
 (npm list -g babel-plugin-add-module-exports --depth=0 || npm install -g babel-plugin-add-module-exports) &&\
 (npm list -g deepify --depth=0 || npm install -g deepify) &&\
-#(npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
-(npm install -g jspm@0.16.15)  &&\
+(npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
 (npm list -g browserify --depth=0 || npm install -g browserify@11.2.x) &&\
 (npm list -g jscs --depth=0 || npm install -g jscs@2.1.x) &&\
 (npm list -g mocha --depth=0 || npm install -g mocha@2.3.x) &&\
@@ -38,11 +37,6 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   bash `dirname $0`/protractor/install.sh
 
   #install locally, protractor doesn't find babel globally
-#  (npm list babel-cli --depth=0 || npm link babel-cli) &&\
-#  (npm list babel-preset-es2015 --depth=0 || npm link babel-preset-es2015) &&\
-#  (npm list babel-plugin-add-module-exports --depth=0 || npm link babel-plugin-add-module-exports) &&\
-#  (npm list jasmine2-custom-message --depth=0 || npm install jasmine2-custom-message@0.8.x) &&\
-#  (npm list jasmine-utils --depth=0 || npm install jasmine-utils@0.2.x)
   (npm list babel-cli --depth=0 || npm link babel-cli) &&\
   (npm list babel-preset-es2015 --depth=0 || npm link babel-preset-es2015) &&\
   (npm list babel-plugin-add-module-exports --depth=0 || npm link babel-plugin-add-module-exports) &&\

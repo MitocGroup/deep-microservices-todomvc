@@ -23,6 +23,10 @@ branches:
     - test
 
 before_install:
+  - chmod +x deepify
+  - chmod +x jspm
+  - chmod +x karma
+  - chmod +x mocha
   - cp bin/test/package.json .
 
 after_success:
