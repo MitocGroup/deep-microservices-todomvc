@@ -23,9 +23,9 @@
       "es6-shim": "github:es-shims/es6-shim@^0.32.3"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.22",
-      "babel-runtime": "npm:babel-runtime@^5.8.20",
-      "core-js": "npm:core-js@^0.9.4"
+      "babel": "npm:babel-core@^6.x.x",
+      "babel-runtime": "npm:babel-runtime@^6.x.x",
+      "core-js": "npm:core-js@^1.1.4"
     }
   },
   "dependencies": {},

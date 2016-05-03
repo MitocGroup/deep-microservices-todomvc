@@ -10,6 +10,10 @@ cache:
     - $(npm root -g)
     - node_modules
     - deep_modules
+    - $(npm config get prefix)/bin/deepify
+    - $(npm config get prefix)/bin/jspm
+    - $(npm config get prefix)/bin/karma
+    - $(npm config get prefix)/bin/mocha
 
 branches:
   only:
