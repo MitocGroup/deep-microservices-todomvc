@@ -38,7 +38,7 @@ addons:
 env:
   global:
     # Set type of E2E tests. Public, private or none
-    - E2E_TESTING=public
+    - E2E_TESTING=none
     # To disable interactive user interaction like prompts in terminal (an default value is always chosen)
     - DEEP_NO_INTERACTION=1
     # JSPM_GITHUB_AUTH_TOKEN=[secured]
