@@ -5,7 +5,7 @@
 source $(dirname $0)/../_head.sh
 echo "TRAVIS_NODE_VERSION: ${TRAVIS_NODE_VERSION}"
 
-if [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "5" ]; then
+if [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "5" ] && [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "6" ]; then
   cp src/deeploy.example.json src/deeploy.json
   deepify init-backend ./src
 fi

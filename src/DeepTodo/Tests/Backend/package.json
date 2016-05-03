@@ -1,13 +1,19 @@
 {
-  "name": "deep-todo-backend",
+  "name": "deep-todo-backend-test",
   "version": "0.0.1",
-  "description": "DEEP Micro Services To Do Backend",
+  "description": "Description of deep-todo-backend-test",
   "scripts": {
-    "install": "echo \"No install specified\" && exit 0",
-    "test": "echo \"No test specified\" && exit 0",
-    "coverage": "echo \"No coverage specified\" && exit 0"
+    "preinstall": "node-bin/preinstall.sh",
+    "install": "node-bin/install.sh",
+    "postinstall": "node-bin/postinstall.sh",
+    "test": "node-bin/test.sh"
   },
   "dependencies": {},
   "devDependencies": {},
-  "private": true
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MitocGroup/deep-microservices-skeleton.git"
+  },
+  "private": true,
+  "license": "MIT"
 }

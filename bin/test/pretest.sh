@@ -41,7 +41,7 @@ isLocalServerUp () {
 ##########################################################
 ### launch local server and check if it up and running ###
 ##########################################################
-if [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "5" ] && [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
+if [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "5" ] && [ "${__TRAVIS_NODE_MAJOR_VERSION}" != "6" ] && [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else
   echo "Skipping launching deepify server"
