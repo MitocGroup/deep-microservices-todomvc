@@ -14,6 +14,7 @@ cache:
     - $(npm config get prefix)/bin/jspm
     - $(npm config get prefix)/bin/karma
     - $(npm config get prefix)/bin/_mocha
+    - $(npm config get prefix)/bin/mocha
     - $(npm config get prefix)/bin/istanbul
 
 #before_cache:
