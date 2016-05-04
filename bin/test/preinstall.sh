@@ -45,10 +45,6 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   (npm list jasmine-utils --depth=0 --production=false || npm install jasmine-utils@0.2.x)
 fi
 
-if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
-  bash `dirname $0`/protractor/prepare.sh
-fi
-
 getGitUrl() {
   git config --get remote.origin.url
 }

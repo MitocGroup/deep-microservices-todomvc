@@ -17,6 +17,7 @@
   "scripts": {
     "preinstall": "bin/test/preinstall.sh",
     "install": "bin/test/install.sh",
+    "postinstall": "bin/test/postinstall.sh",
     "pretest": "bin/test/pretest.sh",
     "test": "bin/test/test.sh",
     "posttest": "bin/test/posttest.sh",
