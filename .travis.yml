@@ -15,8 +15,8 @@ cache:
     - $(npm config get prefix)/bin/karma
     - $(npm config get prefix)/bin/mocha
 
-before_cache:
-    - $(npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)
+#before_cache:
+#    - $(npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)
 
 branches:
   only:
