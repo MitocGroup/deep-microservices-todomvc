@@ -25,7 +25,7 @@ source $(dirname $0)/_head.sh
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
 (npm list -g node-dir --depth=0 || npm install -g node-dir) &&\
-(npm list isparta --depth=0 || npm install isparta@3.1.x)
+(npm list isparta --depth=0 --production=false || npm install isparta@3.1.x)
 
 if [ -z $TRAVIS_BUILD_NUMBER ]; then
     echo "Running locally - no need to jspm config"
@@ -38,11 +38,11 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   bash `dirname $0`/protractor/install.sh
 
   #install locally, protractor doesn't find babel globally
-  (npm list babel-cli --depth=0 || npm link babel-cli) &&\
-  (npm list babel-preset-es2015 --depth=0 || npm link babel-preset-es2015) &&\
-  (npm list babel-plugin-add-module-exports --depth=0 || npm link babel-plugin-add-module-exports) &&\
-  (npm list jasmine2-custom-message --depth=0 || npm install jasmine2-custom-message@0.8.x) &&\
-  (npm list jasmine-utils --depth=0 || npm install jasmine-utils@0.2.x)
+  (npm list babel-cli --depth=0 --production=false || npm link babel-cli) &&\
+  (npm list babel-preset-es2015 --depth=0 --production=false || npm link babel-preset-es2015) &&\
+  (npm list babel-plugin-add-module-exports --depth=0 --production=false || npm link babel-plugin-add-module-exports) &&\
+  (npm list jasmine2-custom-message --depth=0 --production=false || npm install jasmine2-custom-message@0.8.x) &&\
+  (npm list jasmine-utils --depth=0 --production=false || npm install jasmine-utils@0.2.x)
 fi
 
 if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
@@ -57,10 +57,10 @@ GIT_URL=$(getGitUrl)
 SCELETON_URL="https://github.com/MitocGroup/deep-microservices-skeleton"
 
 if [ "${GIT_URL}" = "${SCELETON_URL}" ]; then
-  (npm list inquirer --depth=0 || npm install inquirer@0.12.x) &&\
-  (npm list minimist --depth=0 || npm install minimist@1.2.x) &&\
-  (npm list fs-extra --depth=0 || npm install fs-extra@0.x.x) &&\
-  (npm list node-dir --depth=0 || npm link node-dir)
+  (npm list inquirer --depth=0 --production=false || npm install inquirer@0.12.x) &&\
+  (npm list minimist --depth=0 --production=false || npm install minimist@1.2.x) &&\
+  (npm list fs-extra --depth=0 --production=false || npm install fs-extra@0.x.x) &&\
+  (npm list node-dir --depth=0 --production=false || npm link node-dir)
 fi
 
 bash `dirname $0`/phantomjs/install.sh
