@@ -1,6 +1,12 @@
 System.config({
   defaultJSExtensions: true,
-  transpiler: 'traceur',
+  transpiler: 'babel',
+  babelOptions: {
+    'optional': [
+      'runtime',
+      'optimisation.modules.system'
+    ]
+  },
   paths: {
     'github:*': 'Frontend/vendor/github/*',
     'npm:*': 'Frontend/vendor/npm/*'
@@ -16,8 +22,6 @@ System.config({
     'css': 'github:systemjs/plugin-css@0.1.13',
     'es5-shim': 'github:es-shims/es5-shim@4.4.0',
     'es6-shim': 'github:es-shims/es6-shim@0.34.0',
-    'traceur': 'github:jmcriffey/bower-traceur@0.0.93',
-    'traceur-runtime': 'github:jmcriffey/bower-traceur-runtime@0.0.93',
     'github:angular-ui/ui-router@0.2.15': {
       'angular': 'github:angular/bower-angular@1.4.0'
     },
