@@ -6,7 +6,7 @@ LINK_RES=(node_modules package.json)
 
 COMPILE() {
   local resource=$1;
-  deepify compile-es6 ${resource} -x .js --out-dir ${COMPILE_DIR}/${resource}
+  `which deepify` compile-es6 ${resource} -x .js --out-dir ${COMPILE_DIR}/${resource}
 }
 
 PREPARE() {
