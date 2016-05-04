@@ -3,7 +3,6 @@ sudo: false
 node_js:
   - '4.3'
   - '4.4'
-  - '6.0'
 
 cache:
   directories:
