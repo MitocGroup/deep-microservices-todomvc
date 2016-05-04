@@ -17,9 +17,9 @@
   "scripts": {
     "preinstall": "bin/test/preinstall.sh",
     "install": "bin/test/install.sh",
-    "postinstall": "bin/test/postinstall.sh",
+    "postinstall": "bin/test/postinstall.sh hgh",
     "pretest": "bin/test/pretest.sh",
-    "test": "bin/test/test.sh",
+    "test": "bin/test/test.sh ${TEST_SUITE}",
     "posttest": "bin/test/posttest.sh",
     "coverage": "bin/test/coverage.sh",
     "build": "npm run build:styles && npm run build:modules",

@@ -36,6 +36,8 @@ addons:
   sauce_connect: true
 
 env:
+  - TEST_SUITE=backend
+  - TEST_SUITE=frontend
   global:
     # Set type of E2E tests. Public, private or none
     - E2E_TESTING=none

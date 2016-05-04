@@ -31,15 +31,25 @@ subpath_run_cmd () {
 
     BACKEND_CMD=$2
 
+
+    if [ -z "${4}" ]; then
+        PARALIZE_SCRIPT="${3}"
+        echo "PARALIZING ENABLED"
+    else
+        PARALIZE_SCRIPT="none"
+    fi
+
     if [ -z "${3}" ]; then
         FRONTEND_CMD="${BACKEND_CMD}"
     else
         FRONTEND_CMD="${3}"
     fi
 
-    #run tests for frontend
-    for subpath in $DIR/$EXPR_FRONTEND
-    do
+    if [ "${PARALIZE_SCRIPT}"="none" ] && [ "${PARALIZE_SCRIPT}"="frontend" ]; then
+
+      #run tests for frontend
+      for subpath in $DIR/$EXPR_FRONTEND
+      do
         echo "[Running command for Frontend] $subpath"
         if [ -d ${subpath} ]; then
             cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
@@ -57,16 +67,20 @@ subpath_run_cmd () {
                 sed "s/${SEARCH_VALUE}/${REPLACE_VALUE}/g" "${PATH_TO_TEST_TDF_FILE}" > ./coverage/report.json
             fi
         fi
-    done
+      done
+    fi
 
-    #run tests for backend
-    for subpath in $DIR/$EXPR_BACKEND
-    do
+    if [ "${PARALIZE_SCRIPT}"="none" ] && [ "${PARALIZE_SCRIPT}"="backend" ]; then
+
+      #run tests for backend
+      for subpath in $DIR/$EXPR_BACKEND
+      do
         echo "[Running command for Backend] $subpath"
         if [ -d ${subpath} ]; then
             cd ${subpath} && eval_or_exit "${BACKEND_CMD}"
         fi
-    done
+      done
+    fi
 }
 
 eval_or_exit() {
