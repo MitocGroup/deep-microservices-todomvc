@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "DEEP Micro Services Todo Frontend",
   "scripts": {
-    "postinstall": "`which jspm` install",
-    "test": "`which karma` start config.karma.js",
+    "postinstall": "jspm install",
+    "test": "karma start config.karma.js",
     "coverage": "echo \"No coverage specified\" && exit 0"
   },
   "jspm": {
