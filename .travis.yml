@@ -13,6 +13,7 @@ cache:
     - $(npm config get prefix)/bin/karma
     - $(npm config get prefix)/bin/_mocha
     - $(npm config get prefix)/bin/istanbul
+    - $(npm config get prefix)/bin/protractor
 branches:
   only:
     - master

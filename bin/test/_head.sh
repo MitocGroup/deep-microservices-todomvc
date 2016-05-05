@@ -35,11 +35,11 @@ subpath_run_cmd () {
   BACKEND_CMD=$2
 
   if [ -z "${4}" ]; then
-    echo "PARALIZING DISABLED"
+    echo "PARALLELIZING DISABLED"
     __IS_CONCURRENT_SCRIPT=${__NONE}
   else
     __IS_CONCURRENT_SCRIPT=$4
-    echo "PARALIZING ENABLED with: ${__IS_CONCURRENT_SCRIPT}"
+    echo "PARALLELIZING ENABLED FOR: ${__IS_CONCURRENT_SCRIPT}"
   fi
 
   if [ -z "${3}" ]; then
