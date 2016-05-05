@@ -6,7 +6,7 @@ source $(dirname $0)/_head.sh
 (npm list -g babel-preset-es2015 --depth=0 || npm install -g babel-preset-es2015) &&\
 (npm list -g babel-plugin-add-module-exports --depth=0 || npm install -g babel-plugin-add-module-exports) &&\
 (npm list -g deepify --depth=0 || npm install -g deepify) &&\
-(npm list -g jspm --depth=0 || npm install -g jspm@0.16.34)  &&\
+(npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
 (npm list -g browserify --depth=0 || npm install -g browserify@11.2.x) &&\
 (npm list -g jscs --depth=0 || npm install -g jscs@2.1.x) &&\
 (npm list -g mocha --depth=0 || npm install -g mocha@2.3.x) &&\
@@ -24,7 +24,7 @@ source $(dirname $0)/_head.sh
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
 (npm list -g node-dir --depth=0 || npm install -g node-dir) &&\
-(npm list isparta --depth=0 --production=false || npm install isparta@3.1.x)
+(if [ -d "node_modules/isparta" ]; then echo "isparta"; else npm install isparta@3.1.x; fi)
 
 if [ -z $TRAVIS_BUILD_NUMBER ]; then
     echo "Running locally - no need to jspm config"
@@ -37,11 +37,11 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   bash `dirname $0`/protractor/install.sh
 
   #install locally, protractor doesn't find babel globally
-  (npm list babel-cli --depth=0 --production=false || npm link babel-cli) &&\
-  (npm list babel-preset-es2015 --depth=0 --production=false || npm link babel-preset-es2015) &&\
-  (npm list babel-plugin-add-module-exports --depth=0 --production=false || npm link babel-plugin-add-module-exports) &&\
-  (npm list jasmine2-custom-message --depth=0 --production=false || npm install jasmine2-custom-message@0.8.x) &&\
-  (npm list jasmine-utils --depth=0 --production=false || npm install jasmine-utils@0.2.x)
+  (if [ -d "node_modules/babel-cli" ]; then echo "babel-cli"; else npm link babel-cli; fi) &&\
+  (if [ -d "node_modules/babel-preset-es2015" ]; then echo "babel-preset-es2015"; else npm link babel-preset-es2015; fi) &&\
+  (if [ -d "node_modules/babel-plugin-add-module-exports" ]; then echo "babel-plugin-add-module-exports"; else npm link babel-plugin-add-module-exports; fi) &&\
+  (if [ -d "node_modules/jasmine2-custom-message" ]; then echo "jasmine2-custom-message"; else npm install jasmine2-custom-message@0.8.x; fi) &&\
+  (if [ -d "node_modules/jasmine-utils" ]; then echo "jasmine-utils"; else npm install jasmine-utils@0.2.x; fi)
 fi
 
 getGitUrl() {
@@ -51,11 +51,12 @@ getGitUrl() {
 GIT_URL=$(getGitUrl)
 SCELETON_URL="https://github.com/MitocGroup/deep-microservices-skeleton"
 
-if [ "${GIT_URL}" = "${SCELETON_URL}" ]; then
-  (npm list inquirer --depth=0 --production=false || npm install inquirer@0.12.x) &&\
-  (npm list minimist --depth=0 --production=false || npm install minimist@1.2.x) &&\
-  (npm list fs-extra --depth=0 --production=false || npm install fs-extra@0.x.x) &&\
-  (npm list node-dir --depth=0 --production=false || npm link node-dir)
+if [ "${GIT_URL}" == "${SCELETON_URL}" ]; then
+  (if [ -d "node_modules/js-yaml" ]; then echo "js-yaml"; else npm install js-yaml; fi) &&\
+  (if [ -d "node_modules/inquirer" ]; then echo "inquirer"; else npm install inquirer@0.12.x; fi) &&\
+  (if [ -d "node_modules/minimist" ]; then echo "minimist"; else npm install minimist@1.2.x; fi) &&\
+  (if [ -d "node_modules/fs-extra" ]; then echo "fs-extra"; else npm install fs-extra@0.x.x; fi) &&\
+  (if [ -d "node_modules/node-dir" ]; then echo "node-dir"; else npm install node-dir; fi)
 fi
 
 bash `dirname $0`/phantomjs/install.sh
