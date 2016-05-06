@@ -1,3 +1,18 @@
 {
-  "preset": "airbnb"
+  "preset": "airbnb",
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "excludeFiles": [
+    "./**/config.test.js",
+    "./bin/**/*",
+    "src/**/Frontend/js/config.*.js",
+    "src/**/Tests/Frontend/mock/lib/DeepFramework.js",
+    "src/**/Tests/Frontend/lib/DeepFramework.js",
+    "src/**/Frontend/sass/lumx/modules/**",
+    "src/**/Frontend/_build/**"
+  ],
+  "requirePaddingNewLinesAfterBlocks": {
+    "allExcept": [
+      "inCallExpressions"
+    ]
+  }
 }
