@@ -15,10 +15,10 @@
     }
   ],
   "scripts": {
-    "prepare": "bin/test/prepare.sh",
-    "install": "bin/test/install.sh",
+    "preinstall": "bin/test/preinstall.sh",
+    "install": "bin/test/install.sh ${TEST_SUITE}",
     "pretest": "bin/test/pretest.sh",
-    "test": "bin/test/test.sh",
+    "test": "bin/test/test.sh ${TEST_SUITE}",
     "posttest": "bin/test/posttest.sh",
     "coverage": "bin/test/coverage.sh",
     "build": "npm run build:styles && npm run build:modules",

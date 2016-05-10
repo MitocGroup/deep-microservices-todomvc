@@ -104,6 +104,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+**/compile
 
 # Translations
 *.mo
@@ -168,6 +169,7 @@ build/Release
 **/node_modules
 **/src/DeepNgRoot
 **/src/deep.ng.root
+**/src/deep-root-angular
 
 # Debug log from npm
 npm-debug.log

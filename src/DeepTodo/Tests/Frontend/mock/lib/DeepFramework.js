@@ -694,7 +694,7 @@ DeepFramework.Kernel.load({
         "dns": "https://905e3e7244fe432993751cb500b56b4d:3527453acb2c47bf9aa66707c65cc31d@app.getsentry.com/48093"
       }
     },
-    "userProviderEndpoint": "@deep.mg.auth:user-retrieve",
+    "userProviderEndpoint": "@deep-mg-account:user-retrieve",
     "security": {
       "identityProviders": {
         "www.amazon.com": "amzn1.application.12057697ba3347cda73dd9f6d3b9ce2b"
