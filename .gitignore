@@ -105,6 +105,9 @@ nosetests.xml
 coverage.xml
 *,cover
 **/compile
+_vars.sh
+GitDiffWalker.js
+
 
 # Translations
 *.mo
