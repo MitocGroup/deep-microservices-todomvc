@@ -8,6 +8,12 @@ __SCRIPT_PATH=$(cd $(dirname $0); pwd -P)
 __ROOT_PATH="${__SCRIPT_PATH}/../../"
 __SRC_PATH="${__ROOT_PATH}src/"
 __COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
+__VARS_FILE_PATH=${__SCRIPT_PATH}/"_vars.sh"
+
+
+if [ "$TRAVIS" == "true" ] && [ -e "$__VARS_FILE_PATH" ]; then
+  source "$__VARS_FILE_PATH"
+fi
 
 __BACKEND="backend"
 __FRONTEND="frontend"
@@ -29,10 +35,49 @@ subpath_run_cmd () {
 
   DIR=$(cd $1 && pwd -P)
 
+  TEST_FRONTEND_PATH="Tests/Frontend/"
+  TEST_BACKEND_PATH="Tests/Backend/"
   EXPR_FRONTEND="*/Tests/Frontend/"
   EXPR_BACKEND="*/Tests/Backend/"
 
   BACKEND_CMD=$2
+
+  #set __BACKEND_MODULES[] which need to install/test
+  if [ -z "$BACKEND_MICROAPP_PATHS" ]; then
+    i=0;
+    for subpath in $DIR/$EXPR_BACKEND
+    do
+      __BACKEND_MODULES[i]=$subpath
+      i=$((i+1))
+    done
+
+  else
+    EXPR=(${BACKEND_MICROAPP_PATHS//,/ })
+
+    for i in "${!EXPR[@]}"
+    do
+      __BACKEND_MODULES[i]=$DIR/${EXPR[i]}/$TEST_BACKEND_PATH
+    done
+  fi
+
+
+  #set __FRONTEND_MODULES[] which need to install/test
+  if [ -z "$FRONTEND_MICROAPP_PATHS" ]; then
+    i=0;
+    for subpath in $DIR/$EXPR_FRONTEND
+    do
+      __FRONTEND_MODULES[i]=$subpath
+      i=$((i+1))
+    done
+
+  else
+    EXPR=(${FRONTEND_MICROAPP_PATHS//,/ })
+
+    for i in "${!EXPR[@]}"
+    do
+      __FRONTEND_MODULES[i]=$DIR/${EXPR[i]}/$TEST_FRONTEND_PATH
+    done
+  fi
 
   if [ -z "${4}" ]; then
     echo "PARALLELIZING DISABLED"
@@ -51,7 +96,7 @@ subpath_run_cmd () {
   if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__FRONTEND" ]; then
 
     #run tests for frontend
-    for subpath in $DIR/$EXPR_FRONTEND
+    for subpath in "${__FRONTEND_MODULES[@]}"
     do
       echo "[Running command for Frontend] $subpath"
       if [ -d ${subpath} ]; then
@@ -76,7 +121,7 @@ subpath_run_cmd () {
   if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]; then
 
     #run tests for backend
-    for subpath in $DIR/$EXPR_BACKEND
+    for subpath in "${__BACKEND_MODULES[@]}"
     do
       echo "[Running command for Backend] $subpath"
       if [ -d ${subpath} ]; then
