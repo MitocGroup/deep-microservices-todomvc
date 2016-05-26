@@ -5,10 +5,24 @@
 
 source $(dirname $0)/_head.sh
 
+############################################
+### Gets HTTP status code for passed URL ###
+### Arguments:                           ###
+###   URL                                ###
+### Returns:                             ###
+###   HTTP_STATUS_CODE                   ###
+############################################
 checkStatus () {
   curl -sL -w "%{http_code}\\n" "$1" -o /dev/null
 }
 
+#####################################################################
+### Checks local server availability with 3s timeout during 3000s ###
+### Arguments:                                                    ###
+###   None                                                        ###
+### Returns:                                                      ###
+###   0 or 1                                                      ###
+#####################################################################
 isLocalServerUp () {
   NEXT_WAIT_INDEX=0
   CHECK_STATUS_TIMEOUT=3
@@ -18,14 +32,14 @@ isLocalServerUp () {
   while true; do
     STATUS=$(checkStatus "http://localhost:8000/")
 
-    CURRENT_TIMEOUT=$((NEXT_WAIT_INDEX*$CHECK_STATUS_TIMEOUT))
+    CURRENT_TIMEOUT=$((NEXT_WAIT_INDEX * $CHECK_STATUS_TIMEOUT))
     echo "$STATUS"
 
     if [ $STATUS == "200" ]; then
       echo "STATUS OK"
       break
     elif [ $CURRENT_TIMEOUT -lt $DEEPIFY_TIMEOUT ]; then
-      NEXT_WAIT_INDEX=$((NEXT_WAIT_INDEX+1))
+      NEXT_WAIT_INDEX=$((NEXT_WAIT_INDEX + 1))
       echo "Sleeping $CURRENT_TIMEOUT"
       sleep $CHECK_STATUS_TIMEOUT
     else

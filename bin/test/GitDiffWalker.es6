@@ -44,6 +44,14 @@ export class GitDiffWalker {
    * @returns {string}
    * @constructor
    */
+  static get FULL_CI_RUN() {
+    return '[ci full]';
+  }
+
+  /**
+   * @returns {string}
+   * @constructor
+   */
   static get SRC() {
     return 'src';
   }
@@ -85,7 +93,7 @@ export class GitDiffWalker {
    * @constructor
    */
   static get CWD() {
-    return path.join(__dirname, '../../..');
+    return path.join(__dirname, '../..');
   }
 
   /**
@@ -93,7 +101,7 @@ export class GitDiffWalker {
    * @constructor
    */
   static get VARS_SHELL_PATH() {
-    return path.join(__dirname, '../_vars.sh');
+    return path.join(__dirname, '_vars.sh');
   }
 
   static removeDuplicates() {
@@ -133,6 +141,13 @@ export class GitDiffWalker {
   /**
    * @returns {String}
    */
+  static get commitMessage() {
+    return process.env['TRAVIS_COMMIT_MESSAGE'];
+  }
+
+  /**
+   * @returns {String}
+   */
   static getAllChangedFiles() {
 
     console.log(`Run command: ${GitDiffWalker.CMD} for cwd: ${GitDiffWalker.CWD}`);
@@ -148,11 +163,20 @@ export class GitDiffWalker {
       result.stdout.toString().trim();
   }
 
+  getAllMicroAppPath(srcpath) {
+    return fs.readdirSync(srcpath).filter(function (file) {
+      return GitDiffWalker.getFullPath(fs.statSync(path.join(srcpath, file)).isDirectory());
+    });
+  }
+
   /**
    *
    */
   constructor() {
     this._files = GitDiffWalker.getAllChangedFiles().split('\n');
+
+    this._allMicroAppPaths = this.getAllMicroAppPaths(path.join(__dirname, '../..', GitDiffWalker.SRC));
+    this._allMicroAppIdentifiers = this.getAllMicroAppIdentifiers();
 
     this.getBackendMicroAppPaths();
     this.getBackendTestMicroAppPaths();
@@ -172,7 +196,37 @@ export class GitDiffWalker {
    * @returns {String[]}
    */
   getFullPath(name) {
-    return path.join(__dirname, '../../..', GitDiffWalker.SRC, name);
+    return path.join(__dirname, '../..', GitDiffWalker.SRC, name);
+  }
+
+  /**
+   * @param srcpath
+   * @returns {String[]}
+   */
+  getAllMicroAppPaths(srcpath) {
+    return fs.readdirSync(srcpath).filter((file) => {
+      return fs.statSync(path.join(srcpath, file)).isDirectory();
+    });
+  }
+
+  /**
+   * Get changed microapplication identifiers from deepkg.json where were changed code or backend tests
+   * @returns {String[]}
+   */
+  getAllMicroAppIdentifiers() {
+    let indentifiers = [];
+
+    for (let microAppPath of this._allMicroAppPaths) {
+
+      console.log('microAppPath: ', this.getFullPath(microAppPath))
+      let content = fsExtra.readJsonSync(
+        path.join(this.getFullPath(microAppPath), GitDiffWalker.DEEPKG_JSON), {throws: false}
+      );
+
+      indentifiers.push(content.identifier);
+    }
+
+    return indentifiers;
   }
 
   /**
@@ -189,6 +243,13 @@ export class GitDiffWalker {
     }
 
     return true;
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  get isFullCIRun() {
+    return GitDiffWalker.commitMessage.indexOf(GitDiffWalker.FULL_CI_RUN) > -1;
   }
 
   /**
@@ -449,6 +510,41 @@ export class GitDiffWalker {
   }
 
   setTestPaths() {
+
+    let backendMicroAppPaths = GitDiffWalker.NONE;
+    let frontendMicroAppPaths = GitDiffWalker.NONE;
+    let backendMicroAppIdentifiers = GitDiffWalker.NONE;
+
+    if (this.isFrontedCodeChanged || this.isFrontendTestsChanged) {
+      frontendMicroAppPaths = this.getFrontendMicroAppNames();
+    }
+
+    if (this.isBackendTestsChanged || this.isBackendCodeChanged) {
+      backendMicroAppPaths = this.getBackendMicroAppNames();
+
+      frontendMicroAppPaths = (this.isBackendCodeChanged &&
+        typeof this._frontendMicroAppNames !== 'undefined' &&
+        this._frontendMicroAppNames.length > 0) ?
+        GitDiffWalker.removeDuplicates(this.getFrontendMicroAppNames(), this.getBackendCodeMicroAppNames()) :
+        this.getBackendCodeMicroAppNames();
+
+      backendMicroAppIdentifiers = this.getBackendMicroAppIdentifiers();
+    }
+
+    if(this.isFullCIRun) {
+      frontendMicroAppPaths = backendMicroAppPaths = this._allMicroAppPaths;
+      backendMicroAppIdentifiers = this._allMicroAppIdentifiers;
+    }
+
+    let varsContent = GitDiffWalker.TEST_PATHS_TPL
+      .replace(/\{frontendMicroAppPaths\}/g, frontendMicroAppPaths)
+      .replace(/\{backendMicroAppPaths\}/g, backendMicroAppPaths)
+      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers);
+
+    fsExtra.writeFileSync(GitDiffWalker.VARS_SHELL_PATH, varsContent, 'utf8');
+
+    console.log("TRAVIS_COMMIT_MESSAGE: ", GitDiffWalker.commitMessage);
+    console.log(`isFullCIRun: ${this.isFullCIRun}`);
     console.log(`isSkipTests: ${this.isSkipTests}`);
     console.log(`isFrontedCodeChanged: ${this.isFrontedCodeChanged}`);
     console.log(`isFrontendTestsChanged: ${this.isFrontendTestsChanged}`);
@@ -465,31 +561,6 @@ export class GitDiffWalker {
     console.log(`backend all names: ${this.getBackendMicroAppNames()}`);
     console.log(`backend tests names: ${this.getBackendTestMicroAppNames()}`);
     console.log(`backend code names: ${this.getBackendCodeMicroAppNames()}`);
-
-    let backendMicroAppPaths = GitDiffWalker.NONE;
-    let frontendMicroAppPaths = GitDiffWalker.NONE;
-    let backendMicroAppIdentifiers = GitDiffWalker.NONE;
-
-    if (this.isFrontedCodeChanged || this.isFrontendTestsChanged) {
-      frontendMicroAppPaths = this.getFrontendMicroAppNames();
-    }
-
-    if (this.isBackendTestsChanged || this.isBackendCodeChanged) {
-      backendMicroAppPaths = this.getBackendMicroAppNames();
-
-      frontendMicroAppPaths = (this.isBackendCodeChanged && this._frontendMicroAppNames.length > 0) ?
-        GitDiffWalker.removeDuplicates(this.getFrontendMicroAppNames(), this.getBackendCodeMicroAppNames()) :
-        this.getBackendCodeMicroAppNames();
-
-      backendMicroAppIdentifiers = this.getBackendMicroAppIdentifiers();
-    }
-
-    let varsContent = GitDiffWalker.TEST_PATHS_TPL
-      .replace(/\{frontendMicroAppPaths\}/g, frontendMicroAppPaths)
-      .replace(/\{backendMicroAppPaths\}/g, backendMicroAppPaths)
-      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers);
-
-    fsExtra.writeFileSync(GitDiffWalker.VARS_SHELL_PATH, varsContent, 'utf8');
   }
 }
 

@@ -179,6 +179,8 @@ npm-debug.log
 
 # Transpiled Lambdas code
 **/Backend/src/**/*.js
+_vars.sh
+GitDiffWalker.js
 
 # Lambda archives and checksums
 **/Backend/src/**/*.zip

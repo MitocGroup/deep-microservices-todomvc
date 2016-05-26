@@ -3,30 +3,42 @@
 # Created by vcernomschi on 10/06/2015
 #
 
+#####################################
+### Initializing global variables ###
+#####################################
 __SCRIPT_PATH=$(cd $(dirname $0); pwd -P)
-
-__ROOT_PATH="${__SCRIPT_PATH}/../../"
-__SRC_PATH="${__ROOT_PATH}src/"
-__COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
-__VARS_FILE_PATH=${__SCRIPT_PATH}/"_vars.sh"
-
-
-if [ "$TRAVIS" == "true" ] && [ -e "$__VARS_FILE_PATH" ]; then
-  source "$__VARS_FILE_PATH"
-fi
-
+__SRC_PATH="${__SCRIPT_PATH}/../../src/"
+__COVERAGE_PATH="${__SCRIPT_PATH}/../coverage"
+__VARS_FILE_PATH="${__SCRIPT_PATH}/_vars.sh"
+__NONE="none"
 __BACKEND="backend"
 __FRONTEND="frontend"
-__NONE="none"
 __IS_CONCURRENT_SCRIPT=${__NONE}
 __E2E_WITH_PUBLIC_REPO="public"
 __E2E_WITH_PRIVATE_REPO="private"
 __TRAVIS_NODE_MAJOR_VERSION="${TRAVIS_NODE_VERSION:0:1}"
 
+
+######################################################
+### Import the initialized vars with changed stuff ###
+######################################################
+if [ "$TRAVIS" == "true" ] && [ -e "$__VARS_FILE_PATH" ]; then
+  source "$__VARS_FILE_PATH"
+fi
+
+
+#######################################################################################
+### Executes frontend/backend commands for subpaths with/without parallelizing mode ###
+### Arguments:                                                                      ###
+###   DIR                                                                           ###
+###   BACKEND_CMD                                                                   ###
+###   FRONTEND_CMD                                                                  ###
+###   IS_CONCURRENT_SCRIPT                                                          ###
+### Returns:                                                                        ###
+###   None                                                                          ###
+#######################################################################################
 subpath_run_cmd () {
   local DIR
-  local EXPR_BACKEND
-  local EXPR_FRONTEND
   local BACKEND_CMD
   local FRONTEND_CMD
   local SEARCH_VALUE
@@ -37,15 +49,15 @@ subpath_run_cmd () {
 
   TEST_FRONTEND_PATH="Tests/Frontend/"
   TEST_BACKEND_PATH="Tests/Backend/"
-  EXPR_FRONTEND="*/Tests/Frontend/"
-  EXPR_BACKEND="*/Tests/Backend/"
 
   BACKEND_CMD=$2
 
-  #set __BACKEND_MODULES[] which need to install/test
+  ##########################################################
+  ### set __BACKEND_MODULES[] which need to install/test ###
+  ##########################################################
   if [ -z "$BACKEND_MICROAPP_PATHS" ]; then
     i=0;
-    for subpath in $DIR/$EXPR_BACKEND
+    for subpath in $DIR/*/$TEST_BACKEND_PATH
     do
       __BACKEND_MODULES[i]=$subpath
       i=$((i+1))
@@ -60,11 +72,12 @@ subpath_run_cmd () {
     done
   fi
 
-
-  #set __FRONTEND_MODULES[] which need to install/test
+  ###########################################################
+  ### set __FRONTEND_MODULES[] which need to install/test ###
+  ###########################################################
   if [ -z "$FRONTEND_MICROAPP_PATHS" ]; then
     i=0;
-    for subpath in $DIR/$EXPR_FRONTEND
+    for subpath in $DIR/*/$TEST_FRONTEND_PATH
     do
       __FRONTEND_MODULES[i]=$subpath
       i=$((i+1))
@@ -79,6 +92,9 @@ subpath_run_cmd () {
     done
   fi
 
+  ##############################
+  ### Set paralellizing mode ###
+  ##############################
   if [ -z "${4}" ]; then
     echo "PARALLELIZING DISABLED"
     __IS_CONCURRENT_SCRIPT=${__NONE}
@@ -87,28 +103,36 @@ subpath_run_cmd () {
     echo "PARALLELIZING ENABLED FOR: ${__IS_CONCURRENT_SCRIPT}"
   fi
 
+  ###########################################################
+  ### Set command for frontend if didn't pass as agrument ###
+  ###########################################################
   if [ -z "${3}" ]; then
     FRONTEND_CMD="${BACKEND_CMD}"
   else
     FRONTEND_CMD="${3}"
   fi
 
+  ##############################
+  ### run tests for frontend ###
+  ##############################
   if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__FRONTEND" ]; then
 
-    #run tests for frontend
     for subpath in "${__FRONTEND_MODULES[@]}"
     do
       echo "[Running command for Frontend] $subpath"
       if [ -d ${subpath} ]; then
         cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
 
-        #replace ./Frontend to real path to file
-        # to fix karma issue after combine
+        ####################################################################################################
+        ### replace ./Frontend to absolute file path to fix karma issue after combining coverage reports ###
+        ####################################################################################################
         if [ "${FRONTEND_CMD}" == "npm run test" ]; then
           SEARCH_VALUE='.\/Frontend\/'
           subpath=${subpath/Tests\/Frontend/Frontend}
 
-          ## Escape path for sed using bash find and replace
+          #######################################################
+          ### Escape path for sed using bash find and replace ###
+          #######################################################
           REPLACE_VALUE="${subpath//\//\\/}"
 
           export PATH_TO_TEST_TDF_FILE="$(find ./coverage -name 'coverage-final.json')"
@@ -118,9 +142,11 @@ subpath_run_cmd () {
     done
   fi
 
+  #############################
+  ### run tests for backend ###
+  #############################
   if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]; then
 
-    #run tests for backend
     for subpath in "${__BACKEND_MODULES[@]}"
     do
       echo "[Running command for Backend] $subpath"
@@ -131,6 +157,13 @@ subpath_run_cmd () {
   fi
 }
 
+########################################
+### Executes command and show result ###
+### Arguments:                       ###
+###   CMD                            ###
+### Returns:                         ###
+###   0 or 1                         ###
+########################################
 eval_or_exit() {
   local RET_CODE
 
