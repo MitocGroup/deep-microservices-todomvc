@@ -55,9 +55,15 @@ isLocalServerUp () {
 ##########################################################
 ### launch local server and check if it up and running ###
 ##########################################################
+
+echo "DEEP_NO_INTERACTION: ${DEEP_NO_INTERACTION}"
+echo "BACKEND_MICROAPP_PATHS: ${BACKEND_MICROAPP_PATHS}"
+echo "FRONTEND_MICROAPP_PATHS: ${FRONTEND_MICROAPP_PATHS}"
+
 if [ "${TEST_SUITE}" != "frontend" ] &&\
  ([ "BACKEND_MICROAPP_PATHS" != "$__NONE" ] || [ "FRONTEND_MICROAPP_PATHS" != "$__NONE" ]) && \
  [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
+  echo "running server"
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else
   echo "Skipping launching deepify server"
