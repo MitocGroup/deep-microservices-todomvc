@@ -56,7 +56,7 @@ isLocalServerUp () {
 ### launch local server and check if it up and running ###
 ##########################################################
 if [ "${TEST_SUITE}" != "frontend" ] &&\
- ([ "BACKEND_MICROAPP_PATHS" != "$__NONE" ] || [ "FRONTEND_MICROAPP_PATHS" != "$__NONE" ]) && \
+ ([ "${BACKEND_MICROAPP_PATHS}" != "$__NONE" ] || [ "${FRONTEND_MICROAPP_PATHS}" != "$__NONE" ]) &&\
  [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else

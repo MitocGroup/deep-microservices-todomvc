@@ -9,7 +9,7 @@ source $(dirname $0)/_head.sh
 ### Start protractor tests for e2e ###
 ######################################
 if [ "${TEST_SUITE}" == "$__BACKEND" ] && \
-   ([ "BACKEND_MICROAPP_PATHS" != "$__NONE" ] || [ "FRONTEND_MICROAPP_PATHS" != "$__NONE" ]) && \
+   ([ "${BACKEND_MICROAPP_PATHS}" != "$__NONE" ] || [ "${FRONTEND_MICROAPP_PATHS}" != "$__NONE" ]) && \
    ([ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || ([ "${__E2E_WITH_PRIVATE_REPO}" = "${E2E_TESTING}" ] && \
    [ ${TRAVIS_BRANCH} = 'stage' ])); then
 

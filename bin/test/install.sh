@@ -20,11 +20,6 @@ fi
 
 if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]; then
 
-  #####################################
-  ### Disable interactive user mode ###
-  #####################################
-  export DEEP_NO_INTERACTION=1
-
   ##################################################
   ### install frontend deps where e2e is enabled ###
   ##################################################
@@ -53,7 +48,7 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
     ###########################################################################
     echo "Skipping initializing backend, becuase no changes in backend"
   elif [ "$BACKEND_MICROAPP_IDENTIFIERS" == "$__NONE" ] || [ -z "$BACKEND_MICROAPP_IDENTIFIERS" ] || \
-    ( ([ "BACKEND_MICROAPP_PATHS" != "$__NONE" ] || [ "FRONTEND_MICROAPP_PATHS" != "$__NONE" ]) && \
+    ( ([ "${BACKEND_MICROAPP_PATHS}" != "$__NONE" ] || [ "${FRONTEND_MICROAPP_PATHS}" != "$__NONE" ]) && \
     ([ "${__E2E_WITH_PUBLIC_REPO}" == "${E2E_TESTING}" ] || ([ "${__E2E_WITH_PRIVATE_REPO}" == "${E2E_TESTING}" ] && \
     [ "${TRAVIS_BRANCH}" == 'stage' ]))); then
 
