@@ -4,6 +4,7 @@
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');
+var config = require('../protractor.config.js');
 
 describe('Verify that [All] button displays both active/completed tasks', function() {
 
