@@ -1,8 +1,10 @@
 {
-  "private": true,
+  "name": "deep-todo-frontend",
+  "version": "0.0.1",
   "dependencies": {
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.1",
     "underscore": "^1.7.0"
-  }
+  },
+  "private": true
 }

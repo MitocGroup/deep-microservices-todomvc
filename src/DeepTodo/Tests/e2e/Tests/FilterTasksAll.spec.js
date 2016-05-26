@@ -4,6 +4,7 @@
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');
+var config = require('../protractor.config.js');
 
 describe('Verify that [All] button displays both active/completed tasks', function() {
 
@@ -18,8 +19,8 @@ describe('Verify that [All] button displays both active/completed tasks', functi
   it('Create the second task', function() {
     TaskList.addTask('second test task', true);
 
-    //Waiting for the [All] button to become displayed
-    browser.wait(protractor.ExpectedConditions.visibilityOf(TaskList.allBtn));
+    //wait untill all task will be loaded
+    browser.sleep(config.config.jasmineNodeOpts.defaultTimeoutInterval / 10);
   });
 
   it('Clicking on the [Check] button for the first task (this makes it completed)', function() {

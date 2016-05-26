@@ -105,6 +105,9 @@ nosetests.xml
 coverage.xml
 *,cover
 **/compile
+_vars.sh
+GitDiffWalker.js
+
 
 # Translations
 *.mo
@@ -176,6 +179,8 @@ npm-debug.log
 
 # Transpiled Lambdas code
 **/Backend/src/**/*.js
+_vars.sh
+GitDiffWalker.js
 
 # Lambda archives and checksums
 **/Backend/src/**/*.zip
