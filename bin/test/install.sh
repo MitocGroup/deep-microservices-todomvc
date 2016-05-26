@@ -20,11 +20,6 @@ fi
 
 if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]; then
 
-  #####################################
-  ### Disable interactive user mode ###
-  #####################################
-  export DEEP_NO_INTERACTION=1
-
   ##################################################
   ### install frontend deps where e2e is enabled ###
   ##################################################
