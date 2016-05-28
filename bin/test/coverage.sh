@@ -9,8 +9,8 @@ source $(dirname $0)/_head.sh
 ### Merge Coverage Results ###
 ##############################
 istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
-  ${__SRC_PATH}*/Tests/Frontend/coverage/report.json \
-  ${__SRC_PATH}*/Tests/Backend/coverage/*.json
+  ${__SRC_PATH}*/tests/frontend/coverage/report.json \
+  ${__SRC_PATH}*/tests/backend/coverage/*.json
 
 ######################################
 ### Upload Coverage info to Codacy ###
