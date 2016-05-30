@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "postinstall": "npm run compile",
-    "compile": "deepify compile-es6 `pwd`"
+    "compile": "deepify compile es6 `pwd`"
   },
   "dependencies": {
     "deep-framework": "^1.x.x"
