@@ -233,7 +233,7 @@ export class GitDiffWalker {
    * @returns {boolean}
    */
   get isSkipTests() {
-    let re = /^(?!src\/).+|(.+\/Docs\/.+)/i;
+    let re = /^(?!src\/).+|(.+\/docs\/.+)/i;
 
     for (let file of this.files) {
 
