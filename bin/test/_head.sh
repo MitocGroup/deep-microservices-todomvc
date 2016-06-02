@@ -47,8 +47,8 @@ subpath_run_cmd () {
 
   DIR=$(cd $1 && pwd -P)
 
-  TEST_FRONTEND_PATH="Tests/Frontend/"
-  TEST_BACKEND_PATH="Tests/Backend/"
+  TEST_FRONTEND_PATH="tests/frontend/"
+  TEST_BACKEND_PATH="tests/backend/"
 
   BACKEND_CMD=$2
 
@@ -119,16 +119,16 @@ subpath_run_cmd () {
 
     for subpath in "${__FRONTEND_MODULES[@]}"
     do
-      echo "[Running command for Frontend] $subpath"
+      echo "[Running command for frontend] $subpath"
       if [ -d ${subpath} ]; then
         cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
 
         ####################################################################################################
-        ### replace ./Frontend to absolute file path to fix karma issue after combining coverage reports ###
+        ### replace ./frontend to absolute file path to fix karma issue after combining coverage reports ###
         ####################################################################################################
         if [ "${FRONTEND_CMD}" == "npm run test" ]; then
-          SEARCH_VALUE='.\/Frontend\/'
-          subpath=${subpath/Tests\/Frontend/Frontend}
+          SEARCH_VALUE='.\/frontend\/'
+          subpath=${subpath/tests\/frontend/frontend}
 
           #######################################################
           ### Escape path for sed using bash find and replace ###
@@ -149,7 +149,7 @@ subpath_run_cmd () {
 
     for subpath in "${__BACKEND_MODULES[@]}"
     do
-      echo "[Running command for Backend] $subpath"
+      echo "[Running command for backend] $subpath"
       if [ -d ${subpath} ]; then
         cd ${subpath} && eval_or_exit "${BACKEND_CMD}"
       fi

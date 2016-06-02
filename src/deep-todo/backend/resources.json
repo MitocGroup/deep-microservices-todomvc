@@ -1,0 +1,40 @@
+{
+  "task": {
+    "create": {
+      "description": "Lambda that creates todo task",
+      "type": "lambda",
+      "methods": ["POST"],
+      "source": "src/task/create"
+    },
+    "retrieve": {
+      "description": "Lambda that retrieves todo task",
+      "type": "lambda",
+      "methods": ["GET"],
+      "source": "src/task/retrieve"
+    },
+    "delete": {
+      "description": "Lambda that deletes todo task",
+      "type": "lambda",
+      "methods": ["DELETE"],
+      "source": "src/task/delete"
+    },
+    "deleteCompleted": {
+      "description": "Lambda that deletes completed todo task",
+      "type": "lambda",
+      "methods": ["POST"],
+      "source": "src/task/delete-completed"
+    },
+    "update": {
+      "description": "Lambda that updates todo task",
+      "type": "lambda",
+      "methods": ["PUT"],
+      "source": "src/task/update"
+    },
+    "markAll": {
+      "description": "Lambda that marks or unmarks all todo tasks",
+      "type": "lambda",
+      "methods": ["POST"],
+      "source": "src/task/mark-all"
+    }
+  }
+}
