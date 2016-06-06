@@ -15,7 +15,7 @@ suite('Functional tests', () => {
 
   suiteSetup((done) => {
 
-    const TEST_ASSERTS_DIR = '../../../../test/Task/MarkAll/test-asserts';
+    const TEST_ASSERTS_DIR = '../../../../test/task/mark-all/test-asserts';
     let dirPath = path.join(__dirname, TEST_ASSERTS_DIR);
 
     dir.readFiles(dirPath, {

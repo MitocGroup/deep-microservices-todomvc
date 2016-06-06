@@ -15,7 +15,7 @@ if [ "${TEST_SUITE}" == "$__BACKEND" ] && \
 
 
   __PROTRACTOR_CONFIG_PATH=$(find ${__SRC_PATH} -name protractor.config.js -type f -maxdepth 4)
-  __DIRNAME_TO_CONFIG="$(dirname "$__PROTRACTOR_CONFIG_PATH")";               
+  __DIRNAME_TO_CONFIG="$(dirname "$__PROTRACTOR_CONFIG_PATH")";
   __ABS_PATH="$( cd "$__DIRNAME_TO_CONFIG" && pwd )"
 
   ###########################################################################

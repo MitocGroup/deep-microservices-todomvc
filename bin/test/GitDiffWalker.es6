@@ -163,9 +163,14 @@ export class GitDiffWalker {
       result.stdout.toString().trim();
   }
 
-  getAllMicroAppPath(srcpath) {
-    return fs.readdirSync(srcpath).filter(function (file) {
-      return GitDiffWalker.getFullPath(fs.statSync(path.join(srcpath, file)).isDirectory());
+  getAllMicroAppPath(srcPath) {
+
+    if (!fs.existsSync(srcPath)) {
+      return [];
+    }
+
+    return fs.readdirSync(srcPath).filter(function (file) {
+      return GitDiffWalker.getFullPath(fs.statSync(path.join(srcPath, file)).isDirectory());
     });
   }
 
@@ -203,9 +208,14 @@ export class GitDiffWalker {
    * @param srcpath
    * @returns {String[]}
    */
-  getAllMicroAppPaths(srcpath) {
-    return fs.readdirSync(srcpath).filter((file) => {
-      return fs.statSync(path.join(srcpath, file)).isDirectory();
+  getAllMicroAppPaths(srcPath) {
+
+    if (!fs.existsSync(srcPath)) {
+      return [];
+    }
+
+    return fs.readdirSync(srcPath).filter((file) => {
+      return fs.statSync(path.join(srcPath, file)).isDirectory();
     });
   }
 
@@ -218,9 +228,14 @@ export class GitDiffWalker {
 
     for (let microAppPath of this._allMicroAppPaths) {
 
-      console.log('microAppPath: ', this.getFullPath(microAppPath))
+      let microAppFullPath = this.getFullPath(microAppPath);
+
+      if (!fs.existsSync(microAppFullPath)) {
+        continue;
+      }
+
       let content = fsExtra.readJsonSync(
-        path.join(this.getFullPath(microAppPath), GitDiffWalker.DEEPKG_JSON), {throws: false}
+        path.join(microAppFullPath, GitDiffWalker.DEEPKG_JSON), {throws: false}
       );
 
       indentifiers.push(content.identifier);
@@ -446,8 +461,14 @@ export class GitDiffWalker {
 
     for (let microAppPath of microAppPaths) {
 
+      let microAppFullPath = this.getFullPath(microAppPath);
+
+      if (!fs.existsSync(microAppFullPath)) {
+        continue;
+      }
+
       let content = fsExtra.readJsonSync(
-        path.join(microAppPath, GitDiffWalker.DEEPKG_JSON), {throws: false}
+        path.join(microAppFullPath, GitDiffWalker.DEEPKG_JSON), {throws: false}
       );
 
       indentifiers.push(content.identifier);
@@ -531,7 +552,7 @@ export class GitDiffWalker {
       backendMicroAppIdentifiers = this.getBackendMicroAppIdentifiers();
     }
 
-    if(this.isFullCIRun) {
+    if (this.isFullCIRun) {
       frontendMicroAppPaths = backendMicroAppPaths = this._allMicroAppPaths;
       backendMicroAppIdentifiers = this._allMicroAppIdentifiers;
     }
