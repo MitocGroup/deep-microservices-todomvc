@@ -1,9 +1,9 @@
-// THIS TEST WAS GENERATED AUTOMATICALLY ON Wed May 04 2016 02:04:27 GMT+0300 (EEST)
+// THIS TEST WAS GENERATED AUTOMATICALLY ON Mon Jun 06 2016 16:16:38 GMT+0300 (EEST)
 
 'use strict';
 
 import chai from 'chai';
-import bootstrap from '../../../node_modules/Task/Delete/bootstrap';
+import bootstrap from '../../../node_modules/task/delete/bootstrap';
 
 // @todo: Add more advanced tests
 suite('Bootstraps', () => {
