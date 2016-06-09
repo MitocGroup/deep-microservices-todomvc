@@ -1,6 +1,11 @@
+/* global browser */
+/* global protractor */
+
 'use strict';
 
 var TaskList = require('../POMs/TasksList.js');
+var config = require('../protractor.config.js');
+
 
 describe('Check that task name can be updated', function() {
 
