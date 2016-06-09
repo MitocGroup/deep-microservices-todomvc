@@ -60,9 +60,11 @@ if [ "${TEST_SUITE}" != "frontend" ] &&\
  [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
 
   #check it fixes permission issue for node 6.2
-  sudo chmod +x $(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
+  EXEC=$(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
+  echo "EXEC PATH: ${EXEC}"
+  # sudo chmod +x $(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
 
-  deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
+  sudo deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else
   echo "Skipping launching deepify server"
 fi
