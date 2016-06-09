@@ -1,7 +1,10 @@
 language: node_js
 sudo: required
 node_js:
-  - '4.3'
+#  - '4.3'
+  - '5.9'
+  - '6.0'
+  - '6.1'
   - '6.2'
 cache:
   edge: true
