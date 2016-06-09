@@ -63,9 +63,10 @@ if [ "${TEST_SUITE}" != "frontend" ] &&\
   EXEC=$(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
   echo "EXEC PATH: ${EXEC}"
   chmod +x $(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
+  chmod +x $(npm root -g)/deepify/lib.compiled/Terminal/Program.js
   chmod +x $(npm root -g)/deepify/bin/deepify.js
   chmod +x $(npm root -g)/deepify/bin/commands/server.js
-  chmod +x $(npm config get prefix)/bin/deepify.js
+  chmod +x $(npm config get prefix)/bin/deepify
 
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else
