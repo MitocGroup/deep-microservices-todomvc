@@ -62,11 +62,7 @@ if [ "${TEST_SUITE}" != "frontend" ] &&\
   #check it fixes permission issue for node 6.2
   EXEC=$(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
   echo "EXEC PATH: ${EXEC}"
-  chmod -R a+x $(npm root -g)/deepify
-#  chmod +x $(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
-#  chmod +x $(npm root -g)/deepify/lib.compiled/Terminal/Program.js
-#  chmod +x $(npm root -g)/deepify/bin/deepify.js
-#  chmod +x $(npm root -g)/deepify/bin/commands/server.js
+  chmod -R +x $(npm root -g)/deepify
   chmod +x $(npm config get prefix)/bin/deepify
 
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
