@@ -4,11 +4,11 @@
   "excludeFiles": [
     "./**/config.test.js",
     "./bin/**/*",
-    "src/**/Frontend/js/config.*.js",
-    "src/**/Tests/Frontend/mock/lib/DeepFramework.js",
-    "src/**/Tests/Frontend/lib/DeepFramework.js",
-    "src/**/Frontend/sass/lumx/modules/**",
-    "src/**/Frontend/_build/**"
+    "src/**/frontend/js/config.*.js",
+    "src/**/tests/frontend/mock/lib/DeepFramework.js",
+    "src/**/tests/frontend/lib/DeepFramework.js",
+    "src/**/frontend/sass/lumx/modules/**",
+    "src/**/frontend/_build/**"
   ],
   "requirePaddingNewLinesAfterBlocks": {
     "allExcept": [

@@ -16,4 +16,4 @@ else
   __IS_CONCURRENT_SCRIPT=${1}
 fi
 
-subpath_run_cmd "${__SRC_PATH}" "${__CMD}" "${__CMD}" "$__IS_CONCURRENT_SCRIPT"
+subpath_run_cmd "${__SRC_PATH}" "${__CMD}" "${__CMD}" "$__IS_CONCURRENT_SCRIPT" "${1}"
