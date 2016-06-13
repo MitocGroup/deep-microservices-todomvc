@@ -84,6 +84,14 @@ export class GitDiffWalker {
    * @returns {string}
    * @constructor
    */
+  static get CI_FULL() {
+    return 'CI_FULL';
+  }
+
+  /**
+   * @returns {string}
+   * @constructor
+   */
   static get DEEPKG_JSON() {
     return 'deepkg.json';
   }
@@ -133,6 +141,7 @@ export class GitDiffWalker {
     content.push(`${GitDiffWalker.FRONTEND_MICROAPP_PATHS}="{frontendMicroAppPaths}"`);
     content.push(`${GitDiffWalker.BACKEND_MICROAPP_PATHS}="{backendMicroAppPaths}"`);
     content.push(`${GitDiffWalker.BACKEND_MICROAPP_IDENTIFIERS}="{backendMicroAppIdentifiers}"`);
+    content.push(`${GitDiffWalker.CI_FULL}="{ciFull}"`);
     content.push('');
 
     return content.join(os.EOL);
@@ -561,6 +570,7 @@ export class GitDiffWalker {
       .replace(/\{frontendMicroAppPaths\}/g, frontendMicroAppPaths)
       .replace(/\{backendMicroAppPaths\}/g, backendMicroAppPaths)
       .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers);
+      .replace(/\{ciFull\}/g, this.isFullCIRun);
 
     fsExtra.writeFileSync(GitDiffWalker.VARS_SHELL_PATH, varsContent, 'utf8');
 
