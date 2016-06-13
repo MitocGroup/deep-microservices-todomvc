@@ -25,7 +25,7 @@ source $(dirname $0)/_head.sh
 (npm list -g karma-jspm --depth=0 || npm install -g karma-jspm@2.0.x) &&\
 (npm list -g karma-jasmine --depth=0 || npm install -g karma-jasmine@0.3.x) &&\
 (npm list -g karma-babel-preprocessor --depth=0 || npm install -g karma-babel-preprocessor@5.2.x) &&\
-(npm list -g karma-coverage --depth=0 || npm install -g karma-coverage) &&\
+(npm list -g karma-coverage@1.0.x --depth=0 || npm install -g karma-coverage@1.0.x) &&\
 (npm list -g karma-verbose-reporter --depth=0 || npm install -g karma-verbose-reporter@0.0.x) &&\
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
