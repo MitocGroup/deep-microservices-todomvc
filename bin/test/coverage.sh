@@ -9,7 +9,7 @@ source $(dirname $0)/_head.sh
 ### Merge Coverage Results ###
 ##############################
 istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p both \
-  ${__SRC_PATH}*/tests/frontend/coverage/report.json \
+  ${__SRC_PATH}*/tests/frontend/coverage/**/coverage-final.json \
   ${__SRC_PATH}*/tests/backend/coverage/coverage.json
 
 ################################################################
