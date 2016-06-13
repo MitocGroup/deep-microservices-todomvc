@@ -96,6 +96,8 @@ if [ "$TRAVIS" == "true" ]; then
   git branch $TRAVIS_BRANCH
   git checkout $TRAVIS_BRANCH
   git checkout $TRAVIS_FROM_BRANCH
+else
+  export TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 fi
 
 ############################################################################################

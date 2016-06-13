@@ -112,10 +112,11 @@ subpath_run_cmd () {
     FRONTEND_CMD="${3}"
   fi
 
-  ##############################
-  ### run tests for frontend ###
-  ##############################
-  if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__FRONTEND" ]; then
+  ###############################################
+  ### run tests for frontend  or if [ci full] ###
+  ###############################################
+  if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__FRONTEND" ] || \
+     ([ "${CI_FULL}" == "true" ] && [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]); then
 
     for subpath in "${__FRONTEND_MODULES[@]}"
     do

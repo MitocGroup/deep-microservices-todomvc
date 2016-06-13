@@ -569,14 +569,14 @@ export class GitDiffWalker {
     let varsContent = GitDiffWalker.TEST_PATHS_TPL
       .replace(/\{frontendMicroAppPaths\}/g, frontendMicroAppPaths)
       .replace(/\{backendMicroAppPaths\}/g, backendMicroAppPaths)
-      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers);
+      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers)
       .replace(/\{ciFull\}/g, this.isFullCIRun);
 
     fsExtra.writeFileSync(GitDiffWalker.VARS_SHELL_PATH, varsContent, 'utf8');
 
     console.log("TRAVIS_COMMIT_MESSAGE: ", GitDiffWalker.commitMessage);
     console.log(`isFullCIRun: ${this.isFullCIRun}`);
-    console.log(`isSkipTests: ${this.isSkipTests}`);
+    console.log(`isSkipTests: ${this.isSkipTests && !this.isFullCIRun}`);
     console.log(`isFrontedCodeChanged: ${this.isFrontedCodeChanged}`);
     console.log(`isFrontendTestsChanged: ${this.isFrontendTestsChanged}`);
     console.log(`isBackendCodeChanged: ${this.isBackendCodeChanged}`);
