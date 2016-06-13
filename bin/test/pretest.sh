@@ -58,13 +58,6 @@ isLocalServerUp () {
 if [ "${TEST_SUITE}" != "frontend" ] &&\
  ([ "${BACKEND_MICROAPP_PATHS}" != "$__NONE" ] || [ "${FRONTEND_MICROAPP_PATHS}" != "$__NONE" ]) &&\
  [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ]; then
-
-  #check it fixes permission issue for node 6.2
-  EXEC=$(npm root -g)/deepify/node_modules/deep-package-manager/lib.compiled/Helpers/Exec.js
-  echo "EXEC PATH: ${EXEC}"
-  chmod -R +x $(npm root -g)/deepify
-  chmod +x $(npm config get prefix)/bin/deepify
-
   deepify server ${__SRC_PATH} -s & sleep 15 & isLocalServerUp
 else
   echo "Skipping launching deepify server"
