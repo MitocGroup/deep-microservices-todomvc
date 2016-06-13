@@ -128,7 +128,7 @@ subpath_run_cmd () {
         ### replace ./frontend to absolute file path to fix karma issue after combining coverage reports ###
         ####################################################################################################
         if [ "${FRONTEND_CMD}" == "npm run test" ]; then
-          SEARCH_VALUE='.\/frontend\/'
+          SEARCH_VALUE='\.\/frontend\/'
           subpath=${subpath/tests\/frontend/frontend}
 
           #######################################################
