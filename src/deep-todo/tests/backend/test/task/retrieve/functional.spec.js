@@ -70,7 +70,7 @@ suite('Functional tests', () => {
 
     for (i = 0; i < inputEventsArray.length; i++) {
       let eventStr = '\'' + inputEventsArray[i].replace(/(\r\n|\n|\r)/gm, '') + '\'';
-      let cmd = `deepify run-lambda ../../../node_modules/deep-todo-task-retrieve/ -e=${eventStr} -p`;
+      let cmd = `deepify lambda ../../../node_modules/task/retrieve/ -e=${eventStr} -p`;
       let runLambdaCmd = new Exec(cmd);
 
       runLambdaCmd.cwd = __dirname;
