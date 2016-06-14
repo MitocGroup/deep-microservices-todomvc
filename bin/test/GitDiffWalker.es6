@@ -29,7 +29,9 @@ export class GitDiffWalker {
    * @constructor
    */
   static get CMD() {
-    return (process.env['PR_MERGE'])? 'git diff --name-only @~..@': `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
+    return (process.env['PR_MERGE'] === 'true') ?
+      'git diff --name-only @~..@' :
+      `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
   }
 
   /**
@@ -553,8 +555,8 @@ export class GitDiffWalker {
       backendMicroAppPaths = this.getBackendMicroAppNames();
 
       frontendMicroAppPaths = (this.isBackendCodeChanged &&
-        typeof this._frontendMicroAppNames !== 'undefined' &&
-        this._frontendMicroAppNames.length > 0) ?
+      typeof this._frontendMicroAppNames !== 'undefined' &&
+      this._frontendMicroAppNames.length > 0) ?
         GitDiffWalker.removeDuplicates(this.getFrontendMicroAppNames(), this.getBackendCodeMicroAppNames()) :
         this.getBackendCodeMicroAppNames();
 
