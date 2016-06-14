@@ -1,3 +1,5 @@
+/*jshint evil:true */
+
 'use strict';
 
 import chai from 'chai';
@@ -70,14 +72,34 @@ suite('Functional tests', () => {
 
     for (i = 0; i < inputEventsArray.length; i++) {
       let eventStr = '\'' + inputEventsArray[i].replace(/(\r\n|\n|\r)/gm, '') + '\'';
-      let cmd = `deepify lambda ../../../node_modules/task/retrieve/ -e=${eventStr} -p`;
+      let cmd = `deepify lambda ../../../../../backend/src/task/retrieve/ -e=${eventStr} -p`;
       let runLambdaCmd = new Exec(cmd);
 
       runLambdaCmd.cwd = __dirname;
 
       let lambdaResult = runLambdaCmd.runSync();
       let expectedResult = JSON.parse(expectedResultsArray[i]);
-      let actualResult = (lambdaResult.failed) ? JSON.parse(lambdaResult.error) : JSON.parse(lambdaResult.result);
+      let actualResult = (lambdaResult.failed) ?
+        JSON.parse(lambdaResult.error)
+        : ( typeof JSON.parse(lambdaResult.result) === 'string') ?
+        JSON.parse(JSON.parse(lambdaResult.result))
+        : JSON.parse(lambdaResult.result);
+
+      if (expectedResult._ignore) {
+
+        var ignoreKeys = (result, ignoreKeysArray) => {
+
+          for(let ignoreKey of ignoreKeysArray) {
+            eval(`delete result.${ignoreKey}`);
+          }
+
+          return result;
+        };
+
+        ignoreKeys(actualResult, expectedResult._ignore);
+
+        delete expectedResult._ignore;
+      }
 
       chai.expect(actualResult).to.eql(expectedResult, `for payload from: ${inputEventsFilesArray[i]}`);
     }

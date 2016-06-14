@@ -2,7 +2,7 @@
 
 RUN_TESTS() {
   babel-node $(npm root -g)/istanbul/lib/cli.js cover `which _mocha` -- 'test/**/*.spec.js' \
-    --reporter spec --ui tdd --recursive --timeout 20s
+    --reporter spec --ui tdd --recursive --timeout 180s
 }
 
 if [ "$OSTYPE" != "msys" ] && [ "$OSTYPE" != "win32" ] && [ "$OSTYPE" != "win64" ] && [ -d 'test' ] && [ -d 'node_modules' ]; then

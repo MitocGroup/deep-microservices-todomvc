@@ -1,9 +1,9 @@
-// THIS TEST WAS GENERATED AUTOMATICALLY ON Mon Jun 06 2016 16:16:38 GMT+0300 (EEST)
+// THIS TEST WAS GENERATED AUTOMATICALLY ON Tue Jun 14 2016 21:38:46 GMT+0300 (EEST)
 
 'use strict';
 
 import chai from 'chai';
-import Handler from '../../../node_modules/task/update/Handler';
+import Handler from '../../../../../backend/src/task/update/Handler';
 
 // @todo: Add more advanced tests
 suite('Handlers', () => {

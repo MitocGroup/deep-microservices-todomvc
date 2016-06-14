@@ -88,14 +88,23 @@ if [ "$TRAVIS" == "true" ]; then
 
   export TRAVIS_COMMIT_MESSAGE=${TRAVIS_COMMIT_MESSAGES[1]}
 
-  TRAVIS_FROM_BRANCH="travis_from_branch"
-  git branch $TRAVIS_FROM_BRANCH
-  git checkout $TRAVIS_FROM_BRANCH
-  git fetch origin $TRAVIS_BRANCH
-  git checkout -qf FETCH_HEAD
-  git branch $TRAVIS_BRANCH
-  git checkout $TRAVIS_BRANCH
-  git checkout $TRAVIS_FROM_BRANCH
+  ###########################
+  ### Case for merging PR ###
+  ###########################
+  if [ -n "$(git show-ref refs/heads/${TRAVIS_BRANCH})" ]; then
+    export PR_MERGE=true
+    echo "branch ${TRAVIS_BRANCH} exists!"
+  else
+    TRAVIS_FROM_BRANCH="travis_from_branch"
+    git branch $TRAVIS_FROM_BRANCH
+    git checkout $TRAVIS_FROM_BRANCH
+    git fetch origin $TRAVIS_BRANCH
+    git checkout -qf FETCH_HEAD
+    git branch $TRAVIS_BRANCH
+    git checkout $TRAVIS_BRANCH
+    git checkout $TRAVIS_FROM_BRANCH
+  fi
+
 else
   export TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 fi

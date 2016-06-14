@@ -1,4 +1,4 @@
 instrumentation:
-  root: ./../../backend/src
+  root: ../../backend/src
   extensions:
     - .js

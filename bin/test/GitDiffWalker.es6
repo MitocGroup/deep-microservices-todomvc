@@ -29,7 +29,7 @@ export class GitDiffWalker {
    * @constructor
    */
   static get CMD() {
-    return `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
+    return (process.env['PR_MERGE'])? 'git diff --name-only @~..@': `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
   }
 
   /**
