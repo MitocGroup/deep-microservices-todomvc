@@ -1,5 +1,5 @@
-Roadmap of deep-microservices-todo-app
-======================================
+Roadmap of deep-microservices-todomvc
+=====================================
 
 Our list of roadmap features and functionality, in descending order of priority:
 

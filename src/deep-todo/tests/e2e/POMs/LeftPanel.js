@@ -54,7 +54,7 @@ var LeftPanel = function() {
   //'API Reference' link to docs file in docs.deep.mg
   this.apiReferenceLink = element(by.xpath('html/body/aside/ul[1]/li[2]/a'));
 
-  //'Quick Start' link to deep-microservices-todo-app repository in Github
+  //'Quick Start' link to deep-microservices-todomvc repository in Github
   this.quickStartLink = element(by.xpath('html/body/aside/ul[1]/li[3]/a'));
 
   //'Application build with Deep Framework' link to deep-microservices-helloworld repository in Github

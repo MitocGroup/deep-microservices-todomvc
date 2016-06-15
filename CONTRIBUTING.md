@@ -1,5 +1,5 @@
-Contributing to deep-microservices-todo-app
-===========================================
+Contributing to deep-microservices-todomvc
+==========================================
 
 This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
 

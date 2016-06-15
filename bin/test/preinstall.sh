@@ -8,21 +8,24 @@ source $(dirname $0)/_head.sh
 ####################################################
 ### Install dependencies globally if don't exist ###
 ####################################################
+(npm list -g babel-cli --depth=0 || npm install -g babel-cli) &&\
+(npm list -g babel-polyfill --depth=0 || npm install -g babel-polyfill) &&\
+(npm list -g babel-preset-es2015 --depth=0 || npm install -g babel-preset-es2015) &&\
 (npm list -g deepify@$(npm show deepify version) --depth=0 || npm install -g deepify) &&\
 (npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
 (npm list -g browserify --depth=0 || npm install -g browserify@11.2.x) &&\
 (npm list -g jscs --depth=0 || npm install -g jscs@2.1.x) &&\
-(npm list -g mocha --depth=0 || npm install -g mocha@2.3.x) &&\
+(npm list -g mocha --depth=0 || npm install -g mocha@2.4.x) &&\
 (npm list -g codacy-coverage --depth=0 || npm install -g codacy-coverage@1.1.x) &&\
 (npm list -g chai --depth=0 || npm install -g chai@3.3.x) &&\
 (npm list -g jasmine-core --depth=0 || npm install -g jasmine-core@2.3.x) &&\
-(npm list -g istanbul --depth=0 || npm install -g istanbul@0.3.x) &&\
+(npm list -g istanbul@^1.0.0-alpha --depth=0 || npm install -g istanbul@^1.0.0-alpha) &&\
 (npm list -g istanbul-combine --depth=0 || npm install -g istanbul-combine@0.3.x) &&\
 (npm list -g karma --depth=0 || npm install -g karma@0.13.x) &&\
 (npm list -g karma-jspm --depth=0 || npm install -g karma-jspm@2.0.x) &&\
 (npm list -g karma-jasmine --depth=0 || npm install -g karma-jasmine@0.3.x) &&\
 (npm list -g karma-babel-preprocessor --depth=0 || npm install -g karma-babel-preprocessor@5.2.x) &&\
-(npm list -g karma-coverage@douglasduteil/karma-coverage#next --depth=0 || npm install -g karma-coverage@douglasduteil/karma-coverage#next) &&\
+(npm list -g karma-coverage@1.0.x --depth=0 || npm install -g karma-coverage@1.0.x) &&\
 (npm list -g karma-verbose-reporter --depth=0 || npm install -g karma-verbose-reporter@0.0.x) &&\
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
@@ -57,8 +60,8 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   ###############################################################
   ### Install locally, protractor doesn't find babel globally ###
   ###############################################################
-  (if [ ! -d "node_modules/babel-cli" ]; then npm install babel-cli; fi) &&\
-  (if [ ! -d "node_modules/babel-preset-es2015" ]; then npm install babel-preset-es2015; fi) &&\
+  (if [ ! -d "node_modules/babel-cli" ]; then npm link babel-cli; fi) &&\
+  (if [ ! -d "node_modules/babel-preset-es2015" ]; then npm link babel-preset-es2015; fi) &&\
   (if [ ! -d "node_modules/babel-plugin-add-module-exports" ]; then npm install babel-plugin-add-module-exports; fi) &&\
   (if [ ! -d "node_modules/jasmine2-custom-message" ]; then npm install jasmine2-custom-message@0.8.x; fi) &&\
   (if [ ! -d "node_modules/jasmine-utils" ]; then npm install jasmine-utils@0.2.x; fi)
@@ -85,14 +88,25 @@ if [ "$TRAVIS" == "true" ]; then
 
   export TRAVIS_COMMIT_MESSAGE=${TRAVIS_COMMIT_MESSAGES[1]}
 
-  TRAVIS_FROM_BRANCH="travis_from_branch"
-  git branch $TRAVIS_FROM_BRANCH
-  git checkout $TRAVIS_FROM_BRANCH
-  git fetch origin $TRAVIS_BRANCH
-  git checkout -qf FETCH_HEAD
-  git branch $TRAVIS_BRANCH
-  git checkout $TRAVIS_BRANCH
-  git checkout $TRAVIS_FROM_BRANCH
+  ###########################
+  ### Case for merging PR ###
+  ###########################
+  if [ -n "$(git show-ref refs/heads/${TRAVIS_BRANCH})" ]; then
+    export PR_MERGE=true
+    echo "branch ${TRAVIS_BRANCH} exists!"
+  else
+    TRAVIS_FROM_BRANCH="travis_from_branch"
+    git branch $TRAVIS_FROM_BRANCH
+    git checkout $TRAVIS_FROM_BRANCH
+    git fetch origin $TRAVIS_BRANCH
+    git checkout -qf FETCH_HEAD
+    git branch $TRAVIS_BRANCH
+    git checkout $TRAVIS_BRANCH
+    git checkout $TRAVIS_FROM_BRANCH
+  fi
+
+else
+  export TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 fi
 
 ############################################################################################

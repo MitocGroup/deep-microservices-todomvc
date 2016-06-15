@@ -29,7 +29,9 @@ export class GitDiffWalker {
    * @constructor
    */
   static get CMD() {
-    return `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
+    return (process.env['PR_MERGE'] === 'true') ?
+      'git diff --name-only @~..@' :
+      `git diff --name-only ${GitDiffWalker.TARGET_BRANCH}`;
   }
 
   /**
@@ -78,6 +80,14 @@ export class GitDiffWalker {
    */
   static get BACKEND_MICROAPP_IDENTIFIERS() {
     return 'BACKEND_MICROAPP_IDENTIFIERS';
+  }
+
+  /**
+   * @returns {string}
+   * @constructor
+   */
+  static get CI_FULL() {
+    return 'CI_FULL';
   }
 
   /**
@@ -133,6 +143,7 @@ export class GitDiffWalker {
     content.push(`${GitDiffWalker.FRONTEND_MICROAPP_PATHS}="{frontendMicroAppPaths}"`);
     content.push(`${GitDiffWalker.BACKEND_MICROAPP_PATHS}="{backendMicroAppPaths}"`);
     content.push(`${GitDiffWalker.BACKEND_MICROAPP_IDENTIFIERS}="{backendMicroAppIdentifiers}"`);
+    content.push(`${GitDiffWalker.CI_FULL}="{ciFull}"`);
     content.push('');
 
     return content.join(os.EOL);
@@ -544,8 +555,8 @@ export class GitDiffWalker {
       backendMicroAppPaths = this.getBackendMicroAppNames();
 
       frontendMicroAppPaths = (this.isBackendCodeChanged &&
-        typeof this._frontendMicroAppNames !== 'undefined' &&
-        this._frontendMicroAppNames.length > 0) ?
+      typeof this._frontendMicroAppNames !== 'undefined' &&
+      this._frontendMicroAppNames.length > 0) ?
         GitDiffWalker.removeDuplicates(this.getFrontendMicroAppNames(), this.getBackendCodeMicroAppNames()) :
         this.getBackendCodeMicroAppNames();
 
@@ -560,13 +571,14 @@ export class GitDiffWalker {
     let varsContent = GitDiffWalker.TEST_PATHS_TPL
       .replace(/\{frontendMicroAppPaths\}/g, frontendMicroAppPaths)
       .replace(/\{backendMicroAppPaths\}/g, backendMicroAppPaths)
-      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers);
+      .replace(/\{backendMicroAppIdentifiers\}/g, backendMicroAppIdentifiers)
+      .replace(/\{ciFull\}/g, this.isFullCIRun);
 
     fsExtra.writeFileSync(GitDiffWalker.VARS_SHELL_PATH, varsContent, 'utf8');
 
     console.log("TRAVIS_COMMIT_MESSAGE: ", GitDiffWalker.commitMessage);
     console.log(`isFullCIRun: ${this.isFullCIRun}`);
-    console.log(`isSkipTests: ${this.isSkipTests}`);
+    console.log(`isSkipTests: ${this.isSkipTests && !this.isFullCIRun}`);
     console.log(`isFrontedCodeChanged: ${this.isFrontedCodeChanged}`);
     console.log(`isFrontendTestsChanged: ${this.isFrontendTestsChanged}`);
     console.log(`isBackendCodeChanged: ${this.isBackendCodeChanged}`);
