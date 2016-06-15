@@ -9,11 +9,11 @@
 		"examples": [{
 			"name": "Todo Web App",
 			"url": "https://todo.deep.mg",
-			"source_url": "https://github.com/MitocGroup/deep-microservices-todo-app"
+			"source_url": "https://github.com/MitocGroup/deep-microservices-todomvc"
 		}, {
 			"name": "Benchmarking",
 			"url": "https://todo.deep.mg/#/deep-benchmarking",
-			"source_url": "https://github.com/MitocGroup/deep-microservices-todo-app",
+			"source_url": "https://github.com/MitocGroup/deep-microservices-todomvc",
 			"type": "backend"
 		}],
 		"link_groups": [{
@@ -26,7 +26,7 @@
 				"url": "https://github.com/MitocGroup/deep-framework/blob/master/docs/index.md"
 			}, {
 				"name": "Quick Start",
-				"url": "https://github.com/MitocGroup/deep-microservices-todo-app#getting-started-"
+				"url": "https://github.com/MitocGroup/deep-microservices-todomvc#getting-started-"
 			}, {
 				"name": "Hello World",
 				"url": "https://github.com/MitocGroup/deep-microservices-helloworld#getting-started-"
