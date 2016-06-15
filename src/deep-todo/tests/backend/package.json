@@ -5,8 +5,8 @@
   "scripts": {
     "preinstall": "bash node-bin/preinstall.sh",
     "install": "bash node-bin/install.sh",
-    "postinstall": "bash node-bin/postinstall.sh",
-    "test": "bash node-bin/test.sh"
+    "test": "bash node-bin/test.sh",
+    "posttest": "bash node-bin/posttest.sh"
   },
   "dependencies": {},
   "devDependencies": {},
