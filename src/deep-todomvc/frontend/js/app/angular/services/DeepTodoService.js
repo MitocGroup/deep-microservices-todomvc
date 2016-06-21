@@ -24,9 +24,7 @@ class DeepTodoService {
    * @returns {promise|boolean}
    */
   createTask(title) {
-    let _this = this;
     let defer = this.$q.defer();
-
     let newTask = {
       Title: title.trim(),
       Completed: false,
@@ -37,12 +35,12 @@ class DeepTodoService {
       if (response.isError) {
         defer.reject(response.error);
       } else {
-        newTask = Object.assign(response.data);
-        defer.resolve(response.data);
+        newTask = Object.assign(response.data, newTask);
+        defer.resolve(newTask);
       }
     });
 
-    return defer.promise;
+    return newTask.__promise = defer.promise;
   }
 
   /**
@@ -52,13 +50,17 @@ class DeepTodoService {
   updateTask(todo) {
     let defer = this.$q.defer();
 
-    this.todoResource.request('update', todo).send((response) => {
-      this.editedTask = null;
-      if (response.isError) {
-        defer.reject(response.error);
-      } else {
-        defer.resolve(response.data);
-      }
+    this.waitFor(todo).then(todo => {
+      this.todoResource.request('update', todo).send((response) => {
+        this.editedTask = null;
+        if (response.isError) {
+          defer.reject(response.error);
+        } else {
+          defer.resolve(response.data);
+        }
+      });
+
+      return defer.promise;
     });
 
     return defer.promise;
@@ -66,13 +68,11 @@ class DeepTodoService {
 
   fetchAllTasks() {
     let defer = this.$q.defer();
-    let _this = this;
-
-    this.todoResource.request('retrieve', {}).send((response) => {
+    this.todoResource.request('retrieve', {}).send(response => {
       if (response.isError) {
         defer.reject(response.error);
       } else {
-        _this.todoList = response.data;
+        this.todoList = this.todoList.concat(response.data);
         defer.resolve(response.data);
       }
     });
@@ -86,21 +86,22 @@ class DeepTodoService {
    */
   deleteTask(todo) {
     let defer = this.$q.defer();
-
     let index = this.todoList.indexOf(todo);
     if (index > -1) {
       this.todoList.splice(index, 1);
     }
 
-    this.todoResource.request('delete', { Id: todo.Id }).send((response) => {
-      if (response.isError) {
-        defer.reject(response.error);
-      } else {
-        defer.resolve(response.data);
-      }
-    });
+    this.waitFor(todo).then(todo => {
+      this.todoResource.request('delete', { Id: todo.Id }).send((response) => {
+        if (response.isError) {
+          defer.reject(response.error);
+        } else {
+          defer.resolve(response.data);
+        }
+      });
 
-    return defer.promise;
+      return defer.promise;
+    });
   }
 
   /**
@@ -118,12 +119,14 @@ class DeepTodoService {
       updatedList.push(todo);
     }
 
-    this.todoResource.request('markAll', updatedList).send((response) => {
-      if (response.isError) {
-        defer.reject(response.error);
-      } else {
-        defer.resolve(response.data);
-      }
+    this.waitForAll(updatedList).then(updatedList => {
+      this.todoResource.request('markAll', updatedList).send((response) => {
+        if (response.isError) {
+          defer.reject(response.error);
+        } else {
+          defer.resolve(response.data);
+        }
+      });
     });
 
     return defer.promise;
@@ -145,13 +148,13 @@ class DeepTodoService {
    * Delete all completed tasks
    */
   deleteCompleted() {
-    let ids = [];
     let defer = this.$q.defer();
     var todoList = this.todoList.slice(0); // clone array
+    let deleteStack = [];
 
     for (let todo of todoList) {
       if (todo.Completed) {
-        ids.push(todo.Id);
+        deleteStack.push(todo);
         let index = this.todoList.indexOf(todo);
         if (index > -1) {
           this.todoList.splice(index, 1);
@@ -159,12 +162,14 @@ class DeepTodoService {
       }
     }
 
-    this.todoResource.request('deleteCompleted', ids).send((response) => {
-      if (response.isError) {
-        defer.reject(response.error);
-      } else {
-        defer.resolve(response.data);
-      }
+    this.waitForAll(deleteStack).then(deleteStack => {
+      this.todoResource.request('deleteCompleted', deleteStack).send((response) => {
+        if (response.isError) {
+          defer.reject(response.error);
+        } else {
+          defer.resolve(response.data);
+        }
+      });
     });
 
     return defer.promise;
@@ -203,6 +208,7 @@ class DeepTodoService {
     if (angular.isDefined(completed)) {
       todo.Completed = completed;
     }
+
     this.updateTask(todo)
         .then(() => {})
         .catch(() => {
@@ -219,6 +225,28 @@ class DeepTodoService {
     this.editedTask = null;
     this.originalTask = null;
     this.reverted = true;
+  }
+
+  /**
+   * @param {Object} task
+   * @returns {Promise}
+   */
+  waitFor(task) {
+    return (task.__promise || Promise.resolve(task)).then(task => {
+      delete task.__promise; // fixes JSON.stringify issue
+
+      return task;
+    });
+  }
+
+  /**
+   * @param {Object[]} list
+   * @returns {Promise}
+   */
+  waitForAll(list) {
+    list = list || this.todoList;
+
+    return Promise.all(list.map(this.waitFor.bind(this)));
   }
 }
 

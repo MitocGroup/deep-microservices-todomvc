@@ -11,10 +11,10 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {Object} requestData
    */
-  handle(request) {
-    let taskId = request.getParam('Id');
+  handle(requestData) {
+    let taskId = requestData.Id;
 
     if (taskId) {
       this.retrieveTask(taskId, (task) => {
@@ -56,5 +56,16 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
 
       return callback(task ? task.get() : null);
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.object().keys({
+        Id: Joi.string().optional(),
+      });
+    }
   }
 }

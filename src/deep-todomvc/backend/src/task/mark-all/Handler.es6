@@ -11,15 +11,10 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {String[]} requestData
    */
-  handle(request) {
-    let taskItems = request.data;
-
-    if (!Array.isArray(taskItems)) {
-      throw new DeepFramework.Core.Exception.InvalidArgumentException(taskItems, 'array');
-    }
-
+  handle(requestData) {
+    let taskItems = requestData;
     let TaskModel= this.kernel.get('db').get('Task');
     let updatedCount = 0;
 
@@ -28,14 +23,6 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     }
 
     taskItems.forEach((task) => {
-      if (typeof task !== 'object') {
-        throw new DeepFramework.Core.Exception.InvalidArgumentException(task, 'object');
-      }
-
-      if (typeof task.Id !== 'string') {
-        throw new InvalidArgumentException(task.Id, 'string');
-      }
-
       TaskModel.updateItem(task.Id, task, (err) => {
         if (err) {
           throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
@@ -46,5 +33,18 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         }
       });
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.array().includes(Joi.object().keys({
+        Id: Joi.string(),
+        Title: Joi.string(),
+        Completed: Joi.boolean(),
+      }));
+    }
   }
 }

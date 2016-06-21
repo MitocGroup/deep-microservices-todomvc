@@ -11,36 +11,38 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {String[]} requestData
    */
-  handle(request) {
-    let taskIds = request.data;
-
-    if (!Array.isArray(taskIds)) {
-      throw new DeepFramework.Core.Exception.InvalidArgumentException(taskIds, 'array');
-    }
-
+  handle(requestData) {
+    let taskList = requestData;
     let TaskModel = this.kernel.get('db').get('Task');
     let deletedCount = 0;
 
-    if (!taskIds.length) {
+    if (!taskList.length) {
       return this.createResponse({}).send();
     }
 
-    taskIds.forEach((taskId) => {
-      if (typeof taskId !== 'string') {
-        throw new DeepFramework.Core.Exception.InvalidArgumentException(taskId, 'string');
-      }
-
-      TaskModel.deleteById(taskId, (err) => {
+    taskList.forEach(task => {
+      TaskModel.deleteById(task.Id, (err) => {
         if (err) {
           throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
         }
 
-        if (taskIds.length === ++deletedCount) {
+        if (taskList.length === ++deletedCount) {
           return this.createResponse({}).send();
         }
       });
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.array().includes(Joi.object().keys({
+        Id: Joi.string(),
+      }));
+    }
   }
 }

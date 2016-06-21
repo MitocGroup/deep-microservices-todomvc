@@ -11,15 +11,10 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {Object} requestData
    */
-  handle(request) {
-    let taskId = request.getParam('Id');
-
-    if (typeof taskId !== 'string') {
-      throw new DeepFramework.Core.Exception.InvalidArgumentException(taskId, 'string');
-    }
-
+  handle(requestData) {
+    let taskId = requestData.Id;
     let TaskModel = this.kernel.get('db').get('Task');
 
     TaskModel.deleteById(taskId, (err) => {
@@ -29,5 +24,16 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
       return this.createResponse({}).send();
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.object().keys({
+        Id: Joi.string().required(),
+      });
+    }
   }
 }

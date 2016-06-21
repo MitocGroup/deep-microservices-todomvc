@@ -11,17 +11,29 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {String[]} requestData
    */
-  handle(request) {
+  handle(requestData) {
     let TaskModel = this.kernel.get('db').get('Task');
 
-    TaskModel.createItem(request.data, (err, task) => {
+    TaskModel.createItem(requestData, (err, task) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
 
       return this.createResponse(task.get()).send();
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.object().keys({
+        Title: Joi.string(),
+        Completed: Joi.boolean(),
+      });
+    }
   }
 }

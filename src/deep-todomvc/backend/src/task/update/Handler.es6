@@ -12,23 +12,31 @@ export default class Handler extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   /**
-   * @param request
+   * @param {Object} requestData
    */
-  handle(request) {
-    let taskId = request.getParam('Id');
-
-    if (typeof taskId !== 'string') {
-      throw new InvalidArgumentException(taskId, 'string');
-    }
-
+  handle(requestData) {
+    let taskId = requestData.Id;
     let TaskModel = this.kernel.get('db').get('Task');
 
-    TaskModel.updateItem(taskId, request.data, (err, task) => {
+    TaskModel.updateItem(taskId, requestData, (err, task) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
       }
 
       return this.createResponse(task.get()).send();
     });
+  }
+
+  /**
+   * @returns {Function}
+   */
+  get validationSchema() {
+    return (Joi) => {
+      return Joi.object().keys({
+        Id: Joi.string().required(),
+        Title: Joi.string(),
+        Completed: Joi.boolean(),
+      });
+    }
   }
 }
