@@ -1,0 +1,19 @@
+{
+  "name": "deep-todomvc-backend-test",
+  "version": "0.0.1",
+  "description": "Description of deep-todomvc-backend-test",
+  "scripts": {
+    "preinstall": "bash node-bin/preinstall.sh",
+    "install": "bash node-bin/install.sh",
+    "test": "bash node-bin/test.sh",
+    "posttest": "bash node-bin/posttest.sh"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MitocGroup/deep-microservices-skeleton.git"
+  },
+  "private": true,
+  "license": "MIT"
+}
