@@ -2,9 +2,12 @@
 
 import moduleName from './name';
 
-import '../../../stylesheets/todomvc-common/base.css!';
-import '../../../stylesheets/todomvc-app-css/index.css!';
-import 'todomvc-common/base.js';
+if (!window.DEEP_SERVICE_CACHE_FLAG) {
+  System.import('/deep-todomvc/stylesheets/todomvc-common/base.css!');
+  System.import('/deep-todomvc/stylesheets/todomvc-app-css/index.css!');
+  System.import('/deep-todomvc/js/vendor/npm/todomvc-common@1.0.2/base.js');
+}
+
 import './module/index';
 import './controllers/index';
 import './services/index';
