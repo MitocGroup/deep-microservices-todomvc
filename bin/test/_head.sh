@@ -8,7 +8,7 @@
 #####################################
 __SCRIPT_PATH=$(cd $(dirname $0); pwd -P)
 __SRC_PATH="${__SCRIPT_PATH}/../../src/"
-__COVERAGE_PATH="${__SCRIPT_PATH}/../coverage"
+__COVERAGE_PATH="${__SCRIPT_PATH}/../coverages/local/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/summary-report"
 __VARS_FILE_PATH="${__SCRIPT_PATH}/_vars.sh"
 __NONE="none"
 __BACKEND="backend"
