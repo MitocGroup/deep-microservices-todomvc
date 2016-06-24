@@ -24,13 +24,6 @@ module.exports = function(callback) {
   let includeJsFilter = FileWalker.matchExtensionsFilter(null, 'js');
   let filter = path => excludeVendorFilter(path) && !includeJsFilter(path);
 
-  if (['stage', 'prod'].indexOf(config.env.toLowerCase()) === -1) {
-    console.log(`Skipping dumping frontend assets for '${config.env}' environment`);
-    ensureBuildNotExists();
-    callback();
-    return;
-  }
-
   function ensureBuildNotExists() {
     if (path.basename(frontendPath) === BUILD_FOLDER) {
       console.log(`Removing old _build from ${frontendPath}`);
@@ -44,6 +37,13 @@ module.exports = function(callback) {
     let buildFrontendPath = path.join(frontendPath, BUILD_FOLDER);
     console.log(`Dumping frontend assets into ${path.join(frontendPath, BUILD_FOLDER)}`);
     fileWalker.copy(frontendPath, buildFrontendPath, filter);
+  }
+
+  if (['stage', 'prod'].indexOf(config.env.toLowerCase()) === -1) {
+    console.log(`Skipping dumping frontend assets for '${config.env}' environment`);
+    ensureBuildNotExists();
+    callback();
+    return;
   }
 
   ensureBuildNotExists();
