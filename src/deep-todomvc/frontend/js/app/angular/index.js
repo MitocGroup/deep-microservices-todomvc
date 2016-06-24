@@ -1,3 +1,5 @@
+/* global System */
+
 'use strict';
 
 import moduleName from './name';

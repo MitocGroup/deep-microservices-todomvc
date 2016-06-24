@@ -27,10 +27,6 @@ module.exports = function(callback) {
     return;
   }
 
-  ensureBuildNotExists();
-  dumpFrontendAssets();
-  callback();
-
   function ensureBuildNotExists() {
     if (path.basename(frontendPath) === BUILD_FOLDER) {
       console.log(`Removing old _build from ${frontendPath}`);
@@ -45,4 +41,9 @@ module.exports = function(callback) {
     console.log(`Dumping frontend assets into ${path.join(frontendPath, BUILD_FOLDER)}`);
     fileWalker.copy(frontendPath, buildFrontendPath, filter);
   }
+
+  ensureBuildNotExists();
+  dumpFrontendAssets();
+  callback();
+
 };
