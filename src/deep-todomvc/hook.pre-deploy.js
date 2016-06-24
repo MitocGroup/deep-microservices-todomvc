@@ -1,4 +1,4 @@
-/* jshint undef: true, unused: true */
+/* jshint undef: false, unused: false */
 /* jshint camelcase: false */
 
 
