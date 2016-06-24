@@ -79,7 +79,7 @@ describe('Controllers', function() {
   describe('DeepTodoController', function() {
     it('DeepTodoController constructor sets valid default values',
       function() {
-        expect(Object.keys(controller).length).toBe(4);
+        expect(Object.keys(controller).length).toBe(5);
         expect(typeof controller.todoService).toEqual('object');
         expect(typeof controller.deepLog).toEqual('object');
       }

@@ -26,7 +26,7 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
   if [ "$__IS_CONCURRENT_SCRIPT" != "$__NONE" ] && \
    ([ "${__E2E_WITH_PUBLIC_REPO}" == "${E2E_TESTING}" ] || \
    ([ "${__E2E_WITH_PRIVATE_REPO}" == "${E2E_TESTING}" ] && [ "${TRAVIS_BRANCH}" == 'stage' ])); then
-    subpath_run_cmd "${__SRC_PATH}" "$__CMD" "$__CMD" "${__IS_CONCURRENT_SCRIPT}"
+    subpath_run_cmd "${__SRC_PATH}" "$__CMD" "$__CMD" "$__FRONTEND"
   fi
 
   echo "Start initializing backend"

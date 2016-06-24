@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "DEEP Micro Services Todo Frontend",
   "scripts": {
+    "preinstall": "cd ../../frontend/js/ && npm install && cd ../../tests/frontend/",
     "postinstall": "jspm install",
     "test": "karma start config.karma.js",
     "coverage": "echo \"No coverage specified\" && exit 0"

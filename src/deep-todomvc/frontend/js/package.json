@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Deep Todo microservice",
   "scripts": {
+    "postinstall": "jspm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:styles",
     "build:modules": "jspm bundle index bundle.min.js --minify --skip-source-maps --inject",
