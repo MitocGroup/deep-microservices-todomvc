@@ -40,7 +40,9 @@ class DeepTodoService {
       }
     });
 
-    return newTask.__promise = defer.promise;
+    newTask.__promise = defer.promise;
+
+    return newTask.__promise;
   }
 
   /**
