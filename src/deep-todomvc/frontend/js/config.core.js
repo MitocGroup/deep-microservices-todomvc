@@ -1,4 +1,5 @@
-/* jshint undef: true, unused: true */
+/* jshint undef: false, unused: false */
+/* global System */
 
 System.config({
   baseURL: 'deep-todomvc',
