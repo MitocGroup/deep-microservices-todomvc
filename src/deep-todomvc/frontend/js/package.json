@@ -1,0 +1,33 @@
+{
+  "name": "deep-todomvc-frontend",
+  "version": "0.0.1",
+  "description": "Deep Todo microservice",
+  "scripts": {
+    "postinstall": "jspm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:styles",
+    "build:modules": "jspm bundle index bundle.min.js --minify --skip-source-maps --inject",
+    "build:styles": "sass --scss ../sass/main.scss ../stylesheets/main.min.css -E 'UTF-8'"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "..",
+      "lib": "",
+      "packages": "vendor"
+    },
+    "configFile": "config.core.js",
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.5.5",
+      "angular-ui-router": "github:angular-ui/ui-router@^0.2.18",
+      "css": "github:systemjs/plugin-css@^0.1.21",
+      "todomvc-common": "npm:todomvc-common@^1.0.1"
+    },
+    "devDependencies": {
+      "traceur": "github:jmcriffey/bower-traceur@0.0.92",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.92"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
+}

@@ -1,0 +1,46 @@
+<section class="todoapp">
+    <header class="header">
+        <h1>todos</h1>
+        <form id="todo-form" ng-submit="todoCtrl.create()">
+            <input class="new-todo" placeholder="What needs to be done?" ng-model="todoCtrl.title" autofocus>
+        </form>
+    </header>
+    <section class="main" ng-cloak>
+        <input class="toggle-all" type="checkbox" ng-model="allChecked" ng-click="todoCtrl.markAll(allChecked)">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul class="todo-list">
+            <li ng-repeat="todo in todoList | filter:statusFilter track by $index" ng-class="todoService.todoNgClass(todo)">
+                <div class="view">
+                    <input class="toggle" type="checkbox" ng-model="todo.Completed" ng-change="todoCtrl.toggleCompleted(todo)">
+                    <label ng-dblclick="todoService.editTask(todo)">{{todo.Title}}</label>
+                    <button class="destroy" ng-click="todoCtrl.delete(todo)"></button>
+                </div>
+                <form ng-submit="todoCtrl.update(todo, 'submit')">
+                    <input class="edit" ng-trim="false" ng-model="todo.Title" todo-escape="todoService.revertEdits(todo)" ng-blur="todoCtrl.update(todo, 'blur')" todo-focus="todoService.isEditing(todo)">
+                </form>
+            </li>
+        </ul>
+    </section>
+    <footer class="footer" ng-show="todoList.length" ng-cloak>
+        <span class="todo-count"><strong>{{remainingCount}}</strong>
+            <ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+        </span>
+        <ul class="filters">
+            <li>
+                <a ng-href="#/" ng-class="{selected: !statusFilter}" ng-click="statusFilter = ''" href="javascript:;">All</a>
+            </li>
+            <li>
+                <a ng-href="#/active" ng-class="{selected: statusFilter.Completed === false}" ng-click="statusFilter = {Completed: false}" href="javascript:;">Active</a>
+            </li>
+            <li>
+                <a ng-href="#/completed" ng-class="{selected: statusFilter.Completed === true}" ng-click="statusFilter = {Completed: true}" href="javascript:;">Completed</a>
+            </li>
+        </ul>
+        <button class="clear-completed" ng-show="completedCount" ng-click="todoService.deleteCompleted()">Clear completed</button>
+    </footer>
+</section>
+<footer class="info">
+    <p>Double-click to edit a todo</p>
+    <p>Written by <a href="http://www.mitocgroup.com">Mitoc Group</a></p>
+    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>

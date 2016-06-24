@@ -5,3 +5,4 @@ scripts/
 browser/
 test/
 docs-api/
+config.core.js
