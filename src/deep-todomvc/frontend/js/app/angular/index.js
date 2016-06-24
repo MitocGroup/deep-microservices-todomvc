@@ -1,4 +1,5 @@
 /* jshint undef: false, unused: false */
+/* global System */
 
 'use strict';
 

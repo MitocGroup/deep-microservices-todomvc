@@ -1,4 +1,7 @@
 /* jshint undef: false, unused: false */
+/* global System */
+/* global angular */
+/* global DeepFramework */
 
 'use strict';
 'format es6';
