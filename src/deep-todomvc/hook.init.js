@@ -23,5 +23,5 @@ var exports = module.exports = function(callback) {
     console.log('learn.json was successfully copied into deep-root-angular');
 
     callback();
-  })
+  });
 };

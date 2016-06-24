@@ -1,4 +1,6 @@
+/* jshint undef: true, unused: true */
 /* global document */
+
 'use strict';
 'format es6';
 
