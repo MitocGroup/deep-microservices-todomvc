@@ -29,14 +29,18 @@ source $(dirname $0)/_head.sh
 (npm list -g karma-verbose-reporter --depth=0 || npm install -g karma-verbose-reporter@0.0.x) &&\
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
-(npm list -g node-dir --depth=0 || npm install -g node-dir) &&\
 
 ###################################################
 ### Install dependencies locally if don't exist ###
 ###################################################
 (if [ ! -d "node_modules/isparta" ]; then npm install isparta@3.1.x; fi) &&\
 (if [ ! -d "node_modules/sync-exec" ]; then npm install sync-exec@^0.6.x; fi) &&\
-(if [ ! -d "node_modules/fs-extra" ]; then npm install fs-extra@0.x.x; fi)
+(if [ ! -d "node_modules/fs-extra" ]; then npm install fs-extra@0.x.x; fi) &&\
+(if [ ! -d "node_modules/github" ]; then npm install github; fi) &&\
+(if [ ! -d "node_modules/aws-sdk" ]; then npm install aws-sdk; fi) &&\
+(if [ ! -d "node_modules/s3" ]; then npm install s3; fi) &&\
+(if [ ! -d "node_modules/node-dir" ]; then npm install node-dir; fi) &&\
+(if [ ! -d "node_modules/istanbul-combine" ]; then npm link istanbul-combine; fi)
 
 #############################################################################
 ### Configure jspm and git if we are in CI                                ###
@@ -60,6 +64,7 @@ if [ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || [ "${__E2E_WITH_PRIVATE
   ###############################################################
   ### Install locally, protractor doesn't find babel globally ###
   ###############################################################
+  (npm list -g babel-register --depth=0 || npm install -g babel-register) &&\
   (if [ ! -d "node_modules/babel-cli" ]; then npm link babel-cli; fi) &&\
   (if [ ! -d "node_modules/babel-preset-es2015" ]; then npm link babel-preset-es2015; fi) &&\
   (if [ ! -d "node_modules/babel-plugin-add-module-exports" ]; then npm install babel-plugin-add-module-exports; fi) &&\
@@ -112,5 +117,10 @@ fi
 ############################################################################################
 ### Transpile from ES6 to ES5 by using deepify and execute to retrieve the changed stuff ###
 ############################################################################################
-deepify compile es6 $(dirname $0)/GitDiffWalker.es6 --source > $(dirname $0)/GitDiffWalker.js
-node $(dirname $0)/GitDiffWalker.js
+deepify compile es6 $(dirname $0)/node-scripts/GitDiffWalker.es6 --source > $(dirname $0)/node-scripts/GitDiffWalker.js
+deepify compile es6 $(dirname $0)/node-scripts/S3CoverageSynchronizer.es6 --source > $(dirname $0)/node-scripts/S3CoverageSynchronizer.js
+deepify compile es6 $(dirname $0)/node-scripts/CoverageComparator.es6 --source > $(dirname $0)/node-scripts/CoverageComparator.js
+deepify compile es6 $(dirname $0)/node-scripts/GitHubMsgPublisher.es6 --source > $(dirname $0)/node-scripts/GitHubMsgPublisher.js
+deepify compile es6 $(dirname $0)/node-scripts/CoverageManager.es6 --source > $(dirname $0)/node-scripts/CoverageManager.js
+
+node $(dirname $0)/node-scripts/GitDiffWalker.js
