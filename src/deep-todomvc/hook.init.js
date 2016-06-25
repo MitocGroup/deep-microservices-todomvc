@@ -12,8 +12,9 @@ var exports = module.exports = function(callback) {
 
   var source = path.join(this.microservice.autoload.frontend, 'learn.json');
   var dist = this.microservice.property.rootMicroservice.autoload.frontend;
+  var ensureFrontendDeps = require('./ensure-frontend-deps');
 
-  exec('cp ' + source + ' ' + dist, function(error, stdout, stderr) {
+  exec('cp ' + source + ' ' + dist, (error) => {
     if (error) {
       console.error('Error while copying learn.json', error);
       callback();
@@ -22,6 +23,6 @@ var exports = module.exports = function(callback) {
 
     console.log('learn.json was successfully copied into deep-root-angular');
 
-    callback();
+    ensureFrontendDeps.call(this, callback);
   });
 };
