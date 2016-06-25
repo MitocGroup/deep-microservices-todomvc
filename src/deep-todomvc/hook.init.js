@@ -14,7 +14,7 @@ var exports = module.exports = function(callback) {
   var dist = this.microservice.property.rootMicroservice.autoload.frontend;
   var ensureFrontendDeps = require('./ensure-frontend-deps');
 
-  exec('cp ' + source + ' ' + dist, (error, stdout, stderr) => {
+  exec('cp ' + source + ' ' + dist, (error) => {
     if (error) {
       console.error('Error while copying learn.json', error);
       callback();
