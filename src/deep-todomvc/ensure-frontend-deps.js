@@ -7,7 +7,7 @@
 module.exports = function(cb) {
   let fs = require('fs');
   let path = require('path');
-  let process = require("child_process");
+  let process = require('child_process');
   let frontendPath = this.microservice.autoload.frontend;
 
   if (!fs.existsSync(path.join(frontendPath, 'js', 'vendor'))) {
