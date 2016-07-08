@@ -2,8 +2,7 @@ language: node_js
 sudo: required
 node_js:
   - '4.3'
-#  https://github.com/travis-ci/travis-ci/issues/6173
-#  - '6.2'
+  - '6.2'
 cache:
   edge: true
   directories:
@@ -21,6 +20,8 @@ before_install:
   - cp bin/test/package.json .
 after_success:
   - npm run coverage
+after_script:
+  - npm run remove-coverage
 env:
   matrix:
     - TEST_SUITE=backend
