@@ -33,10 +33,11 @@ fi
 ### Returns:                                                              ###
 ###   0 or 1                                                              ###
 #############################################################################
-IS_ENV_VARS_AVAILABLE () {
+is_Env_Vars_Available () {
   if [ -z $GITHUB_OAUTH_TOKEN ] || [ -z $AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ] || \
     [ -z $S3_BUCKET_NAME ] || [ -z $AWS_DEFAULT_REGION ]; then
     echo 0;
+
     return;
   fi
 

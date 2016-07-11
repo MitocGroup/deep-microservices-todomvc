@@ -1,4 +1,4 @@
-// THIS TEST WAS GENERATED AUTOMATICALLY ON 07/08/2016 09:23:25
+// THIS TEST WAS GENERATED AUTOMATICALLY ON 07/11/2016 12:46:23
 
 /* global angular */
 /* global inject */
@@ -7,37 +7,72 @@
 
 import moduleName from '../../../../frontend/js/app/angular/name';
 
-// @todo: Add more advanced tests
-describe('Directives', () => {
+  // @todo: Add more advanced tests
+  describe('Directives', () => {
 
-  let element;
-  let compiledElement;
-  let $compile;
-  let $rootScope;
+  let directiveElement;
+  let compile;
+  let scope, rootScope;
+  let controller;
 
   beforeEach(() => {
+
+    // Load modules
     module('ui.router');
     angular.mock.module(moduleName);
+
+
+    // store references to scope, rootScope and compile
+    // so they are available to all tests in this describe block
+    //
+    // $compile service that is responsible for compiling any HTML template
+    // $templateCache  service that is responsible for caching template for quick retrieval
+    // $controller service that is responsible for instantiating controllers
+    // $rootScope ngMock’s service to allow getting an instance of angular’s core and create child scopes via its $new
+    //
+    // The underscores are a convenience trick to inject a service under a different name
+    // so that we can locally assign a local variable of the same name as the service.
+    inject(($controller, $templateCache, $compile, $rootScope) => {
+
+      compile = $compile;
+      rootScope = $rootScope;
+      scope = $rootScope.$new();
+
+      //how to set model testedModelValue value for directive
+      //scope.testedModelValue = null;
+
+      scope.$digest();
+
+
+    });
   });
 
-  // Store references to $rootScope and $compile
-  // so they are available to all tests in this describe block
-  beforeEach(inject((_$rootScope_, _$compile_) => {
-    $rootScope = _$rootScope_;
-    $compile = _$compile_;
-    element = angular.element('<div data-ng-model="testedModelValue" task-escape div>');
-    $rootScope.testedModelValue = null;
-    $rootScope.$digest();
+  /**
+  * Return compiled directive ready for testing
+  * @returns {HTMLDivElement}
+  */
+  function getCompiledElement() {
+    let element = angular.element('<div task-escape></div>');
+    let compiledElement = compile(element)(scope);
+    scope.$digest();
+    return compiledElement;
+  }
 
-    // Compile a piece of HTML containing the directive
-    // fire all the watches, so the scope expressions will be evaluated
-    compiledElement = $compile(element)($rootScope);
-  }));
-
-  //@todo - should be added different directive's use cases
+  //@todo - should be added directive's use cases by using "directiveElement"
   describe('taskEscape', () => {
-    it('task-escape exists', () => {
-      expect(true).toBe(true);
+    it('task-escape has html', () => {
+      let error = null;
+
+      try {
+        directiveElement = getCompiledElement();
+      } catch (exception) {
+        error = exception;
+      }
+
+      if (!error) {
+        expect(typeof directiveElement).toEqual('object');
+        expect(directiveElement.html()).not.toEqual(undefined);
+      }
     });
   });
 });
