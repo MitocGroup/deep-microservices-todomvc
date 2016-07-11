@@ -1,5 +1,6 @@
-// THIS TEST WAS GENERATED AUTOMATICALLY ON 07/11/2016 12:46:23
+// THIS TEST WAS GENERATED AUTOMATICALLY ON 07/11/2016 13:03:24
 
+/* jshint undef: false, unused: false */
 /* global angular */
 /* global inject */
 
