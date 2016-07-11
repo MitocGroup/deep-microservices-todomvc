@@ -2,7 +2,8 @@ language: node_js
 sudo: required
 node_js:
   - '4.3'
-  - '6.2'
+#  https://github.com/travis-ci/travis-ci/issues/6173
+#  - '6.2'
 cache:
   edge: true
   directories:
