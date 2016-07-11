@@ -34,12 +34,18 @@ fi
 ###   0 or 1                                                              ###
 #############################################################################
 is_Env_Vars_Available () {
+
   if [ -z $GITHUB_OAUTH_TOKEN ] || [ -z $AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ] || \
     [ -z $S3_BUCKET_NAME ] || [ -z $AWS_DEFAULT_REGION ]; then
+
+    echo "EXISTS"
+
     echo 0;
 
     return;
   fi
+
+  echo "DOES N'T EXIST"
 
   echo 1;
 }
