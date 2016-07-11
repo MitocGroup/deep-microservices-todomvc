@@ -31,8 +31,8 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
   ### install frontend deps where e2e is enabled ###
   ##################################################
   if [ "$__IS_CONCURRENT_SCRIPT" != "$__NONE" ] && \
-   ([ "${__E2E_WITH_PUBLIC_REPO}" == "${E2E_TESTING}" ] || \
-   ([ "${__E2E_WITH_PRIVATE_REPO}" == "${E2E_TESTING}" ] && [ "${CI_FULL}" == "true" ])); then
+   ( ([ "${__E2E_WITH_PUBLIC_REPO}" == "${E2E_TESTING}" ]) || \
+   ([ "${__E2E_WITH_PRIVATE_REPO}" == "${E2E_TESTING}" ] && [ "${CI_FULL}" == "true" ]) ); then
     subpath_run_cmd "${__SRC_PATH}" "$__CMD" "$__CMD" "$__FRONTEND"
   fi
 
@@ -48,7 +48,8 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
 
   cp ${__SRC_PATH}deeploy.example.json ${__SRC_PATH}deeploy.json
 
-  if [ "${TRAVIS}" == "true" ] && [ "$BACKEND_MICROAPP_IDENTIFIERS" == "none" ]; then
+  if [ "${TRAVIS}" == "true" ] && [ "$BACKEND_MICROAPP_IDENTIFIERS" == "none" ] && \
+    ([ "${FRONTEND_MICROAPP_PATHS}" == "$__NONE" ] || [ "${__E2E_WITH_PUBLIC_REPO}" != "${E2E_TESTING}" ]); then
 
     ###########################################################################
     ### Skip initializing backend if no changes in backend or running in CI ###

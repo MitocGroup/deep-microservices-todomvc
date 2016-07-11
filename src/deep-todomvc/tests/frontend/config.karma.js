@@ -18,9 +18,17 @@ module.exports = function(config) {
       'tests/frontend/vendor/github/angular/bower-angular@1.4.0/angular.js',
       'tests/frontend/vendor/github/angular/bower-angular-mocks@1.4.4/angular-mocks.js',
       'tests/frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
+
+      //https://github.com/angular-ui/bootstrap/issues/1936
+      'tests/frontend/vendor/github/angular-ui/bootstrap-bower@0.12.1/ui-bootstrap-tpls.js',
       'tests/frontend/vendor/system.js',
       'tests/frontend/lib/DeepFramework.js',
+      'tests/frontend/lib/stripe.js', //https://github.com/bendrucker/angular-stripe/issues/23
       'tests/frontend/mock/lib/DeepFramework.js',
+      {pattern: 'tests/frontend/mock/data/*.json', watched: true, served: true, included: false},
+
+      //include the directory where directive templates are stored.
+      '**/views/directives/*.html',
     ],
 
     // jspm configuration
@@ -57,6 +65,7 @@ module.exports = function(config) {
     preprocessors: {
       'frontend/js/app/angular/**/*.js': ['coverage'],
       'tests/frontend/angular/**/*.spec.js': ['babel'],
+      '**/views/directives/*.html': 'ng-html2js',
     },
 
     babelPreprocessor: {
@@ -66,6 +75,10 @@ module.exports = function(config) {
       },
     },
 
+    ngHtml2JsPreprocessor: {
+      moduleName: 'templates',
+    },
+
     plugins: [
       'karma-babel-preprocessor',
       'karma-jasmine',
@@ -73,6 +86,7 @@ module.exports = function(config) {
       'karma-jspm',
       'karma-phantomjs-launcher',
       'karma-verbose-reporter',
+      'karma-ng-html2js-preprocessor',
     ],
 
     // test results reporter to use
