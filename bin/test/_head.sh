@@ -8,7 +8,7 @@
 #####################################
 __SCRIPT_PATH=$(cd $(dirname $0); pwd -P)
 __SRC_PATH="${__SCRIPT_PATH}/../../src/"
-__COVERAGE_PATH="${__SCRIPT_PATH}/../coverage"
+__COVERAGE_PATH="${__SCRIPT_PATH}/../coverages/local/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/summary-report"
 __VARS_FILE_PATH="${__SCRIPT_PATH}/_vars.sh"
 __NONE="none"
 __BACKEND="backend"
@@ -25,6 +25,24 @@ __TRAVIS_NODE_MAJOR_VERSION="${TRAVIS_NODE_VERSION:0:1}"
 if [ "$TRAVIS" == "true" ] && [ -e "$__VARS_FILE_PATH" ]; then
   source "$__VARS_FILE_PATH"
 fi
+
+#############################################################################
+### Checks if all environment variables available for validating coverage ###
+### Arguments:                                                            ###
+###   None                                                                ###
+### Returns:                                                              ###
+###   0 or 1                                                              ###
+#############################################################################
+IS_ENV_VARS_AVAILABLE () {
+  if [ -z $GITHUB_OAUTH_TOKEN ] || [ -z $AWS_ACCESS_KEY_ID ] || [ -z AWS_SECRET_ACCESS_KEY ] || \
+    [ -z $S3_BUCKET_NAME ] || [ -z $AWS_DEFAULT_REGION ]; then
+    echo 0;
+
+    return;
+  fi
+
+  echo 1;
+}
 
 
 #######################################################################################
@@ -112,36 +130,32 @@ subpath_run_cmd () {
     FRONTEND_CMD="${3}"
   fi
 
-  ###############################################
-  ### run tests for frontend  or if [ci full] ###
-  ###############################################
-  if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == "$__FRONTEND" ] || \
-     ([ "${CI_FULL}" == "true" ] && [ "$__IS_CONCURRENT_SCRIPT" == "$__BACKEND" ]); then
+  ##################################################
+  ### run always for frontend to gather coverage ###
+  ##################################################
+  for subpath in "${__FRONTEND_MODULES[@]}"
+  do
+    echo "[Running command for frontend] $subpath"
+    if [ -d ${subpath} ]; then
+      cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
 
-    for subpath in "${__FRONTEND_MODULES[@]}"
-    do
-      echo "[Running command for frontend] $subpath"
-      if [ -d ${subpath} ]; then
-        cd ${subpath} && eval_or_exit "${FRONTEND_CMD}"
+      ####################################################################################################
+      ### replace ./frontend to absolute file path to fix karma issue after combining coverage reports ###
+      ####################################################################################################
+      if [ "${FRONTEND_CMD}" == "npm run test" ]; then
+        SEARCH_VALUE='\.\/frontend\/'
+        subpath=${subpath/tests\/frontend/frontend}
 
-        ####################################################################################################
-        ### replace ./frontend to absolute file path to fix karma issue after combining coverage reports ###
-        ####################################################################################################
-        if [ "${FRONTEND_CMD}" == "npm run test" ]; then
-          SEARCH_VALUE='\.\/frontend\/'
-          subpath=${subpath/tests\/frontend/frontend}
+        #######################################################
+        ### Escape path for sed using bash find and replace ###
+        #######################################################
+        REPLACE_VALUE="${subpath//\//\\/}"
 
-          #######################################################
-          ### Escape path for sed using bash find and replace ###
-          #######################################################
-          REPLACE_VALUE="${subpath//\//\\/}"
-
-          export PATH_TO_TEST_TDF_FILE="$(find ./coverage -name 'coverage-final.json')"
-          sed "s/${SEARCH_VALUE}/${REPLACE_VALUE}/g" "${PATH_TO_TEST_TDF_FILE}" > ./coverage/report.json
-        fi
+        export PATH_TO_TEST_TDF_FILE="$(find ./coverage -name 'coverage-final.json')"
+        sed "s/${SEARCH_VALUE}/${REPLACE_VALUE}/g" "${PATH_TO_TEST_TDF_FILE}" > ./coverage/report.json
       fi
-    done
-  fi
+    fi
+  done
 
   #############################
   ### run tests for backend ###

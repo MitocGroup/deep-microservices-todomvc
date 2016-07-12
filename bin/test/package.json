@@ -19,8 +19,10 @@
     "install": "bin/test/install.sh ${TEST_SUITE}",
     "pretest": "bin/test/pretest.sh",
     "test": "bin/test/test.sh ${TEST_SUITE}",
-    "posttest": "bin/test/posttest.sh",
-    "coverage": "bin/test/coverage.sh",
+    "posttest": "bin/test/posttest.sh && npm run prepare-coverage",
+    "prepare-coverage": "bin/test/prepare-coverage.sh ${TEST_SUITE}",
+    "coverage": "bin/test/coverage.sh ${TEST_SUITE}",
+    "remove-coverage": "bin/test/remove-coverage.sh",
     "build": "npm run build:styles && npm run build:modules",
     "build:modules": "jspm bundle app/angular/index lib/modules_bundle.min.js --minify --skip-source-maps --inject",
     "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify"
