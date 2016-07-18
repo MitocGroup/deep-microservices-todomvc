@@ -15,8 +15,7 @@ source $(dirname $0)/_head.sh
 (npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
 (npm list -g browserify --depth=0 || npm install -g browserify@11.2.x) &&\
 (npm list -g jscs --depth=0 || npm install -g jscs@2.1.x) &&\
-(npm list -g mocha --depth=0 || npm install -g mocha@2.4.x) &&\
-(npm list -g codacy-coverage --depth=0 || npm install -g codacy-coverage@1.1.x) &&\
+(npm list -g mocha@2.5.x --depth=0 || npm install -g mocha@2.5.x) &&\
 (npm list -g chai --depth=0 || npm install -g chai@3.3.x) &&\
 (npm list -g jasmine-core --depth=0 || npm install -g jasmine-core@2.3.x) &&\
 (npm list -g istanbul@^1.0.0-alpha --depth=0 || npm install -g istanbul@^1.0.0-alpha) &&\
@@ -29,6 +28,7 @@ source $(dirname $0)/_head.sh
 (npm list -g karma-verbose-reporter --depth=0 || npm install -g karma-verbose-reporter@0.0.x) &&\
 (npm list -g karma-phantomjs-launcher --depth=0 || npm install -g karma-phantomjs-launcher@0.2.x) &&\
 (npm list -g karma-ng-html2js-preprocessor --depth=0 || npm install -g karma-ng-html2js-preprocessor@0.2.x) &&\
+(npm list -g codeclimate-test-reporter --depth=0 || npm install -g codeclimate-test-reporter) &&\
 
 ###################################################
 ### Install dependencies locally if don't exist ###

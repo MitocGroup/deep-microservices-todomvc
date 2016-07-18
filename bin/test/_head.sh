@@ -17,7 +17,8 @@ __IS_CONCURRENT_SCRIPT=${__NONE}
 __E2E_WITH_PUBLIC_REPO="public"
 __E2E_WITH_PRIVATE_REPO="private"
 __TRAVIS_NODE_MAJOR_VERSION="${TRAVIS_NODE_VERSION:0:1}"
-
+__UPPER_CASE_TRAVIS_BRANCH=`echo "$TRAVIS_BRANCH" | tr '[:lower:]' '[:upper:]'`
+__CODECLIMATE_TOKEN_NAME="CODECLIMATE_REPO_TOKEN_${__UPPER_CASE_TRAVIS_BRANCH}"
 
 ######################################################
 ### Import the initialized vars with changed stuff ###
@@ -43,6 +44,25 @@ IS_ENV_VARS_AVAILABLE () {
 
   echo 1;
 }
+
+#################################################################
+### Checks if codeclimate token available for specific branch ###
+### Arguments:                                                ###
+###   None                                                    ###
+### Returns:                                                  ###
+###   0 or 1                                                  ###
+#################################################################
+IS_CODECLIMATE_TOKEN_AVAILABLE () {
+
+  if [ -z `printenv $__CODECLIMATE_TOKEN_NAME` ]; then
+    echo 0;
+
+    return;
+  fi
+
+  echo 1;
+}
+
 
 
 #######################################################################################
