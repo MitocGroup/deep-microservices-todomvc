@@ -1,10 +1,12 @@
 fail_on_violations: true
 
 javascript:
-  enabled: true
-  linter: eslint
-  ignore_file: .houndignore
-  config_file: .eslintrc
+  jshint:
+    enabled: false
+  eslint:
+    enabled: true
+    config_file: .eslintrc
+    ignore_file: .eslintignore
 
 ### IGNORE THIS SECTION ###
 
