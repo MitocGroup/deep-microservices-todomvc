@@ -1,5 +1,3 @@
-/*jshint evil:true */
-
 'use strict';
 
 import chai from 'chai';
