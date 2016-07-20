@@ -76,7 +76,7 @@ class DeepTodoController {
 
     todo.Title = todo.Title.trim();
 
-    if (todo.Title === "") {
+    if (todo.Title === '') {
       this.delete(todo);
     }
 

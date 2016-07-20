@@ -1,8 +1,8 @@
 bin/**/*
 test/**/*
 **/tests
+**/vendor
 tmp/**/*
-vendor/**/*
 **.spec.js
 **.min.js
 **.min.css
@@ -52,6 +52,8 @@ npm-debug.log
 # App specific files
 .parameters.json
 deeploy.json*
+deeploy.*.json
+
 *_config.json*
 *.provisioning.json*
 

@@ -2,8 +2,9 @@ fail_on_violations: true
 
 javascript:
   enabled: true
+  linter: eslint
   ignore_file: .houndignore
-  config_file: .jshintrc # Airbnb linter config taken from https://github.com/airbnb/javascript/blob/master/linters/jshintrc
+  config_file: .eslintrc
 
 ### IGNORE THIS SECTION ###
 

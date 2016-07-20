@@ -6,11 +6,13 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
+        javascript:
+          mass_threshold: 140
     exclude_paths:
       - "**/tests"
   eslint:
     enabled: true
+    channel: "eslint-2"
   fixme:
     enabled: true
 ratings:
