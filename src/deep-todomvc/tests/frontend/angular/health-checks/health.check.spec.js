@@ -1,7 +1,5 @@
 /* global angular */
 
-/* jshint undef: false, unused: false */
-
 'use strict';
 
 import moduleName from '../../../../frontend/js/app/angular/name';

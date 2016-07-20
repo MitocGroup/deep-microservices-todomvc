@@ -20,4 +20,4 @@ angular.module(moduleName)
         elem.unbind('keydown');
       });
     };
-});
+  });

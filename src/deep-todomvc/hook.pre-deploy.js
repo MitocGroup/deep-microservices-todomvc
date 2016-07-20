@@ -1,7 +1,3 @@
-/* jshint undef: false, unused: false */
-/* jshint camelcase: false */
-
-
 /**
  * Created by CCristi on 5/18/16.
  */

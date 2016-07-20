@@ -24,5 +24,6 @@ module.exports = function(cb) {
   } else {
     console.log(`Skipping installing frontend dependencies for ${this.microservice.identifier}`);
     cb();
+    return;
   }
 };

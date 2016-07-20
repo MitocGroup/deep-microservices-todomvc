@@ -1,6 +1,3 @@
-/* jshint undef: false, unused: false */
-/* global System */
-
 System.config({
   baseURL: 'deep-todomvc',
   defaultJSExtensions: true,
