@@ -1,23 +1,14 @@
 #!/usr/bin/env bash
+#
+# Created by vcernomschi on 10/06/2015
+#
 
 path=$(cd $(dirname $0); pwd -P)
-npm=$(which npm)
-brew=$(which brew)
-jscs=`which jscs`
+npm=`which npm`
+eslint=`which eslint`
 
-if [ -z ${jscs} ]; then
-    if [ -z ${npm} ]; then
-        if [ -z ${brew} ]; then
-            echo "You may install Homebrew first!"
-            exit 1
-        fi
-
-        echo "Installing nodejs..."
-        ${brew} install nodejs
-
-        npm=$(which npm)
-    fi
-    ${npm} install jscs -g
+if [ -z ${eslint} ]; then
+    ${npm} -g install eslint
 fi
 
 if [ -f ${path}/../.git/hooks/pre-commit ]; then

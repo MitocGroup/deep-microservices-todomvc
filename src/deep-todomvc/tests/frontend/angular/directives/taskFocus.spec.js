@@ -1,9 +1,5 @@
 // THIS TEST WAS GENERATED AUTOMATICALLY ON 07/11/2016 13:03:24
 
-/* jshint undef: false, unused: false */
-/* global angular */
-/* global inject */
-
 'use strict';
 
 import moduleName from '../../../../frontend/js/app/angular/name';

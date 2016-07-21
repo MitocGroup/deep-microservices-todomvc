@@ -1,0 +1,42 @@
+---
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 140
+    exclude_paths:
+      - "**/tests"
+  eslint:
+    enabled: true
+    channel: "eslint-2"
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.es6"
+  - "**.module"
+exclude_paths:
+- "bin/**/*"
+- "test/**/*"
+- "**/tests"
+- "tmp/**/*"
+- "vendor/**/*"
+- ".idea/"
+- "**.spec.js"
+- "**.min.js"
+- "**.min.css"
+- "DeepFramework.js"
+- "**/frontend/_build/"
+- "**/dist"
+- "**/node_modules"
+- "**/packages"
+- "**/font-awesome.css"
+- "**/materialdesignicons.css"

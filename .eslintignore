@@ -1,0 +1,67 @@
+bin/**/*
+test/**/*
+**/tests
+**/vendor
+tmp/**/*
+**.spec.js
+**.min.js
+**.min.css
+
+# third party css files
+**/font-awesome.css
+**/materialdesignicons.css
+
+# third party js file
+*.min.js
+
+# DeepFramework
+DeepFramework.js
+
+## Directory-based project format:
+.idea/
+
+# Generated folders and files
+**/.log
+**/.sass-cache
+**/.tmp
+**/coverage
+**/coverages
+**/design.doc.json
+**/dist
+**/node_modules
+**/npm-debug.log
+**/packages
+**/quality
+**/reports
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+**/node_modules
+
+# Debug log from npm
+npm-debug.log
+
+
+#####=== DEEP ===#####
+**/src/deep-root-*
+
+# Compiled libraries
+**/compile/
+**/lib.compiled/
+
+# App specific files
+.parameters.json
+deeploy.json*
+deeploy.*.json
+
+*_config.json*
+*.provisioning.json*
+
+# Backend files
+**/backend/src/**/*.js
+**/backend/src/**/*.zip
+**/backend/src/**/*.sfv
+**/backend/src/**/_config.json
+
+# Frontend dependencies
+**/frontend/_build/
