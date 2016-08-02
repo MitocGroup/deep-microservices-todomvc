@@ -119,6 +119,11 @@ else
   export TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 fi
 
+#############################################################################################
+### Copy package.json again - fixes issue when .gitignore doesn't contain "/package.json" ###
+#############################################################################################
+cp bin/test/package.json .
+
 ############################################################################################
 ### Transpile from ES6 to ES5 by using deepify and execute to retrieve the changed stuff ###
 ############################################################################################
