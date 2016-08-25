@@ -64,14 +64,14 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
     ##########################################################
     echo "Fully initializing backend"
 
-    cd ${__SRC_PATH} && deepify compile dev "${__SRC_PATH}"
+    cd ${__SRC_PATH} && deepify install && deepify compile dev "${__SRC_PATH}"
   else
 
     ################################################################
     ### Partially initializing backend for specified identifiers ###
     ################################################################
     echo "Partially initializing backend: ${BACKEND_MICROAPP_PATHS}"
-    cd ${__SRC_PATH} && deepify compile dev -m "${BACKEND_MICROAPP_PATHS}"
+    cd ${__SRC_PATH} && deepify install && deepify compile dev -m "${BACKEND_MICROAPP_PATHS}"
   fi
 
 fi
