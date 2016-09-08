@@ -77,7 +77,9 @@ export default class GitHubMsgPublisher {
    */
   addComment(s3SumPercent, localSumPercent, callback) {
     let commentMsg;
-    let isFailed = (localSumPercent < s3SumPercent);
+
+    //failed if coverage decreased more that 1 %
+    let isFailed = ((localSumPercent + 1) < s3SumPercent);
     let failMsg = 'Failed due to decreasing coverage';
 
     //no need to add comments for !PR
