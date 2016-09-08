@@ -11,7 +11,7 @@ source $(dirname $0)/_head.sh
 (npm list -g babel-cli --depth=0 || npm install -g babel-cli) &&\
 (npm list -g babel-polyfill --depth=0 || npm install -g babel-polyfill) &&\
 (npm list -g babel-preset-es2015 --depth=0 || npm install -g babel-preset-es2015) &&\
-(npm list -g deepify@$(npm show deepify version) --depth=0 || npm install -g deepify) &&\
+( (npm list -g deepify@$(npm show deepify version) --depth=0 || npm install -g deepify) && CHECK_DEEP_PACKAGE_MANAGER) &&\
 (npm list -g jspm --depth=0 || npm install -g jspm@0.16.15)  &&\
 (npm list -g browserify --depth=0 || npm install -g browserify@11.2.x) &&\
 (npm list -g jscs --depth=0 || npm install -g jscs@2.1.x) &&\
@@ -33,6 +33,8 @@ source $(dirname $0)/_head.sh
 ###################################################
 ### Install dependencies locally if don't exist ###
 ###################################################
+(if [ ! -d "node_modules/codelyzer" ]; then npm install codelyzer; fi) &&\
+(if [ ! -d "node_modules/tslint-eslint-rules" ]; then npm install tslint-eslint-rules; fi) &&\
 (if [ ! -d "node_modules/isparta" ]; then npm install isparta@3.1.x; fi) &&\
 (if [ ! -d "node_modules/sync-exec" ]; then npm install sync-exec@^0.6.x; fi) &&\
 (if [ ! -d "node_modules/fs-extra" ]; then npm install fs-extra@0.x.x; fi) &&\
@@ -48,11 +50,21 @@ source $(dirname $0)/_head.sh
 ### for NPM: https://github.com/npm/npm/issues/5257#issuecomment-60441477 ###
 #############################################################################
 if [ -z $TRAVIS_BUILD_NUMBER ]; then
-    echo "Running locally - no need to jspm config"
+  echo "Running locally - no need to jspm config"
 else
-    echo "Running in CI - configuring jspm registries"
-    jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-    git config --local url.https://github.com/.insteadOf git://github.com/
+  echo "Running in CI - configuring jspm registries"
+  jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+  git config --local url.https://github.com/.insteadOf git://github.com/
+
+  ##########################
+  ### Configure git user ###
+  ##########################
+  if [ -z $GITHUB_OAUTH_TOKEN ]; then
+    echo "No GitHub token"
+  else
+    deepify registry config github --set "devs-deep:${GITHUB_OAUTH_TOKEN}"
+  fi
+
 fi
 
 ##################################################################

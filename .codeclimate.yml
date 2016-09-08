@@ -9,7 +9,7 @@ engines:
         javascript:
           mass_threshold: 300
     exclude_paths:
-      - "**/tests"
+      - '**/tests'
   eslint:
     enabled: true
     channel: "eslint-2"
@@ -24,20 +24,21 @@ ratings:
   - "**.es6"
   - "**.module"
 exclude_paths:
-  - "bin/**/*"
-  - "test/**/*"
-  - "**/tests"
-  - "tmp/**/*"
-  - "vendor/**/*"
-  - ".idea/"
-  - "**.spec.js"
-  - "**.min.js"
-  - "**.min.css"
-  - "DeepFramework.js"
-  - "deep-framework.js"
-  - "**/frontend/_build/"
-  - "**/dist"
-  - "**/node_modules"
-  - "**/packages"
-  - "**/font-awesome.css"
-  - "**/materialdesignicons.css"
+  - '**/bin'
+  - '**/test'
+  - '**/tests'
+  - '**/tmp'
+  - '**/vendor'
+  - '**/.idea'
+  - '**.spec.js'
+  - '**.min.js'
+  - '**.min.css'
+  - '**/frontend/_build/'
+  - '**/dist'
+  - '**/node_modules'
+  - '**/packages'
+  - '**/font-awesome.css'
+  - '**/materialdesignicons.css'
+  - '**/DeepFramework.js'
+  - '**/deep-framework.js'
+  - '**/src/deep-root-*'
