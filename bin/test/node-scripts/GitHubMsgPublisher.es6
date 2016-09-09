@@ -91,12 +91,9 @@ export default class GitHubMsgPublisher {
     if (isFailed) {
       commentMsg = `:x: coverage decreased from ${s3SumPercent}% to ${localSumPercent}%`;
     } else if (localSumPercent === s3SumPercent) {
-
-      //use it when need to add comments for the same coverage
-      //commentMsg = `:warning: coverage remained the same at ${localSumPercent}%`;
-      console.log(`:warning: coverage remained the same at ${localSumPercent}%`);
-      callback(null, null);
-      return;
+      commentMsg = `:white_check_mark: coverage remained the same at ${localSumPercent}%`;
+    } else if (-1 < localSumPercent - s3SumPercent < 0) {
+      commentMsg = `:warning: coverage decreased less than 1% from ${s3SumPercent}% to ${localSumPercent}%`;
     } else {
       commentMsg = `:white_check_mark: coverage increased from ${s3SumPercent}% to ${localSumPercent}%`;
     }
