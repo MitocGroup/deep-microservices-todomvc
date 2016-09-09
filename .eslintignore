@@ -42,10 +42,6 @@ deep-framework.js
 # Debug log from npm
 npm-debug.log
 
-
-#####=== DEEP ===#####
-**/src/deep-root-*
-
 # Compiled libraries
 **/compile/
 **/lib.compiled/
@@ -71,3 +67,6 @@ deeploy.*.json
 config.core.js
 config.system.js
 config.test.js
+
+#####=== DEEP ===#####
+**/src/deep-root-*

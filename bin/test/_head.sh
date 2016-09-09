@@ -212,3 +212,23 @@ eval_or_exit() {
     exit 1
   fi
 }
+
+#####################################################################################
+### Checks if deep-package-magager has latest version otherwise reinstall deepify ###
+### Arguments:                                                                    ###
+###   None                                                                        ###
+### Returns:                                                                      ###
+###   None                                                                        ###
+#####################################################################################
+CHECK_DEEP_PACKAGE_MANAGER() {
+  local CURRENT_DPM_VERSION
+  local LATEST_DPM_VERSION
+
+  LATEST_DPM_VERSION=`npm show deep-package-manager version`
+  CURRENT_DPM_VERSION=`npm list -g --depth=3 | grep deep-package-manager | cut -d"@" -f 2`
+
+  if [ "${LATEST_DPM_VERSION}" != "${CURRENT_DPM_VERSION}" ]; then
+    echo "Reinstall deepify due to deep-package-manager updates"
+    `npm install -g deepify`
+  fi
+}

@@ -4,10 +4,10 @@ eslintConfig:
 ecmaFeatures:
   modules: true
   jsx: true
-  arrowFunctions: true,
-  blockBindings: true,
-  classes: true,
-  defaultParams: true,
+  arrowFunctions: true
+  blockBindings: true
+  classes: true
+  defaultParams: true
 
 env:
   amd: true
