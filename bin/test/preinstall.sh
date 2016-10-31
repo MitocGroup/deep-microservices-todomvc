@@ -38,7 +38,7 @@ source $(dirname $0)/_head.sh
 (if [ ! -d "node_modules/isparta" ]; then npm install isparta@3.1.x; fi) &&\
 (if [ ! -d "node_modules/sync-exec" ]; then npm install sync-exec@^0.6.x; fi) &&\
 (if [ ! -d "node_modules/fs-extra" ]; then npm install fs-extra@0.x.x; fi) &&\
-(if [ ! -d "node_modules/github" ]; then npm install github; fi) &&\
+(if [ ! -d "node_modules/github" ]; then npm install github@3.1.0; fi) &&\
 (if [ ! -d "node_modules/aws-sdk" ]; then npm install aws-sdk; fi) &&\
 (if [ ! -d "node_modules/s3" ]; then npm install s3; fi) &&\
 (if [ ! -d "node_modules/node-dir" ]; then npm install node-dir; fi) &&\
