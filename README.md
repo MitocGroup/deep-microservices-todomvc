@@ -86,7 +86,7 @@ Having questions related to deep-microservices-todomvc?
 
 - Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
 - Chat with us: https://mitocgroup.slack.com/messages/general
-- Send an email: feedback@deep.mg
+- Send an email: feedback@mitocgroup.com
 
 Interested in contributing to deep-microservices-todomvc?
 
@@ -99,14 +99,14 @@ Looking for web applications that use (or are similar to) deep-microservices-tod
 
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
 - Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todomvc
-- Enterprise Software Marketplace: https://www.deep.mg
+- AdTechMedia: https://www.adtechmedia.io | https://github.com/AdTechMedia/adtechmedia-website
 
 
 ## Sponsors
 
 This repository is being sponsored by:
 - [Mitoc Group](https://www.mitocgroup.com)
-- [DEEP Marketplace](https://www.deep.mg)
+- [AdTechMedia](https://www.adtechmedia.io)
 
 This code can be used under MIT license:
 > See [LICENSE](https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/LICENSE) for more details.
