@@ -17,8 +17,8 @@ class DeepTodoController {
   constructor($scope, $filter, deepTodoService, deepLoginService) {
     this.deepLog = DeepFramework.Kernel.container.get('log');
     this.title = '';
-    $scope.todoService = deepTodoService;
     this.todoService = deepTodoService;
+    $scope.todoService = deepTodoService;
     $scope.todoList = deepTodoService.todoList;
 
     $scope.$watch(() => deepTodoService.todoList, () => {
