@@ -691,7 +691,7 @@ DeepFramework.Kernel.load({
   "globals": {
     "logDrivers": {
       "sentry": {
-        "dns": "https://905e3e7244fe432993751cb500b56b4d:3527453acb2c47bf9aa66707c65cc31d@app.getsentry.com/48093"
+        "dsn": "https://905e3e7244fe432993751cb500b56b4d:3527453acb2c47bf9aa66707c65cc31d@app.getsentry.com/48093"
       }
     },
     "userProviderEndpoint": "@deep-mg-account:user-retrieve",
@@ -718,5 +718,6 @@ DeepFramework.Kernel.load({
   },
   "tablesNames": {
     "Todo": "DeepProdTododb0c09cc",
-  }
+  },
+  "validationSchemas": [],
 }, function(){});
