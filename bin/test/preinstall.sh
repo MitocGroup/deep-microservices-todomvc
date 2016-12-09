@@ -20,9 +20,9 @@ source $(dirname $0)/_head.sh
 (npm list -g jasmine-core --depth=0 || npm install -g jasmine-core@2.3.x) &&\
 (npm list -g istanbul@^1.0.0-alpha --depth=0 || npm install -g istanbul@^1.0.0-alpha) &&\
 (npm list -g istanbul-combine --depth=0 || npm install -g istanbul-combine@0.3.x) &&\
-(npm list -g karma --depth=0 || npm install -g karma@0.13.x) &&\
+(npm list -g karma@0.13.x --depth=0 || npm install -g karma@0.13.x) &&\
 (npm list -g karma-jspm --depth=0 || npm install -g karma-jspm@2.0.x) &&\
-(npm list -g karma-jasmine --depth=0 || npm install -g karma-jasmine@0.3.x) &&\
+(npm list -g karma-jasmine@0.3.x --depth=0 || npm install -g karma-jasmine@0.3.x) &&\
 (npm list -g karma-babel-preprocessor --depth=0 || npm install -g karma-babel-preprocessor@5.2.x) &&\
 (npm list -g karma-coverage@1.0.x --depth=0 || npm install -g karma-coverage@1.0.x) &&\
 (npm list -g karma-verbose-reporter --depth=0 || npm install -g karma-verbose-reporter@0.0.x) &&\
