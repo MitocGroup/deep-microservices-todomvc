@@ -11,7 +11,8 @@ source $(dirname $0)/_head.sh
 if [ "${TEST_SUITE}" == "$__BACKEND" ] && \
    ([ "${BACKEND_MICROAPP_PATHS}" != "$__NONE" ] || [ "${FRONTEND_MICROAPP_PATHS}" != "$__NONE" ]) && \
    ([ "${__E2E_WITH_PUBLIC_REPO}" = "${E2E_TESTING}" ] || ([ "${__E2E_WITH_PRIVATE_REPO}" = "${E2E_TESTING}" ] && \
-   [ "${CI_FULL}" == "true" ] )); then
+   [ "${CI_FULL}" == "true" ] )) && \
+   [ "${__TRAVIS_NODE_MAJOR_VERSION}" -ge "7" ]; then
 
 
   __PROTRACTOR_CONFIG_PATH=$(find ${__SRC_PATH} -name protractor.config.js -type f -maxdepth 4)
