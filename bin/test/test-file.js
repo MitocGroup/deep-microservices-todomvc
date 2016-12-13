@@ -17,3 +17,7 @@ compileDev.stderr.on('data', (data) => {
 compileDev.on('close', (code) => {
   console.log(`child process exited with code ${code}`);
 });
+
+compileDev.on('uncaughtException', (uncaughtException) => {
+  console.log(`child process exited with uncaughtException ${uncaughtException}`);
+});
