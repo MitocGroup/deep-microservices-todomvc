@@ -58,7 +58,7 @@ let S3CoverageSynchronizer = function () {
   }, {
     key: 'BUCKET_NAME',
     get: function get() {
-      return process.env.S3_BUCKET_NAME;
+      return process.env.AWS_S3_BUCKET;
     }
 
     /**
