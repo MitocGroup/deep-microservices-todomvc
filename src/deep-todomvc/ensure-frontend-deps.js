@@ -10,7 +10,7 @@ module.exports = function(cb) {
   let process = require('child_process');
   let frontendPath = this.microservice.autoload.frontend;
 
-  if (!fs.existsSync(path.join(frontendPath, 'js', 'vendor'))) {
+  if (!fs.existsSync(path.join(frontendPath, 'js', 'vendor')) && path.basename(frontendPath) !== '_build') {
     process.exec('jspm install', {
       'cwd': path.join(frontendPath, 'js')
     }, error => {
