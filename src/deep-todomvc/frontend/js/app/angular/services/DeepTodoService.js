@@ -31,7 +31,7 @@ class DeepTodoService {
     };
 
     this.todoList.push(newTask);
-    this.todoResource.request('create', newTask, 'POST').send((response) => {
+    this.todoResource.request('create', Object.assign({}, newTask), 'POST').send((response) => {
       if (response.isError) {
         defer.reject(response.error);
       } else {
