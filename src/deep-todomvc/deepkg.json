@@ -10,12 +10,8 @@
     "website": "http://www.mitocgroup.com"
   },
   "contributors": [
-    {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
-    }
   ],
-  "frontendEngine": ["angular"],
+  "frontendEngine": ["angular1"],
   "dependencies": {
   }
 }
