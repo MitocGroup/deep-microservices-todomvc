@@ -118,3 +118,4 @@ _vars.sh
 **/.sass-cache/
 **/coverage/
 **/coverages/
+src/deep-todomvc/backend/vendor
