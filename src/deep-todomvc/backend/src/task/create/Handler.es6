@@ -19,9 +19,9 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     TaskModel.createItem(requestData, (err, task) => {
       if (err) {
         throw new DeepFramework.Core.Exception.DatabaseOperationException(err);
+      } else {
+        return this.createResponse(task.get()).send();
       }
-
-      return this.createResponse(task.get()).send();
     });
   }
 
