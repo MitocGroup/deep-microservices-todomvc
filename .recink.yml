@@ -1,0 +1,65 @@
+---
+$:
+  preprocess:
+    '$.coverage.compare.storage.options.1.region': 'eval'
+    '$.coverage.compare.storage.options.1.accessKeyId': 'eval'
+    '$.coverage.compare.storage.options.1.secretAccessKey': 'eval'
+    '$.cache.options.1.region': 'eval'
+    '$.cache.options.1.accessKeyId': 'eval'
+    '$.cache.options.1.secretAccessKey': 'eval'
+    '$.codeclimate.token': 'eval'
+    '$.snyk.token': 'eval'
+  cache:
+    driver: 's3'
+    options:
+      - 's3://travis-metadata/cache/MitocGroup/deep-microservices-todomvc'
+      -
+        region: 'process.env.AWS_DEFAULT_REGION'
+        accessKeyId: 'process.env.AWS_ACCESS_KEY_ID'
+        secretAccessKey: 'process.env.AWS_SECRET_ACCESS_KEY'
+  npm:
+    scripts:
+      - 'compile'
+  emit:
+    pattern:
+      - /^test\/.+\.spec\.js$/i
+    ignore:
+      - /^(.*\/)?node_modules(\/?$)?/i
+  test:
+    mocha:
+      options:
+        check-leaks: true
+        retries: 2
+    pattern:
+      - /.+\.spec\.js$/i
+    ignore: ~
+  coverage:
+    pattern:
+      - /.+\.js$/i
+    ignore:
+      - /.+\.spec\.js$/i
+      - /^(.*\/)?node_modules(\/?$)?/i
+    reporters:
+      text-summary: ~
+      lcovonly:
+        file: ./coverage.lcov
+    compare:
+      negative-delta: 1
+      storage:
+        driver: 's3'
+        options:
+          - 's3://travis-metadata/coverage/MitocGroup/deep-microservices-todomvc'
+          -
+            region: 'process.env.AWS_DEFAULT_REGION'
+            accessKeyId: 'process.env.AWS_ACCESS_KEY_ID'
+            secretAccessKey: 'process.env.AWS_SECRET_ACCESS_KEY'
+  codeclimate:
+    token: 'process.env.CODECLIMATE_REPO_TOKEN'
+  snyk:
+    token: 'process.env.SNYK_API_TOKEN'
+
+### Add other modules here...
+task-create:
+  root: src/deep-todomvc/backend/src/task/create
+
+

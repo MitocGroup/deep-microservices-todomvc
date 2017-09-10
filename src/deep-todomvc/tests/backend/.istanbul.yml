@@ -1,4 +1,0 @@
-instrumentation:
-  root: ../../backend/src
-  extensions:
-    - .js

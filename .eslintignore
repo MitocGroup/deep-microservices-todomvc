@@ -29,7 +29,6 @@ deep-framework.js
 **/coverages
 **/design.doc.json
 **/dist
-**/node_modules
 **/npm-debug.log
 **/packages
 **/quality
