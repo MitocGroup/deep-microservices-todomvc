@@ -2,7 +2,7 @@ deep-microservices-todomvc
 ==========================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todomvc.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todomvc)
-[![Test Coverage](https://codeclimate.com/repos/5789fe4df7959a008800646f/badges/08d47d9987094bf3b3b1/coverage.svg)](https://codeclimate.com/repos/5789fe4df7959a008800646f/coverage)
+[![Test Coverage](https://codeclimate.com/github/MitocGroup/deep-microservices-todomvc/badges/coverage.svg?maxAge=0)](https://codeclimate.com/github/MitocGroup/deep-microservices-todomvc)
 
 deep-microservices-todomvc is a sample microservice inspired from [todomvc.com](http://todomvc.com).
 It is built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and reuses
