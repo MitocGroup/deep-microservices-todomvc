@@ -1,7 +1,7 @@
 {
-  "name": "eep-microservices-todomvc",
+  "name": "deep-microservices-todomvc",
   "version": "0.0.1",
-  "author": "MitocGroup team",
+  "author": "Mitoc Group Team",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2"
