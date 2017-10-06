@@ -18,12 +18,13 @@ $:
         accessKeyId: 'process.env.AWS_ACCESS_KEY_ID'
         secretAccessKey: 'process.env.AWS_SECRET_ACCESS_KEY'
   npm:
-    scripts:
-      - 'compile'
+    scripts: []
   emit:
     pattern:
-      - /^test\/.+\.spec\.js$/i
+      - /.+\.js$/i
     ignore:
+      - /^(.*\/)?backend(\/?$)?/i
+      - /^(.*\/)?frontend(\/?$)?/i
       - /^(.*\/)?node_modules(\/?$)?/i
   test:
     mocha:
@@ -59,5 +60,5 @@ $:
     token: 'process.env.SNYK_API_TOKEN'
 
 ### Add other modules here...
-task-create:
-  root: src/deep-todomvc/backend/src/task/create
+deep-todomvc:
+  root: src/deep-todomvc
