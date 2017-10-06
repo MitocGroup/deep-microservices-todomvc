@@ -60,5 +60,5 @@ $:
     token: 'process.env.SNYK_API_TOKEN'
 
 ### Add other modules here...
-test-microservice:
+deep-todomvc:
   root: src/deep-todomvc
