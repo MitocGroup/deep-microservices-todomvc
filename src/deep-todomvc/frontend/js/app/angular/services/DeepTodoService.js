@@ -212,10 +212,10 @@ class DeepTodoService {
     }
 
     this.updateTask(todo)
-        .then(() => {})
-        .catch(() => {
-          todo.Completed = !todo.Completed;
-        });
+      .then(() => {})
+      .catch(() => {
+        todo.Completed = !todo.Completed;
+      });
   }
 
   /**
