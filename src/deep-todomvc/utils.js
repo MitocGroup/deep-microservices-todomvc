@@ -8,6 +8,17 @@ const { spawn } = require('child_process');
 const msPath = path.join(__dirname);
 
 /**
+ * Print filtered output
+ * @param {string} str
+ * @param {RegExp} regexp
+ */
+function filterLog(str, regexp) {
+  if (regexp.test(str)) {
+    console.log(str.trim());
+  }
+}
+
+/**
  * Run child shell command
  * @param {string} cmd
  * @param {RegExp} filerRegexp
@@ -33,17 +44,6 @@ function runChildCmd(cmd, filerRegexp = /.*/) {
   });
 }
 
-/**
- * Print filtered output
- * @param {string} str
- * @param {RegExp} regexp
- */
-function filterLog(str, regexp) {
-  if (regexp.test(str)) {
-    console.log(str.trim());
-  }
-}
-
 exports.runChildCmd = runChildCmd;
 
 /**
@@ -53,7 +53,8 @@ exports.runChildCmd = runChildCmd;
  */
 function getDeepFramework(downloadTo) {
   return new Promise((resolve, reject) => {
-    const deepFramework = 'https://raw.githubusercontent.com/MitocGroup/deep-framework/master/src/deep-framework/browser/framework.js';
+    const deepFramework =
+      'https://raw.githubusercontent.com/MitocGroup/deep-framework/master/src/deep-framework/browser/framework.js';
 
     https.get(deepFramework, res => {
       let rawData = '';

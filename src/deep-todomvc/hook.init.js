@@ -25,7 +25,9 @@ module.exports = function (callback) {
 
       const apiTmpl = `<!doctype html><html lang="en"><head><title>ng-todo</title></head><body></body></html>`;
       fs.writeFile(`${buildPath}/index.html`, apiTmpl, (err) => {
-        if (err) throw err;
+        if (err) {
+          throw err;
+        }
 
         callback();
       });

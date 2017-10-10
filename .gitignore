@@ -8,6 +8,7 @@ src/deeploy.json
 src/*.provisioning.json*
 src/**/.parameters.json
 src/**/*_config.json
+src/**/deep-framework.min.js
 
 # Dependencies
 **/node_modules
