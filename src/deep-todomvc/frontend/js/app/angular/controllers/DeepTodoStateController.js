@@ -24,6 +24,5 @@ class DeepTodoStateController {
 angular.module(moduleName).controller('DeepTodoStateController',
   ['$scope',  '$stateParams', (...args) => {
     return new DeepTodoStateController(...args);
-  },]
-
+  }]
 );
