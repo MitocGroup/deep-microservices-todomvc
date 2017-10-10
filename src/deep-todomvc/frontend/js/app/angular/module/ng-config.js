@@ -8,6 +8,8 @@ class Config {
   }
 }
 
-angular.module(moduleName).config([function(...args) {
-  return new Config(...args);
-},]);
+angular.module(moduleName).config(
+  [(...args) => {
+    return new Config(...args);
+  }]
+);

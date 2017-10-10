@@ -27,7 +27,7 @@ class DeepTodoService {
     let defer = this.$q.defer();
     let newTask = {
       Title: title.trim(),
-      Completed: false,
+      Completed: false
     };
 
     this.todoList.push(newTask);
@@ -197,7 +197,7 @@ class DeepTodoService {
   todoNgClass(todo) {
     return {
       completed: todo.Completed,
-      editing: this.isEditing(todo),
+      editing: this.isEditing(todo)
     };
   }
 
@@ -252,6 +252,8 @@ class DeepTodoService {
   }
 }
 
-angular.module(moduleName).service('deepTodoService', ['$q', (...args) => {
-  return new DeepTodoService(...args);
-},]);
+angular.module(moduleName).service('deepTodoService',
+  ['$q', (...args) => {
+    return new DeepTodoService(...args);
+  }]
+);

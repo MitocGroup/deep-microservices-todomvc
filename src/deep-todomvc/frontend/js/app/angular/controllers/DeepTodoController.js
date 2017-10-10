@@ -118,6 +118,5 @@ class DeepTodoController {
 angular.module(moduleName).controller('DeepTodoController',
   ['$scope', '$filter', 'deepTodoService', 'deepLoginService', (...args) => {
     return new DeepTodoController(...args);
-  },]
-
+  }]
 );

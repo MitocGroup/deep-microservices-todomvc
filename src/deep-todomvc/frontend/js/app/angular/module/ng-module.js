@@ -4,5 +4,5 @@
 import moduleName from '../name';
 
 angular.module(moduleName, [
-  'ui.router',
+  'ui.router'
 ]);

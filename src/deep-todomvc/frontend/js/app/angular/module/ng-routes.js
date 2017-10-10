@@ -11,17 +11,17 @@ var routes = {
     controller: 'DeepTodoController',
     controllerAs: 'todoCtrl',
     data: {
-      pageTitle: 'DEEP Framework • TodoMVC',
-    },
+      pageTitle: 'DEEP Framework • TodoMVC'
+    }
   },
   'app.todo': {
     url: '/:status',
     views: {
       'todo': {
         controller: 'DeepTodoStateController',
-        templateUrl: deepAsset.locate('@deep-todomvc:js/app/angular/views/todo.html'),
-      },
-    },
+        templateUrl: deepAsset.locate('@deep-todomvc:js/app/angular/views/todo.html')
+      }
+    }
   }
 };
 
@@ -37,8 +37,10 @@ class Config {
   }
 }
 
-angular.module(moduleName).config(['$stateProvider', '$urlRouterProvider', (...args) => {
-  return new Config(...args);
-},]);
+angular.module(moduleName).config(
+  ['$stateProvider', '$urlRouterProvider', (...args) => {
+    return new Config(...args);
+  }]
+);
 
 export default routes;
