@@ -1,28 +1,43 @@
 'use strict';
 
-module.exports = function(callback) {
-  if (!this.microservice.property.rootMicroservice) {
-    console.error('Seems like there is no root microservice to copy learn.json to. Skipping...');
-    callback();
-    return;
-  }
+const fs = require('fs');
+const path = require('path');
 
-  var exec = require('child_process').exec;
-  var path = require('path');
+const { runChildCmd, getDeepFramework } = require('./utils');
 
-  var source = path.join(this.microservice.autoload.frontend, 'learn.json');
-  var dist = this.microservice.property.rootMicroservice.autoload.frontend;
-  var ensureFrontendDeps = require('./ensure-frontend-deps');
+const frontendPath = path.join(__dirname, 'frontend');
+const buildPath = path.join(frontendPath, '_build');
 
-  exec('cp ' + source + ' ' + dist, (error) => {
-    if (error) {
-      console.error('Error while copying learn.json', error);
-      callback();
-      return;
+module.exports = function (callback) {
+  const appParams = this.microservice.parameters;
+  const runAsApi = appParams.backend.runAsApi;
+
+  console.log('Downloading latest deep-framework from GitHub');
+  getDeepFramework(`${frontendPath}/src/assets/js`).then(() => {
+
+    console.log('Clean-up build directory');
+    return runChildCmd('rm -rf frontend/_build/*');
+
+  }).then(() => {
+
+    if (runAsApi) {
+      console.warn('Running in API mode');
+
+      const apiTmpl = `<!doctype html><html lang="en"><head><title>ng-todo</title></head><body></body></html>`;
+      fs.writeFile(`${buildPath}/index.html`, apiTmpl, (err) => {
+        if (err) throw err;
+
+        callback();
+      });
+    } else {
+      console.warn('Running in full-stack mode');
+
+      runChildCmd('cd frontend && npm run build').then(() => {
+        callback();
+      });
     }
 
-    console.log('learn.json was successfully copied into deep-root-angular');
-
-    ensureFrontendDeps.call(this, callback);
+  }).catch(err => {
+    throw err;
   });
 };

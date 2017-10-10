@@ -18,24 +18,6 @@
       "methods": ["GET"],
       "source": "src/task/retrieve"
     },
-    "delete": {
-      "description": "Lambda that deletes todo task",
-      "type": "lambda",
-      "engine": {
-        "memory": 512
-      },
-      "methods": ["DELETE"],
-      "source": "src/task/delete"
-    },
-    "deleteCompleted": {
-      "description": "Lambda that deletes completed todo task",
-      "type": "lambda",
-      "engine": {
-        "memory": 512
-      },
-      "methods": ["POST"],
-      "source": "src/task/delete-completed"
-    },
     "update": {
       "description": "Lambda that updates todo task",
       "type": "lambda",
@@ -45,14 +27,14 @@
       "methods": ["PUT"],
       "source": "src/task/update"
     },
-    "markAll": {
-      "description": "Lambda that marks or unmarks all todo tasks",
+    "delete": {
+      "description": "Lambda that deletes todo task",
       "type": "lambda",
       "engine": {
         "memory": 512
       },
-      "methods": ["POST"],
-      "source": "src/task/mark-all"
+      "methods": ["DELETE"],
+      "source": "src/task/delete"
     }
   }
 }

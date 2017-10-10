@@ -1,31 +1,11 @@
 {
-  "name": "deep-todo-task-delete",
+  "name": "ng-todo-task-delete",
   "version": "0.0.1",
-  "description": "Delete a todo",
-  "author": {
-    "name": "Mitoc Group",
-    "email": "hello@mitocgroup.com",
-    "website": "http://www.mitocgroup.com"
-  },
-  "contributors": [
-    {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/MitocGroup/deep-microservices-todomvc/issues"
-  },
-  "keywords": [
-    "DEEP",
-    "DEEP TodoMVC"
-  ],
-  "scripts": {
-    "postinstall": "npm run compile",
-    "compile": "deepify compile es6 `pwd`"
-  },
+  "description": "Delete task/tasks",
   "dependencies": {
-    "deep-framework": "^1.x.x"
+    "aws-sdk": "^2.130.0",
+    "deep-framework": "^1.x.x",
+    "dtrace-provider": "^0.8.5"
   },
   "private": true
 }

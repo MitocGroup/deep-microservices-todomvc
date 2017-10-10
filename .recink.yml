@@ -31,6 +31,7 @@ $:
       options:
         check-leaks: true
         retries: 2
+        timeout: 6000
     pattern:
       - /.+\.spec\.js$/i
     ignore: ~
@@ -59,6 +60,5 @@ $:
   snyk:
     token: 'process.env.SNYK_API_TOKEN'
 
-### Add other modules here...
 deep-todomvc:
   root: src/deep-todomvc

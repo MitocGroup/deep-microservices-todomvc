@@ -15,31 +15,19 @@ engines:
     channel: "eslint-2"
   fixme:
     enabled: true
+
 ratings:
   paths:
   - "**.css"
-  - "**.inc"
   - "**.js"
-  - "**.jsx"
-  - "**.es6"
-  - "**.module"
+
 exclude_paths:
   - '**/bin'
   - '**/docs'
-  - '**/test'
   - '**/tests'
-  - '**/tmp'
-  - '**/vendor'
   - '**/.idea'
   - '**.spec.js'
   - '**.min.js'
   - '**.min.css'
   - '**/frontend/_build/'
-  - '**/dist'
   - '**/node_modules'
-  - '**/packages'
-  - '**/font-awesome.css'
-  - '**/materialdesignicons.css'
-  - '**/DeepFramework.js'
-  - '**/deep-framework.js'
-  - '**/src/deep-root-*'

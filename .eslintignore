@@ -1,71 +1,29 @@
-bin/**/*
-test/**/*
-**/tests
-**/vendor
-tmp/**/*
-**.spec.js
+# IDE
+.idea/
+
+# Dependencies
+**/node_modules
 **.min.js
 **.min.css
 
-# third party css files
-**/font-awesome.css
-**/materialdesignicons.css
-
-# third party js file
-*.min.js
-
-# DeepFramework
-DeepFramework.js
-deep-framework.js
-
-## Directory-based project format:
-.idea/
+# Tests
+**.spec.js
+**/tests
 
 # Generated folders and files
 **/.log
 **/.sass-cache
 **/.tmp
-**/coverage
-**/coverages
+**/coverage*
 **/design.doc.json
 **/dist
 **/npm-debug.log
-**/packages
-**/quality
-**/reports
 
-# Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-**/node_modules
-
-# Debug log from npm
-npm-debug.log
-
-# Compiled libraries
-**/compile/
-**/lib.compiled/
-
-# App specific files
+# Deep related
 .parameters.json
 deeploy.json*
 deeploy.*.json
-
 *_config.json*
 *.provisioning.json*
-
-# Backend files
-**/backend/src/**/*.js
-**/backend/src/**/*.zip
-**/backend/src/**/*.sfv
-**/backend/src/**/_config.json
-
-# Frontend dependencies
 **/frontend/_build/
-
-# Jspm config file
-config.core.js
-config.system.js
-config.test.js
-
-#####=== DEEP ===#####
-**/src/deep-root-*
+**/backend/src/**/*.zip

@@ -1,35 +1,11 @@
 {
-  "name": "deep-todo-task-create",
+  "name": "ng-todo-task-create",
   "version": "0.0.1",
-  "description": "Create a task item",
-  "author": {
-    "name": "Mitoc Group",
-    "email": "hello@mitocgroup.com",
-    "website": "http://www.mitocgroup.com"
-  },
-  "contributors": [
-    {
-      "name": "Diana Rosca",
-      "email": "drosca@mitocgroup.com"
-    },
-    {
-      "name": "Maxim Ponomariov",
-      "email": "mponomariov@mitocgroup.com"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/MitocGroup/deep-microservices-todomvc/issues"
-  },
-  "keywords": [
-    "DEEP",
-    "DEEP TodoMVC"
-  ],
-  "scripts": {
-    "postinstall": "npm run compile",
-    "compile": "deepify compile es6 `pwd`"
-  },
+  "description": "Create a task",
   "dependencies": {
-    "deep-framework": "^1.x.x"
+    "aws-sdk": "^2.130.0",
+    "deep-framework": "^1.x.x",
+    "dtrace-provider": "^0.8.5"
   },
   "private": true
 }
