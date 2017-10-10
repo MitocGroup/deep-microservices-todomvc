@@ -1,11 +1,15 @@
 /* global System */
 'use strict';
-'format es6';
 
-export function configLoad() {
+function configLoad() {
   return System.import('/deep-todomvc/js/config.core.js');
 }
 
-export default function todo() {
+function todo() {
   return System.import('/deep-todomvc/js/app/angular/index.js');
 }
+
+module.exports = {
+  configLoad: configLoad,
+  default: todo
+};

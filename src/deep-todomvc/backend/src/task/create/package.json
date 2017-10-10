@@ -29,7 +29,9 @@
     "compile": "deepify compile es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "^1.x.x"
+    "aws-sdk": "^2.130.0",
+    "deep-framework": "^1.x.x",
+    "dtrace-provider": "^0.8.5"
   },
   "private": true
 }
