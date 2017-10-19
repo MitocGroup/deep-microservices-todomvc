@@ -66,10 +66,10 @@ Having questions related to deep-microservices-todomvc?
 
 Interested in contributing to deep-microservices-todomvc?
 
-- [Contributing][8]
-- [Issue tracker][9]
-- [Releases][10]
-- [Roadmap][11]
+- [Contributing][7]
+- [Issue tracker][8]
+- [Releases][9]
+- [Roadmap][10]
 
 ## Sponsors
 
@@ -78,7 +78,7 @@ This repository is being sponsored by:
 - [AdTechMedia](https://www.adtechmedia.io)
 
 This code can be used under MIT license:
-> See [LICENSE][1] for more details.
+> See [LICENSE][11] for more details.
 
 [1]: http://todomvc.com
 [2]: https://cli.angular.io
@@ -86,8 +86,8 @@ This code can be used under MIT license:
 [4]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/docs/pre-requisites.md
 [5]: http://localhost:8000
 [6]: http://localhost:4200
-[7]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/docs/LICENSE
-[8]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/docs/CONTRIBUTING.md
-[9]: https://github.com/MitocGroup/deep-microservices-todomvc/issues
-[10]: https://github.com/MitocGroup/deep-microservices-todomvc/releases
-[11]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/ROADMAP.md
+[7]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/docs/CONTRIBUTING.md
+[8]: https://github.com/MitocGroup/deep-microservices-todomvc/issues
+[9]: https://github.com/MitocGroup/deep-microservices-todomvc/releases
+[10]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/ROADMAP.md
+[11]: https://github.com/MitocGroup/deep-microservices-todomvc/blob/master/docs/LICENSE
