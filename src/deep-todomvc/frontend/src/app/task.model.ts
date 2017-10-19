@@ -1,10 +1,11 @@
 export class Task {
-  public Id: string;
   public Title: string;
+  public Editing: boolean;
   public Completed: boolean;
 
-  constructor(title: string, completed = false) {
+  constructor(title: string) {
     this.Title = title.trim();
+    this.Editing = false;
     this.Completed = false;
   }
 }

@@ -27,8 +27,9 @@ export class AppComponent implements OnInit {
   }
 
   onCreate() {
-    this.taskService.create(this.taskInput).then((task: Task) => {
-      this.taskList.push(task);
+    let task = new Task(this.taskInput);
+    this.taskService.create(task).then((dbTask: Task) => {
+      this.taskList.push(dbTask);
       this.taskInput = '';
     });
   }
@@ -59,6 +60,21 @@ export class AppComponent implements OnInit {
           this.completedList = [];
         }
       });
+    }
+  }
+
+  editMode(task: Task, mode: boolean) {
+    task.Editing = mode;
+  }
+
+  onUpdate(task: Task, title: string) {
+    task.Title = title.trim();
+    task.Editing = false;
+
+    if (task.Title.length === 0) {
+      this.onRemove(task);
+    } else {
+      this.taskService.update(task).then(() => {});
     }
   }
 

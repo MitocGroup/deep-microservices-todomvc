@@ -9,11 +9,11 @@ export class TaskService {
 
   /**
    * Create new task
-   * @param {string} title
+   * @param {Task} task
    * @returns {Promise<Task>}
    */
-  public create(title: string) {
-    return this.deepRequest('create', new Task(title));
+  public create(task: Task) {
+    return this.deepRequest('create', task);
   }
 
   /**
