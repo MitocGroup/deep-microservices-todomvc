@@ -19,6 +19,32 @@ function filterLog(str, regexp) {
 }
 
 /**
+ * Get YYYY-MM-DD format from date
+ * @param {Date} date
+ * @returns {string}
+ */
+function getIsoDate(date) {
+  return date.toISOString().substring(0, 10);
+}
+
+/**
+ * Check if DeepFramework exists and is valid
+ * @param deepFwFullPath
+ * @returns {boolean}
+ */
+function isDeepFrameworkValid(deepFwFullPath) {
+  if (fs.existsSync(deepFwFullPath)) {
+    let stat = fs.statSync(deepFwFullPath);
+
+    if (getIsoDate(stat.birthtime) === getIsoDate(new Date())) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
  * Run child shell command
  * @param {string} cmd
  * @param {RegExp} filerRegexp
@@ -52,6 +78,13 @@ exports.runChildCmd = runChildCmd;
  * @returns {Promise}
  */
 function getDeepFramework(downloadTo) {
+  const deepFwFileName = 'deep-framework.min.js';
+  const deepFwFullPath = path.resolve(downloadTo, deepFwFileName);
+
+  if (isDeepFrameworkValid(deepFwFullPath)) {
+    return Promise.resolve();
+  }
+
   return new Promise((resolve, reject) => {
     const deepFramework =
       'https://raw.githubusercontent.com/MitocGroup/deep-framework/master/src/deep-framework/browser/framework.js';
@@ -61,7 +94,7 @@ function getDeepFramework(downloadTo) {
 
       res.on('data', data => {rawData += data;});
       res.on('end', () => {
-        fs.writeFileSync(path.resolve(downloadTo, 'deep-framework.min.js'), rawData);
+        fs.writeFileSync(deepFwFullPath, rawData);
         resolve();
       });
     }).on('error', err => {
