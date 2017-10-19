@@ -17,7 +17,7 @@ Make sure that you have [proper software][4] installed
 
 1. Clone repository
 2. Go to `src/deep-todomvc` directory
-3. Prepare backend by running `npm run prepare-backend -- dev`
+3. Prepare backend by running `npm run prepare-backend`
 4. Prepare frontend by running `npm run prepare-frontend`
 5. Go back to `src` directory
 6. Run Microservice in Development mode
@@ -38,7 +38,7 @@ deepify server ./
 
 After your development work is done just run (from `src` directory):
 
- * Compile backend: `npm run prepare-backend -- prod`
+ * Compile backend: `deepify compile prod`
  * Deploy the application: `deepify deploy`
 
 > Amazon CloudFront distribution takes up to 20 minutes to provision, therefore don’t worry

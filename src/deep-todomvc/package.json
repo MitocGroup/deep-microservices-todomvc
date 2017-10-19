@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Deep todo microapplication",
   "scripts": {
-    "prepare-backend": "cd ../ && deepify compile",
+    "prepare-backend": "cd ../ && deepify compile dev",
     "prepare-frontend": "cd frontend && npm install"
   },
   "author": "ddimitrioglo",
