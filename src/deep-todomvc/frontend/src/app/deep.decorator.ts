@@ -30,12 +30,13 @@ export function Deep(config) {
    * Execute deep-request
    * @param {string} action
    * @param {object} payload
+   * @param {string} method
    * @returns {Promise}
    */
-  function deepRequest(action: string, payload = {}): Promise<any> {
+  function deepRequest(action: string, payload: object, method = 'GET'): Promise<any> {
     return getResource().then(resource => {
       return new Promise((resolve, reject) => {
-        resource.request(action, payload).send(response => {
+        resource.request(action, payload, method).send(response => {
           if (response.isError) {
             return reject(response.error);
           }

@@ -7,5 +7,9 @@
     "deep-framework": "^1.x.x",
     "dtrace-provider": "^0.8.5"
   },
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "deepify compile es6 `pwd`"
+  },
   "private": true
 }

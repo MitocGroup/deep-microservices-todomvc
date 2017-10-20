@@ -13,7 +13,7 @@ export class TaskService {
    * @returns {Promise<Task>}
    */
   public create(task: Task) {
-    return this.deepRequest('create', task);
+    return this.deepRequest('create', task, 'POST');
   }
 
   /**
@@ -30,7 +30,7 @@ export class TaskService {
    * @returns {Promise<Task> | Promise<Task[]>}
    */
   public update(data: Task|Task[]) {
-    return this.deepRequest('update', data);
+    return this.deepRequest('update', data, 'PUT');
   }
 
   /**
@@ -39,7 +39,7 @@ export class TaskService {
    * @returns {Promise<Task> | Promise<Task[]>}
    */
   public remove(data: Task|Task[]) {
-    return this.deepRequest('delete', data);
+    return this.deepRequest('delete', data, 'POST');
   }
 
 }

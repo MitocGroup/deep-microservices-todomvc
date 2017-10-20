@@ -33,7 +33,7 @@
       "engine": {
         "memory": 512
       },
-      "methods": ["DELETE"],
+      "methods": ["POST", "DELETE"],
       "source": "src/task/delete"
     }
   }
