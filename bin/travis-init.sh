@@ -16,6 +16,3 @@ for DEP in ${GLOBAL_DEPS[@]}; do
         ${NPM_BIN} install -g ${DEP} || (echo "Failed to install ${DEP}" && exit 1)
     fi
 done
-
-# Install Chai for test-runner
-npm install chai
