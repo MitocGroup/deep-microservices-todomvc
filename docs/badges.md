@@ -1,2 +1,0 @@
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-todomvc.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-todomvc)
-[![Test Coverage](https://codeclimate.com/repos/5789fe4df7959a008800646f/badges/08d47d9987094bf3b3b1/coverage.svg)](https://codeclimate.com/repos/5789fe4df7959a008800646f/coverage)

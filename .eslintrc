@@ -1,15 +1,16 @@
 env:
-  amd: true
   browser: true
   es6: true
-  jquery: true
   node: true
-  jasmine: true
-  mocha: true
+
 parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+
+globals:
+  DeepFramework: true
+
 rules:
   # Possible Errors
   comma-dangle: [0, never]
@@ -211,8 +212,3 @@ rules:
   prefer-spread: 0
   prefer-template: 0
   require-yield: 0
-
-globals:
-  DeepFramework: true
-  Stripe: true
-  angular: true

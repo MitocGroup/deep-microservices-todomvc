@@ -1,4 +1,13 @@
 {
-  "frontend": {},
-  "backend": {}
+  "globals": {},
+  "backend": {
+    "runAsApi": {
+      "displayName": "Run backend as API",
+      "type": "boolean",
+      "required": true,
+      "example": false,
+      "default": false
+    }
+  },
+  "frontend": {}
 }

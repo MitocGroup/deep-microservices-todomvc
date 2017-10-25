@@ -1,17 +1,8 @@
 {
-  "identifier": "deep-todomvc",
-  "name": "deep-todomvc",
-  "description": "Manages shopping cart, as well as checkout process. Integrates seamlessly with deep-todomvc microservice.",
+  "identifier": "ng-todo",
+  "name": "ng-todo",
+  "description": "test deepframework abilities",
   "version": "0.0.1",
-  "propertyRoot": false,
-  "author": {
-    "name": "Mitoc Group",
-    "email": "hello@mitocgroup.com",
-    "website": "http://www.mitocgroup.com"
-  },
-  "contributors": [
-  ],
-  "frontendEngine": ["angular1"],
-  "dependencies": {
-  }
+  "propertyRoot": true,
+  "dependencies": {}
 }
