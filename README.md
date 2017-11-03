@@ -5,7 +5,7 @@ deep-microservices-todomvc
 [![Test Coverage](https://codeclimate.com/github/MitocGroup/deep-microservices-todomvc/badges/coverage.svg?maxAge=0)](https://codeclimate.com/github/MitocGroup/deep-microservices-todomvc)
 
 deep-microservices-todomvc is a fully serverless todo-application inspired from [todomvc.com][1].
-Frontend part is built on top of [Angular-CLI][2], but backend is cloud-native and is managed by [DEEP Framework][3]. 
+Frontend part is built on top of [Angular-CLI][2] (Angular 5), but backend is cloud-native and is managed by [DEEP Framework][3]. 
 This repository is open sourced to show case how developers can build and deploy hassle-free cloud-native
 web applications using microservices architecture and serverless computing.
 
